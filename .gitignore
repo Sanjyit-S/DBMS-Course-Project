@@ -1,0 +1,8 @@
+.DS_Store
+.chrome_profile/
+__pycache__/
+*.pyc
+conftest/
+test.pdf
+test_cups.pdf
+cups.log

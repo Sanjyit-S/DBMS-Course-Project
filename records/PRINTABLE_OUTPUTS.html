@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBMS Lab Record — Compact Cut-Out Output Strips (3-5 per Page)</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --bg: #f1f5f9;
+      --card-bg: #ffffff;
+      --card-border: #64748b;
+      --text: #0f172a;
+      --code-bg: #090d16;
+      --code-text: #e2e8f0;
+      --accent: #1e40af;
+      --stick-bg: #fef3c7;
+      --stick-border: #f59e0b;
+      --stick-text: #78350f;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.3;
+      padding: 16px;
+    }
+
+    /* Floating Header */
+    .no-print {
+      max-width: 900px;
+      margin: 0 auto 20px auto;
+      background: #ffffff;
+      color: #0f172a;
+      border: 1px solid #e2e8f0;
+      padding: 14px 22px;
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .no-print h1 {
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    .no-print p {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 3px;
+    }
+
+    .print-btn {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      padding: 8px 18px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .print-btn:hover {
+      background: #1d4ed8;
+    }
+
+    /* Container */
+    .sheet-container {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    /* Compact Cutout Strip */
+    .cutout-strip {
+      background: var(--card-bg);
+      border: 1.5px dashed var(--card-border);
+      border-radius: 6px;
+      margin-bottom: 11px;
+      padding: 8px 12px;
+      position: relative;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .scissor-label {
+      position: absolute;
+      top: -9px;
+      left: 16px;
+      background: #ffffff;
+      padding: 0 6px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .strip-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 4px;
+      margin-bottom: 6px;
+    }
+
+    .strip-title {
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #1e3a8a;
+    }
+
+    .strip-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 1px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .query-line {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.70rem;
+      font-weight: 600;
+      color: #1e293b;
+      background: #f1f5f9;
+      padding: 3px 6px;
+      border-left: 2.5px solid #2563eb;
+      margin-bottom: 5px;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    /* Output Window */
+    .terminal-box {
+      background: var(--code-bg);
+      color: var(--code-text);
+      font-family: 'Fira Code', 'Courier New', monospace;
+      font-size: 0.67rem;
+      line-height: 1.25;
+      padding: 6px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      overflow-x: auto;
+      white-space: pre;
+      border: 1px solid #1e293b;
+    }
+
+    .t-head {
+      color: #34d399;
+      font-weight: 700;
+    }
+
+    .t-prompt {
+      color: #38bdf8;
+      font-weight: 600;
+    }
+
+    .t-status {
+      color: #94a3b8;
+      font-style: italic;
+    }
+
+    .t-val {
+      color: #fde047;
+    }
+
+    /* Sticky Footer */
+    .sticky-bar {
+      background: var(--stick-bg);
+      border: 1px solid var(--stick-border);
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-size: 0.68rem;
+      color: var(--stick-text);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Graph Card Specific */
+    .graph-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      padding: 6px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+
+    .graph-img {
+      max-width: 100%;
+      height: auto;
+      max-height: 110px;
+      object-fit: contain;
+    }
+
+    .page-break {
+      page-break-after: always;
+      break-after: page;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .sheet-container {
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+      .cutout-strip {
+        border: 1px dashed #334155 !important;
+        margin-bottom: 9px !important;
+        padding: 6px 10px !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+      }
+      .terminal-box {
+        background: #090d16 !important;
+        color: #f8fafc !important;
+        font-size: 0.63rem !important;
+        padding: 5px 7px !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      .sticky-bar {
+        background: #fef3c7 !important;
+        border: 1px solid #f59e0b !important;
+        color: #78350f !important;
+        font-size: 0.64rem !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      @page {
+        size: A4 portrait;
+        margin: 8mm 10mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="no-print">
+    <div>
+      <h1>📄 DBMS Lab Record — Micro Cut-Out Strips (Fits 3 to 5 Per Record Page)</h1>
+      <p>Print on A4, cut along dashed borders, and paste 3-5 strips vertically on each blank page facing the experiments.</p>
+    </div>
+    <button class="print-btn" onclick="window.print()">
+      🖨️ Print / Save as PDF
+    </button>
+  </div>
+
+  <div class="sheet-container">
+
+    <!-- ==================== EXPERIMENT 1 ==================== -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 1: Hotel Booking System Entity-Attribute Matrix</span>
+        <span class="strip-badge">EXP 01 [1/1]</span>
+      </div>
+      <div class="query-line">Objective: Entity Identification & Schema Normalization</div>
+      <div class="terminal-box"><span class="t-head">+---------------+-------------------------------------------------------------------------------+
+| Entity Name   | Identified Attributes & Constraints                                           |
++---------------+-------------------------------------------------------------------------------+
+| GUEST         | GuestID (PK), FirstName, LastName, ContactNumber, Email, Address, IdProof     |
+| ROOM          | RoomID (PK), RoomNumber (UNIQUE), RoomType (Single/Double/Suite), Rate, Status|
+| RESERVATION   | ReservationID (PK), GuestID (FK), RoomID (FK), CheckInDate, CheckOutDate      |
+| PAYMENT       | PaymentID (PK), ReservationID (FK), PaymentDate, Amount, Method (Card/UPI)   |
++---------------+-------------------------------------------------------------------------------+</span>
+<span class="t-status">Design Verified: 4 normalized entities with PK/FK relational mappings established.</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Experiment 1 (Aim & Description).</span>
+      </div>
+    </div>
+
+    <!-- ==================== EXPERIMENT 2 ==================== -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 2: Table Creation & 10 Student Records Insertion</span>
+        <span class="strip-badge">EXP 02 [1/3]</span>
+      </div>
+      <div class="query-line">CREATE TABLE Students (...); INSERT INTO Students VALUES (...);</div>
+      <div class="terminal-box"><span class="t-prompt">mysql&gt; SELECT * FROM Students;</span>
+<span class="t-head">+-----------+------+----------+--------+--------+------------+
+| Name      | ID   | Course   | DOB    | Gender | BloodGroup |
++-----------+------+----------+--------+--------+------------+
+| Abhiram   | 1001 | CSE-AIML | 101003 | M      | O+ve       |
+| Abhimanyu | 1002 | CSE      | 010303 | M      | B+ve       |
+| Rudra     | 1003 | CSE-DS   | 210503 | M      | O+ve       |
+| Nandani   | 1004 | CSE      | 280303 | F      | B+ve       |
+| Ridhima   | 1005 | CSE-BIC  | 031003 | F      | O+ve       |
+| Nithya    | 1006 | CSE-DS   | 190603 | F      | A+ve       |
+| Rohit     | 1007 | CSE-BIC  | 070203 | M      | A+ve       |
+| Kshithija | 1008 | CSE-BIC  | 180903 | F      | O+ve       |
+| Veer      | 1009 | CSE-AIML | 300503 | M      | B+ve       |
+| Sita      | 1010 | CSE      | 291203 | F      | A+ve       |
++-----------+------+----------+--------+--------+------------+</span>
+<span class="t-status">10 rows in set (0.00 sec)</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 2 (Top Snippet 1 of 3).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 2: Record Selection Using WHERE Clause</span>
+        <span class="strip-badge">EXP 02 [2/3]</span>
+      </div>
+      <div class="query-line">SELECT * FROM Students WHERE ID = 1005;</div>
+      <div class="terminal-box"><span class="t-head">+---------+------+---------+--------+--------+------------+
+| Name    | ID   | Course  | DOB    | Gender | BloodGroup |
++---------+------+---------+--------+--------+------------+
+| Ridhima | 1005 | CSE-BIC | 031003 | F      | O+ve       |
++---------+------+---------+--------+--------+------------+</span>
+<span class="t-status">1 row in set (0.00 sec)</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 2 (Middle Snippet 2 of 3).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 2: Record Update & State Verification</span>
+        <span class="strip-badge">EXP 02 [3/3]</span>
+      </div>
+      <div class="query-line">UPDATE Students SET Course = 'CSE', BloodGroup = 'B+ve' WHERE ID = 1005;</div>
+      <div class="terminal-box"><span class="t-status">Query OK, 1 row affected (0.01 sec)  Rows matched: 1  Changed: 1  Warnings: 0</span>
+<span class="t-prompt">mysql&gt; SELECT * FROM Students WHERE ID = 1005;  -- [AFTER UPDATE]</span>
+<span class="t-head">+---------+------+--------+--------+--------+------------+
+| Name    | ID   | Course | DOB    | Gender | BloodGroup |
++---------+------+--------+--------+--------+------------+
+| Ridhima | 1005 | CSE    | 031003 | F      | B+ve       |
++---------+------+--------+--------+--------+------------+</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 2 (Bottom Snippet 3 of 3).</span>
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- ==================== EXPERIMENT 3 ==================== -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 3: DISTINCT Clause Output</span>
+        <span class="strip-badge">EXP 03 [1/3]</span>
+      </div>
+      <div class="query-line">SELECT DISTINCT Course_Name FROM Student;</div>
+      <div class="terminal-box"><span class="t-head">+-------------+
+| Course_Name |
++-------------+
+| CSE         |
+| CSE-AIML    |
+| CSE-DS      |
+| CSE-BIC     |
++-------------+</span>
+<span class="t-status">4 rows in set (0.00 sec) -- Duplicates eliminated</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 3 (Top Snippet 1 of 3).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 3: WHERE Clause with BETWEEN & Logical AND/NOT</span>
+        <span class="strip-badge">EXP 03 [2/3]</span>
+      </div>
+      <div class="query-line">SELECT * FROM Student WHERE sID BETWEEN 1002 AND 1004;</div>
+      <div class="terminal-box"><span class="t-head">+------+---------+-------------+--------------+-------+
+| sID  | sName   | Course_Name | Address      | email |
++------+---------+-------------+--------------+-------+
+| 1002 | Raj     | CSE-AIML    | Hyderabad    | NULL  |
+| 1003 | Ajay    | CSE-DS      | Sadashivapet | NULL  |
+| 1004 | Sandhya | CSE-BIC     | Kurnool      | NULL  |
++------+---------+-------------+--------------+-------+</span>
+<span class="t-status">3 rows in set (0.00 sec)</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 3 (Middle Snippet 2 of 3).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 3: ORDER BY DESC with LIMIT 3 (Select TOP)</span>
+        <span class="strip-badge">EXP 03 [3/3]</span>
+      </div>
+      <div class="query-line">SELECT * FROM Student ORDER BY sID DESC LIMIT 3;</div>
+      <div class="terminal-box"><span class="t-head">+------+----------+-------------+--------------+-------+
+| sID  | sName    | Course_Name | Address      | email |
++------+----------+-------------+--------------+-------+
+| 1005 | Ruhanika | CSE-BIC     | Nandyal      | NULL  |
+| 1004 | Sandhya  | CSE-BIC     | Kurnool      | NULL  |
+| 1003 | Ajay     | CSE-DS      | Sadashivapet | NULL  |
++------+----------+-------------+--------------+-------+</span>
+<span class="t-status">3 rows in set (0.00 sec)</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 3 (Bottom Snippet 3 of 3).</span>
+      </div>
+    </div>
+
+    <!-- ==================== EXPERIMENT 4 ==================== -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 4: ALTER Table & Check Constraints (Employee)</span>
+        <span class="strip-badge">EXP 04 [1/3]</span>
+      </div>
+      <div class="query-line">SELECT emp_no, emp_name, job, salary FROM Employee WHERE job IN ('Manager', 'Clerk');</div>
+      <div class="terminal-box"><span class="t-head">+--------+----------+---------+--------+
+| emp_no | emp_name | job     | salary |
++--------+----------+---------+--------+
+| 201001 | Anand    | Manager |  50000 |
+| 201002 | Vamsi    | Manager |  50000 |
+| 201003 | Sanjana  | Clerk   |  20000 |
+| 201004 | Nanditha | Clerk   |  20000 |
+| 221001 | Jaya     | Manager |  50000 |
+| 221005 | Sita     | Manager |  50000 |
++--------+----------+---------+--------+</span>
+<span class="t-status">6 rows in set (0.00 sec)</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 4 (Top Snippet 1 of 3).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 4: Aggregate Functions (MIN, MAX, AVG, SUM, COUNT)</span>
+        <span class="strip-badge">EXP 04 [2/3]</span>
+      </div>
+      <div class="query-line">SELECT MIN(salary), MAX(salary), AVG(salary), SUM(salary), COUNT(*) FROM Employee;</div>
+      <div class="terminal-box"><span class="t-head">+---------+---------+----------+---------------+-----------------+
+| min_sal | max_sal | avg_sal  | total_payroll | total_employees |
++---------+---------+----------+---------------+-----------------+
+|   20000 |   50000 | 36333.33 |        545000 |              15 |
++---------+---------+----------+---------------+-----------------+</span>
+<span class="t-status">1 row in set (0.00 sec)</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 4 (Middle Snippet 2 of 3).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 4: String Concatenation & Highest Salary</span>
+        <span class="strip-badge">EXP 04 [3/3]</span>
+      </div>
+      <div class="query-line">SELECT emp_name, salary FROM Employee ORDER BY salary DESC LIMIT 1;</div>
+      <div class="terminal-box"><span class="t-head">+----------+--------+
+| emp_name | salary |
++----------+--------+
+| Anand    |  50000 |
++----------+--------+</span>
+<span class="t-status">1 row in set (0.00 sec) (Top earner matching MAX constraint)</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 4 (Bottom Snippet 3 of 3).</span>
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- ==================== EXPERIMENT 5 (COMPLETE WITH GRAPH & ALIASES) ==================== -->
+    <!-- EXP 5.1: VENN DIAGRAM GRAPH -->
+    <div class="cutout-strip" style="border: 2px solid #2563eb;">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 5: SQL JOINS GRAPHICAL VENN DIAGRAM</span>
+        <span class="strip-badge" style="background: #2563eb; color: #fff;">EXP 05 [GRAPH 1/5]</span>
+      </div>
+      <div class="query-line">Conceptual Visual: INNER JOIN | LEFT JOIN | RIGHT JOIN | FULL OUTER JOIN</div>
+      <div class="graph-container">
+        <img src="joins_venn_diagram.png" alt="SQL Joins Venn Diagram" class="graph-img">
+      </div>
+      <div class="sticky-bar" style="background: #eff6ff; border-color: #3b82f6; color: #1e40af;">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 5 (Top of page - Snippet 1 of 5).</span>
+      </div>
+    </div>
+
+    <!-- EXP 5.2: ALIASES -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 5: SQL Aliases ('AS' Keyword & Bracketed Spaces)</span>
+        <span class="strip-badge">EXP 05 [2/5]</span>
+      </div>
+      <div class="query-line">SELECT Name AS Student_Name FROM Students;
+SELECT ID AS Student_ID, BloodGroup AS [Blood Group] FROM Students LIMIT 5;</div>
+      <div class="terminal-box"><span class="t-prompt">mysql&gt; SELECT Name AS Student_Name FROM Students LIMIT 4;</span>
+<span class="t-head">+--------------+
+| Student_Name |
++--------------+
+| Abhiram      |
+| Abhimanyu    |
+| Rudra        |
+| Nandani      |
++--------------+</span>
+<span class="t-status">4 rows in set (0.00 sec) -- Single Column Alias</span>
+
+<span class="t-prompt">mysql&gt; SELECT ID AS Student_ID, BloodGroup AS [Blood Group] FROM Students LIMIT 3;</span>
+<span class="t-head">+------------+-------------+
+| Student_ID | Blood Group |
++------------+-------------+
+|       1001 | O+ve        |
+|       1002 | B+ve        |
+|       1003 | O+ve        |
++------------+-------------+</span>
+<span class="t-status">3 rows in set (0.00 sec) -- Multiple Aliases with Bracketed Space</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 5 (Snippet 2 of 5 - Aliases).</span>
+      </div>
+    </div>
+
+    <!-- EXP 5.3: INNER JOIN -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 5: INNER JOIN (Orders & Customers)</span>
+        <span class="strip-badge">EXP 05 [3/5]</span>
+      </div>
+      <div class="query-line">SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate FROM Orders INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;</div>
+      <div class="terminal-box"><span class="t-head">+---------+--------------------+------------+
+| OrderID | CustomerName       | OrderDate  |
++---------+--------------------+------------+
+|   10308 | Ana Trujillo       | 2023-09-18 |
+|   10309 | Antonio Moreno     | 2023-09-19 |
+|   10310 | Around the Horn    | 2023-09-20 |
+|   10311 | Berglunds snabbkop | 2023-09-21 |
++---------+--------------------+------------+</span>
+<span class="t-status">4 rows in set (0.00 sec) -- Matches existing keys in both tables</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 5 (Snippet 3 of 5 - Inner Join).</span>
+      </div>
+    </div>
+
+    <!-- EXP 5.4: LEFT & RIGHT JOIN -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 5: LEFT & RIGHT OUTER JOIN (Preserving Unmatched Rows)</span>
+        <span class="strip-badge">EXP 05 [4/5]</span>
+      </div>
+      <div class="query-line">SELECT Customers.CustomerName, Orders.OrderID FROM Customers LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID ORDER BY CustomerName LIMIT 4;</div>
+      <div class="terminal-box"><span class="t-prompt">mysql&gt; -- [LEFT JOIN: Shows Customers even with NULL orders]</span>
+<span class="t-head">+--------------------+---------+
+| CustomerName       | OrderID |
++--------------------+---------+
+| Alfreds Futterkiste|    NULL |  <-- No orders placed
+| Ana Trujillo       |   10308 |
+| Antonio Moreno     |   10309 |
+| Around the Horn    |   10310 |
++--------------------+---------+</span>
+<span class="t-status">4 rows in set (0.00 sec) -- Preserves all rows from left table</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 5 (Snippet 4 of 5 - Outer Joins).</span>
+      </div>
+    </div>
+
+    <!-- EXP 5.5: UNION vs UNION ALL -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 5: UNION vs UNION ALL (Distinct vs Duplicates)</span>
+        <span class="strip-badge">EXP 05 [5/5]</span>
+      </div>
+      <div class="query-line">SELECT Course FROM Students UNION SELECT Course_Name FROM Student;
+SELECT Course FROM Students UNION ALL SELECT Course_Name FROM Student;</div>
+      <div class="terminal-box"><span class="t-prompt">mysql&gt; -- [UNION: Distinct 4 rows]</span>   <span class="t-prompt">mysql&gt; -- [UNION ALL: 15 rows with duplicates]</span>
+<span class="t-head">+----------+</span>                          <span class="t-head">+----------+</span>
+<span class="t-head">| Course   |</span>                          <span class="t-head">| Course   |</span> (Sample: CSE-AIML, CSE, CSE-DS,
+<span class="t-head">+----------+</span>                          <span class="t-head">+----------+</span>  CSE, CSE-BIC, CSE-DS, CSE-BIC,
+<span class="t-head">| CSE-AIML |</span>                          <span class="t-head">| CSE-AIML |</span>  CSE-AIML, CSE, CSE, CSE-AIML...)
+<span class="t-head">| CSE      |</span>                          <span class="t-status">15 rows in set (0.00 sec)</span>
+<span class="t-head">| CSE-DS   |</span>
+<span class="t-head">| CSE-BIC  |</span>
+<span class="t-head">+----------+</span>
+<span class="t-status">4 rows in set (0.00 sec)</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 5 (Bottom of page - Snippet 5 of 5).</span>
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- ==================== EXPERIMENT 6 ==================== -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 6: LIKE Pattern Search (% and _ Wildcards)</span>
+        <span class="strip-badge">EXP 06 [1/3]</span>
+      </div>
+      <div class="query-line">SELECT Name, Course FROM Students WHERE Course LIKE '%AIML%';
+SELECT Name, Course FROM Students WHERE Name LIKE 'Ab%';</div>
+      <div class="terminal-box"><span class="t-head">+-----------+----------+</span>
+<span class="t-head">| Name      | Course   |</span>
+<span class="t-head">+-----------+----------+</span>
+<span class="t-head">| Abhiram   | CSE-AIML |</span>
+<span class="t-head">| Abhimanyu | CSE      |</span>  (Matches 'Ab%')
+<span class="t-head">| Veer      | CSE-AIML |</span>  (Matches '%AIML%')
+<span class="t-head">+-----------+----------+</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 6 (Top Snippet 1 of 3).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 6: GROUP BY Job & Headcount</span>
+        <span class="strip-badge">EXP 06 [2/3]</span>
+      </div>
+      <div class="query-line">SELECT job, COUNT(emp_no) AS count_emp FROM Employee GROUP BY job;</div>
+      <div class="terminal-box"><span class="t-head">+-----------+-----------+
+| job       | count_emp |
++-----------+-----------+
+| Manager   |         4 |
+| Assistant |         3 |
+| Engineer  |         3 |
+| Clerk     |         2 |
+| Analyst   |         2 |
+| Salesman  |         1 |
++-----------+-----------+</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 6 (Middle Snippet 2 of 3).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 6: HAVING Group Filter & ORDER BY</span>
+        <span class="strip-badge">EXP 06 [3/3]</span>
+      </div>
+      <div class="query-line">SELECT job, COUNT(emp_no) AS total, ROUND(AVG(salary),2) FROM Employee GROUP BY job HAVING total >= 2 ORDER BY total DESC;</div>
+      <div class="terminal-box"><span class="t-head">+-----------+-------+------------+
+| job       | total | avg_salary |
++-----------+-------+------------+
+| Manager   |     4 |   50000.00 |
+| Assistant |     3 |   25000.00 |
+| Engineer  |     3 |   40000.00 |
+| Clerk     |     2 |   20000.00 |
+| Analyst   |     2 |   35000.00 |
++-----------+-------+------------+</span>
+<span class="t-status">5 rows in set (0.00 sec) -- Filtered out jobs with count < 2</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 6 (Bottom Snippet 3 of 3).</span>
+      </div>
+    </div>
+
+    <!-- ==================== EXPERIMENT 7 ==================== -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 7: Database VIEWs Execution</span>
+        <span class="strip-badge">EXP 07 [1/2]</span>
+      </div>
+      <div class="query-line">SELECT * FROM HighEarningEmployees; SELECT * FROM DepartmentSalaryExpenses;</div>
+      <div class="terminal-box"><span class="t-head">+------------+---------------+--------+----------------+    +----------------+--------------+
+| EmployeeID | Name          | Salary | DepartmentName |    | DepartmentName | TotalExpense |
++------------+---------------+--------+----------------+    +----------------+--------------+
+|          4 | Michael Brown |   7000 | IT             |    | Sales          |        15700 |
+|          5 | Sarah Johnson |   7500 | Marketing      |    | Marketing      |        13500 |
++------------+---------------+--------+----------------+    | IT             |         7000 |
+                                                            +----------------+--------------+</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 7 (Top Snippet 1 of 2 - Views).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 7: Stored Procedure Execution (CALL AddNewEmployee)</span>
+        <span class="strip-badge">EXP 07 [2/2]</span>
+      </div>
+      <div class="query-line">CALL AddNewEmployee('Anna Taylor', 103, 6800); SELECT * WHERE Name = 'Anna Taylor';</div>
+      <div class="terminal-box"><span class="t-status">Query OK, 1 row affected (0.01 sec)</span>
+<span class="t-head">+------------+-------------+--------------+--------+
+| EmployeeID | Name        | DepartmentID | Salary |
++------------+-------------+--------------+--------+
+|          7 | Anna Taylor |          103 |   6800 |
++------------+-------------+--------------+--------+</span>
+<span class="t-status">1 row in set (0.00 sec) -- Stored procedure executed successfully</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 7 (Bottom Snippet 2 of 2 - Procedures).</span>
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- ==================== EXPERIMENT 8 ==================== -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 8: Name Filter & Department Salary Averages</span>
+        <span class="strip-badge">EXP 08 [1/3]</span>
+      </div>
+      <div class="query-line">SELECT Name FROM Employees WHERE Name LIKE '%e';
+SELECT Department, COUNT(*), ROUND(AVG(Salary),2) FROM Employees GROUP BY Department;</div>
+      <div class="terminal-box"><span class="t-head">+-------+     +------------+---------------+-----------+
+| Name  |     | Department | EmployeeCount | AvgSalary |
++-------+     +------------+---------------+-----------+
+| Alice |     | IT         |             3 |  67333.33 |
+| Eve   |     | HR         |             2 |  51500.00 |
+| Grace |     | Marketing  |             2 |  72500.00 |
++-------+     +------------+---------------+-----------+</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 8 (Top Snippet 1 of 3).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 8: Subqueries with EXISTS & Budget Filter</span>
+        <span class="strip-badge">EXP 08 [2/3]</span>
+      </div>
+      <div class="query-line">SELECT Name FROM Employees e WHERE EXISTS (SELECT 1 FROM Projects p WHERE p.EmployeeID = e.EmployeeID AND p.Budget > 50000);</div>
+      <div class="terminal-box"><span class="t-head">+-------+
+| Name  |
++-------+
+| Frank |
+| Grace |
++-------+</span>
+<span class="t-status">2 rows in set (0.00 sec) -- Employees on projects with budget > $50,000</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 8 (Middle Snippet 2 of 3).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 8: Set Comparison Subquery (Salary > ALL in HR)</span>
+        <span class="strip-badge">EXP 08 [3/3]</span>
+      </div>
+      <div class="query-line">SELECT Name FROM Employees WHERE Salary > ALL (SELECT Salary FROM Employees WHERE Department = 'HR');</div>
+      <div class="terminal-box"><span class="t-head">+-------+-------+-------+-------+-------+
+| Alice | Bob   | Eve   | Frank | Grace |
++-------+-------+-------+-------+-------+</span>
+<span class="t-status">5 rows in set (0.00 sec) -- All employees with Salary > $55,000</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 8 (Bottom Snippet 3 of 3).</span>
+      </div>
+    </div>
+
+    <!-- ==================== EXPERIMENT 9 ==================== -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 9: MongoDB Collection Creation & insertMany</span>
+        <span class="strip-badge">EXP 09 [1/3]</span>
+      </div>
+      <div class="query-line">db.createCollection('Lab9'); db.Lab9.insertMany([...]);</div>
+      <div class="terminal-box"><span class="t-prompt">CollegeDB&gt; db.createCollection('Lab9')</span>
+<span class="t-head">{ "ok": 1 }</span>
+<span class="t-prompt">CollegeDB&gt; db.Lab9.insertMany([...])</span>
+<span class="t-head">{ "acknowledged": true, "insertedIds": [ ObjectId("672c4101a88246916737a101"), ... ] }</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 9 (Top Snippet 1 of 3).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 9: MongoDB find() Document Retrieval</span>
+        <span class="strip-badge">EXP 09 [2/3]</span>
+      </div>
+      <div class="query-line">db.Lab9.find({ id: 1005 });</div>
+      <div class="terminal-box"><span class="t-head">[ { "_id": ObjectId("672c4101a88246916737a105"), "id": 1005, "name": "Ridhima", "course": "CSE-BIC", "marks": 92 } ]</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 9 (Middle Snippet 2 of 3).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 9: MongoDB updateOne & deleteOne</span>
+        <span class="strip-badge">EXP 09 [3/3]</span>
+      </div>
+      <div class="query-line">db.Lab9.updateOne({ id: 1005 }, { $set: { marks: 96 } });</div>
+      <div class="terminal-box"><span class="t-head">{ "acknowledged": true, "matchedCount": 1, "modifiedCount": 1 }</span>
+<span class="t-status">Document with id: 1005 updated with marks: 96</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 9 (Bottom Snippet 3 of 3).</span>
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- ==================== EXPERIMENT 10 ==================== -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 10: Comparison Operators ($gt & $gte)</span>
+        <span class="strip-badge">EXP 10 [1/3]</span>
+      </div>
+      <div class="query-line">db.Lab9.find({ marks: { $gt: 85 } }, { _id: 0, id: 1, name: 1, marks: 1 });</div>
+      <div class="terminal-box"><span class="t-head">[
+  { "id": 1001, "name": "Abhiram", "marks": 88 },
+  { "id": 1003, "name": "Rudra", "marks": 91 },
+  { "id": 1005, "name": "Ridhima", "marks": 96 },
+  { "id": 1008, "name": "Kshithija", "marks": 89 }
+]</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 10 (Top Snippet 1 of 3).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 10: Logical Disjunction ($or Operator)</span>
+        <span class="strip-badge">EXP 10 [2/3]</span>
+      </div>
+      <div class="query-line">db.Lab9.find({ $or: [{ course: "CSE-AIML" }, { marks: { $gte: 95 } }] });</div>
+      <div class="terminal-box"><span class="t-head">[
+  { "id": 1001, "name": "Abhiram", "course": "CSE-AIML" },
+  { "id": 1005, "name": "Ridhima", "course": "CSE-BIC" },
+  { "id": 1009, "name": "Veer", "course": "CSE-AIML" }
+]</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 10 (Middle Snippet 2 of 3).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 10: Regex Pattern Search ($regex: /^A/i)</span>
+        <span class="strip-badge">EXP 10 [3/3]</span>
+      </div>
+      <div class="query-line">db.Lab9.find({ name: { $regex: /^A/i } }, { _id: 0, id: 1, name: 1 });</div>
+      <div class="terminal-box"><span class="t-head">[ { "id": 1001, "name": "Abhiram" }, { "id": 1002, "name": "Abhimanyu" } ]</span>
+<span class="t-status">2 documents matched regex condition.</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 10 (Bottom Snippet 3 of 3).</span>
+      </div>
+    </div>
+
+    <!-- ==================== EXPERIMENT 11 ==================== -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 11: Field Updates ($inc, $currentDate)</span>
+        <span class="strip-badge">EXP 11 [1/2]</span>
+      </div>
+      <div class="query-line">db.sampledata.updateOne({ name: "Emily Davis" }, { $inc: { age: 1, salary: 5000 }, $currentDate: { lastUpdated: true } });</div>
+      <div class="terminal-box"><span class="t-status">{ "acknowledged": true, "matchedCount": 1, "modifiedCount": 1 }</span>
+<span class="t-prompt">sampleDB&gt; db.sampledata.find({ name: "Emily Davis" })</span>
+<span class="t-head">[ { "_id": ObjectId("..."), "name": "Emily Davis", "age": 30, "salary": 75000, "lastUpdated": ISODate("2026-10-02T08:00:00Z") } ]</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 11 (Top Snippet 1 of 2).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 11: Array Modifiers ($push & $pull)</span>
+        <span class="strip-badge">EXP 11 [2/2]</span>
+      </div>
+      <div class="query-line">db.sampledata.updateOne({ name: "Emily Davis" }, { $push: { skills: "MongoDB" } });</div>
+      <div class="terminal-box"><span class="t-status">{ "acknowledged": true, "matchedCount": 1, "modifiedCount": 1 }</span>
+<span class="t-head">Resulting Skills Array: [ "Python", "SQL", "MongoDB" ]</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 11 (Bottom Snippet 2 of 2).</span>
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- ==================== EXPERIMENT 12 ==================== -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 12: Aggregation Pipeline ($group & $sum)</span>
+        <span class="strip-badge">EXP 12 [1/2]</span>
+      </div>
+      <div class="query-line">db.sales.aggregate([{ $group: { _id: "$item", totalQty: { $sum: "$quantity" }, totalRevenue: { $sum: { $multiply: ["$price", "$quantity"] } } } }]);</div>
+      <div class="terminal-box"><span class="t-head">[
+  { "_id": "apple",  "totalQty": 80,  "totalRevenue": 96.0 },
+  { "_id": "banana", "totalQty": 150, "totalRevenue": 120.0 },
+  { "_id": "orange", "totalQty": 75,  "totalRevenue": 112.5 }
+]</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 12 (Top Snippet 1 of 2).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 12: Filtered Aggregation ($match, $sort, $limit)</span>
+        <span class="strip-badge">EXP 12 [2/2]</span>
+      </div>
+      <div class="query-line">db.sales.aggregate([{ $match: { status: "A" } }, { $sort: { quantity: -1 } }, { $limit: 2 }]);</div>
+      <div class="terminal-box"><span class="t-head">[
+  { "item": "banana", "price": 0.8, "quantity": 100, "status": "A" },
+  { "item": "apple",  "price": 1.2, "quantity": 50,  "status": "A" }
+]</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 12 (Bottom Snippet 2 of 2).</span>
+      </div>
+    </div>
+
+    <!-- ==================== EXPERIMENT 13 ==================== -->
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 13: Full-Text Indexing & $text Search</span>
+        <span class="strip-badge">EXP 13 [1/2]</span>
+      </div>
+      <div class="query-line">db.articles.createIndex({ content: "text" }); db.articles.find({ $text: { $search: "database" } });</div>
+      <div class="terminal-box"><span class="t-prompt">companyDB&gt; db.articles.createIndex({ content: "text" })</span>
+<span class="t-head">{ "createdCollectionAutomatically": false, "numIndexesBefore": 1, "numIndexesAfter": 2, "ok": 1 }</span>
+<span class="t-prompt">companyDB&gt; db.articles.find({ $text: { $search: "database" } })</span>
+<span class="t-head">[
+  { "_id": ObjectId("..."), "content": "MongoDB is a NoSQL database." },
+  { "_id": ObjectId("..."), "content": "Databases like MongoDB are popular for modern web applications." }
+]</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 13 (Top Snippet 1 of 2).</span>
+      </div>
+    </div>
+
+    <div class="cutout-strip">
+      <div class="scissor-label">✂️ CUT HERE ✂️</div>
+      <div class="strip-header">
+        <span class="strip-title">EXPERIMENT 13: Compound Index Creation & dropIndex</span>
+        <span class="strip-badge">EXP 13 [2/2]</span>
+      </div>
+      <div class="query-line">db.employees.createIndex({ last_name: 1, date_of_birth: 1 }); db.employees.dropIndex("first_name_1");</div>
+      <div class="terminal-box"><span class="t-prompt">companyDB&gt; db.employees.createIndex({ last_name: 1, date_of_birth: 1 })</span>
+<span class="t-head">{ "numIndexesBefore": 2, "numIndexesAfter": 3, "ok": 1 }</span>
+<span class="t-prompt">companyDB&gt; db.employees.dropIndex("first_name_1")</span>
+<span class="t-head">{ "nIndexesWas": 3, "ok": 1 }</span></div>
+      <div class="sticky-bar">
+        <span>📌</span>
+        <span><strong>WHERE TO STICK:</strong> Paste on <strong>LEFT (BLANK) PAGE</strong> facing Exp 13 (Bottom Snippet 2 of 2).</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

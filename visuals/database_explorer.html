@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARFOM-DB Master Relational Database Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <script src="data.js"></script>
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --card-border: #E2E8F0;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --text-dim: #64748B;
+      --accent-blue: #38BDF8;
+      --accent-indigo: #6366F1;
+      --accent-emerald: #10B981;
+      --accent-amber: #F59E0B;
+      --accent-rose: #F43F5E;
+      --accent-purple: #A855F7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, sans-serif;
+      min-height: 100vh;
+      padding: 24px 32px 60px;
+      overflow-x: auto;
+    }
+
+    /* Header Banner */
+    .header-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      padding: 22px 28px;
+      border-radius: 16px;
+      margin-bottom: 22px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .title-group h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #0F172A;
+      margin-bottom: 4px;
+    }
+
+    .title-group p {
+      color: var(--text-muted);
+      font-size: 13.5px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(16, 185, 129, 0.18);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: #34D399;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Top Stats Grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px 18px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-label {
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .stat-val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: #0F172A;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .stat-sub {
+      font-size: 11.5px;
+      color: var(--accent-blue);
+      font-weight: 500;
+    }
+
+    /* Table Navigator Tabs */
+    .table-nav {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      background: #F8FAFC;
+      border: 1px solid var(--card-border);
+      padding: 10px;
+      border-radius: 14px;
+      margin-bottom: 22px;
+    }
+
+    .tab-btn {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      color: #94A3B8;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .tab-btn:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #0F172A;
+    }
+
+    .tab-btn.active {
+      background: var(--accent-indigo);
+      border-color: var(--accent-indigo);
+      color: #0F172A;
+      box-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+    }
+
+    .tab-count {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10.5px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 2px 6px;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+
+    /* Table Canvas */
+    .table-board {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .toolbar-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      background: #111827;
+      border: 1px solid #374151;
+      border-radius: 8px;
+      padding: 8px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+      max-width: 400px;
+    }
+
+    .search-box input {
+      background: transparent;
+      border: none;
+      outline: none;
+      color: #0F172A;
+      font-size: 13px;
+      width: 100%;
+    }
+
+    .search-box input::placeholder {
+      color: #64748B;
+    }
+
+    .view-toggles {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn-action {
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      color: #0F172A;
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn-action:hover {
+      background: #334155;
+      color: #0F172A;
+    }
+
+    /* Table Elements */
+    .data-table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow-x: auto;
+      max-height: 600px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px;
+      text-align: left;
+    }
+
+    th {
+      background: #1A2333;
+      color: #94A3B8;
+      font-weight: 600;
+      padding: 11px 14px;
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid #E2E8F0;
+      color: #334155;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+    }
+
+    tr:hover td {
+      background: rgba(255, 255, 255, 0.025);
+    }
+
+    .badge-status {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+
+    .status-confirmed, .status-scheduled, .status-success {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .status-delayed, .status-pending {
+      background: rgba(245, 158, 11, 0.15);
+      color: #FBBF24;
+      border: 1px solid rgba(245, 158, 11, 0.3);
+    }
+
+    .status-cancelled, .status-failed {
+      background: rgba(244, 63, 94, 0.15);
+      color: #FB7185;
+      border: 1px solid rgba(244, 63, 94, 0.3);
+    }
+
+    /* Stacked View Layout */
+    .stacked-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .mini-table-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .mini-card-head {
+      padding: 12px 18px;
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .mini-table-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: #0F172A;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Banner -->
+  <div class="header-banner">
+    <div class="title-group">
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+        <span class="badge-pill">Master Database Explorer</span>
+        <span style="font-size: 11px; background: #E0F2FE; color: #0369A1; border: 1px solid #7DD3FC; padding: 2px 8px; border-radius: 4px; font-weight: 700;">Live RDBMS Tuple Instances</span>
+      </div>
+      <h1>ARFOM-DB Relational Database Schema &amp; Populated Instances</h1>
+      <p>Direct Inspection of All 12 Normalized Relational Tables • 580+ Active Tuples • Fully Enforced Foreign Key Constraints &amp; Invariants</p>
+    </div>
+
+    <div class="view-toggles">
+      <button class="btn-action" onclick="toggleStackedView()" id="btnToggleStacked">
+        🗂️ View All 12 Tables Stacked
+      </button>
+      <a href="../workbench/index.html" target="_blank" class="btn-action" style="background: linear-gradient(135deg, #4F46E5, #0EA5E9); color: white; border: none;">
+        💻 Open Query Workbench &#8599;
+      </a>
+    </div>
+  </div>
+
+  <!-- Top Stats Grid -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-label">Relational Tables</span>
+      <span class="stat-val">12 <span class="stat-sub">Normalized</span></span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Total Live Records</span>
+      <span class="stat-val" id="statTotalRows">580+ <span class="stat-sub">Active Tuples</span></span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Normalization Standard</span>
+      <span class="stat-val">3NF / BCNF <span class="stat-sub">Strict Form</span></span>
+    </div>
+    <div class="stat-card">
+      <span class="stat-label">Storage Integrity</span>
+      <span class="stat-val">ACID <span class="stat-sub">Triggers &amp; Invariants</span></span>
+    </div>
+  </div>
+
+  <!-- Table Navigation Tabs -->
+  <div class="table-nav" id="tableTabs">
+    <!-- Populated by JS -->
+  </div>
+
+  <!-- Main Table Board -->
+  <div class="table-board" id="singleTableView">
+    <div class="toolbar-row">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 700; color: #0F172A;" id="currentTableName">airports</span>
+        <span class="badge-pill" id="currentTableBadge">10 Rows</span>
+      </div>
+
+      <div class="search-box">
+        <span>🔍</span>
+        <input type="text" id="filterInput" placeholder="Filter rows in this table..." oninput="filterRows()">
+      </div>
+
+      <button class="btn-action" onclick="copyTableTSV()">
+        📋 Copy as TSV
+      </button>
+    </div>
+
+    <div class="data-table-container">
+      <table id="dataTable">
+        <thead id="dataThead"></thead>
+        <tbody id="dataTbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Stacked View (All tables stacked) -->
+  <div class="stacked-container" id="stackedTableView" style="display: none;">
+    <!-- Populated by JS -->
+  </div>
+
+  <script>
+    let activeTable = 'airports';
+    let isStacked = false;
+    let filteredRows = [];
+
+    const tableMetadata = {
+      airports: { tag: "Infrastructure", color: "#38BDF8" },
+      routes: { tag: "Corridors", color: "#38BDF8" },
+      aircraft: { tag: "Fleet Topo", color: "#38BDF8" },
+      seats: { tag: "Seating Layout", color: "#38BDF8" },
+      flights: { tag: "Flight Operations", color: "#A855F7" },
+      passengers: { tag: "Profiles", color: "#10B981" },
+      bookings: { tag: "Commercial PNR", color: "#10B981" },
+      tickets: { tag: "Bridge Entity", color: "#F43F5E" },
+      payments: { tag: "Ledger", color: "#10B981" },
+      checkins: { tag: "Departure Control", color: "#A855F7" },
+      baggage: { tag: "Cargo Custody", color: "#A855F7" },
+      cancellations: { tag: "Refunds", color: "#F59E0B" },
+      view_master_manifest: { tag: "Operational Master View", color: "#6366F1" }
+    };
+
+    function init() {
+      if (typeof INITIAL_DB === 'undefined') {
+        alert('Database data is loading. Please reload the page.');
+        return;
+      }
+
+      // Calculate total rows
+      let total = 0;
+      Object.keys(INITIAL_DB).forEach(k => {
+        if (k !== 'view_master_manifest') total += INITIAL_DB[k].rows.length;
+      });
+      document.getElementById('statTotalRows').innerHTML = `${total} <span class="stat-sub">Active Tuples</span>`;
+
+      // Render Tabs
+      const tabsContainer = document.getElementById('tableTabs');
+      tabsContainer.innerHTML = '';
+
+      Object.keys(INITIAL_DB).forEach(tName => {
+        const tData = INITIAL_DB[tName];
+        const btn = document.createElement('button');
+        btn.className = `tab-btn ${tName === activeTable ? 'active' : ''}`;
+        btn.id = `tab-${tName}`;
+        btn.onclick = () => selectTab(tName);
+        
+        const label = tName === 'view_master_manifest' ? '⚡ Master Manifest' : tName;
+        btn.innerHTML = `${label} <span class="tab-count">${tData.rows.length}</span>`;
+        tabsContainer.appendChild(btn);
+      });
+
+      renderActiveTable();
+    }
+
+    function selectTab(tName) {
+      if (isStacked) toggleStackedView();
+      activeTable = tName;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById(`tab-${tName}`);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      document.getElementById('filterInput').value = '';
+      renderActiveTable();
+    }
+
+    function renderActiveTable() {
+      const tData = INITIAL_DB[activeTable];
+      if (!tData) return;
+
+      document.getElementById('currentTableName').textContent = activeTable;
+      document.getElementById('currentTableBadge').textContent = `${tData.rows.length} Rows • ${tData.columns.length} Cols`;
+
+      const thead = document.getElementById('dataThead');
+      const tbody = document.getElementById('dataTbody');
+      thead.innerHTML = '';
+      tbody.innerHTML = '';
+
+      // Headers
+      const trH = document.createElement('tr');
+      tData.columns.forEach(col => {
+        const th = document.createElement('th');
+        th.textContent = col;
+        trH.appendChild(th);
+      });
+      thead.appendChild(trH);
+
+      // Rows
+      filteredRows = [...tData.rows];
+      renderRows(filteredRows, tData.columns);
+    }
+
+    function renderRows(rows, cols) {
+      const tbody = document.getElementById('dataTbody');
+      tbody.innerHTML = '';
+
+      if (rows.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="${cols.length}" style="text-align:center; padding: 24px; color:#94A3B8;">No records matched your search query.</td></tr>`;
+        return;
+      }
+
+      const frag = document.createDocumentFragment();
+      rows.forEach(r => {
+        const tr = document.createElement('tr');
+        r.forEach((val, i) => {
+          const td = document.createElement('td');
+          const colName = cols[i].toLowerCase();
+          
+          if (val === null || val === undefined) {
+            td.innerHTML = '<span style="color:#64748B;">NULL</span>';
+          } else if (colName.includes('status')) {
+            const sLower = String(val).toLowerCase();
+            let cClass = 'status-confirmed';
+            if (sLower.includes('delay') || sLower.includes('pend')) cClass = 'status-delayed';
+            if (sLower.includes('cancel') || sLower.includes('fail')) cClass = 'status-cancelled';
+            td.innerHTML = `<span class="badge-status ${cClass}">${val}</span>`;
+          } else if (colName.includes('fare') || colName.includes('amount') || colName.includes('fee')) {
+            td.innerHTML = `<span style="color:#34D399; font-weight:600;">₹${Number(val).toLocaleString()}</span>`;
+          } else {
+            td.textContent = val;
+          }
+          tr.appendChild(td);
+        });
+        frag.appendChild(tr);
+      });
+      tbody.appendChild(frag);
+    }
+
+    function filterRows() {
+      const q = document.getElementById('filterInput').value.toLowerCase().trim();
+      const tData = INITIAL_DB[activeTable];
+      if (!tData) return;
+
+      if (!q) {
+        filteredRows = [...tData.rows];
+      } else {
+        filteredRows = tData.rows.filter(r => {
+          return r.some(val => val !== null && String(val).toLowerCase().includes(q));
+        });
+      }
+      document.getElementById('currentTableBadge').textContent = `Showing ${filteredRows.length} of ${tData.rows.length} Rows`;
+      renderRows(filteredRows, tData.columns);
+    }
+
+    function toggleStackedView() {
+      isStacked = !isStacked;
+      const singleView = document.getElementById('singleTableView');
+      const stackedView = document.getElementById('stackedTableView');
+      const btn = document.getElementById('btnToggleStacked');
+
+      if (isStacked) {
+        singleView.style.display = 'none';
+        stackedView.style.display = 'flex';
+        btn.innerHTML = '🔲 Single Table Focus View';
+        btn.style.background = 'var(--accent-indigo)';
+        btn.style.color = '#FFFFFF';
+        renderStackedTables();
+      } else {
+        singleView.style.display = 'block';
+        stackedView.style.display = 'none';
+        btn.innerHTML = '🗂️ View All 12 Tables Stacked';
+        btn.style.background = '#1E293B';
+        btn.style.color = '#E2E8F0';
+        renderActiveTable();
+      }
+    }
+
+    function renderStackedTables() {
+      const container = document.getElementById('stackedTableView');
+      container.innerHTML = '';
+
+      Object.keys(INITIAL_DB).forEach(tName => {
+        const tData = INITIAL_DB[tName];
+        const card = document.createElement('div');
+        card.className = 'mini-table-card';
+
+        const head = document.createElement('div');
+        head.className = 'mini-card-head';
+        head.innerHTML = `
+          <div class="mini-table-title">
+            <span>${tName}</span>
+            <span class="tab-count" style="font-size:11px;">${tData.rows.length} Rows</span>
+          </div>
+          <button class="btn-action" style="padding:4px 10px; font-size:11px;" onclick="focusTable('${tName}')">
+            Focus &amp; Filter &rarr;
+          </button>
+        `;
+
+        const body = document.createElement('div');
+        body.className = 'data-table-container';
+        body.style.maxHeight = '280px';
+
+        const tbl = document.createElement('table');
+        const thRow = document.createElement('tr');
+        tData.columns.forEach(c => {
+          const th = document.createElement('th');
+          th.textContent = c;
+          thRow.appendChild(th);
+        });
+        const thead = document.createElement('thead');
+        thead.appendChild(thRow);
+        tbl.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+        tData.rows.slice(0, 10).forEach(r => {
+          const tr = document.createElement('tr');
+          r.forEach(v => {
+            const td = document.createElement('td');
+            td.textContent = v === null ? 'NULL' : v;
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        });
+        tbl.appendChild(tbody);
+        body.appendChild(tbl);
+
+        card.appendChild(head);
+        card.appendChild(body);
+        container.appendChild(card);
+      });
+    }
+
+    function focusTable(tName) {
+      toggleStackedView();
+      selectTab(tName);
+    }
+
+    function copyTableTSV() {
+      const tData = INITIAL_DB[activeTable];
+      if (!tData) return;
+      let tsv = tData.columns.join('\t') + '\n';
+      tData.rows.forEach(r => {
+        tsv += r.map(v => v === null ? 'NULL' : v).join('\t') + '\n';
+      });
+      navigator.clipboard.writeText(tsv).then(() => {
+        alert(`Copied ${tData.rows.length} rows from table '${activeTable}' as TSV to clipboard!`);
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', init);
+  </script>
+</body>
+</html>

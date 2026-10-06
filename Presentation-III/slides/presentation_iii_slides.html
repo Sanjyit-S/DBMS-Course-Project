@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARFOM-DB | Presentation-III Master Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F1F5F9;
+      --card-bg: #FFFFFF;
+      --card-border: #E2E8F0;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --text-dim: #64748B;
+      --accent-blue: #0284C7;
+      --accent-indigo: #4F46E5;
+      --accent-emerald: #059669;
+      --accent-amber: #D97706;
+      --accent-rose: #E11D48;
+      --accent-purple: #7C3AED;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      user-select: none;
+    }
+
+    /* Top Progress Bar */
+    .progress-bar-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      z-index: 1000;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #38BDF8, #6366F1, #10B981);
+      width: 10%;
+      transition: width 0.3s ease;
+    }
+
+    /* Slides Container */
+    .slides-wrapper {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 40px;
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+      width: 100%;
+      max-width: 1320px;
+      height: 740px;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 20px;
+      padding: 44px 56px;
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.03);
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      animation: slideIn 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .slide.active {
+      display: flex;
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(12px) scale(0.99); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Slide Header */
+    .slide-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #E2E8F0;
+      padding-bottom: 18px;
+    }
+
+    .slide-tag {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-blue);
+      margin-bottom: 4px;
+    }
+
+    .slide-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: #0F172A;
+    }
+
+    .slide-badge {
+      background: #E0F2FE;
+      border: 1px solid #BAE6FD;
+      color: #0369A1;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 11.5px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    /* Slide Body Content */
+    .slide-content {
+      flex: 1;
+      padding: 24px 0 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    /* Slide Footer */
+    .slide-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #E2E8F0;
+      padding-top: 16px;
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .slide-footer-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .feature-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 14px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .feature-card h4 {
+      font-size: 16px;
+      color: #0F172A;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .code-box {
+      background: #F8FAFC;
+      border: 1px solid #CBD5E1;
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #0369A1;
+      line-height: 1.5;
+      overflow-x: auto;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .badge-green { background: #D1FAE5; color: #065F46; }
+    .badge-blue { background: #E0F2FE; color: #0369A1; }
+    .badge-amber { background: #FEF3C7; color: #92400E; }
+    .badge-purple { background: #F3E8FF; color: #6B21A8; }
+
+    /* Controls Bar */
+    .controls-bar {
+      position: fixed;
+      bottom: 20px;
+      right: 40px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #E2E8F0;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+    }
+
+    .ctrl-btn {
+      background: transparent;
+      border: none;
+      color: #475569;
+      font-size: 16px;
+      cursor: pointer;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: all 0.15s;
+    }
+    .ctrl-btn:hover {
+      color: #0F172A;
+      background: #F1F5F9;
+    }
+
+    .slide-counter {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-main);
+      padding: 0 6px;
+    }
+
+    /* Print Styles for PDF Export */
+    @media print {
+      body {
+        background: #FFFFFF !important;
+        overflow: visible !important;
+      }
+      .progress-bar-container, .controls-bar {
+        display: none !important;
+      }
+      .slides-wrapper {
+        padding: 0 !important;
+        display: block !important;
+      }
+      .slide {
+        display: flex !important;
+        page-break-after: always;
+        height: 100vh !important;
+        width: 100vw !important;
+        max-width: none !important;
+        border-radius: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 40px 60px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" id="progressBar"></div>
+  </div>
+
+  <!-- Main Slides Viewport -->
+  <div class="slides-wrapper">
+
+    <!-- ====================================================================
+         SLIDE 1: TITLE & COVER SLIDE
+         ==================================================================== -->
+    <div class="slide active" data-index="1">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Course Project &bull; Presentation-III (Final Review)</div>
+          <h1 class="slide-title">Airline Reservation & Flight Operations Management System</h1>
+        </div>
+        <span class="slide-badge">ARFOM-DB Live UI Demonstration</span>
+      </div>
+
+      <div class="slide-content" style="justify-content: center; gap: 32px;">
+        <div style="background: #F0F9FF; border: 1px solid #BAE6FD; border-radius: 16px; padding: 28px 36px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 13px; color: var(--accent-blue); font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">
+              Learner Details
+            </div>
+            <div style="font-size: 26px; font-weight: 800; font-family: 'Outfit', sans-serif; color: #0F172A;">
+              Sanjyit Suresh Kumar
+            </div>
+            <div style="font-size: 14px; color: var(--text-muted); margin-top: 4px;">
+              Roll Number: <strong style="color: #0F172A;">25WU0102243</strong> &bull; Section: <strong>AIML Whales</strong> (Serial #18)
+            </div>
+          </div>
+
+          <div style="text-align: right; border-left: 1px solid #E2E8F0; padding-left: 32px;">
+            <div style="font-size: 12px; color: var(--text-dim); text-transform: uppercase; font-weight: 600;">
+              Presentation Slot
+            </div>
+            <div style="font-size: 18px; font-weight: 700; color: #FBBF24; margin-top: 4px;">
+              Tuesday, 6 October 2026
+            </div>
+            <div style="font-size: 13px; color: var(--text-muted);">
+              11:50 am &ndash; 12:00 pm (10 Minutes)
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="feature-card">
+            <h4>📋 Requirement 1</h4>
+            <p><strong>Viewing of Records:</strong> Live inspection of all 12 tables + Master Flight Manifest (6-table join).</p>
+          </div>
+          <div class="feature-card">
+            <h4>➕ Requirement 2</h4>
+            <p><strong>Insertion of Records:</strong> Live passenger onboarding & baggage logging with instant database commit.</p>
+          </div>
+          <div class="feature-card">
+            <h4>🗑️ Requirement 3</h4>
+            <p><strong>Deletion of Records:</strong> Live record removal with referential integrity & constraint defense.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>ARFOM-DB &bull; Database Management Systems (Course Project 2026)</span>
+        <span>Slide 1 of 10 &bull; Press [→] for Next</span>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SLIDE 2: 3-TIER ARCHITECTURE
+         ==================================================================== -->
+    <div class="slide" data-index="2">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">System Design</div>
+          <h2 class="slide-title">Multi-Tier Application & Database Architecture</h2>
+        </div>
+        <span class="slide-badge">Zero-Bloat Native Stack</span>
+      </div>
+
+      <div class="slide-content">
+        <div class="grid-3" style="height: 100%;">
+          
+          <div class="feature-card" style="border-color: rgba(56, 189, 248, 0.35);">
+            <span class="badge-pill badge-blue">TIER 1: CLIENT PRESENTATION</span>
+            <h4 style="font-size: 18px;">Modern Web Dashboard</h4>
+            <p>Glassmorphic interface built with HTML5, Vanilla CSS, and reactive asynchronous JavaScript.</p>
+            <ul style="font-size: 12.5px; color: var(--text-muted); margin-left: 18px; line-height: 1.6;">
+              <li>Dynamic search & multi-column sorting</li>
+              <li>1-Click Quick Demo Presets</li>
+              <li>Real-time ACID transaction feedback</li>
+              <li>Direct Before & After State Comparator</li>
+            </ul>
+          </div>
+
+          <div class="feature-card" style="border-color: rgba(99, 102, 241, 0.35);">
+            <span class="badge-pill badge-purple">TIER 2: DISPATCH SERVER</span>
+            <h4 style="font-size: 18px;">Python REST API Engine</h4>
+            <p>Lightweight, zero-dependency HTTP server with sub-millisecond query dispatch and CORS headers.</p>
+            <ul style="font-size: 12.5px; color: var(--text-muted); margin-left: 18px; line-height: 1.6;">
+              <li>Native HTTP server (<code style="color:#7DD3FC;">http.server</code>)</li>
+              <li>Atomic transactions (<code style="color:#7DD3FC;">BEGIN / COMMIT / ROLLBACK</code>)</li>
+              <li>Execution latency benchmarking (&lt;2ms)</li>
+              <li>Automated pristine database reset</li>
+            </ul>
+          </div>
+
+          <div class="feature-card" style="border-color: rgba(16, 185, 129, 0.35);">
+            <span class="badge-pill badge-green">TIER 3: STORAGE ENGINE</span>
+            <h4 style="font-size: 18px;">Relational Database</h4>
+            <p>Engine-enforced constraints with strict Foreign Key integrity and ANSI SQL DDL compatibility.</p>
+            <ul style="font-size: 12.5px; color: var(--text-muted); margin-left: 18px; line-height: 1.6;">
+              <li>SQLite 3.x with <code style="color:#7DD3FC;">PRAGMA foreign_keys = ON</code></li>
+              <li>100% MySQL 8.0 DDL compatible schema</li>
+              <li>B-Tree index backed composite keys</li>
+              <li>Cascade & Restrict delete rules</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>ARFOM-DB Architecture Overview</span>
+        <span>Slide 2 of 10</span>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SLIDE 3: RELATIONAL SCHEMA (3NF DECOMPOSITION)
+         ==================================================================== -->
+    <div class="slide" data-index="3">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Relational Modeling</div>
+          <h2 class="slide-title">Normalized Schema Architecture (Strict 3NF)</h2>
+        </div>
+        <span class="slide-badge">12 Tables & Views</span>
+      </div>
+
+      <div class="slide-content">
+        <div class="grid-2">
+          
+          <div class="feature-card">
+            <h4>Entity Hierarchy & Junctions</h4>
+            <div style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+              <p><strong>Base Entities:</strong> <code style="color:#0369A1; background:#E0F2FE; padding:2px 6px; border-radius:4px; font-weight:700;">airports</code>, <code style="color:#0369A1; background:#E0F2FE; padding:2px 6px; border-radius:4px; font-weight:700;">aircraft</code>, <code style="color:#0369A1; background:#E0F2FE; padding:2px 6px; border-radius:4px; font-weight:700;">passengers</code></p>
+              <p style="margin-top: 6px;"><strong>Operational Entities:</strong> <code style="color:#0369A1; background:#E0F2FE; padding:2px 6px; border-radius:4px; font-weight:700;">routes</code>, <code style="color:#0369A1; background:#E0F2FE; padding:2px 6px; border-radius:4px; font-weight:700;">seats</code>, <code style="color:#0369A1; background:#E0F2FE; padding:2px 6px; border-radius:4px; font-weight:700;">flights</code></p>
+              <p style="margin-top: 6px;"><strong>Junction Entity:</strong> <code style="color:#B45309; background:#FEF3C7; padding:2px 6px; border-radius:4px; font-weight:700;">tickets</code> resolves the M:N relationship between <code style="color:#0369A1; background:#E0F2FE; padding:2px 6px; border-radius:4px; font-weight:700;">passengers</code> and <code style="color:#0369A1; background:#E0F2FE; padding:2px 6px; border-radius:4px; font-weight:700;">flights</code>, preventing insertion and deletion anomalies.</p>
+              <p style="margin-top: 6px;"><strong>Transactional Entities:</strong> <code style="color:#0369A1; background:#E0F2FE; padding:2px 6px; border-radius:4px; font-weight:700;">bookings</code>, <code style="color:#0369A1; background:#E0F2FE; padding:2px 6px; border-radius:4px; font-weight:700;">payments</code>, <code style="color:#0369A1; background:#E0F2FE; padding:2px 6px; border-radius:4px; font-weight:700;">checkins</code>, <code style="color:#0369A1; background:#E0F2FE; padding:2px 6px; border-radius:4px; font-weight:700;">baggage</code>, <code style="color:#0369A1; background:#E0F2FE; padding:2px 6px; border-radius:4px; font-weight:700;">cancellations</code></p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>Physical Invariants & Constraints</h4>
+            <div class="code-box">
+-- Double Booking Prevention (Physical Topology)
+CONSTRAINT uq_flight_seat UNIQUE (flight_id, seat_id)
+
+-- Geographic Validity
+CONSTRAINT chk_distinct CHECK (origin_airport <> dest_airport)
+
+-- Financial & Physical Safeguards
+CONSTRAINT chk_baggage_wt CHECK (weight_kg >= 0.00)
+CONSTRAINT chk_fare CHECK (fare_amount >= 0.00)
+            </div>
+          </div>
+
+        </div>
+
+        <div style="background: #ECFDF5; border: 1px solid #A7F3D0; border-radius: 12px; padding: 12px 20px; font-size: 13px; color: #A7F3D0;">
+          <strong>Normal Form Guarantee:</strong> Every non-key attribute is non-transitively dependent on the primary key (X &rarr; A where X is a superkey), ensuring zero update anomalies across all 60+ pre-seeded records.
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>ARFOM-DB Relational Schema</span>
+        <span>Slide 3 of 10</span>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SLIDE 4: RUBRIC MATRIX
+         ==================================================================== -->
+    <div class="slide" data-index="4">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Evaluation Alignment</div>
+          <h2 class="slide-title">Presentation-III Rubric Fulfillment Matrix</h2>
+        </div>
+        <span class="slide-badge">5 / 5 Marks Compliance</span>
+      </div>
+
+      <div class="slide-content">
+        <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; border-radius: 12px; overflow: hidden;">
+          <thead>
+            <tr style="background: #F8FAFC; color: #475569; text-align: left;">
+              <th style="padding: 12px 18px; border-bottom: 1px solid rgba(255,255,255,0.1);">Rubric Criterion (PDF)</th>
+              <th style="padding: 12px 18px; border-bottom: 1px solid rgba(255,255,255,0.1);">ARFOM-DB Implementation</th>
+              <th style="padding: 12px 18px; border-bottom: 1px solid rgba(255,255,255,0.1); width: 140px; text-align: center;">Live Demo Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <td style="padding: 14px 18px; color: #0F172A; font-weight: 600;">1. Viewing of records</td>
+              <td style="padding: 14px 18px; color: var(--text-muted);">
+                Instant browsing across 12 tables + Master Manifest View. Dynamic search, column sorting, pagination, and status badges.
+              </td>
+              <td style="padding: 14px 18px; text-align: center;"><span class="badge-pill badge-green">✓ Fully Verified</span></td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <td style="padding: 14px 18px; color: #0F172A; font-weight: 600;">2. Insertion of records</td>
+              <td style="padding: 14px 18px; color: var(--text-muted);">
+                Interactive modal & form with 1-click viva presets. Executes raw SQL INSERT, verifies ACID commit, highlights new row.
+              </td>
+              <td style="padding: 14px 18px; text-align: center;"><span class="badge-pill badge-green">✓ Fully Verified</span></td>
+            </tr>
+            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
+              <td style="padding: 14px 18px; color: #0F172A; font-weight: 600;">3. Deletion of records</td>
+              <td style="padding: 14px 18px; color: var(--text-muted);">
+                Direct table row deletion & safety modal. Demonstrates referential constraint integrity (RESTRICT vs CASCADE).
+              </td>
+              <td style="padding: 14px 18px; text-align: center;"><span class="badge-pill badge-green">✓ Fully Verified</span></td>
+            </tr>
+            <tr>
+              <td style="padding: 14px 18px; color: #0F172A; font-weight: 600;">4. Live Database Reflection</td>
+              <td style="padding: 14px 18px; color: var(--text-muted);">
+                Live Database Reflection Console showing executed SQL, before/after counts, and Before & After Comparator tab.
+              </td>
+              <td style="padding: 14px 18px; text-align: center;"><span class="badge-pill badge-green">✓ Fully Verified</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="slide-footer">
+        <span>Presentation-III Rubric Alignment</span>
+        <span>Slide 4 of 10</span>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SLIDE 5: OPERATION 1: VIEWING OF RECORDS
+         ==================================================================== -->
+    <div class="slide" data-index="5">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Operation 1 Demonstration</div>
+          <h2 class="slide-title">Live Record Viewing & Master Flight Manifest</h2>
+        </div>
+        <span class="slide-badge">6-Table Relational Join</span>
+      </div>
+
+      <div class="slide-content">
+        <div class="grid-2">
+          
+          <div class="feature-card">
+            <h4>Live Query Execution</h4>
+            <div class="code-box" style="font-size: 11px;">
+CREATE VIEW view_master_manifest AS
+SELECT 
+    t.ticket_id, b.booking_ref,
+    p.first_name || ' ' || p.last_name AS passenger_name,
+    p.email, f.flight_number,
+    r.origin_airport || ' -> ' || r.dest_airport AS route,
+    f.scheduled_departure, f.flight_status,
+    s.seat_number, s.seat_class, t.fare_amount
+FROM tickets t
+JOIN bookings b ON t.booking_id = b.booking_id
+JOIN passengers p ON b.passenger_id = p.passenger_id
+JOIN flights f ON t.flight_id = f.flight_id
+JOIN routes r ON f.route_id = r.route_id
+JOIN seats s ON t.seat_id = s.seat_id;
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>UI Capabilities & Performance</h4>
+            <div style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+              <p>⚡ <strong>Sub-Millisecond Query Response:</strong> 73 joined records fetched and rendered in <strong>0.8 ms</strong>.</p>
+              <p style="margin-top: 8px;">🔍 <strong>Real-Time Debounced Filtering:</strong> Instant substring matching across passenger names, PNRs, routes, and statuses.</p>
+              <p style="margin-top: 8px;">🔀 <strong>Dynamic Multi-Column Sort:</strong> Sort by ticket ID, fare amount, seat class, or departure time.</p>
+              <p style="margin-top: 8px;">🏷️ <strong>Status Badging:</strong> Visual color-coded badges for <code style="color:#34D399;">COMPLETED</code>, <code style="color:#38BDF8;">SCHEDULED</code>, <code style="color:#C084FC;">BUSINESS</code>, <code style="color:#FB7185;">CANCELLED</code>.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Operation 1: Viewing of Records</span>
+        <span>Slide 5 of 10</span>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SLIDE 6: OPERATION 2: INSERTION OF RECORDS
+         ==================================================================== -->
+    <div class="slide" data-index="6">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Operation 2 Demonstration</div>
+          <h2 class="slide-title">Live Record Insertion & Database Commit</h2>
+        </div>
+        <span class="slide-badge">ACID Insert Transaction</span>
+      </div>
+
+      <div class="slide-content">
+        <div class="grid-2">
+          
+          <div class="feature-card">
+            <h4>1-Click Viva Presets & Input Validation</h4>
+            <div style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+              <p>To eliminate manual typing errors during the 10-minute live demonstration, dedicated 1-click presets pre-fill realistic payloads:</p>
+              <ul style="margin-top: 8px; margin-left: 18px;">
+                <li><strong>VIP Passenger:</strong> Dr. Vikram Malhotra</li>
+                <li><strong>Economy Passenger:</strong> Priya Sharma</li>
+                <li><strong>Luggage Item:</strong> 16.5 kg for Check-in #10</li>
+              </ul>
+              <p style="margin-top: 10px;">The UI validates unique passport constraints and mandatory fields prior to query dispatch.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>Live Database Reflection Output</h4>
+            <div class="code-box">
+-- Executed against storage engine:
+INSERT INTO passengers (first_name, last_name, email, passport_number)
+VALUES ('Vikram', 'Malhotra', 'vikram.m@skywings.org', 'Z8921475');
+
+-- Storage Engine Response:
+Status: 200 OK (Committed in 1.4 ms)
+Before Count: 60 | After Count: 61 (Delta: +1)
+Primary Key Allocated: passenger_id = 61
+            </div>
+            <div style="font-size: 12px; color: #34D399; font-weight: 600;">
+              ✓ Newly inserted record is highlighted with an emerald badge in the live table grid.
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Operation 2: Insertion of Records</span>
+        <span>Slide 6 of 10</span>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SLIDE 7: OPERATION 3: DELETION OF RECORDS
+         ==================================================================== -->
+    <div class="slide" data-index="7">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Operation 3 Demonstration</div>
+          <h2 class="slide-title">Live Record Deletion & Referential Integrity</h2>
+        </div>
+        <span class="slide-badge">Safe Deletion Protocol</span>
+      </div>
+
+      <div class="slide-content">
+        <div class="grid-2">
+          
+          <div class="feature-card">
+            <h4>Targeted Row Deletion Protocol</h4>
+            <div style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+              <p>Each row in editable tables features a direct <code style="color:#FB7185;">🗑️ Delete</code> action triggering an interactive confirmation modal.</p>
+              <p style="margin-top: 8px;">The modal previews the targeted tuple and generates the exact SQL statement:</p>
+              <div class="code-box" style="margin-top: 8px;">
+DELETE FROM passengers WHERE passenger_id = 61;
+              </div>
+              <p style="margin-top: 8px;">Guarantees that no deletion commits without explicit user authorization.</p>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <h4>Referential Integrity Defense</h4>
+            <div style="font-size: 13px; color: var(--text-muted); line-height: 1.6;">
+              <p><strong>CASCADE Enforcement:</strong> Deleting a booking automatically cascades deletions to associated issued tickets.</p>
+              <p style="margin-top: 8px;"><strong>RESTRICT Enforcement:</strong> Attempting to delete an airport with dependent active flights triggers a live foreign key rejection:</p>
+              <div class="code-box" style="margin-top: 8px; color: #FB7185;">
+FOREIGN KEY constraint failed: Active flight routes referencing 'DEL' exist.
+              </div>
+              <p style="margin-top: 8px;">Prevents orphaned records and database corruption.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Operation 3: Deletion of Records</span>
+        <span>Slide 7 of 10</span>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SLIDE 8: BEFORE & AFTER COMPARATOR
+         ==================================================================== -->
+    <div class="slide" data-index="8">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Rubric Verification</div>
+          <h2 class="slide-title">Live Before & After Database State Comparator</h2>
+        </div>
+        <span class="slide-badge">Direct Visual Audit</span>
+      </div>
+
+      <div class="slide-content">
+        <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 8px;">
+          Fulfills the explicit instruction: <em>"Demonstrate each operation live, showing the change reflected in the database."</em>
+        </p>
+
+        <div class="grid-3" style="align-items: center;">
+          
+          <div class="feature-card">
+            <span class="badge-pill" style="background: #F1F5F9; color: #475569;">1. BEFORE STATE</span>
+            <div style="font-size: 18px; font-weight: 700; color: #0F172A;">Row Count: 60</div>
+            <div style="font-size: 12px; color: var(--text-muted);">
+              Storage engine state captured prior to execution. Active table rows indexed #1 to #60.
+            </div>
+          </div>
+
+          <div style="text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+            <div style="width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #0284C7, #6366F1); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff;">➔</div>
+            <span class="badge-pill badge-purple">ACID WRITE</span>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #7DD3FC;">
+              INSERT INTO... / DELETE FROM...
+            </div>
+          </div>
+
+          <div class="feature-card" style="border-color: rgba(16, 185, 129, 0.4);">
+            <span class="badge-pill badge-green">2. AFTER STATE</span>
+            <div style="font-size: 18px; font-weight: 700; color: #34D399;">Row Count: 61 (+1)</div>
+            <div style="font-size: 12px; color: var(--text-muted);">
+              Storage engine state re-queried post-commit. Newly written tuple highlighted with visual glow.
+            </div>
+          </div>
+
+        </div>
+
+        <div style="background: #F0F9FF; border: 1px solid #BAE6FD; border-radius: 12px; padding: 12px 20px; font-size: 13px; color: #BAE6FD;">
+          <strong>Demonstration Impact:</strong> The evaluation faculty can visually inspect both states side-by-side on a single screen without needing external database GUI tools.
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Before & After State Comparator</span>
+        <span>Slide 8 of 10</span>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SLIDE 9: INTEGRITY CONSTRAINTS & NEGATIVE TESTS
+         ==================================================================== -->
+    <div class="slide" data-index="9">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Constraint Enforcement</div>
+          <h2 class="slide-title">Negative Testing & Storage Engine Defense</h2>
+        </div>
+        <span class="slide-badge">Constraint Integrity</span>
+      </div>
+
+      <div class="slide-content">
+        <div class="grid-4">
+          
+          <div class="feature-card">
+            <span class="badge-pill badge-amber">CHECK CONSTRAINT</span>
+            <h4 style="font-size: 14.5px;">Negative Baggage</h4>
+            <div class="code-box" style="font-size: 10.5px;">
+INSERT INTO baggage (weight_kg)
+VALUES (-5.50);
+            </div>
+            <div style="font-size: 12px; color: #FB7185;">
+              ❌ Rejected by <code style="color:#FBBF24;">CHECK (weight_kg >= 0)</code>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <span class="badge-pill badge-purple">UNIQUE CONSTRAINT</span>
+            <h4 style="font-size: 14.5px;">Double-Booking</h4>
+            <div class="code-box" style="font-size: 10.5px;">
+INSERT INTO tickets (flight_id, seat_id)
+VALUES (1, 1);
+            </div>
+            <div style="font-size: 12px; color: #FB7185;">
+              ❌ Rejected by <code style="color:#C084FC;">UNIQUE (flight, seat)</code>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <span class="badge-pill badge-amber">CHECK CONSTRAINT</span>
+            <h4 style="font-size: 14.5px;">Same Airport Route</h4>
+            <div class="code-box" style="font-size: 10.5px;">
+INSERT INTO routes (origin, dest)
+VALUES ('DEL', 'DEL');
+            </div>
+            <div style="font-size: 12px; color: #FB7185;">
+              ❌ Rejected by <code style="color:#FBBF24;">CHECK (origin <> dest)</code>
+            </div>
+          </div>
+
+          <div class="feature-card">
+            <span class="badge-pill badge-blue">RESTRICT CONSTRAINT</span>
+            <h4 style="font-size: 14.5px;">Restricted Deletion</h4>
+            <div class="code-box" style="font-size: 10.5px;">
+DELETE FROM airports
+WHERE airport_code = 'DEL';
+            </div>
+            <div style="font-size: 12px; color: #BE123C; font-weight: 600;">
+              ❌ Rejected by <code style="color:#0369A1; background:#E0F2FE; padding:2px 6px; border-radius:4px; font-weight:700;">ON DELETE RESTRICT</code>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="background: #FFF1F2; border: 1px solid #FECDD3; border-radius: 12px; padding: 12px 20px; font-size: 13px; color: #991B1B;">
+          <strong>Security & Consistency Guarantee:</strong> All business invariants are enforced at the storage engine level rather than relying solely on client validation, making data corruption impossible.
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>Integrity Constraints & Negative Testing</span>
+        <span>Slide 9 of 10</span>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         SLIDE 10: CONCLUSION & DEMO TRANSITION
+         ==================================================================== -->
+    <div class="slide" data-index="10">
+      <div class="slide-header">
+        <div>
+          <div class="slide-tag">Final Summary</div>
+          <h2 class="slide-title">Conclusion & Live UI Demonstration</h2>
+        </div>
+        <span class="slide-badge">Ready for Evaluation</span>
+      </div>
+
+      <div class="slide-content" style="justify-content: center; gap: 24px;">
+        <div class="grid-3">
+          <div class="feature-card">
+            <h4>🏆 Complete 3NF Model</h4>
+            <p>12 normalized tables & views with zero redundancy, eliminating update, insertion, and deletion anomalies.</p>
+          </div>
+          <div class="feature-card">
+            <h4>⚡ High Performance</h4>
+            <p>Sub-millisecond query execution with live ACID transactional reflection on every insert and delete.</p>
+          </div>
+          <div class="feature-card">
+            <h4>🛡️ Bulletproof Integrity</h4>
+            <p>Engine-level foreign keys, check constraints, and composite unique keys guarding all business rules.</p>
+          </div>
+        </div>
+
+        <div style="background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(99, 102, 241, 0.15)); border: 1px solid rgba(56, 189, 248, 0.35); border-radius: 16px; padding: 22px 32px; display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div style="font-size: 12px; font-weight: 700; color: #0284C7; text-transform: uppercase;">
+              Project Repository & Deliverables
+            </div>
+            <div style="font-size: 18px; font-weight: 700; color: #0F172A; margin-top: 2px;">
+              Ready for Live UI Demonstration & Viva Q&A
+            </div>
+            <div style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">
+              All source code, schemas, and screenshots staged in <code style="color:#0284C7;">3rd presentation/</code> and <code style="color:#0284C7;">Presentation-III/</code>
+            </div>
+          </div>
+
+          <div style="text-align: right;">
+            <div style="font-size: 12px; color: #FBBF24; font-weight: 700;">THANK YOU</div>
+            <div style="font-size: 15px; font-weight: 800; color: #0F172A;">Sanjyit Suresh Kumar</div>
+            <div style="font-size: 12px; color: var(--text-muted);">25WU0102243 &bull; AIML Whales</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <span>ARFOM-DB Presentation-III Conclusion</span>
+        <span>Slide 10 of 10 &bull; Ready for Live Demo</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- On-Screen Controls Bar -->
+  <div class="controls-bar">
+    <button class="ctrl-btn" id="btnPrevSlide" title="Previous Slide (Left Arrow)">◀</button>
+    <span class="slide-counter" id="slideCounter">1 / 10</span>
+    <button class="ctrl-btn" id="btnNextSlide" title="Next Slide (Right Arrow or Space)">▶</button>
+    <button class="ctrl-btn" id="btnFullscreen" title="Toggle Fullscreen (F)">⛶</button>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 10;
+    const slides = document.querySelectorAll('.slide');
+    const counter = document.getElementById('slideCounter');
+    const progress = document.getElementById('progressBar');
+
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+      currentSlide = index;
+
+      slides.forEach((s, idx) => {
+        s.classList.toggle('active', (idx + 1) === currentSlide);
+      });
+
+      counter.textContent = `${currentSlide} / ${totalSlides}`;
+      progress.style.width = `${(currentSlide / totalSlides) * 100}%`;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) showSlide(currentSlide + 1);
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) showSlide(currentSlide - 1);
+    }
+
+    document.getElementById('btnNextSlide').addEventListener('click', nextSlide);
+    document.getElementById('btnPrevSlide').addEventListener('click', prevSlide);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Enter') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'Backspace') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key.toLowerCase() === 'f') {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen().catch(() => {});
+        } else {
+          document.exitFullscreen().catch(() => {});
+        }
+      }
+    });
+
+    document.getElementById('btnFullscreen').addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen().catch(() => {});
+      }
+    });
+  </script>
+</body>
+</html>

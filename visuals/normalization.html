@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mathematical Normalization & FD Proof | ARFOM-DB (Review 2)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --card-border: #E2E8F0;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --accent-blue: #38BDF8;
+      --accent-indigo: #6366F1;
+      --accent-emerald: #10B981;
+      --accent-amber: #F59E0B;
+      --accent-rose: #F43F5E;
+      --accent-purple: #A855F7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, sans-serif;
+      min-height: 100vh;
+      padding: 30px;
+    }
+
+    .header-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      padding: 24px 32px;
+      border-radius: 16px;
+      margin-bottom: 28px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .title-group h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #0F172A;
+      margin-bottom: 6px;
+    }
+
+    .title-group p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #A5B4FC;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      color: #0F172A;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn:hover {
+      background: #E2E8F0;
+      border-color: #334155;
+      color: #0F172A;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4F46E5, #6366F1);
+      border-color: #818CF8;
+      color: white;
+    }
+
+    /* Process Flow Container */
+    .pipeline-container {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin-bottom: 36px;
+    }
+
+    .stage-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .stage-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .stage-unf::before { background: var(--accent-rose); }
+    .stage-1nf::before { background: var(--accent-amber); }
+    .stage-2nf::before { background: var(--accent-blue); }
+    .stage-3nf::before { background: var(--accent-emerald); }
+
+    .stage-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .stage-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .stage-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .stage-unf .stage-number { background: rgba(244, 63, 94, 0.2); color: #FB7185; border: 1px solid rgba(244, 63, 94, 0.4); }
+    .stage-1nf .stage-number { background: rgba(245, 158, 11, 0.2); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.4); }
+    .stage-2nf .stage-number { background: rgba(14, 165, 233, 0.2); color: #38BDF8; border: 1px solid rgba(14, 165, 233, 0.4); }
+    .stage-3nf .stage-number { background: rgba(16, 185, 129, 0.2); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.4); }
+
+    .stage-title h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+
+    .stage-def {
+      font-size: 14px;
+      color: #94A3B8;
+      background: rgba(15, 23, 42, 0.6);
+      padding: 12px 18px;
+      border-radius: 10px;
+      border-left: 3px solid #6366F1;
+      margin-bottom: 20px;
+    }
+
+    /* Math Box */
+    .math-box {
+      background: #0B111E;
+      border: 1px solid #1E293B;
+      padding: 16px 20px;
+      border-radius: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #93C5FD;
+      overflow-x: auto;
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+
+    .highlight-red { color: #FB7185; }
+    .highlight-yellow { color: #FBBF24; }
+    .highlight-green { color: #34D399; }
+    .highlight-purple { color: #C084FC; }
+
+    /* Visual Tables in Stage */
+    .stage-tables-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .mini-table-card {
+      background: #0E1626;
+      border: 1px solid #1F2937;
+      border-radius: 10px;
+      padding: 14px 18px;
+    }
+
+    .mini-table-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 14px;
+      color: #F8FAFC;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .mini-table-attrs {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #94A3B8;
+      line-height: 1.5;
+    }
+
+    .pk-u {
+      text-decoration: underline;
+      color: #34D399;
+      font-weight: 600;
+    }
+
+    /* Functional Dependency List */
+    .fd-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .fd-item {
+      background: #0B111E;
+      border: 1px solid #1E293B;
+      padding: 10px 16px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12.5px;
+    }
+
+    .fd-num {
+      background: rgba(99, 102, 241, 0.2);
+      color: #A5B4FC;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 11px;
+    }
+
+    .fd-arrow {
+      color: #38BDF8;
+      font-weight: bold;
+    }
+
+    /* Theorem Proof Cards */
+    .theorems-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+
+    .theorem-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+
+    .theorem-card h3 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: #F8FAFC;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theorem-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      background: rgba(16, 185, 129, 0.2);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .theorem-desc {
+      font-size: 13.5px;
+      color: #94A3B8;
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+
+    .footer-watermark {
+      margin-top: 36px;
+      text-align: center;
+      color: #4B5563;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    @media print {
+      body { background: white; color: black; padding: 10px; }
+      .header-banner, .toolbar { display: none; }
+      .stage-card, .theorem-card { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Banner -->
+  <div class="header-banner">
+    <div class="title-group">
+      <div class="badge-pill">DBMS Course Project — Review 2 Deliverable</div>
+      <h1>Mathematical Normalization &amp; Functional Dependencies</h1>
+      <p>Formal Mathematical Progression from UNF &rarr; 1NF &rarr; 2NF &rarr; 3NF &amp; Boyce-Codd Normal Form (BCNF)</p>
+    </div>
+    <div class="toolbar">
+      <a href="er_diagram_arfom.html" class="btn">View ER Diagram</a>
+      <a href="data_dictionary.html" class="btn">View Data Dictionary</a>
+      <button onclick="window.print()" class="btn btn-primary">Save / Screenshot PDF</button>
+    </div>
+  </div>
+
+  <!-- Normalization Pipeline -->
+  <div class="pipeline-container">
+
+    <!-- STAGE 0: UNF -->
+    <div class="stage-card stage-unf">
+      <div class="stage-header">
+        <div class="stage-title">
+          <span class="stage-number">Stage 0</span>
+          <h2>Universal Relation (UNF)</h2>
+        </div>
+        <span style="color: #FB7185; font-weight: 600; font-size: 13px;">Severe Redundancy &amp; Anomalies</span>
+      </div>
+      <div class="stage-def">
+        <strong>Initial Universal Relation:</strong> Contains repeating groups, multivalued sets, and mixed entity domains.
+      </div>
+      <div class="math-box">
+        R<sub>univ</sub> = { <span class="highlight-red">booking_ref</span>, booking_date, <span class="highlight-red">passenger_id</span>, first_name, last_name, email, passport_no, <span class="highlight-red">flight_no</span>, dep_airport, arr_airport, sched_dep, sched_arr, aircraft_id, model, capacity, <span class="highlight-red">seat_no</span>, seat_class, fare_amt, payment_id, amount_paid, pay_method, pay_status, checkin_id, boarding_pass, <span class="highlight-red">baggage_id</span>, bag_weight, excess_fee, cancellation_id, refund_amt }
+      </div>
+      <p style="font-size: 13px; color: #94A3B8;">
+        <strong>Identified Anomalies in UNF:</strong>
+        <br>&bull; <em>Repeating Groups:</em> Multiple passengers per booking, multiple flight segments per itinerary, multiple baggage items per check-in.
+        <br>&bull; <em>Insertion Anomaly:</em> Cannot record an airport or aircraft without an active passenger booking.
+        <br>&bull; <em>Deletion Anomaly:</em> Deleting a customer reservation inadvertently deletes physical flight schedules and fleet configurations.
+      </p>
+    </div>
+
+    <!-- STAGE 1: 1NF -->
+    <div class="stage-card stage-1nf">
+      <div class="stage-header">
+        <div class="stage-title">
+          <span class="stage-number">Stage 1</span>
+          <h2>First Normal Form (1NF)</h2>
+        </div>
+        <span style="color: #FBBF24; font-weight: 600; font-size: 13px;">Atomic Domains &amp; Composite Primary Key</span>
+      </div>
+      <div class="stage-def">
+        <strong>Definition:</strong> All attribute domains are atomic (indivisible) and non-repeating. Candidate key is identified.
+      </div>
+      <div class="math-box">
+        <strong>Flattened Candidate Key K<sub>1NF</sub>:</strong><br>
+        K<sub>1NF</sub> = { <span class="highlight-yellow">booking_ref, passenger_id, flight_no, seat_no, baggage_id</span> }
+      </div>
+      <p style="font-size: 13px; color: #94A3B8;">
+        <strong>1NF Violation (Partial Dependencies Identified):</strong>
+        <br>&bull; <code>{booking_ref} &rarr; booking_date</code> (Independent of passenger or flight)
+        <br>&bull; <code>{passenger_id} &rarr; first_name, last_name, email, passport_no</code> (Independent of booking or baggage)
+        <br>&bull; <code>{flight_no, sched_dep} &rarr; dep_airport, arr_airport, aircraft_id</code> (Independent of passenger)
+        <br>&bull; <code>{aircraft_id, seat_no} &rarr; seat_class</code> (Independent of ticket issuance)
+      </p>
+    </div>
+
+    <!-- STAGE 2: 2NF -->
+    <div class="stage-card stage-2nf">
+      <div class="stage-header">
+        <div class="stage-title">
+          <span class="stage-number">Stage 2</span>
+          <h2>Second Normal Form (2NF)</h2>
+        </div>
+        <span style="color: #38BDF8; font-weight: 600; font-size: 13px;">Elimination of Partial Dependencies</span>
+      </div>
+      <div class="stage-def">
+        <strong>Definition:</strong> In 1NF and no non-prime attribute is partially dependent on any candidate key (full functional dependency).
+      </div>
+      <p style="font-size: 13px; color: #94A3B8; margin-bottom: 12px;">
+        <strong>2NF Decomposition:</strong> Extracted independent entities so every non-prime attribute depends on the full primary key of its relation:
+      </p>
+      <div class="stage-tables-grid">
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>PASSENGERS</span> <span style="color:#38BDF8;">2NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">passenger_id</span>, first_name, last_name, email, passport_number)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>BOOKINGS</span> <span style="color:#38BDF8;">2NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">booking_id</span>, booking_ref, passenger_id, booking_date, booking_status)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>AIRCRAFT</span> <span style="color:#38BDF8;">2NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">aircraft_id</span>, model, total_capacity)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>SEATS</span> <span style="color:#38BDF8;">2NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">seat_id</span>, aircraft_id, seat_number, seat_class)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>FLIGHTS</span> <span style="color:#38BDF8;">2NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">flight_id</span>, dep_airport, arr_airport, aircraft_id, sched_dep, sched_arr)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>TICKETS</span> <span style="color:#38BDF8;">2NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">ticket_id</span>, booking_id, flight_id, seat_id, fare_amount, ticket_status)</div>
+        </div>
+      </div>
+      <p style="font-size: 13px; color: #94A3B8; margin-top: 14px;">
+        <strong>2NF Violation (Transitive Dependencies Identified in 2NF):</strong>
+        <br>&bull; In <code>FLIGHTS</code>: <code>flight_id &rarr; dep_airport &rarr; (airport_name, city, country)</code>
+        <br>&bull; In <code>FLIGHTS</code>: <code>flight_id &rarr; (dep_airport, arr_airport) &rarr; distance_km</code>
+      </p>
+    </div>
+
+    <!-- STAGE 3: 3NF & BCNF -->
+    <div class="stage-card stage-3nf">
+      <div class="stage-header">
+        <div class="stage-title">
+          <span class="stage-number">Stage 3</span>
+          <h2>Third Normal Form (3NF) &amp; BCNF</h2>
+        </div>
+        <span style="color: #34D399; font-weight: 600; font-size: 13px;">100% Dependency Preserving &amp; Lossless</span>
+      </div>
+      <div class="stage-def">
+        <strong>Definition:</strong> In 2NF and no non-prime attribute is transitively dependent on any candidate key (every determinant is a superkey).
+      </div>
+      <div class="math-box">
+        &forall; (X &rarr; A) &isin; F<sup>+</sup>: X is a Superkey of R &rArr; <strong>Guarantees Boyce-Codd Normal Form (BCNF) simultaneously!</strong>
+      </div>
+      <p style="font-size: 13px; color: #94A3B8; margin-bottom: 12px;">
+        <strong>Final 3NF / BCNF Projected Schema (12 Relational Entities):</strong>
+      </p>
+      <div class="stage-tables-grid">
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>airports</span> <span style="color:#34D399;">3NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">airport_code</span>, airport_name, city, country)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>routes</span> <span style="color:#34D399;">3NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">route_id</span>, origin_airport, dest_airport, distance_km)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>aircraft</span> <span style="color:#34D399;">3NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">aircraft_id</span>, model, total_capacity)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>seats</span> <span style="color:#34D399;">3NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">seat_id</span>, aircraft_id, seat_number, seat_class)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>flights</span> <span style="color:#34D399;">3NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">flight_id</span>, route_id, aircraft_id, sched_dep, sched_arr, status)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>passengers</span> <span style="color:#34D399;">3NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">passenger_id</span>, first_name, last_name, email, passport_number)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>bookings</span> <span style="color:#34D399;">3NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">booking_id</span>, booking_ref, passenger_id, booking_date, status)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>tickets</span> <span style="color:#34D399;">3NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">ticket_id</span>, booking_id, flight_id, seat_id, fare_amount, status)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>payments</span> <span style="color:#34D399;">3NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">payment_id</span>, booking_id, amount_paid, method, status, timestamp)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>checkins</span> <span style="color:#34D399;">3NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">checkin_id</span>, ticket_id, checkin_time, boarding_pass)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>baggage</span> <span style="color:#34D399;">3NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">baggage_id</span>, checkin_id, weight_kg, excess_fee)</div>
+        </div>
+        <div class="mini-table-card">
+          <div class="mini-table-title"><span>cancellations</span> <span style="color:#34D399;">3NF</span></div>
+          <div class="mini-table-attrs">(<span class="pk-u">cancellation_id</span>, ticket_id, cancellation_timestamp, refund_amount)</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Formal Functional Dependency Set Grid -->
+  <div class="stage-card" style="margin-bottom: 28px;">
+    <div class="stage-header">
+      <div class="stage-title">
+        <h2>Formal Functional Dependency Set (F)</h2>
+      </div>
+      <span style="color: #38BDF8; font-weight: 600; font-size: 13px;">18 Minimal Functional Dependencies</span>
+    </div>
+    <div class="fd-grid">
+      <div class="fd-item"><span class="fd-num">FD 1</span> <span>airport_code</span> <span class="fd-arrow">&rarr;</span> <span>airport_name, city, country</span></div>
+      <div class="fd-item"><span class="fd-num">FD 2</span> <span>aircraft_id</span> <span class="fd-arrow">&rarr;</span> <span>model, total_capacity</span></div>
+      <div class="fd-item"><span class="fd-num">FD 3</span> <span>(aircraft_id, seat_number)</span> <span class="fd-arrow">&rarr;</span> <span>seat_class, seat_id</span></div>
+      <div class="fd-item"><span class="fd-num">FD 4</span> <span>route_id</span> <span class="fd-arrow">&rarr;</span> <span>origin_airport, dest_airport, distance_km</span></div>
+      <div class="fd-item"><span class="fd-num">FD 5</span> <span>(origin_airport, dest_airport)</span> <span class="fd-arrow">&rarr;</span> <span>route_id, distance_km</span></div>
+      <div class="fd-item"><span class="fd-num">FD 6</span> <span>flight_id</span> <span class="fd-arrow">&rarr;</span> <span>route_id, aircraft_id, sched_dep, sched_arr, status</span></div>
+      <div class="fd-item"><span class="fd-num">FD 7</span> <span>passenger_id</span> <span class="fd-arrow">&rarr;</span> <span>first_name, last_name, email, passport_number</span></div>
+      <div class="fd-item"><span class="fd-num">FD 8</span> <span>email</span> <span class="fd-arrow">&rarr;</span> <span>passenger_id, first_name, last_name, passport_number</span></div>
+      <div class="fd-item"><span class="fd-num">FD 9</span> <span>passport_number</span> <span class="fd-arrow">&rarr;</span> <span>passenger_id, first_name, last_name, email</span></div>
+      <div class="fd-item"><span class="fd-num">FD 10</span> <span>booking_id</span> <span class="fd-arrow">&rarr;</span> <span>booking_ref, passenger_id, booking_date, status</span></div>
+      <div class="fd-item"><span class="fd-num">FD 11</span> <span>booking_ref</span> <span class="fd-arrow">&rarr;</span> <span>booking_id, passenger_id, booking_date, status</span></div>
+      <div class="fd-item"><span class="fd-num">FD 12</span> <span>ticket_id</span> <span class="fd-arrow">&rarr;</span> <span>booking_id, flight_id, seat_id, fare_amount, status</span></div>
+      <div class="fd-item"><span class="fd-num">FD 13</span> <span>(flight_id, seat_id)</span> <span class="fd-arrow">&rarr;</span> <span>ticket_id, booking_id, fare_amount, status</span></div>
+      <div class="fd-item"><span class="fd-num">FD 14</span> <span>payment_id</span> <span class="fd-arrow">&rarr;</span> <span>booking_id, amount_paid, method, status, timestamp</span></div>
+      <div class="fd-item"><span class="fd-num">FD 15</span> <span>checkin_id</span> <span class="fd-arrow">&rarr;</span> <span>ticket_id, checkin_time, boarding_pass</span></div>
+      <div class="fd-item"><span class="fd-num">FD 16</span> <span>boarding_pass</span> <span class="fd-arrow">&rarr;</span> <span>checkin_id, ticket_id, checkin_time</span></div>
+      <div class="fd-item"><span class="fd-num">FD 17</span> <span>baggage_id</span> <span class="fd-arrow">&rarr;</span> <span>checkin_id, weight_kg, excess_fee</span></div>
+      <div class="fd-item"><span class="fd-num">FD 18</span> <span>cancellation_id</span> <span class="fd-arrow">&rarr;</span> <span>ticket_id, cancellation_timestamp, refund_amount</span></div>
+    </div>
+  </div>
+
+  <!-- Theoretical Proof Cards -->
+  <div class="theorems-grid">
+
+    <!-- Theorem 1 -->
+    <div class="theorem-card">
+      <h3>Theorem 1: Lossless Join <span class="theorem-badge">Proven</span></h3>
+      <div class="theorem-desc">
+        A decomposition D = {R<sub>1</sub>, R<sub>2</sub>} is lossless if and only if R<sub>1</sub> &cap; R<sub>2</sub> &rarr; R<sub>1</sub> or R<sub>1</sub> &cap; R<sub>2</sub> &rarr; R<sub>2</sub> in F<sup>+</sup>.
+      </div>
+      <div class="math-box" style="font-size: 12px; margin-bottom: 0;">
+        &bull; airports &cap; routes = {airport_code} &rarr; airports (FD 1) &check;<br>
+        &bull; aircraft &cap; seats = {aircraft_id} &rarr; aircraft (FD 2) &check;<br>
+        &bull; routes &cap; flights = {route_id} &rarr; routes (FD 4) &check;<br>
+        &bull; bookings &cap; tickets = {booking_id} &rarr; bookings (FD 10) &check;<br>
+        &bull; tickets &cap; checkins = {ticket_id} &rarr; tickets (FD 12) &check;<br>
+        <em>&rArr; Natural join reconstructs R<sub>univ</sub> without spurious tuples.</em>
+      </div>
+    </div>
+
+    <!-- Theorem 2 -->
+    <div class="theorem-card">
+      <h3>Theorem 2: Dependency Preservation <span class="theorem-badge">Proven</span></h3>
+      <div class="theorem-desc">
+        A decomposition is dependency-preserving if (F<sub>1</sub> &cup; F<sub>2</sub> &cup; ... &cup; F<sub>k</sub>)<sup>+</sup> &equiv; F<sup>+</sup>.
+      </div>
+      <div class="math-box" style="font-size: 12px; margin-bottom: 0;">
+        &bull; Every functional dependency X &rarr; Y &isin; F is verified locally within its single projected table via Primary Key or UNIQUE constraints.<br>
+        &bull; Zero cross-table relational joins are required to enforce any of the 18 minimal functional dependencies.<br>
+        <em>&rArr; Decomposition is strictly 100% dependency-preserving.</em>
+      </div>
+    </div>
+
+    <!-- Theorem 3 -->
+    <div class="theorem-card">
+      <h3>Theorem 3: BCNF Compliance <span class="theorem-badge">Proven</span></h3>
+      <div class="theorem-desc">
+        Every determinant in every projected functional dependency is a superkey of its respective relation.
+      </div>
+      <div class="math-box" style="font-size: 12px; margin-bottom: 0;">
+        &bull; All determinants {airport_code, route_id, aircraft_id, flight_id, passenger_id, booking_id, ticket_id, payment_id, checkin_id, baggage_id, cancellation_id} are Primary/Candidate Keys.<br>
+        <em>&rArr; Schema satisfies both 3NF and BCNF simultaneously.</em>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-watermark">
+    DBMS COURSE PROJECT • AIRLINE RESERVATION &amp; FLIGHT OPERATIONS MANAGEMENT SYSTEM • NORMALIZATION PROOF
+  </div>
+
+</body>
+</html>

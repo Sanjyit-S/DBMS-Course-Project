@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARFOM-DB | Presentation-III Live Relational UI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       TOP NAVIGATION BAR
+       ======================================================================== -->
+  <header>
+    <div class="brand-section">
+      <div class="brand-icon">✈️</div>
+      <div class="brand-info">
+        <h1>ARFOM-DB <span style="font-weight: 400; font-size: 15px; color: #94A3B8;">| Live Operations Portal</span></h1>
+        <div class="brand-meta">
+          <span>Airline Reservation & Flight Operations</span>
+          <span class="brand-badge">Presentation-III (UI Demo)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="header-right">
+      <div class="student-tag">
+        <span>👨‍💻 Learner:</span>
+        <strong>Sanjyit Suresh Kumar</strong>
+        <span style="color: #64748B;">(25WU0102243)</span>
+      </div>
+
+      <div class="engine-pill" id="enginePill">
+        <div class="pulse-dot"></div>
+        <span id="engineStatusText">Live Engine: Connected</span>
+      </div>
+
+      <button class="btn btn-secondary" id="btnResetDb" title="Reset all tables to pristine seed data">
+        🔄 Reset Seed DB
+      </button>
+
+      <button class="btn btn-secondary" id="btnOpenMobileModal" style="border-color: rgba(99, 102, 241, 0.4); color: #A5B4FC;">
+        📱 Mobile Tunnel (QR)
+      </button>
+
+      <button class="btn btn-primary" id="btnOpenInsertModal">
+        ➕ Insert Record
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       MAIN DASHBOARD
+       ======================================================================== -->
+  <main>
+
+    <!-- Top Key Metrics Cards -->
+    <section class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-info">
+          <div class="stat-label">Total Passengers</div>
+          <div class="stat-value" id="statPassengers">60</div>
+        </div>
+        <div class="stat-icon blue">👥</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-info">
+          <div class="stat-label">Active Flights</div>
+          <div class="stat-value" id="statFlights">15</div>
+        </div>
+        <div class="stat-icon purple">🛫</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-info">
+          <div class="stat-label">Confirmed Bookings</div>
+          <div class="stat-value" id="statBookings">60</div>
+        </div>
+        <div class="stat-icon emerald">🎫</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-info">
+          <div class="stat-label">Settled Gross Revenue</div>
+          <div class="stat-value" id="statRevenue">₹4,38,200</div>
+        </div>
+        <div class="stat-icon amber">💳</div>
+      </div>
+    </section>
+
+    <!-- Presentation Mode Tab Navigation -->
+    <nav class="tabs-nav">
+      <button class="tab-btn active" data-tab="tab-view">
+        <span>📋 1. Record Explorer</span>
+        <span class="tab-badge">Viewing</span>
+      </button>
+
+      <button class="tab-btn" data-tab="tab-insert">
+        <span>➕ 2. Record Insertion</span>
+        <span class="tab-badge">Insertion</span>
+      </button>
+
+      <button class="tab-btn" data-tab="tab-delete">
+        <span>🗑️ 3. Record Deletion</span>
+        <span class="tab-badge">Deletion</span>
+      </button>
+
+      <button class="tab-btn" data-tab="tab-compare">
+        <span>⚖️ 4. Before & After Comparator</span>
+        <span class="tab-badge">Live Reflection</span>
+      </button>
+
+      <button class="tab-btn" data-tab="tab-constraints">
+        <span>🛡️ 5. Negative Testing & Constraints</span>
+        <span class="tab-badge">Integrity</span>
+      </button>
+    </nav>
+
+    <!-- ======================================================================
+         TAB 1: VIEWING OF RECORDS (BROWSE & SEARCH TABLES)
+         ====================================================================== -->
+    <section id="tab-view" class="tab-content active">
+      <div class="panel-card">
+        
+        <!-- Table Selectors -->
+        <div class="table-selector-bar" id="tableSelectorBar">
+          <!-- Populated dynamically via JS -->
+        </div>
+
+        <!-- Toolbar -->
+        <div class="toolbar-row">
+          <div class="search-box">
+            <span>🔍</span>
+            <input type="text" id="searchInput" placeholder="Filter current table records...">
+          </div>
+
+          <div class="toolbar-actions">
+            <span id="activeTableCountBadge" class="brand-badge" style="font-size: 12px; padding: 6px 12px;">
+              Loading records...
+            </span>
+            <button class="btn btn-secondary" id="btnRefreshTable">🔄 Refresh Table</button>
+          </div>
+        </div>
+
+        <!-- Data Table -->
+        <div class="table-wrapper">
+          <table class="data-table" id="mainDataTable">
+            <thead id="dataTableHead">
+              <!-- Dynamically populated -->
+            </thead>
+            <tbody id="dataTableBody">
+              <!-- Dynamically populated -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Footer / Pagination & SQL Executed -->
+        <div class="table-footer">
+          <div class="query-meta" id="tableQueryMeta">
+            SELECT * FROM view_master_manifest;
+          </div>
+          <div style="display: flex; gap: 8px; align-items: center;">
+            <span id="pageIndicator" style="font-size: 12px; color: #94A3B8;">Page 1 of 1</span>
+            <button class="btn btn-secondary" id="btnPrevPage" style="padding: 4px 10px; font-size: 12px;">◀ Prev</button>
+            <button class="btn btn-secondary" id="btnNextPage" style="padding: 4px 10px; font-size: 12px;">Next ▶</button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         TAB 2: INSERTION OF RECORDS (LIVE FORM & DATABASE REFLECTION)
+         ====================================================================== -->
+    <section id="tab-insert" class="tab-content">
+      <div class="crud-container">
+        
+        <!-- Left: Interactive Insertion Form -->
+        <div class="panel-card">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="font-family: var(--font-heading); font-size: 18px; color: var(--text-main);">
+              ➕ Insert New Database Record
+            </h2>
+            <span class="badge badge-blue">ACID Transaction Commit</span>
+          </div>
+
+          <!-- Entity Type Picker -->
+          <div style="display: flex; gap: 8px; margin-top: 4px;">
+            <button class="btn btn-secondary active-entity-btn" data-entity="passengers" id="btnEntityPassenger">
+              👤 New Passenger
+            </button>
+            <button class="btn btn-secondary" data-entity="baggage" id="btnEntityBaggage">
+              🧳 New Baggage Item
+            </button>
+          </div>
+
+          <!-- Quick 1-Click Demo Presets -->
+          <div class="presets-container">
+            <span class="presets-label">⚡ 1-Click Quick Demo Presets (Instant Viva Fill)</span>
+            <div class="preset-chips" id="insertPresetChips">
+              <!-- Dynamically generated -->
+            </div>
+          </div>
+
+          <!-- Insert Form Container -->
+          <form id="insertRecordForm">
+            <div id="dynamicFormFields">
+              <!-- Dynamically rendered based on selected entity -->
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 12px; margin-top: 10px;">
+              💾 Execute INSERT & Commit to Database
+            </button>
+          </form>
+        </div>
+
+        <!-- Right: Live Database Reflection & Audit Output -->
+        <div class="panel-card" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h2 style="font-family: var(--font-heading); font-size: 18px; color: var(--text-main);">
+                ⚡ Live Database Reflection Panel
+              </h2>
+              <span class="badge badge-green" id="insertStatusBadge">Waiting for Operation</span>
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">
+              Demonstrates live database modification as requested by Presentation-III rubric: row count updates, exact SQL executed, and primary key allocation.
+            </p>
+
+            <div class="reflection-console" id="insertReflectionConsole">
+              <div class="reflection-header">
+                <div class="reflection-title">
+                  <span>TERMINAL LOG:</span>
+                  <span id="insertLogAction" style="color: #F3F4F6;">IDLE</span>
+                </div>
+                <span class="badge badge-gray" id="insertLatencyBadge">0.0 ms</span>
+              </div>
+
+              <div class="sql-display" id="insertSqlDisplay">
+                -- Execute an INSERT operation on the left to observe live database reflection.
+              </div>
+
+              <div class="reflection-stats-row">
+                <div class="reflection-stat-item">
+                  Before Count: <strong id="insertBeforeCount">--</strong>
+                </div>
+                <div class="reflection-stat-item">
+                  After Count: <strong id="insertAfterCount">--</strong>
+                </div>
+                <div class="reflection-stat-item">
+                  Net Delta: <strong id="insertDelta" style="color: #34D399;">--</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Newly Created Record Spotlight -->
+          <div id="newRecordSpotlight" style="display: none; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 14px; margin-top: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <span style="font-size: 12px; font-weight: 700; color: #34D399;">✓ COMMITTED ROW VERIFIED IN STORAGE:</span>
+              <button class="btn btn-secondary" id="btnJumpToNewRecord" style="padding: 3px 8px; font-size: 11px;">View in Table</button>
+            </div>
+            <div id="newRecordDataRow" style="font-family: var(--font-mono); font-size: 12px; color: #E2E8F0; overflow-x: auto;">
+              <!-- Record JSON -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         TAB 3: DELETION OF RECORDS (DELETE & REFERENTIAL INTEGRITY)
+         ====================================================================== -->
+    <section id="tab-delete" class="tab-content">
+      <div class="crud-container">
+        
+        <!-- Left: Deletion Control Panel -->
+        <div class="panel-card">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="font-family: var(--font-heading); font-size: 18px; color: var(--text-main);">
+              🗑️ Delete Database Record
+            </h2>
+            <span class="badge badge-red">Referential Safety Enforced</span>
+          </div>
+
+          <p style="font-size: 13px; color: var(--text-muted);">
+            Select a candidate record to remove. The database enforces <code style="color: #0369A1; background: #E0F2FE; border: 1px solid #BAE6FD; padding: 2px 7px; border-radius: 5px; font-weight: 700;">ON DELETE RESTRICT</code> and <code style="color: #0369A1; background: #E0F2FE; border: 1px solid #BAE6FD; padding: 2px 7px; border-radius: 5px; font-weight: 700;">CASCADE</code> rules.
+          </p>
+
+          <!-- Deletion Candidate Selector -->
+          <div class="form-group" style="margin-top: 10px;">
+            <label>Select Target Table:</label>
+            <select class="form-control" id="deleteTableSelect">
+              <option value="passengers">passengers (Customer Profiles)</option>
+              <option value="baggage">baggage (Airport Luggage Items)</option>
+              <option value="cancellations">cancellations (Refund Ledgers)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Select Target Record ID:</label>
+            <select class="form-control" id="deleteRecordIdSelect">
+              <!-- Populated dynamically -->
+            </select>
+          </div>
+
+          <!-- Candidate Details Preview Card -->
+          <div id="deleteCandidatePreview" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-card); border-radius: 10px; padding: 12px; font-size: 12.5px; font-family: var(--font-mono);">
+            Select a record ID above to inspect data prior to deletion.
+          </div>
+
+          <button id="btnExecuteDelete" class="btn btn-danger" style="width: 100%; justify-content: center; padding: 12px; margin-top: 10px;">
+            ⚠️ Execute DELETE & Commit Change
+          </button>
+        </div>
+
+        <!-- Right: Live Database Reflection & Audit Output -->
+        <div class="panel-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h2 style="font-family: var(--font-heading); font-size: 18px; color: var(--text-main);">
+              ⚡ Live Deletion Reflection
+            </h2>
+            <span class="badge badge-red" id="deleteStatusBadge">Waiting for Operation</span>
+          </div>
+
+          <div class="reflection-console" id="deleteReflectionConsole">
+            <div class="reflection-header">
+              <div class="reflection-title">
+                <span>TERMINAL LOG:</span>
+                <span id="deleteLogAction" style="color: #F3F4F6;">IDLE</span>
+              </div>
+              <span class="badge badge-gray" id="deleteLatencyBadge">0.0 ms</span>
+            </div>
+
+            <div class="sql-display" id="deleteSqlDisplay" style="border-left-color: #FB7185;">
+              -- Select a record on the left and execute DELETE to see database reflection.
+            </div>
+
+            <div class="reflection-stats-row">
+              <div class="reflection-stat-item">
+                Before Count: <strong id="deleteBeforeCount">--</strong>
+              </div>
+              <div class="reflection-stat-item">
+                After Count: <strong id="deleteAfterCount">--</strong>
+              </div>
+              <div class="reflection-stat-item">
+                Net Delta: <strong id="deleteDelta" style="color: #FB7185;">--</strong>
+              </div>
+            </div>
+          </div>
+
+          <div id="deletedRecordAuditBox" style="display: none; background: rgba(244, 63, 94, 0.08); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 12px; padding: 14px; margin-top: 16px;">
+            <span style="font-size: 12px; font-weight: 700; color: #FB7185;">✓ RECORD EXPUNGED FROM STORAGE ENGINE:</span>
+            <div id="deletedRecordDataText" style="font-family: var(--font-mono); font-size: 12px; color: #E2E8F0; margin-top: 6px;">
+              <!-- Deleted Record Text -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         TAB 4: BEFORE & AFTER COMPARATOR (EXPLICIT RUBRIC EVIDENCE)
+         ====================================================================== -->
+    <section id="tab-compare" class="tab-content">
+      <div class="panel-card">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2 style="font-family: var(--font-heading); font-size: 20px; color: var(--text-main);">
+              ⚖️ Live Before & After Database State Comparator
+            </h2>
+            <p style="font-size: 13px; color: var(--text-muted); margin-top: 2px;">
+              Fulfills Presentation-III Rubric Requirement: <em>"Demonstrate each operation live, showing the change reflected in the database."</em>
+            </p>
+          </div>
+
+          <div style="display: flex; gap: 8px;">
+            <button class="btn btn-primary" id="btnRunCompareInsert">
+              ▶ Demo 1: Run Insert & Compare
+            </button>
+            <button class="btn btn-danger" id="btnRunCompareDelete">
+              ▶ Demo 2: Run Delete & Compare
+            </button>
+          </div>
+        </div>
+
+        <!-- 3-Column Split: BEFORE -> OPERATION -> AFTER -->
+        <div class="comparator-grid" style="margin-top: 10px;">
+          
+          <!-- Column 1: BEFORE STATE -->
+          <div class="state-card">
+            <span class="state-badge-before">1. BEFORE OPERATION STATE</span>
+            <div style="font-size: 13px; color: #94A3B8;">
+              Table: <strong id="compareBeforeTable" style="color: var(--text-main);">passengers</strong>
+            </div>
+            <div style="font-size: 18px; font-family: var(--font-heading); color: var(--text-main);">
+              Row Count: <strong id="compareBeforeRowCount" style="color: #0284C7;">60</strong>
+            </div>
+            <div class="table-wrapper" style="max-height: 240px; margin-top: 6px;">
+              <table class="data-table" style="font-size: 11.5px;">
+                <tbody id="compareBeforeTableBody">
+                  <!-- Dynamically rendered -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Column 2: ACTION TRANSITION -->
+          <div class="middle-action-col">
+            <div class="action-arrow">➔</div>
+            <span class="badge badge-purple" id="compareActionBadge">ACID WRITE</span>
+            <div style="font-size: 11px; font-family: var(--font-mono); color: #94A3B8;" id="compareSqlSnippet">
+              INSERT INTO...
+            </div>
+            <span class="badge badge-green" id="compareDeltaBadge">+1 Row</span>
+          </div>
+
+          <!-- Column 3: AFTER STATE -->
+          <div class="state-card" style="border-color: rgba(16, 185, 129, 0.35);">
+            <span class="state-badge-after">2. AFTER OPERATION STATE</span>
+            <div style="font-size: 13px; color: #94A3B8;">
+              Table: <strong id="compareAfterTable" style="color: var(--text-main);">passengers</strong>
+            </div>
+            <div style="font-size: 18px; font-family: var(--font-heading); color: var(--text-main);">
+              Row Count: <strong id="compareAfterRowCount" style="color: #34D399;">61</strong>
+            </div>
+            <div class="table-wrapper" style="max-height: 240px; margin-top: 6px;">
+              <table class="data-table" style="font-size: 11.5px;">
+                <tbody id="compareAfterTableBody">
+                  <!-- Dynamically rendered with highlight -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         TAB 5: NEGATIVE TESTING & INTEGRITY CONSTRAINTS
+         ====================================================================== -->
+    <section id="tab-constraints" class="tab-content">
+      <div class="panel-card">
+        <h2 style="font-family: var(--font-heading); font-size: 20px; color: var(--text-main);">
+          🛡️ Integrity Constraints Defense & Live Negative Tests
+        </h2>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
+          Demonstrate to the evaluating faculty that the database actively guards against corrupt or anomalous data at the storage engine level.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;">
+          
+          <!-- Test 1: Negative Baggage Weight -->
+          <div class="panel-card" style="background: #FFFFFF; border: 1px solid #CBD5E1; box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="font-size: 15px; color: var(--text-main); font-weight: 700;">1. Negative Baggage Weight</h3>
+              <span class="badge badge-amber">CHECK Constraint</span>
+            </div>
+            <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 4px;">
+              Rule: <code style="color: #0369A1; background: #E0F2FE; border: 1px solid #BAE6FD; padding: 2px 7px; border-radius: 5px; font-weight: 700; font-family: var(--font-mono); font-size: 12px;">weight_kg &gt;= 0.00</code> in baggage table.
+            </p>
+            <div class="sql-display" style="font-size: 12px; margin: 10px 0;">
+              INSERT INTO baggage (checkin_id, weight_kg, excess_fee) VALUES (1, -5.50, 0.00);
+            </div>
+            <button class="btn btn-secondary" onclick="runConstraintTest('negative_baggage')">
+              ▶ Run Negative Test Live
+            </button>
+          </div>
+
+          <!-- Test 2: Double Booking Seat -->
+          <div class="panel-card" style="background: #FFFFFF; border: 1px solid #CBD5E1; box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="font-size: 15px; color: var(--text-main); font-weight: 700;">2. Double-Booking Physical Seat</h3>
+              <span class="badge badge-purple">UNIQUE Constraint</span>
+            </div>
+            <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 4px;">
+              Rule: <code style="color: #0369A1; background: #E0F2FE; border: 1px solid #BAE6FD; padding: 2px 7px; border-radius: 5px; font-weight: 700; font-family: var(--font-mono); font-size: 12px;">UNIQUE (flight_id, seat_id)</code> in tickets table.
+            </p>
+            <div class="sql-display" style="font-size: 12px; margin: 10px 0;">
+              INSERT INTO tickets (booking_id, flight_id, seat_id, fare_amount) VALUES (2, 1, 1, 8500.00);
+            </div>
+            <button class="btn btn-secondary" onclick="runConstraintTest('double_booking')">
+              ▶ Run Negative Test Live
+            </button>
+          </div>
+
+          <!-- Test 3: Same Origin & Destination -->
+          <div class="panel-card" style="background: #FFFFFF; border: 1px solid #CBD5E1; box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="font-size: 15px; color: var(--text-main); font-weight: 700;">3. Same Airport Flight Route</h3>
+              <span class="badge badge-amber">CHECK Constraint</span>
+            </div>
+            <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 4px;">
+              Rule: <code style="color: #0369A1; background: #E0F2FE; border: 1px solid #BAE6FD; padding: 2px 7px; border-radius: 5px; font-weight: 700; font-family: var(--font-mono); font-size: 12px;">origin_airport &lt;&gt; dest_airport</code> in routes table.
+            </p>
+            <div class="sql-display" style="font-size: 12px; margin: 10px 0;">
+              INSERT INTO routes (origin_airport, dest_airport, distance_km) VALUES ('DEL', 'DEL', 500);
+            </div>
+            <button class="btn btn-secondary" onclick="runConstraintTest('same_airport')">
+              ▶ Run Negative Test Live
+            </button>
+          </div>
+
+          <!-- Test 4: Delete Restrict Foreign Key -->
+          <div class="panel-card" style="background: #FFFFFF; border: 1px solid #CBD5E1; box-shadow: 0 1px 4px rgba(0,0,0,0.04);">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <h3 style="font-size: 15px; color: var(--text-main); font-weight: 700;">4. Restricted Airport Deletion</h3>
+              <span class="badge badge-blue">FOREIGN KEY RESTRICT</span>
+            </div>
+            <p style="font-size: 12.5px; color: var(--text-muted); margin-top: 4px;">
+              Rule: <code style="color: #0369A1; background: #E0F2FE; border: 1px solid #BAE6FD; padding: 2px 7px; border-radius: 5px; font-weight: 700; font-family: var(--font-mono); font-size: 12px;">Airport DEL has dependent active flight routes</code>
+            </p>
+            <div class="sql-display" style="font-size: 12px; margin: 10px 0;">
+              DELETE FROM airports WHERE airport_code = 'DEL';
+            </div>
+            <button class="btn btn-secondary" onclick="runConstraintTest('delete_restrict')">
+              ▶ Run Negative Test Live
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Live Constraint Output Console -->
+        <div id="constraintOutputConsole" class="reflection-console" style="margin-top: 16px; display: none;">
+          <div class="reflection-header">
+            <span class="reflection-title" style="color: #F87171;">ENGINE INTEGRITY DEFENSE RESPONSE:</span>
+            <span class="badge badge-red" id="constraintResultBadge">REJECTED</span>
+          </div>
+          <div class="sql-display" id="constraintSqlRan" style="border-left-color: #EF4444; color: #FCA5A5;"></div>
+          <div id="constraintErrorMsg" style="font-size: 12.5px; color: #FECACA; padding: 6px 0;"></div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       MODAL 1: INSERT RECORD MODAL
+       ======================================================================== -->
+  <div class="modal-overlay" id="modalInsert">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>➕ Quick Insert Record</h3>
+        <button class="modal-close" onclick="closeModal('modalInsert')">✕</button>
+      </div>
+
+      <div class="form-group">
+        <label>Select Table:</label>
+        <select class="form-control" id="modalInsertTableSelect" onchange="updateModalFields()">
+          <option value="passengers">passengers</option>
+          <option value="baggage">baggage</option>
+          <option value="airports">airports</option>
+        </select>
+      </div>
+
+      <div id="modalInsertFields">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeModal('modalInsert')">Cancel</button>
+        <button class="btn btn-primary" id="btnModalSubmitInsert">Commit Insert</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 2: CONFIRM DELETION MODAL
+       ======================================================================== -->
+  <div class="modal-overlay" id="modalDeleteConfirm">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 style="color: #FB7185;">⚠️ Confirm Database Deletion</h3>
+        <button class="modal-close" onclick="closeModal('modalDeleteConfirm')">✕</button>
+      </div>
+
+      <div class="alert-box alert-danger">
+        <span>Are you sure you want to permanently delete this record from the database? This executes a raw <strong id="modalDeleteSqlPreview">DELETE</strong> command.</span>
+      </div>
+
+      <div id="modalDeleteRecordDetails" style="background: rgba(0,0,0,0.3); padding: 12px; border-radius: 8px; font-family: var(--font-mono); font-size: 12px;">
+        <!-- Details -->
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-secondary" onclick="closeModal('modalDeleteConfirm')">Cancel</button>
+        <button class="btn btn-danger" id="btnModalConfirmDelete">Confirm Permanent Deletion</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL 3: MOBILE TUNNEL (QR CODE MODAL)
+       ======================================================================== -->
+  <div class="modal-overlay" id="modalMobileTunnel">
+    <div class="modal-card" style="max-width: 480px; text-align: center;">
+      <div class="modal-header">
+        <h3 style="color: #38BDF8; display: flex; align-items: center; gap: 8px;">
+          <span>📱</span> Live Mobile QR Tunnel
+        </h3>
+        <button class="modal-close" onclick="closeModal('modalMobileTunnel')">✕</button>
+      </div>
+
+      <p style="font-size: 13px; color: var(--text-muted); margin-top: -6px;">
+        Scan this QR code with any smartphone camera to perform live insertions, deletions, and viewing across devices.
+      </p>
+
+      <!-- QR Code Display Area -->
+      <div style="background: #FFFFFF; padding: 16px; border-radius: 14px; width: fit-content; margin: 10px auto; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+        <img id="mobileQrImg" src="" alt="Live Mobile QR Code" style="width: 200px; height: 200px; display: block; border-radius: 6px;">
+      </div>
+
+      <!-- Tunnel URL Input & Control -->
+      <div class="form-group" style="text-align: left; margin-top: 6px;">
+        <label style="font-size: 11px;">Active Tunnel / Localhost URL:</label>
+        <div style="display: flex; gap: 8px;">
+          <input type="text" class="form-control" id="tunnelUrlInput" placeholder="http://192.168.x.x:8000 or ngrok URL">
+          <button class="btn btn-secondary" id="btnCopyTunnelUrl" title="Copy URL">📋</button>
+        </div>
+      </div>
+
+      <div style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 10px; padding: 10px 14px; font-size: 12px; color: #C7D2FE; text-align: left;">
+        <strong>⚡ How to launch with ngrok:</strong>
+        <code style="display: block; background: rgba(0,0,0,0.4); padding: 4px 8px; border-radius: 6px; margin-top: 4px; font-family: var(--font-mono); color: #7DD3FC;">ngrok http 8000</code>
+      </div>
+
+      <div class="modal-actions" style="justify-content: center; margin-top: 6px;">
+        <button class="btn btn-primary" onclick="closeModal('modalMobileTunnel')">Done</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    ARFOM-DB &bull; Airline Reservation & Flight Operations Management System &bull; DBMS Course Project (Review 3) &bull; Sanjyit Suresh Kumar (25WU0102243)
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

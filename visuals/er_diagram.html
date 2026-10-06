@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entity-Relationship Diagram: Online Game Schema | DBMS Presentation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --card-border: #E2E8F0;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --accent-blue: #38BDF8;
+      --accent-indigo: #6366F1;
+      --accent-emerald: #10B981;
+      --accent-amber: #F59E0B;
+      --accent-rose: #F43F5E;
+      --accent-purple: #A855F7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, sans-serif;
+      min-height: 100vh;
+      padding: 24px 32px 60px;
+      overflow-x: auto;
+    }
+
+    /* Header Banner */
+    .header-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      padding: 22px 28px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .title-group h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #0F172A;
+      margin-bottom: 4px;
+    }
+
+    .title-group p {
+      color: var(--text-muted);
+      font-size: 13.5px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #A5B4FC;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      color: #0F172A;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn:hover {
+      background: #E2E8F0;
+      border-color: #334155;
+      color: #0F172A;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4F46E5, #6366F1);
+      border-color: #818CF8;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #4338CA, #4F46E5);
+    }
+
+    /* Switcher Pills */
+    .switch-nav {
+      display: flex;
+      gap: 8px;
+      background: #F1F5F9;
+      border: 1px solid var(--card-border);
+      padding: 6px;
+      border-radius: 10px;
+    }
+
+    .switch-btn {
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: #94A3B8;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .switch-btn.active {
+      background: var(--accent-indigo);
+      color: white;
+      box-shadow: 0 2px 8px rgba(99, 102, 241, 0.4);
+    }
+
+    /* Notation Legend */
+    .legend-bar {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      background: #F8FAFC;
+      border: 1px solid var(--card-border);
+      padding: 12px 20px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      font-size: 12.5px;
+      flex-wrap: wrap;
+    }
+
+    .legend-tag {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+    }
+
+    /* Diagram Presentation Board */
+    .diagram-board {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      margin-bottom: 32px;
+    }
+
+    .diagram-viewport {
+      background: #FFFFFF;
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 540px;
+      box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+    }
+
+    .diagram-img {
+      max-width: 100%;
+      height: auto;
+      max-height: 720px;
+      object-fit: contain;
+      transition: transform 0.25s ease;
+      cursor: zoom-in;
+    }
+
+    .diagram-img.zoomed {
+      transform: scale(1.6);
+      cursor: zoom-out;
+    }
+
+    /* Floating Zoom Controls */
+    .zoom-toolbar {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #E2E8F0;
+      border-radius: 8px;
+      display: flex;
+      gap: 4px;
+      padding: 4px;
+      z-index: 10;
+    }
+
+    .zoom-btn {
+      background: transparent;
+      border: none;
+      color: #0F172A;
+      padding: 6px 10px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .zoom-btn:hover {
+      background: #F1F5F9;
+    }
+
+    /* Section Headers */
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      color: #1E293B;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 20px;
+      background: var(--accent-indigo);
+      border-radius: 2px;
+    }
+
+    /* Entity Cards Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 18px;
+      margin-bottom: 32px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-2px);
+      border-color: #374151;
+    }
+
+    .card-head {
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 14.5px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .card-head.strong {
+      background: linear-gradient(90deg, rgba(16, 185, 129, 0.15), transparent);
+      color: var(--accent-emerald);
+      border-top: 3px solid var(--accent-emerald);
+    }
+
+    .card-head.weak {
+      background: linear-gradient(90deg, rgba(168, 85, 247, 0.15), transparent);
+      color: var(--accent-purple);
+      border-top: 3px solid var(--accent-purple);
+    }
+
+    .badge-type {
+      font-size: 10.5px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .badge-type.strong {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .badge-type.weak {
+      background: rgba(168, 85, 247, 0.2);
+      color: #C084FC;
+      border: 1px solid rgba(168, 85, 247, 0.4);
+    }
+
+    .card-body {
+      padding: 14px 16px;
+      font-size: 13px;
+    }
+
+    .attr-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+
+    .attr-row:last-child {
+      border-bottom: none;
+    }
+
+    .attr-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #1E293B;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .attr-tag {
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+
+    .tag-pk { background: rgba(239, 68, 68, 0.2); color: #F87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+    .tag-part { background: rgba(168, 85, 247, 0.2); color: #C084FC; border: 1px dashed rgba(168, 85, 247, 0.5); }
+    .tag-multi { background: rgba(148, 163, 184, 0.2); color: #334155; border: 1px solid #94A3B8; }
+    .tag-deriv { background: rgba(56, 189, 248, 0.2); color: #38BDF8; border: 1px dashed #38BDF8; }
+
+    /* Relationship Table */
+    .table-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      overflow-x: auto;
+      margin-bottom: 32px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    th {
+      background: #1E293B;
+      color: #94A3B8;
+      font-weight: 600;
+      padding: 12px 16px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: #334155;
+    }
+
+    tr:hover td {
+      background: #F8FAFC;
+    }
+
+    /* Q&A Accordion */
+    .viva-box {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 24px;
+    }
+
+    .qa-item {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 12px;
+    }
+
+    .qa-question {
+      font-weight: 700;
+      font-size: 13.5px;
+      color: #F87171;
+      margin-bottom: 6px;
+    }
+
+    .qa-answer {
+      font-size: 13px;
+      color: #1E293B;
+      line-height: 1.5;
+    }
+
+    .code-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      background: rgba(0,0,0,0.3);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #38BDF8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Banner -->
+  <div class="header-banner">
+    <div class="title-group">
+      <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 6px;">
+        <span class="badge-pill">Chen ER Model Specification</span>
+        <span style="font-size: 11px; background: rgba(16, 185, 129, 0.2); color: #34D399; padding: 2px 8px; border-radius: 4px; font-weight: 700;">Online RPG Game Database</span>
+      </div>
+      <h1>Entity-Relationship Diagram (Academic Chen Notation)</h1>
+      <p>Comprehensive Architectural Breakdown: Strong vs Weak Entities, Identifying Relationships, Multivalued & Derived Attributes & Relational Table Conversion</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="switch-nav">
+        <span class="switch-btn active">🎮 Game ER (Chen)</span>
+        <a href="er_diagram_arfom.html" class="switch-btn">✈️ Airline ER (Crow's Foot)</a>
+      </div>
+      <a href="er_diagram_reference.png" target="_blank" class="btn btn-primary">
+        &#8599; Open Full Res
+      </a>
+    </div>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend-bar">
+    <span style="font-weight: 700; color: #94A3B8; margin-right: 6px;">CHEN NOTATION GUIDE:</span>
+    <div class="legend-tag"><span style="display:inline-block; width:12px; height:8px; border:1.5px solid #10B981; background:rgba(16,185,129,0.2);"></span> Strong Entity (Single Rect)</div>
+    <div class="legend-tag"><span style="display:inline-block; width:12px; height:8px; border:2.5px double #A855F7; background:rgba(168,85,247,0.2);"></span> Weak Entity (Double Rect)</div>
+    <div class="legend-tag"><span style="display:inline-block; width:10px; height:10px; border:1.5px solid #38BDF8; transform:rotate(45deg);"></span> Relationship (Diamond)</div>
+    <div class="legend-tag"><span style="display:inline-block; width:10px; height:10px; border:2.5px double #6366F1; transform:rotate(45deg);"></span> Identifying Rel (Double Diamond)</div>
+    <div class="legend-tag"><span style="text-decoration: underline; color:#F87171; font-weight:bold;">Key</span> Primary Key (Solid Underline)</div>
+    <div class="legend-tag"><span style="border-bottom: 1.5px dashed #C084FC; color:#C084FC; font-weight:bold;">Partial</span> Partial Key (Dashed Underline)</div>
+    <div class="legend-tag"><span style="border:2px double #94A3B8; border-radius:50%; padding:0 3px; font-size:10px;">O</span> Multivalued (Double Oval)</div>
+    <div class="legend-tag"><span style="border:1.5px dashed #38BDF8; border-radius:50%; padding:0 3px; font-size:10px;">O</span> Derived (Dashed Oval)</div>
+  </div>
+
+  <!-- Diagram Presentation Board -->
+  <div class="diagram-board">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+      <div class="section-title" style="margin-bottom: 0;">Architectural Diagram Canvas</div>
+      <span style="font-size: 12px; color: #94A3B8;">Click on image or use controls to toggle high-magnification inspection</span>
+    </div>
+
+    <div class="diagram-viewport">
+      <img id="erImage" src="er_diagram_reference.png" alt="Chen ER Diagram: Online Game Database" class="diagram-img" onclick="toggleZoom()" title="Click to zoom in/out">
+      <div class="zoom-toolbar">
+        <button class="zoom-btn" onclick="zoomIn()" title="Zoom In">+</button>
+        <button class="zoom-btn" onclick="resetZoom()" title="Reset">100%</button>
+        <button class="zoom-btn" onclick="zoomOut()" title="Zoom Out">−</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Entity Classifications Cards Grid -->
+  <div class="section-title">Entity & Attribute Classifications (7 Schema Entities)</div>
+  <div class="cards-grid">
+
+    <!-- Card 1: Account -->
+    <div class="card">
+      <div class="card-head strong">
+        <span>Account</span>
+        <span class="badge-type strong">Strong Entity</span>
+      </div>
+      <div class="card-body">
+        <div class="attr-row">
+          <span class="attr-name">AcctName</span>
+          <span class="attr-tag tag-pk">Primary Key</span>
+        </div>
+        <div class="attr-row"><span class="attr-name">Password</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row"><span class="attr-name">LastSignedOn</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row"><span class="attr-name">SbscrbrName</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row"><span class="attr-name">SbscrbrAddress</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row"><span class="attr-name">SbscrbrEMail</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row"><span class="attr-name">SbscrbrPhone</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row"><span class="attr-name">AcctCreatedOn</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+      </div>
+    </div>
+
+    <!-- Card 2: Character (Weak Entity) -->
+    <div class="card">
+      <div class="card-head weak">
+        <span>Character</span>
+        <span class="badge-type weak">Weak Entity (Double Rect)</span>
+      </div>
+      <div class="card-body">
+        <div style="background: rgba(168,85,247,0.1); border-left: 3px solid #A855F7; padding: 6px 10px; margin-bottom: 10px; border-radius: 4px; font-size: 11.5px; color: #D8B4FE;">
+          Owner: <strong>Account</strong> via identifying relationship <strong>Has</strong> (1:N)
+        </div>
+        <div class="attr-row">
+          <span class="attr-name">CharName</span>
+          <span class="attr-tag tag-part">Partial Key (Dashed)</span>
+        </div>
+        <div class="attr-row"><span class="attr-name">Level</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row"><span class="attr-name">ExpPoints</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row"><span class="attr-name">Type</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row"><span class="attr-name">MaxHitPoints / CurrHitPoints</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row"><span class="attr-name">MaxMana / CurrMana</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+      </div>
+    </div>
+
+    <!-- Card 3: Region -->
+    <div class="card">
+      <div class="card-head strong">
+        <span>Region</span>
+        <span class="badge-type strong">Strong Entity</span>
+      </div>
+      <div class="card-body">
+        <div class="attr-row">
+          <span class="attr-name">RegionName</span>
+          <span class="attr-tag tag-pk">Primary Key</span>
+        </div>
+        <div class="attr-row"><span class="attr-name">Climate</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row"><span class="attr-name">Precipitation</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row">
+          <span class="attr-name">Foliage</span>
+          <span class="attr-tag tag-multi">Multivalued (Double Oval)</span>
+        </div>
+        <div class="attr-row">
+          <span class="attr-name">PlayersIn</span>
+          <span class="attr-tag tag-deriv">Derived (Dashed Oval)</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card 4: Item -->
+    <div class="card">
+      <div class="card-head strong">
+        <span>Item</span>
+        <span class="badge-type strong">Strong Entity</span>
+      </div>
+      <div class="card-body">
+        <div class="attr-row">
+          <span class="attr-name">ItemName</span>
+          <span class="attr-tag tag-pk">Primary Key</span>
+        </div>
+        <div class="attr-row"><span class="attr-name">ItemType</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row"><span class="attr-name">ItemDamage</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+      </div>
+    </div>
+
+    <!-- Card 5: Item Instantiation (Weak Entity) -->
+    <div class="card">
+      <div class="card-head weak">
+        <span>Item Instantiation</span>
+        <span class="badge-type weak">Weak Entity (Double Rect)</span>
+      </div>
+      <div class="card-body">
+        <div style="background: rgba(168,85,247,0.1); border-left: 3px solid #A855F7; padding: 6px 10px; margin-bottom: 10px; border-radius: 4px; font-size: 11.5px; color: #D8B4FE;">
+          Owner: <strong>Item</strong> via identifying relationship <strong>IsType</strong> (1:N)
+        </div>
+        <div class="attr-row">
+          <span class="attr-name">IDNum</span>
+          <span class="attr-tag tag-part">Partial Key (Dashed)</span>
+        </div>
+        <div class="attr-row"><span class="attr-name">Modifier</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row"><span class="attr-name">WhenCreated</span><span style="color:#C084FC; font-size:11px;">On IsType Relationship</span></div>
+      </div>
+    </div>
+
+    <!-- Card 6: Creep -->
+    <div class="card">
+      <div class="card-head strong">
+        <span>Creep</span>
+        <span class="badge-type strong">Strong Entity</span>
+      </div>
+      <div class="card-body">
+        <div class="attr-row">
+          <span class="attr-name">CreepName</span>
+          <span class="attr-tag tag-pk">Primary Key</span>
+        </div>
+        <div class="attr-row"><span class="attr-name">HitPoints</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row"><span class="attr-name">Mana</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+        <div class="attr-row"><span class="attr-name">Attack</span><span style="color:#94A3B8; font-size:11px;">Simple</span></div>
+      </div>
+    </div>
+
+    <!-- Card 7: Creep Instantiation (Weak Entity) -->
+    <div class="card">
+      <div class="card-head weak">
+        <span>Creep Instantiation</span>
+        <span class="badge-type weak">Weak Entity (Double Rect)</span>
+      </div>
+      <div class="card-body">
+        <div style="background: rgba(168,85,247,0.1); border-left: 3px solid #A855F7; padding: 6px 10px; margin-bottom: 10px; border-radius: 4px; font-size: 11.5px; color: #D8B4FE;">
+          Owner: <strong>Creep</strong> via identifying relationship <strong>IsType</strong> (1:N)
+        </div>
+        <div class="attr-row">
+          <span class="attr-name">IDNum</span>
+          <span class="attr-tag tag-part">Partial Key (Dashed)</span>
+        </div>
+        <div class="attr-row"><span class="attr-name">Contains</span><span style="color:#38BDF8; font-size:11px;">In Region (1:N)</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Relationships & Cardinality Matrix -->
+  <div class="section-title">Relationships & Cardinality Ratios Matrix (8 Relationships)</div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Relationship</th>
+          <th>Entity 1 (Card)</th>
+          <th>Entity 2 (Card)</th>
+          <th>Ratio</th>
+          <th>Relationship Classification</th>
+          <th>Descriptive Attributes</th>
+          <th>Semantic Business Meaning</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:#A5B4FC;">Has</strong></td>
+          <td>Account (1)</td>
+          <td>Character (n)</td>
+          <td><span class="code-pill">1:N</span></td>
+          <td><strong style="color:#C084FC;">Identifying Relationship</strong> (Double Diamond)</td>
+          <td><span style="color:#D8B4FE;">LastPlayed, CreatedOn</span></td>
+          <td>One user account owns multiple player characters. Character existence depends on Account.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#A5B4FC;">Contains</strong></td>
+          <td>Region (1)</td>
+          <td>Character (n)</td>
+          <td><span class="code-pill">1:N</span></td>
+          <td>Regular Relationship (Single Diamond)</td>
+          <td>None</td>
+          <td>A region hosts multiple characters; each character is currently located in one active region.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#A5B4FC;">Contains</strong></td>
+          <td>Region (1)</td>
+          <td>Creep Instantiation (n)</td>
+          <td><span class="code-pill">1:N</span></td>
+          <td>Regular Relationship (Single Diamond)</td>
+          <td>None</td>
+          <td>A region spawns multiple live creep instances in the game world.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#A5B4FC;">Carrying</strong></td>
+          <td>Character (1)</td>
+          <td>Item Instantiation (n)</td>
+          <td><span class="code-pill">1:N</span></td>
+          <td>Regular Relationship (Single Diamond)</td>
+          <td>None</td>
+          <td>A player character can hold multiple individual physical item instances in their inventory.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#A5B4FC;">Carrying</strong></td>
+          <td>Creep Instantiation (1)</td>
+          <td>Item Instantiation (n)</td>
+          <td><span class="code-pill">1:N</span></td>
+          <td>Regular Relationship (Single Diamond)</td>
+          <td>None</td>
+          <td>A live mob/creep instance can hold loot items dropped upon defeat.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#A5B4FC;">RanInto</strong></td>
+          <td>Character (m)</td>
+          <td>Creep (n)</td>
+          <td><span class="code-pill" style="background:rgba(244,63,94,0.2); color:#FB7185;">M:N</span></td>
+          <td>Regular Relationship (Single Diamond)</td>
+          <td>None</td>
+          <td>Many characters encounter many creep species during exploration (Many-to-Many).</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#A5B4FC;">IsType</strong></td>
+          <td>Item (1)</td>
+          <td>Item Instantiation (n)</td>
+          <td><span class="code-pill">1:N</span></td>
+          <td><strong style="color:#C084FC;">Identifying Relationship</strong> (Double Diamond)</td>
+          <td><span style="color:#D8B4FE;">WhenCreated</span></td>
+          <td>An abstract Item template (e.g. Iron Sword) is instantiated into n physical items in the world.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#A5B4FC;">IsType</strong></td>
+          <td>Creep (1)</td>
+          <td>Creep Instantiation (n)</td>
+          <td><span class="code-pill">1:N</span></td>
+          <td><strong style="color:#C084FC;">Identifying Relationship</strong> (Double Diamond)</td>
+          <td>None</td>
+          <td>An abstract Creep template (e.g. Goblin) is instantiated into n live spawning monsters.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Relational Schema Conversion Proof (3NF Conversion) -->
+  <div class="section-title">Relational Schema Conversion (How this ER translates to Tables in SQL)</div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Relational Table</th>
+          <th>Primary Key (PK)</th>
+          <th>Foreign Keys (FK)</th>
+          <th>Non-Key Attributes</th>
+          <th>Academic Mapping Rule Applied</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong style="color:#34D399;">Account</strong></td>
+          <td><span class="code-pill">AcctName</span></td>
+          <td>None</td>
+          <td>Password, LastSignedOn, SbscrbrName, SbscrbrAddress, SbscrbrEMail, SbscrbrPhone, AcctCreatedOn</td>
+          <td>Strong entity maps directly to relation with same PK.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#C084FC;">Character</strong></td>
+          <td><span class="code-pill">(AcctName, CharName)</span></td>
+          <td><span class="code-pill">AcctName &rarr; Account</span><br><span class="code-pill">RegionName &rarr; Region</span></td>
+          <td>Level, ExpPoints, Type, MaxHitPoints, MaxMana, CurrHitPoints, CurrMana, LastPlayed, CreatedOn</td>
+          <td><strong>Weak Entity Rule:</strong> Inherits parent PK (<code class="code-pill">AcctName</code>) + its partial key (<code class="code-pill">CharName</code>). Also includes descriptive attributes from <code class="code-pill">Has</code> and 1:N FK to Region.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#34D399;">Region</strong></td>
+          <td><span class="code-pill">RegionName</span></td>
+          <td>None</td>
+          <td>Climate, Precipitation</td>
+          <td>Strong entity. Note: Multivalued <code class="code-pill">Foliage</code> must be decomposed to satisfy 1NF! Derived attribute <code class="code-pill">PlayersIn</code> is not stored.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#94A3B8;">Region_Foliage</strong></td>
+          <td><span class="code-pill">(RegionName, Foliage)</span></td>
+          <td><span class="code-pill">RegionName &rarr; Region</span></td>
+          <td>None</td>
+          <td><strong>Multivalued Attribute Rule:</strong> Decomposed into a separate table with composite PK (Owner PK + Attribute value).</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#34D399;">Item</strong></td>
+          <td><span class="code-pill">ItemName</span></td>
+          <td>None</td>
+          <td>ItemType, ItemDamage</td>
+          <td>Strong entity template.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#C084FC;">Item_Instantiation</strong></td>
+          <td><span class="code-pill">(ItemName, IDNum)</span></td>
+          <td><span class="code-pill">ItemName &rarr; Item</span><br><span class="code-pill">(AcctName, CharName) &rarr; Character</span><br><span class="code-pill">(CreepName, Creep_IDNum) &rarr; Creep_Instantiation</span></td>
+          <td>Modifier, WhenCreated</td>
+          <td><strong>Weak Entity Rule:</strong> Inherits Item PK + Partial Key <code class="code-pill">IDNum</code>. Includes <code class="code-pill">WhenCreated</code> from relationship <code class="code-pill">IsType</code>, plus optional FKs for carrying entity.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#34D399;">Creep</strong></td>
+          <td><span class="code-pill">CreepName</span></td>
+          <td>None</td>
+          <td>HitPoints, Mana, Attack</td>
+          <td>Strong entity template.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#C084FC;">Creep_Instantiation</strong></td>
+          <td><span class="code-pill">(CreepName, IDNum)</span></td>
+          <td><span class="code-pill">CreepName &rarr; Creep</span><br><span class="code-pill">RegionName &rarr; Region</span></td>
+          <td>None</td>
+          <td><strong>Weak Entity Rule:</strong> Inherits Creep PK + Partial Key <code class="code-pill">IDNum</code>, with 1:N FK to Region.</td>
+        </tr>
+        <tr>
+          <td><strong style="color:#FB7185;">Character_RanInto_Creep</strong></td>
+          <td><span class="code-pill">(AcctName, CharName, CreepName)</span></td>
+          <td><span class="code-pill">(AcctName, CharName) &rarr; Character</span><br><span class="code-pill">CreepName &rarr; Creep</span></td>
+          <td>None</td>
+          <td><strong>M:N Relationship Rule:</strong> Decomposed into a junction relation with composite PK formed by joining both participating entities' primary keys!</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Viva Defense Rapid-Fire Cards -->
+  <div class="section-title">Teacher Viva Defense: The 5 Critical Questions for this Diagram</div>
+  <div class="viva-box">
+
+    <div class="qa-item">
+      <div class="qa-question">Q1: Why is 'Character' shown with a double rectangle, and what is its Primary Key?</div>
+      <div class="qa-answer">
+        <em>"Ma'am, <strong style='color:#A855F7;'>Character</strong> is a <strong>Weak Entity</strong> (existence-dependent on <strong style='color:#10B981;'>Account</strong> via the identifying relationship <strong style='color:#A5B4FC;'>Has</strong>). It does not have a globally unique key of its own; <code class='code-pill'>CharName</code> has a dashed underline, meaning it is only a <strong>Partial Key (Discriminator)</strong>. In the relational schema, its Primary Key is the composite key <strong style='color:#38BDF8;'>{AcctName, CharName}</strong>."</em>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">Q2: What does the dashed oval around 'PlayersIn' represent?</div>
+      <div class="qa-answer">
+        <em>"The dashed oval indicates a <strong>Derived Attribute</strong>. <code class='code-pill'>PlayersIn</code> is not physically stored in the database table to avoid redundancy; it is calculated at runtime by executing an aggregation query: <code class='code-pill'>SELECT COUNT(*) FROM Character WHERE RegionName = Region.RegionName</code>."</em>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">Q3: What does the double oval around 'Foliage' represent, and how do you normalize it?</div>
+      <div class="qa-answer">
+        <em>"The double oval signifies a <strong>Multivalued Attribute</strong>—a single region can have multiple foliage types (e.g. Pine trees, ferns, moss). Storing multiple values in one cell violates <strong>First Normal Form (1NF)</strong>. To normalize it to 1NF, we decompose it into a separate child table: <strong style='color:#38BDF8;'>Region_Foliage(RegionName, Foliage)</strong> with composite primary key <code class='code-pill'>{RegionName, Foliage}</code>."</em>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">Q4: What are the purple ovals 'LastPlayed', 'CreatedOn', and 'WhenCreated'?</div>
+      <div class="qa-answer">
+        <em>"Those are <strong>Descriptive Attributes of a Relationship</strong>. They belong neither solely to the parent entity nor the child entity, but to the association event itself (e.g., when the account created or last played that specific character, or when an item template was instantiated)."</em>
+      </div>
+    </div>
+
+    <div class="qa-item">
+      <div class="qa-question">Q5: Identify the Many-to-Many (M:N) relationship and explain how to implement it in SQL.</div>
+      <div class="qa-answer">
+        <em>"The M:N relationship is <strong style='color:#FB7185;'>RanInto</strong> between <strong style='color:#A855F7;'>Character (m)</strong> and <strong style='color:#10B981;'>Creep (n)</strong>. Because relational tables cannot directly store M:N associations without violating 1NF, we create a <strong>junction table</strong> <strong style='color:#38BDF8;'>Character_RanInto_Creep</strong> containing Foreign Keys to both entities, with composite Primary Key <code class='code-pill'>{(AcctName, CharName), CreepName}</code>."</em>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let isZoomed = false;
+    let zoomLevel = 1.0;
+
+    function toggleZoom() {
+      const img = document.getElementById('erImage');
+      isZoomed = !isZoomed;
+      if (isZoomed) {
+        zoomLevel = 1.6;
+        img.style.transform = 'scale(1.6)';
+        img.style.cursor = 'zoom-out';
+      } else {
+        resetZoom();
+      }
+    }
+
+    function zoomIn() {
+      const img = document.getElementById('erImage');
+      zoomLevel = Math.min(zoomLevel + 0.3, 2.5);
+      img.style.transform = 'scale(' + zoomLevel + ')';
+      img.style.cursor = 'zoom-out';
+      isZoomed = true;
+    }
+
+    function zoomOut() {
+      const img = document.getElementById('erImage');
+      zoomLevel = Math.max(zoomLevel - 0.3, 0.8);
+      img.style.transform = 'scale(' + zoomLevel + ')';
+      if (zoomLevel <= 1.0) {
+        img.style.cursor = 'zoom-in';
+        isZoomed = false;
+      }
+    }
+
+    function resetZoom() {
+      const img = document.getElementById('erImage');
+      zoomLevel = 1.0;
+      img.style.transform = 'scale(1)';
+      img.style.cursor = 'zoom-in';
+      isZoomed = false;
+    }
+  </script>
+</body>
+</html>

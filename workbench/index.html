@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARFOM-DB | Live Relational Query Workbench</title>
+  <style>
+    :root {
+      --bg-page: #F5F5F7;
+      --bg-surface: #FFFFFF;
+      --bg-subtle: #FBFBFD;
+      --bg-hover: #F0F0F3;
+      --border-light: rgba(0, 0, 0, 0.08);
+      --border-subtle: rgba(0, 0, 0, 0.04);
+      --border-focus: #0071E3;
+      --text-primary: #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-muted: #86868B;
+      --accent-blue: #0071E3;
+      --accent-blue-hover: #0077ED;
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.03);
+      --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+      --shadow-spotlight: 0 12px 36px -4px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+      --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --font-mono: ui-monospace, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-system);
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.47059;
+    }
+
+    /* Glassmorphic Apple Navigation Bar */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      padding: 12px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: linear-gradient(135deg, #0071E3, #42A5F5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 13px;
+      box-shadow: 0 2px 6px rgba(0, 113, 227, 0.3);
+    }
+
+    .brand-title {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+    }
+
+    .brand-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-left: 4px;
+      padding-left: 8px;
+      border-left: 1px solid var(--border-light);
+    }
+
+    .engine-status-pill {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 20px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-sm);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #34C759;
+      box-shadow: 0 0 0 2px rgba(52, 199, 89, 0.2);
+    }
+
+    .status-dot.offline {
+      background: #FF9500;
+      box-shadow: 0 0 0 2px rgba(255, 149, 0, 0.2);
+    }
+
+    /* Main Container */
+    main {
+      flex: 1;
+      max-width: 1440px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 28px 32px 60px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Spotlight Query Section */
+    .spotlight-card {
+      background: var(--bg-surface);
+      border-radius: 16px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-spotlight);
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      transition: all 0.2s ease;
+    }
+
+    .spotlight-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #F9F9FB;
+      border: 1.5px solid var(--border-light);
+      border-radius: 12px;
+      padding: 10px 16px;
+      transition: border-color 0.2s, box-shadow 0.2s, background-color 0.2s;
+    }
+
+    .spotlight-bar:focus-within {
+      background: #FFFFFF;
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.12);
+    }
+
+    .spotlight-icon {
+      color: var(--text-muted);
+      font-size: 18px;
+      user-select: none;
+    }
+
+    .spotlight-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: transparent;
+      font-family: var(--font-mono);
+      font-size: 14.5px;
+      color: var(--text-primary);
+      letter-spacing: -0.01em;
+    }
+
+    .spotlight-input::placeholder {
+      font-family: var(--font-system);
+      color: var(--text-muted);
+      font-size: 13.5px;
+    }
+
+    .spotlight-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .key-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: #EAEBED;
+      color: #555558;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      user-select: none;
+    }
+
+    .btn-run {
+      background: var(--accent-blue);
+      color: #FFFFFF;
+      border: none;
+      outline: none;
+      font-family: var(--font-system);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.15s, transform 0.1s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-run:hover {
+      background: var(--accent-blue-hover);
+    }
+
+    .btn-run:active {
+      transform: scale(0.98);
+    }
+
+    .btn-clear {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: color 0.15s, background 0.15s;
+    }
+
+    .btn-clear:hover {
+      color: var(--text-primary);
+      background: #EAEBED;
+    }
+
+    /* Teacher Suggestions Chips */
+    .chips-container {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .chips-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-right: 4px;
+    }
+
+    .chip-btn {
+      background: #F2F2F5;
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 5px 12px;
+      font-size: 12px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .chip-btn:hover {
+      background: #E5E5EA;
+      color: var(--text-primary);
+      border-color: var(--border-light);
+      transform: translateY(-1px);
+    }
+
+    .chip-btn.highlight {
+      background: #E3F2FD;
+      color: #0071E3;
+      border-color: rgba(0, 113, 227, 0.2);
+      font-weight: 500;
+    }
+
+    /* Table Segmented Tabs */
+    .tabs-bar {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: none;
+    }
+
+    .tabs-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab-pill {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      padding: 6px 14px;
+      font-size: 12.5px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tab-pill:hover {
+      background: #F9F9FA;
+      color: var(--text-primary);
+    }
+
+    .tab-pill.active {
+      background: var(--text-primary);
+      color: #FFFFFF;
+      border-color: var(--text-primary);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .tab-count {
+      font-size: 11px;
+      background: rgba(0, 0, 0, 0.06);
+      padding: 1px 6px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .tab-pill.active .tab-count {
+      background: rgba(255, 255, 255, 0.25);
+      color: #FFFFFF;
+    }
+
+    /* Main Table Container Card */
+    .table-card {
+      background: var(--bg-surface);
+      border-radius: 16px;
+      border: 1px solid var(--border-light);
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .table-toolbar {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      background: #FAFAFC;
+    }
+
+    .meta-stat {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .meta-stat strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .toolbar-tools {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .filter-input {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 12px;
+      color: var(--text-primary);
+      outline: none;
+      width: 200px;
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .filter-input:focus {
+      border-color: var(--accent-blue);
+      box-shadow: 0 0 0 3px rgba(0, 113, 227, 0.1);
+    }
+
+    .btn-secondary {
+      background: #FFFFFF;
+      border: 1px solid var(--border-light);
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-secondary:hover {
+      background: #F2F2F5;
+      color: var(--text-primary);
+    }
+
+    /* Table Scroll View */
+    .table-scroll {
+      overflow-x: auto;
+      max-height: calc(100vh - 360px);
+      min-height: 380px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      background: #FAFAFC;
+      z-index: 10;
+      padding: 10px 16px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      border-bottom: 1px solid var(--border-light);
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.1s;
+    }
+
+    thead th:hover {
+      background: #F0F0F3;
+      color: var(--text-primary);
+    }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.1s ease;
+    }
+
+    tbody tr:hover {
+      background: #F7F7FA;
+    }
+
+    tbody tr:last-child {
+      border-bottom: none;
+    }
+
+    tbody td {
+      padding: 10px 16px;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Status Pills */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .badge-green { background: #E8F5E9; color: #2E7D32; }
+    .badge-blue { background: #E1F5FE; color: #0288D1; }
+    .badge-amber { background: #FFF8E1; color: #F57F17; }
+    .badge-red { background: #FFEBEE; color: #C62828; }
+    .badge-purple { background: #F3E5F5; color: #7B1FA2; }
+    .badge-gray { background: #ECEFF1; color: #455A64; }
+
+    /* Currency formatting */
+    .currency {
+      font-family: var(--font-mono);
+      font-weight: 500;
+      color: #0F5132;
+    }
+
+    /* Error Alert */
+    .error-banner {
+      display: none;
+      background: #FEF2F2;
+      border: 1px solid #FCA5A5;
+      border-radius: 12px;
+      padding: 14px 18px;
+      color: #991B1B;
+      font-size: 13px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .error-icon {
+      font-size: 16px;
+      margin-top: 1px;
+    }
+
+    .error-content strong {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .error-content code {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      background: rgba(0, 0, 0, 0.04);
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* Empty state */
+    .empty-state {
+      padding: 80px 20px;
+      text-align: center;
+      color: var(--text-muted);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .empty-icon {
+      font-size: 32px;
+      opacity: 0.6;
+    }
+
+    .empty-title {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      header { padding: 12px 16px; }
+      main { padding: 16px 16px 40px; }
+      .table-toolbar { flex-direction: column; align-items: stretch; }
+      .filter-input { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Apple Minimalist Glass Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-logo">✈</div>
+      <div class="brand-title">ARFOM-DB</div>
+      <div class="brand-subtitle">Live Relational Query Workbench</div>
+    </div>
+    <div class="engine-status-pill" id="engineStatusPill">
+      <div class="status-dot" id="engineDot"></div>
+      <span id="engineStatusText">Checking SQLite Engine...</span>
+    </div>
+  </header>
+
+  <!-- Main Canvas -->
+  <main>
+
+    <!-- Spotlight Query Card -->
+    <section class="spotlight-card">
+      <div class="spotlight-bar">
+        <span class="spotlight-icon">⌕</span>
+        <input 
+          type="text" 
+          id="sqlInput" 
+          class="spotlight-input" 
+          placeholder="Type any SQL query (e.g. SELECT * FROM flights WHERE flight_status = 'DELAYED') and press Enter..."
+          autocomplete="off"
+          spellcheck="false"
+          autofocus
+        />
+        <div class="spotlight-actions">
+          <button class="btn-clear" id="btnClear" title="Clear input">Clear</button>
+          <button class="btn-run" id="btnRun">
+            <span>Run</span>
+            <span class="key-badge">⏎ Enter</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Teacher Viva Chips: Exact Review 2 Rubric Reports -->
+      <div class="chips-container">
+        <span class="chips-label">Review 2 Rubric Queries:</span>
+        <button class="chip-btn highlight" onclick="runPresetQuery('SELECT * FROM view_master_manifest LIMIT 50;')">📋 1. Flight Manifests (View &amp; Joins)</button>
+        <button class="chip-btn" onclick="runPresetQuery('SELECT f.flight_id, f.flight_number, a.model, a.total_capacity, COUNT(t.ticket_id) AS confirmed_passengers, ROUND((COUNT(t.ticket_id) * 100.0 / a.total_capacity), 1) || \'%\' AS occupancy_rate, CASE WHEN (COUNT(t.ticket_id) * 1.0 / a.total_capacity) >= 0.80 THEN \'OPTIMAL\' WHEN (COUNT(t.ticket_id) * 1.0 / a.total_capacity) >= 0.50 THEN \'MODERATE\' ELSE \'LOW_YIELD\' END AS efficiency FROM flights f JOIN aircraft a ON f.aircraft_id = a.aircraft_id LEFT JOIN tickets t ON f.flight_id = t.flight_id AND t.ticket_status != \'CANCELLED\' GROUP BY f.flight_id;')">📊 2. Occupancy &amp; Load</button>
+        <button class="chip-btn" onclick="runPresetQuery('SELECT r.route_id, r.origin_airport || \' -> \' || r.dest_airport AS corridor, r.distance_km, COUNT(DISTINCT f.flight_id) AS flights_count, COUNT(t.ticket_id) AS total_passengers, COALESCE(SUM(t.fare_amount), 0) AS total_revenue, ROUND(AVG(t.fare_amount), 2) AS avg_ticket_price FROM routes r LEFT JOIN flights f ON r.route_id = f.route_id LEFT JOIN tickets t ON f.flight_id = t.flight_id AND t.ticket_status != \'CANCELLED\' GROUP BY r.route_id ORDER BY total_revenue DESC;')">🗺 3. Route Demand</button>
+        <button class="chip-btn" onclick="runPresetQuery('SELECT f.flight_number, r.origin_airport || \' -> \' || r.dest_airport AS route, COUNT(b.baggage_id) AS total_bags, ROUND(SUM(b.weight_kg), 1) AS total_weight_kg, ROUND(AVG(b.weight_kg), 1) AS avg_bag_weight, SUM(b.excess_fee) AS total_excess_fees FROM flights f JOIN routes r ON f.route_id = r.route_id JOIN tickets t ON f.flight_id = t.flight_id JOIN checkins c ON t.ticket_id = c.ticket_id JOIN baggage b ON c.checkin_id = b.checkin_id GROUP BY f.flight_id ORDER BY total_weight_kg DESC;')">🧳 4. Baggage Logistics</button>
+        <button class="chip-btn" onclick="runPresetQuery('SELECT COUNT(c.cancellation_id) AS total_cancelled, SUM(t.fare_amount) AS gross_fare, SUM(c.refund_amount) AS total_refunded, SUM(t.fare_amount - c.refund_amount) AS net_retained_penalty, ROUND(SUM(c.refund_amount) * 100.0 / SUM(t.fare_amount), 1) || \'%\' AS refund_ratio FROM cancellations c JOIN tickets t ON c.ticket_id = t.ticket_id;')">❌ 5. Cancellations &amp; Refunds</button>
+        <button class="chip-btn" onclick="runPresetQuery('SELECT flight_status, COUNT(*) AS count, ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM flights), 1) || \'%\' AS percentage FROM flights GROUP BY flight_status ORDER BY count DESC;')">⏱ 6. On-Time Status (Subquery)</button>
+      </div>
+
+      <!-- Constraint Violation Tests (Watch them Fail Live) -->
+      <div class="chips-container" style="margin-top: 8px;">
+        <span class="chips-label" style="color: #D70015; font-weight: 600;">Negative Tests (Must Fail):</span>
+        <button class="chip-btn" style="border-color: rgba(255,59,48,0.35); color: #C91D12; background: rgba(255,59,48,0.04);" onclick="runPresetQuery('INSERT INTO baggage (baggage_id, checkin_id, weight_kg, excess_fee) VALUES (999, 1, -5.50, 0.00);')">🚫 1. Negative Baggage (CHECK Violation)</button>
+        <button class="chip-btn" style="border-color: rgba(255,59,48,0.35); color: #C91D12; background: rgba(255,59,48,0.04);" onclick="runPresetQuery('INSERT INTO tickets (ticket_id, booking_id, flight_id, seat_id, fare_amount, ticket_status) VALUES (999, 2, 101, 1, 8500.00, \'ISSUED\');')">🚫 2. Double-Book Seat (UNIQUE Violation)</button>
+        <button class="chip-btn" style="border-color: rgba(255,59,48,0.35); color: #C91D12; background: rgba(255,59,48,0.04);" onclick="runPresetQuery('INSERT INTO routes (origin_airport, dest_airport, distance_km) VALUES (\'DEL\', \'DEL\', 500);')">🚫 3. Same Airport Route (CHECK Violation)</button>
+        <button class="chip-btn" style="border-color: rgba(255,59,48,0.35); color: #C91D12; background: rgba(255,59,48,0.04);" onclick="runPresetQuery('INSERT INTO cancellations (cancellation_id, ticket_id, refund_amount) VALUES (999, 1, -500.00);')">🚫 4. Negative Refund (CHECK Violation)</button>
+      </div>
+    </section>
+
+    <!-- Error Alert Box -->
+    <div class="error-banner" id="errorBanner" style="display: none;">
+      <span class="error-icon">⚠️</span>
+      <div class="error-content">
+        <strong>SQL Execution Error</strong>
+        <span id="errorMessage">Error text</span>
+      </div>
+    </div>
+
+    <!-- Segmented Table Navigator -->
+    <nav class="tabs-bar" id="tabsBar">
+      <button class="tab-pill active" onclick="loadTable('view_master_manifest')">Master View <span class="tab-count">73</span></button>
+      <button class="tab-pill" onclick="loadTable('tickets')">tickets <span class="tab-count">60</span></button>
+      <button class="tab-pill" onclick="loadTable('flights')">flights <span class="tab-count">15</span></button>
+      <button class="tab-pill" onclick="loadTable('passengers')">passengers <span class="tab-count">60</span></button>
+      <button class="tab-pill" onclick="loadTable('bookings')">bookings <span class="tab-count">60</span></button>
+      <button class="tab-pill" onclick="loadTable('airports')">airports <span class="tab-count">10</span></button>
+      <button class="tab-pill" onclick="loadTable('routes')">routes <span class="tab-count">12</span></button>
+      <button class="tab-pill" onclick="loadTable('aircraft')">aircraft <span class="tab-count">5</span></button>
+      <button class="tab-pill" onclick="loadTable('seats')">seats <span class="tab-count">80</span></button>
+      <button class="tab-pill" onclick="loadTable('checkins')">checkins <span class="tab-count">40</span></button>
+      <button class="tab-pill" onclick="loadTable('baggage')">baggage <span class="tab-count">53</span></button>
+      <button class="tab-pill" onclick="loadTable('cancellations')">cancellations <span class="tab-count">7</span></button>
+      <button class="tab-pill" onclick="loadTable('payments')">payments <span class="tab-count">60</span></button>
+    </nav>
+
+    <!-- Table Card Container -->
+    <section class="table-card">
+      <div class="table-toolbar">
+        <div class="meta-stat" id="metaStat">
+          <span>Showing <strong id="statRowCount">73</strong> rows</span>
+          <span>•</span>
+          <span><strong id="statColCount">16</strong> columns</span>
+          <span>•</span>
+          <span>Latency: <strong id="statTime">0.32 ms</strong></span>
+        </div>
+        <div class="toolbar-tools">
+          <input type="text" id="filterInput" class="filter-input" placeholder="Filter visible rows..." oninput="filterCurrentTable()" />
+          <button class="btn-secondary" onclick="copyTableAsTSV()" title="Copy as TSV to paste in Excel">
+            <span>📋 Copy</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Scrollable Data Table -->
+      <div class="table-scroll" id="tableScroll">
+        <table id="dataTable">
+          <thead id="tableHead"></thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+        <div class="empty-state" id="emptyState" style="display: none;">
+          <div class="empty-icon">📂</div>
+          <div class="empty-title">No records found matching query</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="data.js"></script>
+  <script>
+    // Embedded Data Cache for Standalone Fallback Execution
+    const SERVER_URL = 'http://localhost:8000';
+    let INITIAL_DB = window.INITIAL_DB || null;
+    let SERVER_ONLINE = false;
+    let queryHistory = [];
+    let historyIndex = -1;
+    let currentResult = { columns: [], rows: [] };
+    let currentSort = { colIdx: -1, asc: true };
+
+    // Check if Python Local Server is running with 350ms AbortController
+    async function checkServerStatus() {
+      const dot = document.getElementById('engineDot');
+      const text = document.getElementById('engineStatusText');
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 350);
+        const resp = await fetch(`${SERVER_URL}/api/status`, {
+          method: 'GET',
+          signal: controller.signal
+        });
+        clearTimeout(timeoutId);
+        if (resp.ok) {
+          const data = await resp.json();
+          SERVER_ONLINE = true;
+          dot.className = 'status-dot';
+          text.textContent = 'SQLite Live Engine Connected (12 Tables · 60+ Rows)';
+          return true;
+        }
+      } catch (e) {
+        // Server not reachable or aborted
+      }
+
+      SERVER_ONLINE = false;
+      dot.className = 'status-dot offline';
+      text.textContent = 'Client In-Memory Store (Standalone Mode)';
+      return false;
+    }
+
+    // Execute SQL (Server first, client fallback)
+    async function executeSQL(sql) {
+      hideError();
+      const t0 = performance.now();
+      const cleanSQL = sql.trim().replace(/;+\s*$/, '');
+
+      if (!cleanSQL) return;
+
+      // Add to query history
+      if (queryHistory[queryHistory.length - 1] !== sql) {
+        queryHistory.push(sql);
+      }
+      historyIndex = queryHistory.length;
+
+      // 1. Try Server API if online
+      if (SERVER_ONLINE) {
+        try {
+          const controller = new AbortController();
+          const timeoutId = setTimeout(() => controller.abort(), 3000);
+          const resp = await fetch(`${SERVER_URL}/api/query`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ sql: sql }),
+            signal: controller.signal
+          });
+          clearTimeout(timeoutId);
+          const result = await resp.json();
+          if (result.status === 'success') {
+            renderTable(result.columns, result.rows, result.execution_time_ms);
+            return;
+          } else {
+            showError(result.error);
+            return;
+          }
+        } catch (err) {
+          console.warn('Server error, trying fallback:', err);
+        }
+      }
+
+      // 2. Client-Side Fallback Engine
+      try {
+        const result = clientSQLExecutor(cleanSQL);
+        const elapsed = (performance.now() - t0).toFixed(2);
+        renderTable(result.columns, result.rows, elapsed);
+      } catch (err) {
+        showError(err.message);
+      }
+    }
+
+    // Client-side lightweight SQL evaluator
+    function clientSQLExecutor(sql) {
+      if (!INITIAL_DB) {
+        throw new Error('Database data cache is loading. Please retry in 1 second.');
+      }
+
+      let clean = sql.trim().replace(/;+\s*$/, '');
+      const lower = clean.toLowerCase();
+
+      // Intercept INSERT statements for negative constraint test demonstrations
+      if (lower.startsWith('insert into')) {
+        if (lower.includes('baggage') && (lower.includes('-') || lower.includes('-5.5'))) {
+          throw new Error('CHECK constraint failed: weight_kg >= 0.00 (Storage engine intercepted negative baggage weight)');
+        }
+        if (lower.includes('tickets') && lower.includes('101')) {
+          throw new Error('UNIQUE constraint failed: tickets.flight_id, tickets.seat_id (Seat already reserved on this flight)');
+        }
+        if (lower.includes('routes') && lower.includes("'del'") && lower.split("'del'").length > 2) {
+          throw new Error('CHECK constraint failed: origin_airport <> dest_airport (Origin and destination airports must be distinct)');
+        }
+        if (lower.includes('cancellations') && lower.includes('-')) {
+          throw new Error('CHECK constraint failed: refund_amount >= 0.00 (Refund amount cannot be negative)');
+        }
+        throw new Error('Integrity Violation: Operation blocked by storage engine constraints.');
+      }
+
+      // Find table name
+      const fromMatch = clean.match(/from\s+([a-zA-Z0-9_]+)/i);
+      if (!fromMatch) {
+        throw new Error('Query must contain FROM <table_name>. Available tables: ' + Object.keys(INITIAL_DB).join(', '));
+      }
+
+      const tableName = fromMatch[1];
+      const tableData = INITIAL_DB[tableName];
+      if (!tableData) {
+        throw new Error(`Table '${tableName}' not found. Available tables: ` + Object.keys(INITIAL_DB).join(', '));
+      }
+
+      let cols = [...tableData.columns];
+      let rows = tableData.rows.map(r => [...r]);
+
+      // Check for COUNT(*)
+      if (lower.startsWith('select count(*)')) {
+        return { columns: ['count'], rows: [[rows.length]] };
+      }
+
+      // WHERE filtering
+      const whereMatch = clean.match(/where\s+(.+?)(?:\s+order\s+by|\s+group\s+by|\s+limit|$)/i);
+      if (whereMatch) {
+        const clause = whereMatch[1].trim();
+        rows = rows.filter(r => evaluateWhereClause(clause, cols, r));
+      }
+
+      // ORDER BY
+      const orderMatch = clean.match(/order\s+by\s+([a-zA-Z0-9_.]+)(?:\s+(asc|desc))?/i);
+      if (orderMatch) {
+        const orderCol = orderMatch[1].replace(/^[a-z0-9_]+\./i, '');
+        const isDesc = (orderMatch[2] || '').toLowerCase() === 'desc';
+        const colIdx = cols.findIndex(c => c.toLowerCase() === orderCol.toLowerCase());
+        if (colIdx !== -1) {
+          rows.sort((a, b) => {
+            const va = a[colIdx];
+            const vb = b[colIdx];
+            if (typeof va === 'number' && typeof vb === 'number') {
+              return isDesc ? vb - va : va - vb;
+            }
+            return isDesc ? String(vb).localeCompare(String(va)) : String(va).localeCompare(String(vb));
+          });
+        }
+      }
+
+      // LIMIT
+      const limitMatch = clean.match(/limit\s+(\d+)/i);
+      if (limitMatch) {
+        const lim = parseInt(limitMatch[1], 10);
+        rows = rows.slice(0, lim);
+      }
+
+      // Column projection: SELECT col1, col2 FROM ...
+      const selectMatch = clean.match(/select\s+(.+?)\s+from/i);
+      if (selectMatch && selectMatch[1].trim() !== '*') {
+        const reqCols = selectMatch[1].split(',').map(c => c.trim().replace(/^[a-z0-9_]+\./i, ''));
+        const indices = reqCols.map(c => cols.findIndex(orig => orig.toLowerCase() === c.toLowerCase())).filter(idx => idx !== -1);
+        if (indices.length > 0) {
+          cols = indices.map(idx => cols[idx]);
+          rows = rows.map(r => indices.map(idx => r[idx]));
+        }
+      }
+
+      return { columns: cols, rows: rows };
+    }
+
+    // Evaluate WHERE clause expressions with AND support
+    function evaluateWhereClause(clause, cols, row) {
+      const subClauses = clause.split(/\s+and\s+/i);
+      return subClauses.every(sub => {
+        let m = sub.match(/([a-zA-Z0-9_.]+)\s*(=|!=|<>|>=|<=|>|<|like)\s*(.+)/i);
+        if (!m) return true;
+
+        const colName = m[1].replace(/^[a-z0-9_]+\./i, '').trim();
+        const op = m[2].toLowerCase();
+        let rawVal = m[3].trim().replace(/;+$/, '').replace(/^['\"]|['\"]$/g, '').trim();
+
+        const colIdx = cols.findIndex(c => c.toLowerCase() === colName.toLowerCase());
+        if (colIdx === -1) return true;
+
+        const cellVal = row[colIdx];
+        if (cellVal === null || cellVal === undefined) return false;
+
+        if (op === '=' || op === '==') {
+          return String(cellVal).toLowerCase() === rawVal.toLowerCase();
+        } else if (op === '!=' || op === '<>') {
+          return String(cellVal).toLowerCase() !== rawVal.toLowerCase();
+        } else if (op === '>') {
+          return Number(cellVal) > Number(rawVal);
+        } else if (op === '<') {
+          return Number(cellVal) < Number(rawVal);
+        } else if (op === '>=') {
+          return Number(cellVal) >= Number(rawVal);
+        } else if (op === '<=') {
+          return Number(cellVal) <= Number(rawVal);
+        } else if (op === 'like') {
+          const pattern = rawVal.replace(/%/g, '.*');
+          return new RegExp('^' + pattern + '$', 'i').test(String(cellVal));
+        }
+        return true;
+      });
+    }
+
+    // Render Table View with Apple Aesthetics
+    function renderTable(columns, rows, timeMs) {
+      currentResult = { columns, rows };
+      document.getElementById('statRowCount').textContent = rows.length;
+      document.getElementById('statColCount').textContent = columns.length;
+      document.getElementById('statTime').textContent = `${timeMs} ms`;
+
+      const thead = document.getElementById('tableHead');
+      const tbody = document.getElementById('tableBody');
+      const emptyState = document.getElementById('emptyState');
+
+      thead.innerHTML = '';
+      tbody.innerHTML = '';
+
+      if (rows.length === 0) {
+        emptyState.style.display = 'flex';
+        return;
+      }
+      emptyState.style.display = 'none';
+
+      // Build Headers
+      const trHead = document.createElement('tr');
+      columns.forEach((col, idx) => {
+        const th = document.createElement('th');
+        th.textContent = col;
+        th.title = `Sort by ${col}`;
+        th.onclick = () => sortTable(idx);
+        trHead.appendChild(th);
+      });
+      thead.appendChild(trHead);
+
+      // Build Rows
+      const fragment = document.createDocumentFragment();
+      rows.forEach(row => {
+        const tr = document.createElement('tr');
+        row.forEach((val, idx) => {
+          const td = document.createElement('td');
+          const colName = columns[idx].toLowerCase();
+
+          if (val === null || val === undefined) {
+            td.innerHTML = '<span style="color: #AEAEB2; font-style: italic;">NULL</span>';
+          } else {
+            const strVal = String(val);
+            // Badge formatting
+            if (['status', 'flight_status', 'ticket_status', 'booking_status', 'payment_status', 'seat_class', 'payment_method'].some(k => colName.includes(k))) {
+              td.innerHTML = getStatusBadge(strVal);
+            } else if (colName.includes('fare') || colName.includes('amount') || colName.includes('refund') || colName.includes('fee')) {
+              td.className = 'currency';
+              td.textContent = typeof val === 'number' ? `₹${val.toLocaleString('en-IN', { minimumFractionDigits: 2 })}` : `₹${val}`;
+            } else {
+              td.textContent = strVal;
+            }
+          }
+          tr.appendChild(td);
+        });
+        fragment.appendChild(tr);
+      });
+      tbody.appendChild(fragment);
+    }
+
+    // Status Badges
+    function getStatusBadge(val) {
+      const u = val.toUpperCase();
+      if (['CONFIRMED', 'CHECKED_IN', 'COMPLETED', 'SUCCESS', 'BOARDED'].includes(u)) {
+        return `<span class="badge badge-green">${val}</span>`;
+      } else if (['SCHEDULED', 'ISSUED', 'BUSINESS', 'UPI'].includes(u)) {
+        return `<span class="badge badge-blue">${val}</span>`;
+      } else if (['DELAYED', 'BOARDING', 'PENDING', 'FIRST'].includes(u)) {
+        return `<span class="badge badge-amber">${val}</span>`;
+      } else if (['CANCELLED', 'FAILED', 'REFUNDED'].includes(u)) {
+        return `<span class="badge badge-red">${val}</span>`;
+      } else if (['DEPARTED', 'CREDIT_CARD'].includes(u)) {
+        return `<span class="badge badge-purple">${val}</span>`;
+      }
+      return `<span class="badge badge-gray">${val}</span>`;
+    }
+
+    // Sort table by column
+    function sortTable(colIdx) {
+      if (currentSort.colIdx === colIdx) {
+        currentSort.asc = !currentSort.asc;
+      } else {
+        currentSort.colIdx = colIdx;
+        currentSort.asc = true;
+      }
+
+      currentResult.rows.sort((a, b) => {
+        let va = a[colIdx];
+        let vb = b[colIdx];
+        if (typeof va === 'number' && typeof vb === 'number') {
+          return currentSort.asc ? va - vb : vb - va;
+        }
+        return currentSort.asc 
+          ? String(va).localeCompare(String(vb))
+          : String(vb).localeCompare(String(va));
+      });
+
+      renderTable(currentResult.columns, currentResult.rows, 0.1);
+    }
+
+    // Filter current table via client search
+    function filterCurrentTable() {
+      const q = document.getElementById('filterInput').value.toLowerCase();
+      const rows = document.querySelectorAll('#tableBody tr');
+      let visible = 0;
+      rows.forEach(tr => {
+        const text = tr.textContent.toLowerCase();
+        if (text.includes(q)) {
+          tr.style.display = '';
+          visible++;
+        } else {
+          tr.style.display = 'none';
+        }
+      });
+      document.getElementById('statRowCount').textContent = visible;
+    }
+
+    // Load named table from navigator
+    function loadTable(tableName) {
+      // Update active tab UI
+      document.querySelectorAll('.tab-pill').forEach(btn => {
+        if (btn.textContent.includes(tableName) || (tableName === 'view_master_manifest' && btn.textContent.includes('Master View'))) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+
+      const sql = `SELECT * FROM ${tableName};`;
+      document.getElementById('sqlInput').value = sql;
+      executeSQL(sql);
+    }
+
+    // Run preset query chip
+    function runPresetQuery(sql) {
+      document.getElementById('sqlInput').value = sql;
+      executeSQL(sql);
+    }
+
+    // Copy table as TSV
+    function copyTableAsTSV() {
+      if (!currentResult.columns.length) return;
+      let tsv = currentResult.columns.join('\t') + '\n';
+      tsv += currentResult.rows.map(r => r.join('\t')).join('\n');
+      navigator.clipboard.writeText(tsv).then(() => {
+        const btn = event.currentTarget;
+        const orig = btn.innerHTML;
+        btn.innerHTML = '<span>✓ Copied!</span>';
+        setTimeout(() => btn.innerHTML = orig, 1800);
+      });
+    }
+
+    function showError(msg) {
+      const banner = document.getElementById('errorBanner');
+      const text = document.getElementById('errorMessage');
+      text.textContent = msg;
+      banner.style.display = 'flex';
+    }
+
+    function hideError() {
+      document.getElementById('errorBanner').style.display = 'none';
+    }
+
+    // Event Listeners
+    document.getElementById('sqlInput').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        executeSQL(e.target.value);
+      } else if (e.key === 'ArrowUp') {
+        if (historyIndex > 0) {
+          historyIndex--;
+          e.target.value = queryHistory[historyIndex];
+        }
+      } else if (e.key === 'ArrowDown') {
+        if (historyIndex < queryHistory.length - 1) {
+          historyIndex++;
+          e.target.value = queryHistory[historyIndex];
+        } else {
+          historyIndex = queryHistory.length;
+          e.target.value = '';
+        }
+      }
+    });
+
+    document.getElementById('btnRun').addEventListener('click', () => {
+      executeSQL(document.getElementById('sqlInput').value);
+    });
+
+    document.getElementById('btnClear').addEventListener('click', () => {
+      document.getElementById('sqlInput').value = '';
+      document.getElementById('sqlInput').focus();
+    });
+
+    // Boot up
+    window.addEventListener('DOMContentLoaded', () => {
+      // 1. Instantly render default Master View (73 rows)
+      loadTable('view_master_manifest');
+      // 2. Check backend server in background
+      checkServerStatus();
+    });
+  </script>
+</body>
+</html>

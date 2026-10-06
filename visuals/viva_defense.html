@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viva Defense Master Playbook | ARFOM-DB (Review 2)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --card-border: #E2E8F0;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --accent-blue: #38BDF8;
+      --accent-indigo: #6366F1;
+      --accent-emerald: #10B981;
+      --accent-amber: #F59E0B;
+      --accent-rose: #F43F5E;
+      --accent-purple: #A855F7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, sans-serif;
+      min-height: 100vh;
+      padding: 30px;
+      line-height: 1.6;
+    }
+
+    .header-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      padding: 24px 32px;
+      border-radius: 16px;
+      margin-bottom: 28px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .title-group h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #0F172A;
+      margin-bottom: 6px;
+    }
+
+    .title-group p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(244, 63, 94, 0.15);
+      border: 1px solid rgba(244, 63, 94, 0.3);
+      color: #FB7185;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      color: #0F172A;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn:hover {
+      background: #334155;
+      color: #0F172A;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4F46E5, #6366F1);
+      border-color: #818CF8;
+      color: white;
+    }
+
+    /* Navigation Quick Jump */
+    .quick-nav {
+      display: flex;
+      gap: 10px;
+      background: #F8FAFC;
+      border: 1px solid var(--card-border);
+      padding: 12px 20px;
+      border-radius: 12px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+
+    .quick-nav a {
+      color: #94A3B8;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 6px;
+      transition: all 0.2s;
+    }
+
+    .quick-nav a:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: #F8FAFC;
+    }
+
+    /* Section Styling */
+    .section-container {
+      margin-bottom: 36px;
+    }
+
+    .section-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #F8FAFC;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 24px;
+      background: var(--accent-indigo);
+      border-radius: 3px;
+    }
+
+    /* Table */
+    .cheat-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+
+    .cheat-table th {
+      background: #0E1524;
+      color: #94A3B8;
+      font-weight: 600;
+      text-align: left;
+      padding: 12px 18px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .cheat-table td {
+      padding: 14px 18px;
+      border-bottom: 1px solid #E2E8F0;
+      font-size: 13.5px;
+      vertical-align: middle;
+    }
+
+    .cheat-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Q&A Cards */
+    .qa-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .qa-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+      break-inside: avoid;
+    }
+
+    .qa-header {
+      background: linear-gradient(90deg, #172033, #111827);
+      padding: 14px 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .qa-num {
+      background: rgba(99, 102, 241, 0.25);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: #A5B4FC;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 700;
+      font-size: 12px;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    .qa-question {
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+
+    .qa-body {
+      padding: 20px;
+    }
+
+    .speech-box {
+      background: rgba(99, 102, 241, 0.08);
+      border-left: 4px solid var(--accent-indigo);
+      padding: 14px 18px;
+      border-radius: 0 8px 8px 0;
+      margin-bottom: 16px;
+    }
+
+    .speech-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #A5B4FC;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .speech-text {
+      font-size: 14px;
+      color: #E0E7FF;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .concept-box {
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      padding: 12px 16px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      color: #94A3B8;
+    }
+
+    .concept-box strong {
+      color: #334155;
+    }
+
+    .trap-box {
+      background: rgba(244, 63, 94, 0.08);
+      border: 1px solid rgba(244, 63, 94, 0.2);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 12.5px;
+      color: #FB7185;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trap-box strong {
+      color: #FDA4AF;
+    }
+
+    /* Fundamentals Grid */
+    .fund-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .fund-card {
+      background: #0D1424;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 20px;
+    }
+
+    .fund-card h3 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: #38BDF8;
+      margin-bottom: 8px;
+    }
+
+    .fund-card p {
+      font-size: 13px;
+      color: #94A3B8;
+    }
+
+    /* Print Formatting */
+    @media print {
+      body {
+        background: white;
+        color: black;
+        padding: 0;
+        font-size: 11pt;
+      }
+      .header-banner, .toolbar, .quick-nav {
+        display: none;
+      }
+      .qa-card {
+        border: 1px solid #ccc;
+        box-shadow: none;
+        margin-bottom: 15px;
+        background: white;
+      }
+      .qa-header {
+        background: #f1f5f9;
+        border-bottom: 1px solid #ccc;
+      }
+      .qa-question {
+        color: #0f172a;
+      }
+      .speech-box {
+        background: #f8fafc;
+        border-left: 3px solid #4338ca;
+      }
+      .speech-text {
+        color: #1e1b4b;
+      }
+      .concept-box {
+        background: #f8fafc;
+        border: 1px solid #e2e8f0;
+        color: #334155;
+      }
+      .trap-box {
+        background: #fff1f2;
+        border: 1px solid #fecdd3;
+        color: #9f1239;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Banner -->
+  <div class="header-banner">
+    <div class="title-group">
+      <div class="badge-pill">Hostile Viva Defense Dossier</div>
+      <h1>Viva Survival &amp; Academic Counter-Attack Playbook</h1>
+      <p>Word-for-Word Recital Answers • Plain English Concepts • Trap Avoidance for Review 2</p>
+    </div>
+    <div class="toolbar">
+      <a href="index.html" class="btn">Visuals Hub</a>
+      <button onclick="window.print()" class="btn btn-primary">&#128424; Print / Download PDF</button>
+    </div>
+  </div>
+
+  <!-- Quick Nav -->
+  <div class="quick-nav">
+    <span style="font-weight: 700; color: #1E293B; align-self: center; margin-right: 6px;">JUMP TO:</span>
+    <a href="#part1">Part 1: The 5 Golden Rules</a>
+    <a href="#part2">Part 2: DBMS Crash Course</a>
+    <a href="#part3">Part 3: 16 Hostile Questions</a>
+    <a href="#part4">Part 4: Poker Face Survival Tactics</a>
+  </div>
+
+  <!-- PART 1 -->
+  <div class="section-container" id="part1">
+    <div class="section-title">Part 1: Fast-Recall Core Cheat Sheet (The 5 Golden Rules)</div>
+    <table class="cheat-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Mandatory Rule</th>
+          <th>Relational Mechanism</th>
+          <th>Exact Location</th>
+          <th>The 10-Second Recital</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="font-weight: 700; color: #38BDF8;">1</td>
+          <td><strong>One seat per passenger per flight</strong></td>
+          <td><code>CONSTRAINT uq_flight_seat UNIQUE (flight_id, seat_id)</code></td>
+          <td>Table <code>tickets</code> in <code>sql/01_schema.sql</code></td>
+          <td>"Enforced at the storage engine B-Tree index level. Two tickets can never allocate the same physical seat on the same flight segment."</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 700; color: #38BDF8;">2</td>
+          <td><strong>Aircraft-capacity limits</strong></td>
+          <td>Trigger <code>trg_verify_aircraft_capacity</code></td>
+          <td><code>BEFORE INSERT ON tickets</code></td>
+          <td>"Counts active uncancelled tickets. If count reaches airframe total_capacity, it throws a Capacity Overrun exception and aborts."</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 700; color: #38BDF8;">3</td>
+          <td><strong>Non-negative baggage</strong></td>
+          <td><code>CHECK (weight_kg &gt;= 0.00)</code></td>
+          <td>Table <code>baggage</code></td>
+          <td>"Pure declarative domain constraint. Rejects negative weight measurements or negative fee penalties at the SQL engine level."</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 700; color: #38BDF8;">4</td>
+          <td><strong>Check-in for confirmed bookings only</strong></td>
+          <td>Trigger <code>trg_verify_checkin_eligibility</code></td>
+          <td><code>BEFORE INSERT ON checkins</code></td>
+          <td>"Verifies parent booking is CONFIRMED and ticket is in ISSUED state. Automatically updates ticket_status to CHECKED_IN."</td>
+        </tr>
+        <tr>
+          <td style="font-weight: 700; color: #38BDF8;">5</td>
+          <td><strong>Strict refund rules</strong></td>
+          <td>Trigger <code>trg_enforce_refund_bounds</code></td>
+          <td><code>BEFORE INSERT ON cancellations</code></td>
+          <td>"Enforces refund_amount &lt;= fare_amount. Blocks any attempt to extract refund greater than paid price and sets ticket to CANCELLED."</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PART 2 -->
+  <div class="section-container" id="part2">
+    <div class="section-title">Part 2: DBMS Fundamentals (Explain Like I'm 5)</div>
+    <div class="fund-grid">
+      <div class="fund-card">
+        <h3>Primary Key (PK)</h3>
+        <p>A column that uniquely identifies every single row in a table. It cannot be NULL and cannot have duplicates (e.g., <code>airport_code</code>).</p>
+      </div>
+      <div class="fund-card">
+        <h3>Foreign Key (FK)</h3>
+        <p>A column that points directly to a Primary Key in another table, guaranteeing referential integrity and stopping orphan records.</p>
+      </div>
+      <div class="fund-card">
+        <h3>Functional Dependency (X &rarr; Y)</h3>
+        <p>"If I know X, there is only one possible value for Y" (e.g., your Passport Number uniquely determines your full legal name).</p>
+      </div>
+      <div class="fund-card">
+        <h3>1NF (First Normal Form)</h3>
+        <p>Eliminate repeating groups. Every cell in the table must contain exactly <strong>one atomic value</strong> (no arrays, lists, or multiple bags in one cell).</p>
+      </div>
+      <div class="fund-card">
+        <h3>2NF (Second Normal Form)</h3>
+        <p>In 1NF + <strong>No Partial Dependencies</strong>. If primary key is composite (A, B), non-key columns must depend on BOTH A and B, not just A alone.</p>
+      </div>
+      <div class="fund-card">
+        <h3>3NF (Third Normal Form)</h3>
+        <p>In 2NF + <strong>No Transitive Dependencies</strong>. Non-key columns cannot depend on other non-key columns (A &rarr; B &rarr; C). B is extracted to its own table.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PART 3 -->
+  <div class="section-container" id="part3">
+    <div class="section-title">Part 3: 16 Lethal Viva Defense Questions &amp; Exact Recitals</div>
+    <div class="qa-grid">
+
+      <!-- Q1 -->
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q1</span>
+          <span class="qa-question">"Why did you normalize to 3NF instead of BCNF? Did you fail to reach BCNF?"</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-label">Recite Word-for-Word:</div>
+            <div class="speech-text">
+              "Our schema strictly satisfies Boyce-Codd Normal Form (BCNF) across all 12 tables, because in every single table, every determinant in our functional dependency set is a superkey. We framed our presentation under 3NF strictly to align with the syllabus rubric ('up to 3NF'). In classical database theory (Bernstein's Synthesis), 3NF guarantees both Lossless Join and 100% Dependency Preservation. In our specific domain, we achieved full BCNF compliance while preserving 100% of functional dependencies locally without requiring expensive inter-table joins."
+            </div>
+          </div>
+          <div class="concept-box"><strong>The Concept:</strong> In 3NF, X &rarr; Y allows Y to be a prime attribute even if X isn't a superkey. In BCNF, X must ALWAYS be a superkey. In our tables, every X is already a Primary Key, so we hit BCNF automatically!</div>
+          <div class="trap-box"><strong>Hostile Trap:</strong> NEVER say "BCNF was too hard" or "We didn't need BCNF." Say "We strictly satisfy BCNF."</div>
+        </div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q2</span>
+          <span class="qa-question">"Why do you have BOTH a UNIQUE constraint on (flight_id, seat_id) AND an aircraft capacity trigger? Isn't that redundant?"</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-label">Recite Word-for-Word:</div>
+            <div class="speech-text">
+              "That is layered defensive database engineering addressing two fundamentally distinct invariants. UNIQUE(flight_id, seat_id) enforces Micro-Invariant Uniqueness—preventing two passengers from being allocated the same physical seat on a flight leg. The trigger trg_verify_aircraft_capacity enforces Macro-Invariant Airframe Capacity. For example, if operational dispatch dynamically swaps an aircraft on a flight from an Airbus A321 (220 seats) down to an A320 (180 seats), previously booked seat IDs might all be unique, but would violate physical airframe capacity. The trigger acts as an active barrier preventing overbooking beyond certified equipment limits."
+            </div>
+          </div>
+          <div class="concept-box"><strong>The Concept:</strong> Unique seat numbers stop two people sitting on chair 5A. The capacity trigger stops the airline selling 200 tickets on a plane that only has 180 seats.</div>
+          <div class="trap-box"><strong>Hostile Trap:</strong> Do NOT say "I added both just in case." Use the terms <strong>Micro-Level Uniqueness</strong> and <strong>Macro-Level Airframe Capacity</strong>.</div>
+        </div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q3</span>
+          <span class="qa-question">"Why use surrogate integer keys (booking_id, ticket_id) instead of natural keys (booking_ref, passport_number)?"</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-label">Recite Word-for-Word:</div>
+            <div class="speech-text">
+              "We used natural keys where domain standards are globally immutable—specifically CHAR(3) for IATA airport codes. However, for high-write transactional tables like bookings, tickets, and payments, we deliberately used monotonic integer surrogate keys for three reasons: 1) B-Tree Page Fill Factors: Sequential integers append to the right of B-Tree pages, eliminating index page fragmentation caused by random strings. 2) Memory Efficiency: Joining 4-byte integers across 6 downstream tables consumes significantly less buffer cache RAM than joining 20-character strings. 3) Business Logic Isolation: If a customer updates their PNR or email, zero foreign keys break across downstream operational ledgers."
+            </div>
+          </div>
+          <div class="concept-box"><strong>The Concept:</strong> Computers compare numbers in 1 CPU cycle. Comparing long strings takes many cycles and fragments database pages on disk.</div>
+          <div class="trap-box"><strong>Hostile Trap:</strong> Do NOT say "Auto-increment is just easier." Emphasize <strong>B-Tree leaf page fragmentation</strong> and <strong>buffer cache efficiency</strong>.</div>
+        </div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q4</span>
+          <span class="qa-question">"Why is aircraft_id in seats ON DELETE CASCADE, but in flights it is ON DELETE RESTRICT?"</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-label">Recite Word-for-Word:</div>
+            <div class="speech-text">
+              "Because seats represents an existence-dependent physical component of an airframe (a weak composition entity). A physical seat cannot exist without the plane it is bolted into; when a retired plane is scrapped, its physical seat layout cascades cleanly. In contrast, flights represents an active commercial commitment. If an aircraft has active scheduled flights with booked passengers, deleting the aircraft must be strictly BLOCKED (RESTRICT). This creates a defensive safety net: an in-service aircraft can never be deleted while assigned to flights, while decommissioned aircraft can safely purge their seat maps."
+            </div>
+          </div>
+          <div class="concept-box"><strong>The Concept:</strong> If you scrap a plane, its chairs get scrapped with it (CASCADE). But you cannot delete a plane if it's currently scheduled to fly 100 passengers tomorrow (RESTRICT).</div>
+          <div class="trap-box"><strong>Hostile Trap:</strong> Make sure you point out that <code>flights(aircraft_id) RESTRICT</code> prevents accidental cascading of booked flights!</div>
+        </div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q5</span>
+          <span class="qa-question">"Why is fare_amount stored inside tickets when you could calculate it from a fares table?"</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-label">Recite Word-for-Word:</div>
+            <div class="speech-text">
+              "Storing fare_amount directly on the tickets table is a deliberate architectural decision required for Temporal Immutability and Financial Accounting Standards (GAAP). Airline fares fluctuate dynamically due to yield management and demand algorithms. If we calculated ticket prices dynamically via a join to a live fare matrix, every time the airline adjusted prices, the calculated historical revenue of flights flown three months ago would retroactively change, corrupting financial ledgers. Storing the transacted fare at the instant of issuance maintains immutable point-in-time audit integrity."
+            </div>
+          </div>
+          <div class="concept-box"><strong>The Concept:</strong> If you buy milk for ₹50, and next week the store raises milk to ₹60, your old receipt shouldn't magically change to ₹60.</div>
+        </div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q6</span>
+          <span class="qa-question">"What happens under heavy concurrent booking traffic? Won't two users booking the same seat cause a race condition in your trigger?"</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-label">Recite Word-for-Word:</div>
+            <div class="speech-text">
+              "In an enterprise production environment, concurrency is resolved through two defensive tiers: 1) Transaction Isolation & Row-Level Locking: Booking transactions execute under ISOLATION LEVEL REPEATABLE READ or acquire pessimistic row locks via SELECT aircraft_id FROM flights WHERE flight_id = ? FOR UPDATE. This serializes concurrent booking requests against that flight leg. 2) Atomic Storage Engine Barrier: Even if two concurrent threads bypassed the application trigger simultaneously, the database's declarative constraint UNIQUE (flight_id, seat_id) is enforced atomically at the storage engine's B-Tree leaf level. The B-Tree page latch guarantees that one thread commits and the second thread is immediately rejected with a duplicate key exception."
+            </div>
+          </div>
+          <div class="concept-box"><strong>The Concept:</strong> Even if two people click 'Buy' at the exact same millisecond, the database index physically only allows one row to be written. The second gets an instant error.</div>
+        </div>
+      </div>
+
+      <!-- Q7 -->
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q7</span>
+          <span class="qa-question">"Why did you write triggers instead of declarative CHECK constraints for capacity and check-in eligibility?"</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-label">Recite Word-for-Word:</div>
+            <div class="speech-text">
+              "Because ANSI SQL standards strictly limit declarative CHECK constraints to single-row, single-table attribute evaluations. A CHECK constraint cannot execute subqueries or inspect parent table states across foreign tables—for instance, checking bookings.booking_status from inside a checkins insert, or calculating COUNT(tickets) against aircraft.total_capacity. In relational database engines like PostgreSQL and MySQL, cross-table invariant assertions must be enforced via Procedural Triggers (BEFORE INSERT), which execute with indexed O(1) lookups."
+            </div>
+          </div>
+          <div class="concept-box"><strong>The Concept:</strong> CHECK constraints only know what is in the row you are currently typing. They cannot look into other tables. Triggers can query any table.</div>
+        </div>
+      </div>
+
+      <!-- Q8 -->
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q8</span>
+          <span class="qa-question">"Why is cancellations a separate table with ticket_id UNIQUE instead of just setting ticket_status = 'CANCELLED' in tickets?"</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-label">Recite Word-for-Word:</div>
+            <div class="speech-text">
+              "That directly satisfies Third Normal Form (3NF) and Financial Audit Separation: 1) Elimination of Null Anomalies: Cancellation metadata (cancellation_timestamp, refund_amount) applies only to cancelled tickets. Adding these columns directly into tickets would force 95% of active issued tickets to store NULL values, resulting in sparse, inefficient tables. 2) Audit Ledger Integrity: A cancellation is a distinct financial accounting event involving refund capital disbursement. A dedicated ledger with ticket_id UNIQUE preserves an unalterable audit trail and links cleanly to payment reconciliation."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q9 -->
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q9</span>
+          <span class="qa-question">"What index structures did you create and why?"</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-label">Recite Word-for-Word:</div>
+            <div class="speech-text">
+              "We created secondary B-Tree composite indexes targeted at high-frequency query access paths: 1) idx_flights_search on flights(route_id, scheduled_departure, flight_status): Optimizes customer flight searches using an index-only range scan without full-table table scans. 2) idx_bookings_pnr on bookings(booking_ref): Guarantees O(log N) hash-like lookup speed when ground staff query a 6-character PNR. 3) idx_tickets_booking on tickets(booking_id) and idx_tickets_flight on tickets(flight_id): Accelerates multi-table joins when assembling real-time flight manifests and calculating occupancy yield."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q10 -->
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q10</span>
+          <span class="qa-question">"Prove that your schema decomposition has no insertion, deletion, or update anomalies."</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-label">Recite Word-for-Word:</div>
+            <div class="speech-text">
+              "We can prove this by inspecting our decoupled entities: 1) No Insertion Anomaly: We can add a newly commissioned airport into airports or a new plane into aircraft without requiring any flights, bookings, or passengers to exist. In the unnormalized relation (UNF), an airport could not exist without a booking reference. 2) No Deletion Anomaly: If a passenger cancels their booking, or if old booking records are archived, the physical flight corridor, schedule, and aircraft definitions remain intact. 3) No Update Anomaly: If Indira Gandhi International Airport changes its name, we update a single row in airports. All downstream routes and flights instantly reflect the update via foreign key reference without inconsistent duplicates."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q11-Q16 condensed for rapid recall -->
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q11</span>
+          <span class="qa-question">"What is a Weak Entity in your schema?"</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-text">
+              "In our schema, seats and baggage function as Weak Entities. A seat cannot exist without an aircraft (composite key aircraft_id + seat_number). A bag cannot exist without a check-in event. Both cascade on parent deletion."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q12</span>
+          <span class="qa-question">"How do your triggers maintain state machine transitions automatically?"</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-text">
+              "Our triggers execute active state machine transitions: Inserting into checkins triggers an update setting tickets.ticket_status = 'CHECKED_IN'. Inserting into cancellations triggers an update setting tickets.ticket_status = 'CANCELLED'. This guarantees that application software cannot leave tickets in an out-of-sync state."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q13</span>
+          <span class="qa-question">"Explain Lossless Join Decomposition and how your schema satisfies it."</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-text">
+              "A decomposition is Lossless if and only if R1 &cap; R2 &rarr; R1 or R2. In our schema, every single join condition is a Primary Key (airports &cap; routes = airport_code; aircraft &cap; seats = aircraft_id). Because the common attribute is always a candidate key, joining tables reconstructs the universal relation with zero spurious tuples."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q14</span>
+          <span class="qa-question">"Explain Dependency Preservation and why your schema preserves 100% of FDs."</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-text">
+              "Dependency Preservation means the union of projected dependencies equals the global closure (F+). In our schema, all 18 minimal functional dependencies are enforced locally inside their single projected table via Primary Keys and UNIQUE constraints without requiring cross-table joins."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q15</span>
+          <span class="qa-question">"What is the difference between Logical and Physical Data Independence in this project?"</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-text">
+              "Logical Data Independence is demonstrated through our Views (view_flight_manifest). If internal tables change, the external view consumed by gate applications remains constant. Physical Data Independence is demonstrated through our B-Tree Indexes; we can drop or rebuild indexes without altering a single application SQL query."
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-header">
+          <span class="qa-num">Q16</span>
+          <span class="qa-question">"How does your database handle refund deductions? Why not refund 100%?"</span>
+        </div>
+        <div class="qa-body">
+          <div class="speech-box">
+            <div class="speech-text">
+              "Airlines deduct cancellation penalties based on booking cancellation windows. In our seed data, Ticket #5 had a fare of ₹8,500.00 and was refunded ₹6,800.00, retaining ₹1,700.00 as penalty profit. Trigger trg_enforce_refund_bounds guarantees refunds cannot exceed base fare. Query #5 tracks net retained cancellation penalties across the system."
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PART 4 -->
+  <div class="section-container" id="part4">
+    <div class="section-title">Part 4: Emergency Survival Protocol (The Poker Face)</div>
+    <div class="fund-grid">
+      <div class="fund-card" style="border-left: 3px solid var(--accent-rose);">
+        <h3 style="color: #FB7185;">1. If She Interrupts Mid-Sentence</h3>
+        <p>Stop talking instantly. Do not fidget or look defensive. Nod once, wait for her to finish completely, then say: <em>"Yes, Vice Dean, that directly relates to our referential constraint in table..."</em></p>
+      </div>
+      <div class="fund-card" style="border-left: 3px solid var(--accent-amber);">
+        <h3 style="color: #FBBF24;">2. If She Asks a Term You Don't Know</h3>
+        <p>Use the Pivot Script: <em>"In our operational design, we prioritized enforcing that constraint directly at the storage engine layer via triggers. Could you specify which table's lifecycle you would like to see that applied to?"</em></p>
+      </div>
+      <div class="fund-card" style="border-left: 3px solid var(--accent-emerald);">
+        <h3 style="color: #34D399;">3. The 3-Second Rule</h3>
+        <p>When she finishes a hostile question, count <strong>1... 2... 3... in your head before speaking</strong>. A calm 3-second pause makes you look like an architect weighing system tradeoffs, not a panicked student.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; color: #4B5563; font-size: 12px; margin-top: 40px; letter-spacing: 0.5px;">
+    DBMS COURSE PROJECT • VIVA DEFENSE MASTER PLAYBOOK • ARFOM-DB REVIEW 2
+  </div>
+
+</body>
+</html>

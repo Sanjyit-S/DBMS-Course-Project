@@ -1,0 +1,596 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R] /Count 7 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89]
+   /Resources << /Font << /F1 10 0 R /F2 11 0 R >> >>
+   /Contents 12 0 R >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89]
+   /Resources << /Font << /F1 10 0 R /F2 11 0 R >> >>
+   /Contents 13 0 R >>
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89]
+   /Resources << /Font << /F1 10 0 R /F2 11 0 R >> >>
+   /Contents 14 0 R >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89]
+   /Resources << /Font << /F1 10 0 R /F2 11 0 R >> >>
+   /Contents 15 0 R >>
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89]
+   /Resources << /Font << /F1 10 0 R /F2 11 0 R >> >>
+   /Contents 16 0 R >>
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89]
+   /Resources << /Font << /F1 10 0 R /F2 11 0 R >> >>
+   /Contents 17 0 R >>
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89]
+   /Resources << /Font << /F1 10 0 R /F2 11 0 R >> >>
+   /Contents 18 0 R >>
+endobj
+10 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+11 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+12 0 obj
+<< /Length 8373 >>
+stream
+0.060 0.090 0.160 rg 0.200 0.280 0.450 RG 1.00 w 36.00 739.89 523.28 62.00 re B
+0.880 0.150 0.250 rg 48.00 783.89 195.00 13.00 re f
+1.000 1.000 1.000 rg BT /F2 7.50 Tf 52.00 786.89 Td (HOSTILE VIVA DEFENSE DOSSIER | REVIEW 2) Tj ET
+1.000 1.000 1.000 rg BT /F2 13.00 Tf 48.00 767.89 Td (VIVA DEFENSE MASTER PLAYBOOK & ORAL DEFENSE DOSSIER) Tj ET
+0.750 0.820 0.950 rg BT /F1 8.00 Tf 48.00 755.89 Td (Airtight Theoretical Proofs, Word-for-Word Recital Answers & Emergency Survival Protocols) Tj ET
+0.550 0.650 0.800 rg BT /F2 7.00 Tf 48.00 745.89 Td (SYSTEM: ARFOM-DB \(12 Tables, 4 Triggers, 5 B-Tree Indexes\) | TARGET: HOSTILE VICE DEAN EVALUATION) Tj ET
+0.250 0.350 0.850 rg 36.00 703.89 4.00 22.00 re f
+0.940 0.960 0.990 rg 0.860 0.900 0.960 RG 0.50 w 42.00 703.89 517.28 22.00 re B
+0.100 0.160 0.350 rg BT /F2 9.50 Tf 50.00 710.89 Td (PART 1: THE 5 MANDATORY BUSINESS RULES \(THE TEACHER'S RUBRIC\)) Tj ET
+0.100 0.150 0.280 rg 36.00 675.89 523.28 18.00 re f
+1.000 1.000 1.000 rg BT /F2 8.00 Tf 40.00 680.89 Td (#) Tj ET
+1.000 1.000 1.000 rg BT /F2 8.00 Tf 62.00 680.89 Td (Mandatory Business Rule) Tj ET
+1.000 1.000 1.000 rg BT /F2 8.00 Tf 174.00 680.89 Td (Relational Mechanism) Tj ET
+1.000 1.000 1.000 rg BT /F2 8.00 Tf 290.00 680.89 Td (File & Line) Tj ET
+1.000 1.000 1.000 rg BT /F2 8.00 Tf 368.00 680.89 Td (10-Second Viva Speech) Tj ET
+0.970 0.980 1.000 rg 0.850 0.880 0.930 RG 0.50 w 36.00 647.89 523.28 28.00 re B
+0.200 0.350 0.750 rg BT /F2 8.50 Tf 42.00 662.89 Td (1) Tj ET
+0.100 0.150 0.250 rg BT /F2 7.50 Tf 62.00 663.89 Td (One seat per passenger) Tj ET
+0.150 0.350 0.650 rg BT /F1 7.50 Tf 174.00 663.89 Td (UNIQUE\(flight_id, seat_id\)) Tj ET
+0.400 0.450 0.500 rg BT /F1 7.50 Tf 290.00 663.89 Td (tickets table) Tj ET
+0.080 0.120 0.200 rg BT /F1 7.50 Tf 368.00 663.89 Td (Storage-engine B-Tree uniqueness barrier. Rejects) Tj ET
+0.080 0.120 0.200 rg BT /F1 7.50 Tf 368.00 654.89 Td (any duplicate seat allocation on the same flight leg.) Tj ET
+1.000 1.000 1.000 rg 0.850 0.880 0.930 RG 0.50 w 36.00 619.89 523.28 28.00 re B
+0.200 0.350 0.750 rg BT /F2 8.50 Tf 42.00 634.89 Td (2) Tj ET
+0.100 0.150 0.250 rg BT /F2 7.50 Tf 62.00 635.89 Td (Aircraft-capacity limit) Tj ET
+0.150 0.350 0.650 rg BT /F1 7.50 Tf 174.00 635.89 Td (trg_verify_aircraft_capacity) Tj ET
+0.400 0.450 0.500 rg BT /F1 7.50 Tf 290.00 635.89 Td (BEFORE INSERT) Tj ET
+0.080 0.120 0.200 rg BT /F1 7.50 Tf 368.00 635.89 Td (Trigger counts uncancelled tickets vs total_capacity.) Tj ET
+0.080 0.120 0.200 rg BT /F1 7.50 Tf 368.00 626.89 Td (Throws Capacity Overrun exception on overrun.) Tj ET
+0.970 0.980 1.000 rg 0.850 0.880 0.930 RG 0.50 w 36.00 591.89 523.28 28.00 re B
+0.200 0.350 0.750 rg BT /F2 8.50 Tf 42.00 606.89 Td (3) Tj ET
+0.100 0.150 0.250 rg BT /F2 7.50 Tf 62.00 607.89 Td (Non-negative baggage) Tj ET
+0.150 0.350 0.650 rg BT /F1 7.50 Tf 174.00 607.89 Td (CHECK\(weight_kg >= 0.00\)) Tj ET
+0.400 0.450 0.500 rg BT /F1 7.50 Tf 290.00 607.89 Td (baggage table) Tj ET
+0.080 0.120 0.200 rg BT /F1 7.50 Tf 368.00 607.89 Td (Declarative domain check constraint. Rejects) Tj ET
+0.080 0.120 0.200 rg BT /F1 7.50 Tf 368.00 598.89 Td (negative scale weight or fees at SQL parse level.) Tj ET
+1.000 1.000 1.000 rg 0.850 0.880 0.930 RG 0.50 w 36.00 563.89 523.28 28.00 re B
+0.200 0.350 0.750 rg BT /F2 8.50 Tf 42.00 578.89 Td (4) Tj ET
+0.100 0.150 0.250 rg BT /F2 7.50 Tf 62.00 579.89 Td (Check-in eligibility) Tj ET
+0.150 0.350 0.650 rg BT /F1 7.50 Tf 174.00 579.89 Td (trg_verify_checkin_eligibility) Tj ET
+0.400 0.450 0.500 rg BT /F1 7.50 Tf 290.00 579.89 Td (BEFORE INSERT) Tj ET
+0.080 0.120 0.200 rg BT /F1 7.50 Tf 368.00 579.89 Td (Verifies parent booking is CONFIRMED and ticket is) Tj ET
+0.080 0.120 0.200 rg BT /F1 7.50 Tf 368.00 570.89 Td (ISSUED. Automatically sets ticket to CHECKED_IN.) Tj ET
+0.970 0.980 1.000 rg 0.850 0.880 0.930 RG 0.50 w 36.00 527.39 523.28 36.50 re B
+0.200 0.350 0.750 rg BT /F2 8.50 Tf 42.00 550.89 Td (5) Tj ET
+0.100 0.150 0.250 rg BT /F2 7.50 Tf 62.00 551.89 Td (Strict refund bounds) Tj ET
+0.150 0.350 0.650 rg BT /F1 7.50 Tf 174.00 551.89 Td (trg_enforce_refund_bounds) Tj ET
+0.400 0.450 0.500 rg BT /F1 7.50 Tf 290.00 551.89 Td (BEFORE INSERT) Tj ET
+0.080 0.120 0.200 rg BT /F1 7.50 Tf 368.00 551.89 Td (Enforces refund <= fare_amount. Blocks excessive) Tj ET
+0.080 0.120 0.200 rg BT /F1 7.50 Tf 368.00 542.89 Td (refunds as accounting anomaly and sets ticket to) Tj ET
+0.080 0.120 0.200 rg BT /F1 7.50 Tf 368.00 533.89 Td (CANCELLED.) Tj ET
+0.250 0.350 0.850 rg 36.00 493.39 4.00 22.00 re f
+0.940 0.960 0.990 rg 0.860 0.900 0.960 RG 0.50 w 42.00 493.39 517.28 22.00 re B
+0.100 0.160 0.350 rg BT /F2 9.50 Tf 50.00 500.39 Td (PART 2: DBMS CRASH COURSE \(ELI5 - ZERO-BACKGROUND MASTERY\)) Tj ET
+0.980 0.990 1.000 rg 0.820 0.860 0.920 RG 0.60 w 36.00 428.89 523.28 54.50 re B
+0.300 0.450 0.850 rg 36.00 428.89 3.00 54.50 re f
+0.120 0.220 0.450 rg BT /F2 9.00 Tf 46.00 472.39 Td (1. Primary Key vs. Foreign Key) Tj ET
+0.150 0.180 0.220 rg BT /F1 8.00 Tf 46.00 459.39 Td (A Primary Key uniquely identifies a row in a table. It cannot be NULL and cannot have duplicates. A Foreign Key is a column in a child) Tj ET
+0.150 0.180 0.220 rg BT /F1 8.00 Tf 46.00 449.39 Td (table pointing to a PK in a parent table to stop orphan records.) Tj ET
+0.350 0.400 0.500 rg BT /F1 7.50 Tf 46.00 437.39 Td (Example: airport_code \('DEL'\) in airports is PK. In tickets, booking_id is an FK pointing to bookings\(booking_id\).) Tj ET
+0.980 0.990 1.000 rg 0.820 0.860 0.920 RG 0.60 w 36.00 368.39 523.28 54.50 re B
+0.300 0.450 0.850 rg 36.00 368.39 3.00 54.50 re f
+0.120 0.220 0.450 rg BT /F2 9.00 Tf 46.00 411.89 Td (2. Superkey vs. Candidate Key) Tj ET
+0.150 0.180 0.220 rg BT /F1 8.00 Tf 46.00 398.89 Td (A Superkey is any set of columns that uniquely identifies a row \(even if it has redundant extra columns\). A Candidate Key is a minimal) Tj ET
+0.150 0.180 0.220 rg BT /F1 8.00 Tf 46.00 388.89 Td (superkey with zero redundant columns. The Primary Key is simply whichever candidate key you choose as primary.) Tj ET
+0.350 0.400 0.500 rg BT /F1 7.50 Tf 46.00 376.89 Td (Example: In passengers, \(passport_number, email\) is a superkey, but passport_number alone is a candidate key.) Tj ET
+0.980 0.990 1.000 rg 0.820 0.860 0.920 RG 0.60 w 36.00 307.89 523.28 54.50 re B
+0.300 0.450 0.850 rg 36.00 307.89 3.00 54.50 re f
+0.120 0.220 0.450 rg BT /F2 9.00 Tf 46.00 351.39 Td (3. Normal Forms: 1NF -> 2NF -> 3NF -> BCNF) Tj ET
+0.150 0.180 0.220 rg BT /F1 8.00 Tf 46.00 338.39 Td (1NF: Atomic cells \(no comma-separated lists/arrays\). 2NF: In 1NF + No Partial Key Dependencies \(every non-key attribute depends on) Tj ET
+0.150 0.180 0.220 rg BT /F1 8.00 Tf 46.00 328.39 Td (the full composite PK\). 3NF: In 2NF + No Transitive Dependencies \(A -> B -> C\). BCNF: Every determinant is a superkey.) Tj ET
+0.350 0.400 0.500 rg BT /F1 7.50 Tf 46.00 316.39 Td (Example: Splitting baggage items into a separate table reaches 1NF. Splitting routes from flights eliminates transitive chains and reaches 3NF.) Tj ET
+0.980 0.990 1.000 rg 0.820 0.860 0.920 RG 0.60 w 36.00 237.39 523.28 64.50 re B
+0.300 0.450 0.850 rg 36.00 237.39 3.00 64.50 re f
+0.120 0.220 0.450 rg BT /F2 9.00 Tf 46.00 290.89 Td (4. Lossless Join & Dependency Preservation) Tj ET
+0.150 0.180 0.220 rg BT /F1 8.00 Tf 46.00 277.89 Td (Lossless Join means joining decomposed tables via natural join reconstructs the exact original relation with zero fake/spurious rows.) Tj ET
+0.150 0.180 0.220 rg BT /F1 8.00 Tf 46.00 267.89 Td (Dependency Preservation means all functional dependencies can be validated locally in individual tables without expensive cross-table) Tj ET
+0.150 0.180 0.220 rg BT /F1 8.00 Tf 46.00 257.89 Td (joins.) Tj ET
+0.350 0.400 0.500 rg BT /F1 7.50 Tf 46.00 245.89 Td (Example: Common join column between related tables is always a Candidate Key \(e.g., airport_code in routes, aircraft_id in seats\).) Tj ET
+0.250 0.350 0.850 rg 36.00 209.39 4.00 22.00 re f
+0.940 0.960 0.990 rg 0.860 0.900 0.960 RG 0.50 w 42.00 209.39 517.28 22.00 re B
+0.100 0.160 0.350 rg BT /F2 9.50 Tf 50.00 216.39 Td (PART 3: 16 HOSTILE VIVA QUESTIONS & EXACT WORD-FOR-WORD RECITALS) Tj ET
+0.80 0.84 0.90 RG 0.5 w 36.0 32 m 559.28 32 l S
+0.45 0.50 0.60 rg BT /F1 7.5 Tf 36.0 20 Td (DBMS Course Project | Review 2 | Hostile Viva Survival Playbook) Tj ET
+0.20 0.25 0.35 rg BT /F2 8.0 Tf 499.28 20 Td (Page 1 of 7) Tj ET
+endstream
+endobj
+13 0 obj
+<< /Length 7906 >>
+stream
+0.820 0.860 0.920 RG 1.00 w 36.00 815.89 523.28 0.50 re S
+0.400 0.450 0.550 rg BT /F2 7.50 Tf 36.00 819.89 Td (ARFOM-DB | AIRLINE RESERVATION & OPERATIONS SYSTEM | VIVA DEFENSE DOSSIER) Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 625.89 523.28 176.00 re B
+0.110 0.160 0.280 rg 36.00 781.39 523.28 20.50 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 790.89 Td (Q1: Why did you normalize to 3NF instead of BCNF? Did you fail to reach BCNF?) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 774.39 Td (Evaluator Intent: Does this student understand the theoretical difference between 3NF and BCNF, or did they blindly follow a syllabus prompt?) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 696.39 507.28 66.50 re B
+0.250 0.350 0.850 rg 44.00 696.39 3.50 66.50 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 753.89 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 742.89 Td (Our schema strictly satisfies Boyce-Codd Normal Form \(BCNF\) across all 12 tables, because in every single table, every) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 732.39 Td (determinant in our functional dependency set is a superkey. We framed our presentation under 3NF strictly to align with the) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 721.89 Td (syllabus rubric \('up to 3NF'\). In classical database theory \(Bernstein's Synthesis\), 3NF guarantees both Lossless Join and 100%) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 711.39 Td (Dependency Preservation. In our specific domain, we achieved full BCNF compliance while preserving 100% of functional) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 700.89 Td (dependencies locally without requiring expensive inter-table assertions.) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 659.39 507.28 32.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 682.89 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 672.89 Td (In 3NF, X -> Y allows Y to be a prime attribute even if X is not a superkey. In BCNF, X must ALWAYS be a superkey. In our tables,) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 662.89 Td (every single determinant X is already a Primary Key, so we hit BCNF automatically!) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 636.89 507.28 17.50 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 645.39 Td (HOSTILE TRAP WARNING: NEVER say 'BCNF was too hard' or 'We didn't need BCNF.' Say 'Our schema strictly satisfies BCNF.') Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 407.39 523.28 208.50 re B
+0.110 0.160 0.280 rg 36.00 582.89 523.28 33.00 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 604.89 Td (Q2: Why do you have BOTH a UNIQUE constraint on \(flight_id, seat_id\) AND an aircraft capacity trigger?) Tj ET
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 592.39 Td (Isn't that redundant?) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 575.89 Td (Evaluator Intent: Can you distinguish between micro-level relational uniqueness and macro-level business capacity invariants?) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 487.39 507.28 77.00 re B
+0.250 0.350 0.850 rg 44.00 487.39 3.50 77.00 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 555.39 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 544.39 Td (That is layered defensive database engineering addressing two fundamentally distinct invariants. UNIQUE\(flight_id, seat_id\)) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 533.89 Td (enforces Micro-Invariant Uniqueness -- preventing two passengers from being allocated the same physical seat on a flight leg. The) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 523.39 Td (trigger trg_verify_aircraft_capacity enforces Macro-Invariant Airframe Capacity. For example, if operational dispatch dynamically) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 512.89 Td (swaps an aircraft on a flight from an Airbus A321 \(220 seats\) down to an A320 \(180 seats\), previously booked seat IDs might all be) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 502.39 Td (unique, but would violate physical airframe capacity. The trigger acts as an active barrier preventing overbooking beyond certified) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 491.89 Td (equipment limits.) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 450.39 507.28 32.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 473.89 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 463.89 Td (Unique seat numbers stop two passengers sitting on seat 5A. The capacity trigger stops the airline selling 200 tickets on a plane) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 453.89 Td (that only has 180 seats.) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 418.39 507.28 27.00 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 436.39 Td (HOSTILE TRAP WARNING: Do NOT say 'I added both just in case.' Use the exact terms Micro-Level Uniqueness and Macro-Level) Tj ET
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 426.89 Td (Airframe Capacity.) Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 198.89 523.28 198.50 re B
+0.110 0.160 0.280 rg 36.00 364.39 523.28 33.00 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 386.39 Td (Q3: Why use surrogate integer keys \(booking_id, ticket_id\) instead of natural keys \(booking_ref,) Tj ET
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 373.89 Td (passport_number\)?) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 357.39 Td (Evaluator Intent: Do you understand B-Tree index storage, leaf page fragmentation, and RAM buffer cache efficiency?) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 268.89 507.28 77.00 re B
+0.250 0.350 0.850 rg 44.00 268.89 3.50 77.00 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 336.89 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 325.89 Td (We used natural keys where domain standards are globally immutable -- specifically CHAR\(3\) for IATA airport codes. However, for) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 315.39 Td (high-write transactional tables like bookings, tickets, and payments, we deliberately used monotonic integer surrogate keys for) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 304.89 Td (three enterprise reasons: 1\) B-Tree Page Fill Factors: Sequential integers append cleanly to the right of B-Tree pages, eliminating) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 294.39 Td (index page fragmentation caused by random strings. 2\) Memory Efficiency: Joining 4-byte integers across 6 downstream tables) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 283.89 Td (consumes significantly less buffer cache RAM than joining 20-character strings. 3\) Business Logic Isolation: If a customer updates) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 273.39 Td (their PNR or email, zero foreign keys break across downstream operational ledgers.) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 241.89 507.28 22.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 255.39 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 245.39 Td (Computers compare integers in 1 CPU cycle. Comparing long strings takes many cycles and causes page splits on disk B-Trees.) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 209.89 507.28 27.00 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 227.89 Td (HOSTILE TRAP WARNING: Do NOT say 'Auto-increment is just easier.' Emphasize B-Tree leaf page fragmentation and buffer) Tj ET
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 218.39 Td (cache efficiency.) Tj ET
+0.80 0.84 0.90 RG 0.5 w 36.0 32 m 559.28 32 l S
+0.45 0.50 0.60 rg BT /F1 7.5 Tf 36.0 20 Td (DBMS Course Project | Review 2 | Hostile Viva Survival Playbook) Tj ET
+0.20 0.25 0.35 rg BT /F2 8.0 Tf 499.28 20 Td (Page 2 of 7) Tj ET
+endstream
+endobj
+14 0 obj
+<< /Length 7955 >>
+stream
+0.820 0.860 0.920 RG 1.00 w 36.00 815.89 523.28 0.50 re S
+0.400 0.450 0.550 rg BT /F2 7.50 Tf 36.00 819.89 Td (ARFOM-DB | AIRLINE RESERVATION & OPERATIONS SYSTEM | VIVA DEFENSE DOSSIER) Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 616.39 523.28 185.50 re B
+0.110 0.160 0.280 rg 36.00 781.39 523.28 20.50 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 790.89 Td (Q4: Why is aircraft_id in seats ON DELETE CASCADE, but in flights it is ON DELETE RESTRICT?) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 774.39 Td (Evaluator Intent: Do you understand referential integrity actions, weak composition entities, and commercial data safety?) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 696.39 507.28 66.50 re B
+0.250 0.350 0.850 rg 44.00 696.39 3.50 66.50 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 753.89 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 742.89 Td (Because seats represents an existence-dependent physical component of an airframe \(a weak composition entity\). A physical seat) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 732.39 Td (cannot exist without the plane it is bolted into; when a retired plane is scrapped, its physical seat layout cascades cleanly. In) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 721.89 Td (contrast, flights represents an active commercial commitment. If an aircraft has active scheduled flights with booked passengers,) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 711.39 Td (deleting the aircraft must be strictly BLOCKED \(RESTRICT\). This creates a defensive safety net: an in-service aircraft can never be) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 700.89 Td (deleted while assigned to flights, while decommissioned aircraft can safely purge their seat maps.) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 659.39 507.28 32.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 682.89 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 672.89 Td (Scrapping a plane scraps its chairs \(CASCADE\). But you cannot delete a plane if it has passengers scheduled to fly on it tomorrow) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 662.89 Td (\(RESTRICT\).) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 627.39 507.28 27.00 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 645.39 Td (HOSTILE TRAP WARNING: Point out that flights\(aircraft_id\) RESTRICT protects in-service planes and booked tickets from) Tj ET
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 635.89 Td (accidental deletion!) Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 420.89 523.28 185.50 re B
+0.110 0.160 0.280 rg 36.00 585.89 523.28 20.50 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 595.39 Td (Q5: Why is fare_amount stored inside tickets when you could calculate it from a fares table?) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 578.89 Td (Evaluator Intent: Do you understand point-in-time financial auditability and GAAP compliance vs naive over-normalization?) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 500.89 507.28 66.50 re B
+0.250 0.350 0.850 rg 44.00 500.89 3.50 66.50 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 558.39 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 547.39 Td (Storing fare_amount directly on the tickets table is a deliberate architectural decision required for Temporal Immutability and) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 536.89 Td (Financial Accounting Standards \(GAAP\). Airline fares fluctuate dynamically due to yield management and demand algorithms. If we) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 526.39 Td (calculated ticket prices dynamically via a join to a live fare matrix, every time the airline adjusted prices, the calculated historical) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 515.89 Td (revenue of flights flown three months ago would retroactively change, corrupting financial ledgers. Storing the transacted fare at the) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 505.39 Td (instant of issuance maintains immutable point-in-time audit integrity.) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 463.89 507.28 32.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 487.39 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 477.39 Td (If you buy milk for Rs. 50, and next week the store raises milk to Rs. 60, your old printed receipt shouldn't magically change to Rs.) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 467.39 Td (60.) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 431.89 507.28 27.00 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 449.89 Td (HOSTILE TRAP WARNING: Never apologize for storing fare_amount. Proudly call it 'Temporal point-in-time auditing under GAAP) Tj ET
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 440.39 Td (compliance.') Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 191.89 523.28 219.00 re B
+0.110 0.160 0.280 rg 36.00 377.89 523.28 33.00 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 399.89 Td (Q6: What happens under heavy concurrent booking traffic? Won't two users booking the same seat cause) Tj ET
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 387.39 Td (a race condition in your trigger?) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 370.89 Td (Evaluator Intent: Transaction isolation, row-level locking, and ACID storage engine guarantees under high concurrency.) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 271.89 507.28 87.50 re B
+0.250 0.350 0.850 rg 44.00 271.89 3.50 87.50 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 350.39 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 339.39 Td (In an enterprise production environment, concurrency is resolved through two defensive tiers: 1\) Transaction Isolation & Row-Level) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 328.89 Td (Locking: Booking transactions execute under ISOLATION LEVEL REPEATABLE READ or acquire pessimistic row locks via) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 318.39 Td (SELECT aircraft_id FROM flights WHERE flight_id = ? FOR UPDATE. This serializes concurrent booking requests against that) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 307.89 Td (flight leg. 2\) Atomic Storage Engine Barrier: Even if two concurrent threads bypassed the application trigger simultaneously, the) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 297.39 Td (database's declarative constraint UNIQUE \(flight_id, seat_id\) is enforced atomically at the storage engine's B-Tree leaf level. The) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 286.89 Td (B-Tree page latch guarantees that one thread commits and the second thread is immediately rejected with a duplicate key) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 276.39 Td (exception.) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 234.89 507.28 32.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 258.39 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 248.39 Td (Even if two users click 'Buy' at the exact same millisecond, the database index physically only allows one row to be written. The) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 238.39 Td (second gets an instant error.) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 202.89 507.28 27.00 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 220.89 Td (HOSTILE TRAP WARNING: Do NOT say 'Concurrency is handled by the front-end.' Concurrency in DBMS is handled by) Tj ET
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 211.39 Td (transaction isolation levels and B-Tree unique latches.) Tj ET
+0.80 0.84 0.90 RG 0.5 w 36.0 32 m 559.28 32 l S
+0.45 0.50 0.60 rg BT /F1 7.5 Tf 36.0 20 Td (DBMS Course Project | Review 2 | Hostile Viva Survival Playbook) Tj ET
+0.20 0.25 0.35 rg BT /F2 8.0 Tf 499.28 20 Td (Page 3 of 7) Tj ET
+endstream
+endobj
+15 0 obj
+<< /Length 7282 >>
+stream
+0.820 0.860 0.920 RG 1.00 w 36.00 815.89 523.28 0.50 re S
+0.400 0.450 0.550 rg BT /F2 7.50 Tf 36.00 819.89 Td (ARFOM-DB | AIRLINE RESERVATION & OPERATIONS SYSTEM | VIVA DEFENSE DOSSIER) Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 603.89 523.28 198.00 re B
+0.110 0.160 0.280 rg 36.00 768.89 523.28 33.00 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 790.89 Td (Q7: Why did you write triggers instead of declarative CHECK constraints for capacity and check-in) Tj ET
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 778.39 Td (eligibility?) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 761.89 Td (Evaluator Intent: SQL standard declarative constraint boundaries vs procedural extensions.) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 683.89 507.28 66.50 re B
+0.250 0.350 0.850 rg 44.00 683.89 3.50 66.50 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 741.39 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 730.39 Td (Because ANSI SQL standards strictly limit declarative CHECK constraints to single-row, single-table attribute evaluations. A) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 719.89 Td (CHECK constraint cannot execute subqueries or inspect parent table states across foreign tables -- for instance, checking) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 709.39 Td (bookings.booking_status from inside a checkins insert, or calculating COUNT\(tickets\) against aircraft.total_capacity. In relational) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 698.89 Td (database engines like PostgreSQL and MySQL, cross-table invariant assertions must be enforced via Procedural Triggers) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 688.39 Td (\(BEFORE INSERT\), which execute with indexed O\(1\) lookups.) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 646.89 507.28 32.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 670.39 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 660.39 Td (CHECK constraints only know what is in the row you are currently typing. They cannot look into other tables. Triggers can query) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 650.39 Td (any table.) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 614.89 507.28 27.00 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 632.89 Td (HOSTILE TRAP WARNING: Do NOT say 'I like triggers better.' Say 'Declarative CHECK constraints cannot execute subqueries) Tj ET
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 623.39 Td (across foreign tables in the SQL standard.') Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 415.39 523.28 178.50 re B
+0.110 0.160 0.280 rg 36.00 560.89 523.28 33.00 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 582.89 Td (Q8: Why is cancellations a separate table with ticket_id UNIQUE instead of just setting ticket_status =) Tj ET
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 570.39 Td ('CANCELLED' in tickets?) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 553.89 Td (Evaluator Intent: Sparse tables, null anomalies, and 3NF normalization vs audit ledgers.) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 475.89 507.28 66.50 re B
+0.250 0.350 0.850 rg 44.00 475.89 3.50 66.50 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 533.39 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 522.39 Td (That directly satisfies Third Normal Form \(3NF\) and Financial Audit Separation: 1\) Elimination of Null Anomalies: Cancellation) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 511.89 Td (metadata \(cancellation_timestamp, refund_amount\) applies only to cancelled tickets. Adding these columns directly into tickets) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 501.39 Td (would force 95% of active issued tickets to store NULL values, resulting in sparse, inefficient tables. 2\) Audit Ledger Integrity: A) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 490.89 Td (cancellation is a distinct financial accounting event involving refund capital disbursement. A dedicated ledger with ticket_id UNIQUE) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 480.39 Td (preserves an unalterable audit trail and links cleanly to payment reconciliation.) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 448.89 507.28 22.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 462.39 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 452.39 Td (You don't put a 'Date of Death' column on a live employee badge table; you keep termination records in a dedicated audit log.) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 426.39 507.28 17.50 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 434.89 Td (HOSTILE TRAP WARNING: Mention that it avoids 'Sparse Tables and Null Anomalies in dense relational pages.') Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 229.39 523.28 176.00 re B
+0.110 0.160 0.280 rg 36.00 384.89 523.28 20.50 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 394.39 Td (Q9: What index structures did you create and why?) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 377.89 Td (Evaluator Intent: Indexing strategy, B-Tree selectivity, and query optimization paths.) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 299.89 507.28 66.50 re B
+0.250 0.350 0.850 rg 44.00 299.89 3.50 66.50 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 357.39 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 346.39 Td (We created secondary B-Tree composite indexes targeted at high-frequency query access paths: 1\) idx_flights_search on) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 335.89 Td (flights\(route_id, scheduled_departure, flight_status\): Optimizes customer flight searches using an index-only range scan without) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 325.39 Td (full-table scans. 2\) idx_bookings_pnr on bookings\(booking_ref\): Guarantees O\(log N\) hash-like lookup speed when ground staff) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 314.89 Td (query a 6-character PNR. 3\) idx_tickets_booking on tickets\(booking_id\) and idx_tickets_flight on tickets\(flight_id\): Accelerates) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 304.39 Td (multi-table joins when assembling real-time flight manifests and calculating occupancy yield.) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 262.89 507.28 32.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 286.39 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 276.39 Td (An index is like the index at the back of a textbook. Instead of reading all 500 pages to find 'Delhi flight', you jump directly to page) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 266.39 Td (42.) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 240.39 507.28 17.50 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 248.89 Td (HOSTILE TRAP WARNING: Always specify that they are 'Secondary B-Tree Composite Indexes' with high selectivity.) Tj ET
+0.80 0.84 0.90 RG 0.5 w 36.0 32 m 559.28 32 l S
+0.45 0.50 0.60 rg BT /F1 7.5 Tf 36.0 20 Td (DBMS Course Project | Review 2 | Hostile Viva Survival Playbook) Tj ET
+0.20 0.25 0.35 rg BT /F2 8.0 Tf 499.28 20 Td (Page 4 of 7) Tj ET
+endstream
+endobj
+16 0 obj
+<< /Length 8283 >>
+stream
+0.820 0.860 0.920 RG 1.00 w 36.00 815.89 523.28 0.50 re S
+0.400 0.450 0.550 rg BT /F2 7.50 Tf 36.00 819.89 Td (ARFOM-DB | AIRLINE RESERVATION & OPERATIONS SYSTEM | VIVA DEFENSE DOSSIER) Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 625.39 523.28 176.50 re B
+0.110 0.160 0.280 rg 36.00 781.39 523.28 20.50 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 790.89 Td (Q10: Prove that your schema decomposition has no insertion, deletion, or update anomalies.) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 774.39 Td (Evaluator Intent: Practical proof of 3NF normalization benefits across the data lifecycle.) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 685.89 507.28 77.00 re B
+0.250 0.350 0.850 rg 44.00 685.89 3.50 77.00 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 753.89 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 742.89 Td (We can prove this by inspecting our decoupled entities: 1\) No Insertion Anomaly: We can add a newly commissioned airport into) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 732.39 Td (airports or a new plane into aircraft without requiring any flights, bookings, or passengers to exist. In the unnormalized relation) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 721.89 Td (\(UNF\), an airport could not exist without a booking reference. 2\) No Deletion Anomaly: If a passenger cancels their booking, or if) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 711.39 Td (old booking records are archived, the physical flight corridor, schedule, and aircraft definitions remain intact. 3\) No Update) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 700.89 Td (Anomaly: If Indira Gandhi International Airport changes its name, we update a single row in airports. All downstream routes and) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 690.39 Td (flights instantly reflect the update via foreign key reference without inconsistent duplicates.) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 658.89 507.28 22.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 672.39 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 662.39 Td (Decoupling independent entities means updating an airport name in 1 place updates it everywhere without contradictory data.) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 636.39 507.28 17.50 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 644.89 Td (HOSTILE TRAP WARNING: State all 3 anomalies clearly: Insertion, Deletion, and Update.) Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 470.39 523.28 145.00 re B
+0.110 0.160 0.280 rg 36.00 594.89 523.28 20.50 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 604.39 Td (Q11: What is a Weak Entity in your schema, and how is it identified?) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 587.89 Td (Evaluator Intent: Relational entity modeling semantics, existence dependency, and identifying composite keys.) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 530.89 507.28 45.50 re B
+0.250 0.350 0.850 rg 44.00 530.89 3.50 45.50 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 567.39 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 556.39 Td (In our schema, seats and baggage function as Weak Entities. A seat cannot exist without an aircraft \(composite key aircraft_id +) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 545.89 Td (seat_number\). A bag cannot exist without an originating check-in event \(checkin_id\). Both cascade on parent deletion \(ON) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 535.39 Td (DELETE CASCADE\).) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 503.89 507.28 22.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 517.39 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 507.39 Td (A weak entity cannot be uniquely identified by its own attributes alone; it borrows part of its identity from a parent owner.) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 481.39 507.28 17.50 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 489.89 Td (HOSTILE TRAP WARNING: Quote the composite unique constraint: UNIQUE \(aircraft_id, seat_number\).) Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 315.39 523.28 145.00 re B
+0.110 0.160 0.280 rg 36.00 439.89 523.28 20.50 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 449.39 Td (Q12: How do your triggers maintain state machine transitions automatically?) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 432.89 Td (Evaluator Intent: Active database automation, automated side effects, and lifecycle integrity.) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 375.89 507.28 45.50 re B
+0.250 0.350 0.850 rg 44.00 375.89 3.50 45.50 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 412.39 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 401.39 Td (Our triggers execute active state machine transitions: Inserting into checkins triggers an update setting tickets.ticket_status =) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 390.89 Td ('CHECKED_IN'. Inserting into cancellations triggers an update setting tickets.ticket_status = 'CANCELLED'. This guarantees that) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 380.39 Td (application software cannot accidentally leave tickets in an inconsistent or out-of-sync state.) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 348.89 507.28 22.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 362.39 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 352.39 Td (The database acts as an active gatekeeper that guarantees lifecycle states remain valid without relying solely on client code.) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 326.39 507.28 17.50 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 334.89 Td (HOSTILE TRAP WARNING: Call it 'Engine-enforced state machine automation.') Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 139.39 523.28 166.00 re B
+0.110 0.160 0.280 rg 36.00 284.89 523.28 20.50 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 294.39 Td (Q13: Explain Lossless Join Decomposition and how your schema satisfies it.) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 277.89 Td (Evaluator Intent: Formal mathematical relational theorem: R1 INTERSECT R2 -> R1 or R2 in F+.) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 199.89 507.28 66.50 re B
+0.250 0.350 0.850 rg 44.00 199.89 3.50 66.50 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 257.39 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 246.39 Td (A decomposition of relation R into R1 and R2 is Lossless if and only if R1 INTERSECT R2 -> R1 or R1 INTERSECT R2 -> R2 in) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 235.89 Td (F+. In our schema, every single join condition between related tables is a Primary Key: airports INTERSECT routes = airport_code) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 225.39 Td (\(PK of airports\); aircraft INTERSECT seats = aircraft_id \(PK of aircraft\); bookings INTERSECT tickets = booking_id \(PK of) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 214.89 Td (bookings\). Because the common attribute is always a candidate key, joining tables reconstructs the universal relation with zero) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 204.39 Td (spurious or false tuples.) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 172.89 507.28 22.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 186.39 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 176.39 Td (Lossless join means when you stitch the tables back together with JOIN, you get the exact original data back -- no ghost rows.) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 150.39 507.28 17.50 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 158.89 Td (HOSTILE TRAP WARNING: Quote the formula: R1 INTERSECT R2 -> R1 or R1 INTERSECT R2 -> R2.) Tj ET
+0.80 0.84 0.90 RG 0.5 w 36.0 32 m 559.28 32 l S
+0.45 0.50 0.60 rg BT /F1 7.5 Tf 36.0 20 Td (DBMS Course Project | Review 2 | Hostile Viva Survival Playbook) Tj ET
+0.20 0.25 0.35 rg BT /F2 8.0 Tf 499.28 20 Td (Page 5 of 7) Tj ET
+endstream
+endobj
+17 0 obj
+<< /Length 6078 >>
+stream
+0.820 0.860 0.920 RG 1.00 w 36.00 815.89 523.28 0.50 re S
+0.400 0.450 0.550 rg BT /F2 7.50 Tf 36.00 819.89 Td (ARFOM-DB | AIRLINE RESERVATION & OPERATIONS SYSTEM | VIVA DEFENSE DOSSIER) Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 646.39 523.28 155.50 re B
+0.110 0.160 0.280 rg 36.00 781.39 523.28 20.50 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 790.89 Td (Q14: Explain Dependency Preservation and why your schema preserves 100% of FDs.) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 774.39 Td (Evaluator Intent: Bernstein's synthesis theorem: \(F1 UNION F2 UNION ... UNION Fk\)+ == F+.) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 706.89 507.28 56.00 re B
+0.250 0.350 0.850 rg 44.00 706.89 3.50 56.00 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 753.89 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 742.89 Td (Dependency Preservation means the union of all functional dependencies projected onto our individual tables equals the global) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 732.39 Td (closure: \(F1 UNION F2 UNION ... UNION Fk\)+ == F+. In our schema, all 18 minimal functional dependencies are enforced locally) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 721.89 Td (inside their single projected table via Primary Keys and UNIQUE constraints without requiring expensive cross-table joins during) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 711.39 Td (every insert or update.) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 679.89 507.28 22.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 693.39 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 683.39 Td (Dependency preservation means you don't need to join 3 tables just to check if an insert is legal.) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 657.39 507.28 17.50 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 665.89 Td (HOSTILE TRAP WARNING: State that all 18 functional dependencies are enforced locally via PK/UQ.) Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 470.89 523.28 165.50 re B
+0.110 0.160 0.280 rg 36.00 615.89 523.28 20.50 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 625.39 Td (Q15: What is the difference between Logical and Physical Data Independence in your project?) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 608.89 Td (Evaluator Intent: ANSI/SPARC 3-schema architecture in practical database deployment.) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 541.39 507.28 56.00 re B
+0.250 0.350 0.850 rg 44.00 541.39 3.50 56.00 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 588.39 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 577.39 Td (1\) Logical Data Independence is demonstrated through our Operational Views \(view_flight_manifest, view_flight_occupancy\). If) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 566.89 Td (internal tables change or columns are added, the conceptual views consumed by ground applications remain constant. 2\) Physical) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 556.39 Td (Data Independence is demonstrated through our Secondary B-Tree Indexes; we can add, drop, or rebuild indexes like) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 545.89 Td (idx_flights_search without altering a single application SQL query or changing table schemas.) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 504.39 507.28 32.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 527.89 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 517.89 Td (Logical independence protects user queries from schema changes. Physical independence protects queries from storage/indexing) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 507.89 Td (changes.) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 481.89 507.28 17.50 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 490.39 Td (HOSTILE TRAP WARNING: Use view_flight_manifest as the logical example and idx_flights_search as the physical example.) Tj ET
+1.000 1.000 1.000 rg 0.800 0.840 0.900 RG 0.80 w 36.00 315.89 523.28 145.00 re B
+0.110 0.160 0.280 rg 36.00 440.39 523.28 20.50 re f
+1.000 1.000 1.000 rg BT /F2 9.50 Tf 46.00 449.89 Td (Q16: How does your database handle refund deductions? Why not just refund 100%?) Tj ET
+0.450 0.500 0.600 rg BT /F1 7.50 Tf 48.00 433.39 Td (Evaluator Intent: Financial domain rules, business check constraints, and revenue leakage prevention.) Tj ET
+0.940 0.960 1.000 rg 0.800 0.860 0.960 RG 0.50 w 44.00 376.39 507.28 45.50 re B
+0.250 0.350 0.850 rg 44.00 376.39 3.50 45.50 re f
+0.180 0.250 0.650 rg BT /F2 7.50 Tf 52.00 412.89 Td (RECITE OUT LOUD \(15 SECONDS\):) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 401.89 Td (Airlines deduct cancellation penalties based on booking cancellation windows. In our seed data, Ticket #5 had a fare of Rs.) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 391.39 Td (8,500.00 and was refunded Rs. 6,800.00, retaining Rs. 1,700.00 as penalty profit. Trigger trg_enforce_refund_bounds guarantees) Tj ET
+0.080 0.120 0.220 rg BT /F1 8.00 Tf 52.00 380.89 Td (refunds cannot exceed base fare. Query #5 tracks net retained cancellation penalties across the system.) Tj ET
+0.970 0.980 0.990 rg 0.880 0.900 0.940 RG 0.50 w 44.00 349.39 507.28 22.00 re B
+0.350 0.400 0.480 rg BT /F2 7.00 Tf 52.00 362.89 Td (PLAIN-ENGLISH CONCEPT \(ELI5\):) Tj ET
+0.200 0.240 0.300 rg BT /F1 8.00 Tf 52.00 352.89 Td (Cancellation fee = Paid Fare minus Refund Amount. The trigger guarantees refund <= fare so the airline never loses money.) Tj ET
+1.000 0.940 0.950 rg 0.950 0.650 0.700 RG 0.60 w 44.00 326.89 507.28 17.50 re B
+0.750 0.120 0.200 rg BT /F2 7.50 Tf 50.00 335.39 Td (HOSTILE TRAP WARNING: Refer to Query #5 in sql/03_queries_and_views.sql.) Tj ET
+0.80 0.84 0.90 RG 0.5 w 36.0 32 m 559.28 32 l S
+0.45 0.50 0.60 rg BT /F1 7.5 Tf 36.0 20 Td (DBMS Course Project | Review 2 | Hostile Viva Survival Playbook) Tj ET
+0.20 0.25 0.35 rg BT /F2 8.0 Tf 499.28 20 Td (Page 6 of 7) Tj ET
+endstream
+endobj
+18 0 obj
+<< /Length 8016 >>
+stream
+0.820 0.860 0.920 RG 1.00 w 36.00 815.89 523.28 0.50 re S
+0.400 0.450 0.550 rg BT /F2 7.50 Tf 36.00 819.89 Td (ARFOM-DB | AIRLINE RESERVATION & OPERATIONS SYSTEM | VIVA DEFENSE DOSSIER) Tj ET
+0.250 0.350 0.850 rg 36.00 779.89 4.00 22.00 re f
+0.940 0.960 0.990 rg 0.860 0.900 0.960 RG 0.50 w 42.00 779.89 517.28 22.00 re B
+0.100 0.160 0.350 rg BT /F2 9.50 Tf 50.00 786.89 Td (PART 4: EMERGENCY SURVIVAL PROTOCOL \(THE POKER FACE\)) Tj ET
+0.980 0.990 1.000 rg 0.820 0.860 0.920 RG 0.60 w 36.00 725.39 523.28 44.50 re B
+0.300 0.450 0.850 rg 36.00 725.39 3.00 44.50 re f
+0.120 0.220 0.450 rg BT /F2 9.00 Tf 46.00 758.89 Td (1. If She Interrupts Mid-Sentence) Tj ET
+0.150 0.180 0.220 rg BT /F1 8.00 Tf 46.00 745.89 Td (Do not look defensive or flustered. Stop speaking instantly, nod once, let her finish, then respond calmly:) Tj ET
+0.350 0.400 0.500 rg BT /F1 7.50 Tf 46.00 733.89 Td (Example: 'Yes, Vice Dean, that directly relates to our referential constraint in table...') Tj ET
+0.980 0.990 1.000 rg 0.820 0.860 0.920 RG 0.60 w 36.00 665.39 523.28 54.00 re B
+0.300 0.450 0.850 rg 36.00 665.39 3.00 54.00 re f
+0.120 0.220 0.450 rg BT /F2 9.00 Tf 46.00 708.39 Td (2. If She Asks a Term You Don't Know \(The Pivot Script\)) Tj ET
+0.150 0.180 0.220 rg BT /F1 8.00 Tf 46.00 695.39 Td (Do not guess or use fake buzzwords. Throw the ball back into her court calmly:) Tj ET
+0.350 0.400 0.500 rg BT /F1 7.50 Tf 46.00 683.39 Td (Example: 'In our operational architecture, we enforced that directly at the storage engine layer via triggers. Could you specify which table's) Tj ET
+0.350 0.400 0.500 rg BT /F1 7.50 Tf 46.00 673.89 Td (lifecycle you would like to see that applied to?') Tj ET
+0.980 0.990 1.000 rg 0.820 0.860 0.920 RG 0.60 w 36.00 614.89 523.28 44.50 re B
+0.300 0.450 0.850 rg 36.00 614.89 3.00 44.50 re f
+0.120 0.220 0.450 rg BT /F2 9.00 Tf 46.00 648.39 Td (3. The 3-Second Rule \(Executive Composure\)) Tj ET
+0.150 0.180 0.220 rg BT /F1 8.00 Tf 46.00 635.39 Td (When she finishes asking a hostile question, count 1... 2... 3... in your head before answering.) Tj ET
+0.350 0.400 0.500 rg BT /F1 7.50 Tf 46.00 623.39 Td (Example: A calm 3-second pause makes you look like an architect analyzing tradeoffs, not a panicked student reciting memorized notes.) Tj ET
+0.250 0.350 0.850 rg 36.00 586.89 4.00 22.00 re f
+0.940 0.960 0.990 rg 0.860 0.900 0.960 RG 0.50 w 42.00 586.89 517.28 22.00 re B
+0.100 0.160 0.350 rg BT /F2 9.50 Tf 50.00 593.89 Td (PART 5: 12-TABLE RAPID MENTAL MAP \(ONE-LINE MEMORY TRIGGERS\)) Tj ET
+0.960 0.980 1.000 rg 0.880 0.900 0.940 RG 0.40 w 36.00 559.89 523.28 17.00 re B
+0.150 0.250 0.450 rg 40.00 562.39 76.00 12.00 re f
+1.000 1.000 1.000 rg BT /F2 7.50 Tf 44.00 564.39 Td (airports) Tj ET
+0.150 0.200 0.300 rg BT /F1 7.50 Tf 122.00 564.39 Td (Physical terminals \(DEL, BOM\). Primary Key = airport_code CHAR\(3\).) Tj ET
+1.000 1.000 1.000 rg 0.880 0.900 0.940 RG 0.40 w 36.00 542.89 523.28 17.00 re B
+0.150 0.250 0.450 rg 40.00 545.39 76.00 12.00 re f
+1.000 1.000 1.000 rg BT /F2 7.50 Tf 44.00 547.39 Td (routes) Tj ET
+0.150 0.200 0.300 rg BT /F1 7.50 Tf 122.00 547.39 Td (Flight corridors between 2 airports with distance_km. Enforces origin != dest.) Tj ET
+0.960 0.980 1.000 rg 0.880 0.900 0.940 RG 0.40 w 36.00 525.89 523.28 17.00 re B
+0.150 0.250 0.450 rg 40.00 528.39 76.00 12.00 re f
+1.000 1.000 1.000 rg BT /F2 7.50 Tf 44.00 530.39 Td (aircraft) Tj ET
+0.150 0.200 0.300 rg BT /F1 7.50 Tf 122.00 530.39 Td (Physical airframes with certified total_capacity and model code.) Tj ET
+1.000 1.000 1.000 rg 0.880 0.900 0.940 RG 0.40 w 36.00 508.89 523.28 17.00 re B
+0.150 0.250 0.450 rg 40.00 511.39 76.00 12.00 re f
+1.000 1.000 1.000 rg BT /F2 7.50 Tf 44.00 513.39 Td (seats) Tj ET
+0.150 0.200 0.300 rg BT /F1 7.50 Tf 122.00 513.39 Td (Physical chairs bolted inside airframe. Cascades on aircraft delete.) Tj ET
+0.960 0.980 1.000 rg 0.880 0.900 0.940 RG 0.40 w 36.00 491.89 523.28 17.00 re B
+0.150 0.250 0.450 rg 40.00 494.39 76.00 12.00 re f
+1.000 1.000 1.000 rg BT /F2 7.50 Tf 44.00 496.39 Td (flights) Tj ET
+0.150 0.200 0.300 rg BT /F1 7.50 Tf 122.00 496.39 Td (Scheduled trips on a route using an aircraft with departure and arrival times.) Tj ET
+1.000 1.000 1.000 rg 0.880 0.900 0.940 RG 0.40 w 36.00 474.89 523.28 17.00 re B
+0.150 0.250 0.450 rg 40.00 477.39 76.00 12.00 re f
+1.000 1.000 1.000 rg BT /F2 7.50 Tf 44.00 479.39 Td (passengers) Tj ET
+0.150 0.200 0.300 rg BT /F1 7.50 Tf 122.00 479.39 Td (Customer identities with unique passport numbers and email addresses.) Tj ET
+0.960 0.980 1.000 rg 0.880 0.900 0.940 RG 0.40 w 36.00 457.89 523.28 17.00 re B
+0.150 0.250 0.450 rg 40.00 460.39 76.00 12.00 re f
+1.000 1.000 1.000 rg BT /F2 7.50 Tf 44.00 462.39 Td (bookings) Tj ET
+0.150 0.200 0.300 rg BT /F1 7.50 Tf 122.00 462.39 Td (Commercial order tokens containing 6-character alphanumeric PNR.) Tj ET
+1.000 1.000 1.000 rg 0.880 0.900 0.940 RG 0.40 w 36.00 440.89 523.28 17.00 re B
+0.150 0.250 0.450 rg 40.00 443.39 76.00 12.00 re f
+1.000 1.000 1.000 rg BT /F2 7.50 Tf 44.00 445.39 Td (tickets) Tj ET
+0.150 0.200 0.300 rg BT /F1 7.50 Tf 122.00 445.39 Td (Central junction table connecting booking, flight, and seat. UNIQUE\(flight, seat\).) Tj ET
+0.960 0.980 1.000 rg 0.880 0.900 0.940 RG 0.40 w 36.00 423.89 523.28 17.00 re B
+0.150 0.250 0.450 rg 40.00 426.39 76.00 12.00 re f
+1.000 1.000 1.000 rg BT /F2 7.50 Tf 44.00 428.39 Td (payments) Tj ET
+0.150 0.200 0.300 rg BT /F1 7.50 Tf 122.00 428.39 Td (Monetary audit record \(UPI/Card\). Enforces positive transacted amount.) Tj ET
+1.000 1.000 1.000 rg 0.880 0.900 0.940 RG 0.40 w 36.00 406.89 523.28 17.00 re B
+0.150 0.250 0.450 rg 40.00 409.39 76.00 12.00 re f
+1.000 1.000 1.000 rg BT /F2 7.50 Tf 44.00 411.39 Td (checkins) Tj ET
+0.150 0.200 0.300 rg BT /F1 7.50 Tf 122.00 411.39 Td (1:1 gate clearance creating barcode boarding pass for confirmed tickets.) Tj ET
+0.960 0.980 1.000 rg 0.880 0.900 0.940 RG 0.40 w 36.00 389.89 523.28 17.00 re B
+0.150 0.250 0.450 rg 40.00 392.39 76.00 12.00 re f
+1.000 1.000 1.000 rg BT /F2 7.50 Tf 44.00 394.39 Td (baggage) Tj ET
+0.150 0.200 0.300 rg BT /F1 7.50 Tf 122.00 394.39 Td (Checked luggage custody tracking with non-negative weight constraint.) Tj ET
+1.000 1.000 1.000 rg 0.880 0.900 0.940 RG 0.40 w 36.00 372.89 523.28 17.00 re B
+0.150 0.250 0.450 rg 40.00 375.39 76.00 12.00 re f
+1.000 1.000 1.000 rg BT /F2 7.50 Tf 44.00 377.39 Td (cancellations) Tj ET
+0.150 0.200 0.300 rg BT /F1 7.50 Tf 122.00 377.39 Td (1:1 revocation ledger enforcing refund_amount <= ticket fare paid.) Tj ET
+0.250 0.350 0.850 rg 36.00 340.89 4.00 22.00 re f
+0.940 0.960 0.990 rg 0.860 0.900 0.960 RG 0.50 w 42.00 340.89 517.28 22.00 re B
+0.100 0.160 0.350 rg BT /F2 9.50 Tf 50.00 347.89 Td (PART 6: INSTANT DEMO VERIFICATION COMMANDS \(LIVE EXECUTION\)) Tj ET
+0.980 0.990 1.000 rg 0.820 0.860 0.920 RG 0.60 w 36.00 286.39 523.28 44.50 re B
+0.300 0.450 0.850 rg 36.00 286.39 3.00 44.50 re f
+0.120 0.220 0.450 rg BT /F2 9.00 Tf 46.00 319.89 Td (Run Full Automated Test Suite \(6 Negative Tests + Seed Verification\)) Tj ET
+0.150 0.180 0.220 rg BT /F1 8.00 Tf 46.00 306.89 Td (Execute in terminal to prove 100% database constraint and trigger enforcement in 3 seconds:) Tj ET
+0.350 0.400 0.500 rg BT /F1 7.50 Tf 46.00 294.89 Td (Example: python3 demo_runner.py --demo) Tj ET
+0.980 0.990 1.000 rg 0.820 0.860 0.920 RG 0.60 w 36.00 235.89 523.28 44.50 re B
+0.300 0.450 0.850 rg 36.00 235.89 3.00 44.50 re f
+0.120 0.220 0.450 rg BT /F2 9.00 Tf 46.00 269.39 Td (Open Vector Visual Dashboards in Browser \(ER Diagram, Data Dictionary, 3NF Proofs\)) Tj ET
+0.150 0.180 0.220 rg BT /F1 8.00 Tf 46.00 256.39 Td (Opens the complete high-contrast visual portal for Review 2 visual presentation:) Tj ET
+0.350 0.400 0.500 rg BT /F1 7.50 Tf 46.00 244.39 Td (Example: open visuals/index.html) Tj ET
+0.80 0.84 0.90 RG 0.5 w 36.0 32 m 559.28 32 l S
+0.45 0.50 0.60 rg BT /F1 7.5 Tf 36.0 20 Td (DBMS Course Project | Review 2 | Hostile Viva Survival Playbook) Tj ET
+0.20 0.25 0.35 rg BT /F2 8.0 Tf 499.28 20 Td (Page 7 of 7) Tj ET
+endstream
+endobj
+xref
+0 19
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000157 00000 n 
+0000000308 00000 n 
+0000000459 00000 n 
+0000000610 00000 n 
+0000000761 00000 n 
+0000000912 00000 n 
+0000001063 00000 n 
+0000001214 00000 n 
+0000001312 00000 n 
+0000001415 00000 n 
+0000009841 00000 n 
+0000017800 00000 n 
+0000025808 00000 n 
+0000033143 00000 n 
+0000041479 00000 n 
+0000047610 00000 n 
+trailer
+<< /Size 19 /Root 1 0 R >>
+startxref
+55679
+%%EOF

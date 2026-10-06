@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARFOM-DB — Review 2 Master Presentation Deck</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #FFFFFF;
+      --bg-secondary: #F8FAFC;
+      --bg-card: #FFFFFF;
+      --bg-table-header: #F1F5F9;
+      --border-color: #1E293B;
+      --border-subtle: #F1F5F9;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --text-dim: #64748B;
+      
+      --accent-blue: #0284C7;
+      --accent-indigo: #4F46E5;
+      --accent-emerald: #059669;
+      --accent-amber: #D97706;
+      --accent-rose: #E11D48;
+      --accent-purple: #7C3AED;
+
+      --badge-pk: #D97706;
+      --badge-fk: #0284C7;
+      --badge-unique: #7C3AED;
+      --badge-check: #059669;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #F8FAFC;
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      width: 100vw;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+
+    #presentation-container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F1F5F9;
+    }
+
+    /* Fixed 16:9 Presentation Slide Canvas */
+    .slide {
+      position: absolute;
+      width: min(96vw, calc(96vh * 16 / 9));
+      height: min(calc(96vw * 9 / 16), 96vh);
+      max-width: 1920px;
+      max-height: 1080px;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      display: none;
+      flex-direction: column;
+      padding: 34px 46px 28px;
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.03);
+      opacity: 0;
+      transition: opacity 0.22s ease-in-out;
+      overflow: hidden;
+    }
+
+    .slide.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    /* Slide Header */
+    .slide-header {
+      margin-bottom: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+      flex-shrink: 0;
+    }
+
+    .slide-title-group h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      color: #0F172A;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .slide-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .slide-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: #EEF2FF;
+      color: #4338CA;
+      border: 1px solid #C7D2FE;
+      text-transform: uppercase;
+    }
+
+    /* Title Page Layout */
+    .slide-title-page {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      position: relative;
+    }
+
+    .title-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      color: #065F46;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .main-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.15;
+      background: linear-gradient(135deg, #0F172A 20%, #334155 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 12px;
+      max-width: 900px;
+    }
+
+    .sub-title {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 34px;
+      font-weight: 400;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      width: 100%;
+      max-width: 940px;
+      background: #F8FAFC;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 18px 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .meta-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: #0F172A;
+    }
+
+    /* Content Layouts */
+    .content-area {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .content-area::-webkit-scrollbar {
+      width: 6px;
+    }
+    .content-area::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 3px;
+    }
+
+    /* Cards Grids */
+    .schema-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .schema-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .schema-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+
+    .schema-card-header {
+      padding: 10px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #F8FAFC;
+      border-bottom: 1px solid var(--border-color);
+      color: #0F172A;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .card-badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 6px;
+      border-radius: 4px;
+      background: #F1F5F9;
+      color: #475569;
+    }
+
+    .schema-card-body {
+      padding: 10px 14px;
+      font-size: 12px;
+      flex: 1;
+    }
+
+    .attr-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 4px 0;
+      border-bottom: 1px solid #F1F5F9;
+    }
+    .attr-row:last-child { border-bottom: none; }
+
+    .attr-name {
+      font-family: 'JetBrains Mono', monospace;
+      color: #1E293B;
+      font-size: 11.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pill {
+      font-size: 9.5px;
+      font-weight: 700;
+      padding: 1px 5px;
+      border-radius: 3px;
+      text-transform: uppercase;
+    }
+    .pill-pk { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+    .pill-fk { background: #E0F2FE; color: #0369A1; border: 1px solid #BAE6FD; }
+    .pill-uq { background: #F3E8FF; color: #6B21A8; border: 1px solid #E9D5FF; }
+    .pill-chk { background: #D1FAE5; color: #065F46; border: 1px solid #A7F3D0; }
+
+    /* Tables */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      text-align: left;
+    }
+
+    .data-table th {
+      background: var(--bg-table-header);
+      color: #475569;
+      font-weight: 600;
+      padding: 9px 12px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .data-table td {
+      padding: 8px 12px;
+      border-bottom: 1px solid #E2E8F0;
+      color: #1E293B;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+    }
+
+    .data-table tr:hover td {
+      background: #F8FAFC;
+    }
+
+    /* Query Box */
+    .query-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 14px;
+    }
+
+    .query-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .query-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #0F172A;
+    }
+
+    .sql-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      color: #0284C7;
+      background: #F8FAFC;
+      padding: 8px 12px;
+      border-radius: 6px;
+      border: 1px solid #E2E8F0;
+      white-space: pre-wrap;
+      margin-bottom: 8px;
+    }
+
+    /* Bottom Control Bar */
+    #controls-bar {
+      position: absolute;
+      bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(10px);
+      padding: 8px 16px;
+      border-radius: 30px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      z-index: 100;
+    }
+
+    .control-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: #475569;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .control-btn:hover {
+      background: #F1F5F9;
+      color: #0F172A;
+    }
+
+    .control-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+
+    .slide-counter {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-blue);
+      padding: 0 4px;
+    }
+
+    .progress-bar-container {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #6366F1, #38BDF8);
+      width: 10%;
+      transition: width 0.2s;
+    }
+
+    @media print {
+      body {
+        background: #FFFFFF !important;
+        overflow: visible !important;
+      }
+      #controls-bar, .progress-bar-container {
+        display: none !important;
+      }
+      #presentation-container {
+        display: block !important;
+        height: auto !important;
+        width: 100% !important;
+        background: none !important;
+      }
+      .slide {
+        display: flex !important;
+        page-break-after: always;
+        position: relative !important;
+        height: 100vh !important;
+        width: 100vw !important;
+        max-width: none !important;
+        border-radius: 0 !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 40px 60px !important;
+        opacity: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="presentation-container">
+
+    <!-- SLIDE 1: TITLE PAGE -->
+    <div class="slide active" id="slide-1" data-slide="1">
+      <div class="slide-title-page">
+        <div class="title-pill">DBMS REVIEW 2 (WEEK 11) • LIVE DEFENSE</div>
+        <h1 class="main-title">AIRLINE RESERVATION &amp; FLIGHT OPERATIONS MANAGEMENT SYSTEM</h1>
+        <div class="sub-title">Complete 3NF/BCNF Relational Architecture, Active Business Invariants, Integrity Constraints &amp; Analytical Queries</div>
+
+        <div class="meta-grid">
+          <div class="meta-item">
+            <span class="meta-label">Candidate</span>
+            <span class="meta-value">Sanjyit Suresh Kumar</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Course &amp; Subject</span>
+            <span class="meta-value">DBMS (25TU03MJM0)</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Target RDBMS</span>
+            <span class="meta-value">MySQL 8.0+ / SQLite 3.35+</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Deliverable Scope</span>
+            <span class="meta-value">Review 2 Prototype</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 2: OPERATIONAL SYSTEM ER DIAGRAM (ARFOM-DB) -->
+    <div class="slide" id="slide-2" data-slide="2">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <h2>✈️ OPERATIONAL SYSTEM ARCHITECTURE: ARFOM-DB (CROW'S FOOT)</h2>
+          <div class="slide-subtitle">10 Core Relational Tables, Airframe Topology, Dispatch, Passenger Ticketing &amp; Revenue Ledger</div>
+        </div>
+        <span class="slide-badge">CROW'S FOOT • 10 TABLES</span>
+      </div>
+      <div class="content-area">
+        <div style="background: #F8FAFC; border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; margin-bottom: 12px;">
+          <div style="display: flex; justify-content: space-around; font-size: 12.5px; text-align: center;">
+            <div><span style="color:#0284C7; font-weight:700;">Infrastructure (4)</span><br><span style="color:#64748B; font-size:11px;">airports, routes, aircraft, seats</span></div>
+            <div><span style="color:#A855F7; font-weight:700;">Operations (3)</span><br><span style="color:#94A3B8; font-size:11px;">flights, checkins, baggage</span></div>
+            <div><span style="color:#10B981; font-weight:700;">Commercial (3)</span><br><span style="color:#94A3B8; font-size:11px;">passengers, bookings, tickets</span></div>
+            <div><span style="color:#F59E0B; font-weight:700;">Audit &amp; Finance (2)</span><br><span style="color:#94A3B8; font-size:11px;">payments, cancellations</span></div>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-size: 12px; color: var(--text-dim); font-weight: 500;">💡 Scroll to Zoom • Click &amp; Drag background to Pan • Drag header to move tables • Double-click table to focus</span>
+          <a href="er_diagram_arfom.html" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; background: #4F46E5; color: white; border-radius: 6px; text-decoration: none; font-size: 12px; font-weight: 600; box-shadow: 0 2px 6px rgba(79,70,229,0.3); transition: all 0.2s;">
+            🔍 Open Fullscreen Studio ↗
+          </a>
+        </div>
+        <div style="text-align: center;">
+          <iframe src="er_diagram_arfom.html" style="width: 100%; height: 440px; border: 1px solid var(--border-color); border-radius: 10px; background: #FFFFFF;"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 3: SCHEMA DESIGN - FLEET & INFRASTRUCTURE -->
+    <div class="slide" id="slide-3" data-slide="3">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <h2>RELATIONAL SCHEMA DESIGN: INFRASTRUCTURE &amp; FLEET</h2>
+          <div class="slide-subtitle">DDL Definitions, Foreign Key Cascades, Capacity &amp; Seat Invariants</div>
+        </div>
+        <span class="slide-badge">MODULE 01 / 03</span>
+      </div>
+      <div class="content-area">
+        <div class="schema-grid-4">
+          <!-- airports -->
+          <div class="schema-card" style="border-top: 3px solid #38BDF8;">
+            <div class="schema-card-header"><span>airports</span><span class="card-badge">Table 01</span></div>
+            <div class="schema-card-body">
+              <div class="attr-row"><span class="attr-name">airport_code CHAR(3)</span><span class="pill pill-pk">PK</span></div>
+              <div class="attr-row"><span class="attr-name">airport_name VARCHAR</span><span>NOT NULL</span></div>
+              <div class="attr-row"><span class="attr-name">city VARCHAR</span><span>NOT NULL</span></div>
+              <div class="attr-row"><span class="attr-name">country VARCHAR</span><span>NOT NULL</span></div>
+            </div>
+          </div>
+          <!-- routes -->
+          <div class="schema-card" style="border-top: 3px solid #38BDF8;">
+            <div class="schema-card-header"><span>routes</span><span class="card-badge">Table 02</span></div>
+            <div class="schema-card-body">
+              <div class="attr-row"><span class="attr-name">route_id INT</span><span class="pill pill-pk">PK</span></div>
+              <div class="attr-row"><span class="attr-name">origin_airport</span><span class="pill pill-fk">FK RESTRICT</span></div>
+              <div class="attr-row"><span class="attr-name">dest_airport</span><span class="pill pill-fk">FK RESTRICT</span></div>
+              <div class="attr-row"><span class="attr-name">distance_km</span><span class="pill pill-chk">&gt; 0</span></div>
+              <div class="attr-row"><span class="attr-name">CHK: origin &lt;&gt; dest</span><span class="pill pill-chk">CHECK</span></div>
+            </div>
+          </div>
+          <!-- aircraft -->
+          <div class="schema-card" style="border-top: 3px solid #38BDF8;">
+            <div class="schema-card-header"><span>aircraft</span><span class="card-badge">Table 03</span></div>
+            <div class="schema-card-body">
+              <div class="attr-row"><span class="attr-name">aircraft_id INT</span><span class="pill pill-pk">PK</span></div>
+              <div class="attr-row"><span class="attr-name">model VARCHAR</span><span>NOT NULL</span></div>
+              <div class="attr-row"><span class="attr-name">total_capacity</span><span class="pill pill-chk">&gt; 0</span></div>
+            </div>
+          </div>
+          <!-- seats -->
+          <div class="schema-card" style="border-top: 3px solid #38BDF8;">
+            <div class="schema-card-header"><span>seats</span><span class="card-badge">Table 04</span></div>
+            <div class="schema-card-body">
+              <div class="attr-row"><span class="attr-name">seat_id INT</span><span class="pill pill-pk">PK</span></div>
+              <div class="attr-row"><span class="attr-name">aircraft_id INT</span><span class="pill pill-fk">FK CASCADE</span></div>
+              <div class="attr-row"><span class="attr-name">seat_number VARCHAR</span><span>12A, 14B</span></div>
+              <div class="attr-row"><span class="attr-name">seat_class</span><span class="pill pill-chk">CLASS CHK</span></div>
+              <div class="attr-row"><span class="attr-name">UQ(aircraft, seat)</span><span class="pill pill-uq">UNIQUE</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 4: SCHEMA DESIGN - COMMERCIAL & FLIGHTS -->
+    <div class="slide" id="slide-4" data-slide="4">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <h2>RELATIONAL SCHEMA DESIGN: PASSENGERS &amp; FLIGHT TICKETING</h2>
+          <div class="slide-subtitle">Flight Inventory, Commercial Reservations (PNR) &amp; Double-Booking Invariants</div>
+        </div>
+        <span class="slide-badge">MODULE 02 / 03</span>
+      </div>
+      <div class="content-area">
+        <div class="schema-grid-4">
+          <!-- flights -->
+          <div class="schema-card" style="border-top: 3px solid #A855F7;">
+            <div class="schema-card-header"><span>flights</span><span class="card-badge">Table 05</span></div>
+            <div class="schema-card-body">
+              <div class="attr-row"><span class="attr-name">flight_id INT</span><span class="pill pill-pk">PK</span></div>
+              <div class="attr-row"><span class="attr-name">route_id INT</span><span class="pill pill-fk">FK routes</span></div>
+              <div class="attr-row"><span class="attr-name">aircraft_id INT</span><span class="pill pill-fk">FK aircraft</span></div>
+              <div class="attr-row"><span class="attr-name">dep / arr TIME</span><span class="pill pill-chk">arr &gt; dep</span></div>
+              <div class="attr-row"><span class="attr-name">flight_status</span><span class="pill pill-chk">STATUS CHK</span></div>
+            </div>
+          </div>
+          <!-- passengers -->
+          <div class="schema-card" style="border-top: 3px solid #10B981;">
+            <div class="schema-card-header"><span>passengers</span><span class="card-badge">Table 06</span></div>
+            <div class="schema-card-body">
+              <div class="attr-row"><span class="attr-name">passenger_id INT</span><span class="pill pill-pk">PK</span></div>
+              <div class="attr-row"><span class="attr-name">first_name, last_name</span><span>1NF ATOMIC</span></div>
+              <div class="attr-row"><span class="attr-name">email VARCHAR</span><span class="pill pill-uq">UNIQUE</span></div>
+              <div class="attr-row"><span class="attr-name">passport_number</span><span class="pill pill-uq">UNIQUE</span></div>
+            </div>
+          </div>
+          <!-- bookings -->
+          <div class="schema-card" style="border-top: 3px solid #10B981;">
+            <div class="schema-card-header"><span>bookings</span><span class="card-badge">Table 07</span></div>
+            <div class="schema-card-body">
+              <div class="attr-row"><span class="attr-name">booking_id INT</span><span class="pill pill-pk">PK</span></div>
+              <div class="attr-row"><span class="attr-name">booking_ref CHAR(6)</span><span class="pill pill-uq">PNR UNIQUE</span></div>
+              <div class="attr-row"><span class="attr-name">passenger_id INT</span><span class="pill pill-fk">FK pass</span></div>
+              <div class="attr-row"><span class="attr-name">booking_status</span><span class="pill pill-chk">CONFIRMED</span></div>
+            </div>
+          </div>
+          <!-- tickets -->
+          <div class="schema-card" style="border-top: 3px solid #F43F5E;">
+            <div class="schema-card-header"><span>tickets</span><span class="card-badge">Table 08 • Bridge</span></div>
+            <div class="schema-card-body">
+              <div class="attr-row"><span class="attr-name">ticket_id INT</span><span class="pill pill-pk">PK</span></div>
+              <div class="attr-row"><span class="attr-name">booking_id INT</span><span class="pill pill-fk">FK CASCADE</span></div>
+              <div class="attr-row"><span class="attr-name">flight_id INT</span><span class="pill pill-fk">FK flights</span></div>
+              <div class="attr-row"><span class="attr-name">seat_id INT</span><span class="pill pill-fk">FK seats</span></div>
+              <div class="attr-row"><span class="attr-name">UQ(flight, seat)</span><span class="pill pill-uq">NO DOUBLE-BOOK</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 5: SCHEMA DESIGN - DISPATCH & FINANCIAL AUDIT -->
+    <div class="slide" id="slide-5" data-slide="5">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <h2>RELATIONAL SCHEMA DESIGN: DEPARTURE CONTROL &amp; AUDIT</h2>
+          <div class="slide-subtitle">1:1 Check-in Enforcements, Baggage Weights, Payments &amp; Bounded Refund Rules</div>
+        </div>
+        <span class="slide-badge">MODULE 03 / 03</span>
+      </div>
+      <div class="content-area">
+        <div class="schema-grid-4">
+          <!-- checkins -->
+          <div class="schema-card" style="border-top: 3px solid #A855F7;">
+            <div class="schema-card-header"><span>checkins</span><span class="card-badge">Table 09</span></div>
+            <div class="schema-card-body">
+              <div class="attr-row"><span class="attr-name">checkin_id INT</span><span class="pill pill-pk">PK</span></div>
+              <div class="attr-row"><span class="attr-name">ticket_id INT</span><span class="pill pill-uq">1:1 UNIQUE FK</span></div>
+              <div class="attr-row"><span class="attr-name">boarding_pass</span><span class="pill pill-uq">UNIQUE TOKEN</span></div>
+              <div class="attr-row"><span class="attr-name">checkin_time</span><span>TIMESTAMP</span></div>
+            </div>
+          </div>
+          <!-- baggage -->
+          <div class="schema-card" style="border-top: 3px solid #A855F7;">
+            <div class="schema-card-header"><span>baggage</span><span class="card-badge">Table 10</span></div>
+            <div class="schema-card-body">
+              <div class="attr-row"><span class="attr-name">baggage_id INT</span><span class="pill pill-pk">PK</span></div>
+              <div class="attr-row"><span class="attr-name">checkin_id INT</span><span class="pill pill-fk">FK CASCADE</span></div>
+              <div class="attr-row"><span class="attr-name">weight_kg</span><span class="pill pill-chk">&gt;= 0.00</span></div>
+              <div class="attr-row"><span class="attr-name">excess_fee</span><span class="pill pill-chk">&gt;= 0.00</span></div>
+            </div>
+          </div>
+          <!-- payments -->
+          <div class="schema-card" style="border-top: 3px solid #10B981;">
+            <div class="schema-card-header"><span>payments</span><span class="card-badge">Table 11</span></div>
+            <div class="schema-card-body">
+              <div class="attr-row"><span class="attr-name">payment_id INT</span><span class="pill pill-pk">PK</span></div>
+              <div class="attr-row"><span class="attr-name">booking_id INT</span><span class="pill pill-fk">FK bookings</span></div>
+              <div class="attr-row"><span class="attr-name">amount_paid</span><span class="pill pill-chk">&gt; 0.00</span></div>
+              <div class="attr-row"><span class="attr-name">payment_method</span><span class="pill pill-chk">UPI/CARD</span></div>
+            </div>
+          </div>
+          <!-- cancellations -->
+          <div class="schema-card" style="border-top: 3px solid #F59E0B;">
+            <div class="schema-card-header"><span>cancellations</span><span class="card-badge">Table 12</span></div>
+            <div class="schema-card-body">
+              <div class="attr-row"><span class="attr-name">cancellation_id INT</span><span class="pill pill-pk">PK</span></div>
+              <div class="attr-row"><span class="attr-name">ticket_id INT</span><span class="pill pill-uq">1:1 UNIQUE FK</span></div>
+              <div class="attr-row"><span class="attr-name">refund_amount</span><span class="pill pill-chk">&gt;= 0.00</span></div>
+              <div class="attr-row"><span class="attr-name">TRG: refund &lt;= fare</span><span class="pill pill-chk">BOUND TRG</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 6: NORMALIZATION PROOF -->
+    <div class="slide" id="slide-6" data-slide="6">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <h2>MATHEMATICAL NORMALIZATION PROOF: UNF &rarr; 3NF &rarr; BCNF</h2>
+          <div class="slide-subtitle">Elimination of Partial &amp; Transitive Dependencies with Lossless Join Decomposition</div>
+        </div>
+        <span class="slide-badge">BCNF COMPLIANT</span>
+      </div>
+      <div class="content-area">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;">
+          <!-- 1NF -->
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px;">
+            <div style="font-weight: 700; color: #0284C7; font-size: 14px; margin-bottom: 8px;">1. First Normal Form (1NF)</div>
+            <div style="font-size: 12px; color: #334155; line-height: 1.5;">
+              • Eliminated multi-valued attribute arrays (e.g. composite passenger names split into <code>first_name</code> &amp; <code>last_name</code>).<br>
+              • Every column holds strictly atomic values.
+            </div>
+          </div>
+          <!-- 2NF -->
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px;">
+            <div style="font-weight: 700; color: #10B981; font-size: 14px; margin-bottom: 8px;">2. Second Normal Form (2NF)</div>
+            <div style="font-size: 12px; color: #334155; line-height: 1.5;">
+              • Eliminated Partial Functional Dependencies where non-prime attributes depended on a subset of composite keys.<br>
+              • Aircraft model separated from seats: <code>aircraft_id &rarr; model</code>.
+            </div>
+          </div>
+          <!-- 3NF -->
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px;">
+            <div style="font-weight: 700; color: #A855F7; font-size: 14px; margin-bottom: 8px;">3. Third Normal Form (3NF)</div>
+            <div style="font-size: 12px; color: #334155; line-height: 1.5;">
+              • Eliminated Transitive Dependencies: <code>X &rarr; Y &rarr; Z</code>.<br>
+              • Airports separated from routes so city/country depend directly on <code>airport_code</code>, not transitively on <code>route_id</code>.
+            </div>
+          </div>
+          <!-- BCNF -->
+          <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px;">
+            <div style="font-weight: 700; color: #F59E0B; font-size: 14px; margin-bottom: 8px;">4. Boyce-Codd Form (BCNF)</div>
+            <div style="font-size: 12px; color: #334155; line-height: 1.5;">
+              • For every non-trivial functional dependency <code>X &rarr; Y</code>, <code>X</code> is strictly a <strong>Superkey</strong>.<br>
+              • Preserves lossless join property: <code>R1 &cap; R2 &rarr; R1</code> or <code>R2</code>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 7: THE 5 MANDATORY BUSINESS RULES & NEGATIVE TESTS -->
+    <div class="slide" id="slide-7" data-slide="7">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <h2>THE 5 MANDATORY BUSINESS RULES &amp; LIVE NEGATIVE TESTS</h2>
+          <div class="slide-subtitle">Declarative SQL Constraints &amp; Trigger Invariants Intercepting Illegal Operations</div>
+        </div>
+        <span class="slide-badge">ACTIVE INVARIANTS</span>
+      </div>
+      <div class="content-area">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Rule #</th>
+              <th>Mandatory Business Rule</th>
+              <th>Enforcement Mechanism</th>
+              <th>Negative Test SQL Statement</th>
+              <th>Live Engine Error Interception</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="pill pill-uq">Rule 1</span></td>
+              <td><strong>One seat per passenger per flight</strong></td>
+              <td><code>UNIQUE (flight_id, seat_id)</code></td>
+              <td><code>INSERT INTO tickets ... (flight 101, seat 1)</code></td>
+              <td><span style="color:#F87171;">UNIQUE constraint failed: tickets.flight_id, tickets.seat_id</span></td>
+            </tr>
+            <tr>
+              <td><span class="pill pill-chk">Rule 2</span></td>
+              <td><strong>Aircraft-Capacity limits</strong></td>
+              <td><code>trg_verify_aircraft_capacity</code></td>
+              <td><code>INSERT 5th ticket on 4-seat Boeing 737</code></td>
+              <td><span style="color:#F87171;">Capacity Overrun: Airframe capacity reached for this flight</span></td>
+            </tr>
+            <tr>
+              <td><span class="pill pill-chk">Rule 3</span></td>
+              <td><strong>Non-negative baggage</strong></td>
+              <td><code>CHECK (weight_kg &gt;= 0.00)</code></td>
+              <td><code>INSERT INTO baggage ... (weight: -5.50 kg)</code></td>
+              <td><span style="color:#F87171;">CHECK constraint failed: weight_kg &gt;= 0.00</span></td>
+            </tr>
+            <tr>
+              <td><span class="pill pill-fk">Rule 4</span></td>
+              <td><strong>Check-in for confirmed bookings</strong></td>
+              <td><code>trg_verify_checkin_eligibility</code></td>
+              <td><code>INSERT checkin on CANCELLED ticket</code></td>
+              <td><span style="color:#F87171;">Check-in Denied: Booking must be CONFIRMED and ticket ISSUED</span></td>
+            </tr>
+            <tr>
+              <td><span class="pill pill-pk">Rule 5</span></td>
+              <td><strong>Strict refund rules (Refund &le; Fare)</strong></td>
+              <td><code>trg_enforce_refund_bounds</code></td>
+              <td><code>INSERT refund ₹10,000 on ₹8,500 ticket</code></td>
+              <td><span style="color:#F87171;">Accounting Anomaly: Refund exceeds ticket base fare</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- SLIDE 8: ANALYTICAL REPORTS & BUSINESS INTELLIGENCE -->
+    <div class="slide" id="slide-8" data-slide="8">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <h2>ANALYTICAL SQL REPORTS &amp; OPERATIONAL VIEWS</h2>
+          <div class="slide-subtitle">Demonstrating Multi-Table Joins, Scalar Nested Subqueries, Aggregations &amp; Yield Metrics</div>
+        </div>
+        <span class="slide-badge">7 RUBRIC QUERIES</span>
+      </div>
+      <div class="content-area" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px;">
+        <div class="query-card">
+          <div class="query-head"><span class="query-title">1. Real-Time Flight Manifest (View + 6 Joins)</span><span class="card-badge">VIEW</span></div>
+          <div class="sql-code">SELECT flight_id, corridor, seat_number, passenger, boarding_pass 
+FROM view_master_manifest LIMIT 3;</div>
+        </div>
+        <div class="query-card">
+          <div class="query-head"><span class="query-title">2. Occupancy &amp; Efficiency (Count + CASE)</span><span class="card-badge">AGGREGATE</span></div>
+          <div class="sql-code">SELECT flight_id, airframe, occupancy_pct, operational_efficiency 
+FROM view_flight_occupancy ORDER BY occupancy_pct DESC;</div>
+        </div>
+        <div class="query-card">
+          <div class="query-head"><span class="query-title">3. Route Demand (Corridors &amp; Gross Yield)</span><span class="card-badge">GROUP BY</span></div>
+          <div class="sql-code">SELECT corridor, flights_operated, total_revenue 
+FROM routes r LEFT JOIN flights f ON r.route_id = f.route_id GROUP BY r.route_id;</div>
+        </div>
+        <div class="query-card">
+          <div class="query-head"><span class="query-title">4. On-Time Performance (Nested Subquery)</span><span class="card-badge">SUBQUERY</span></div>
+          <div class="sql-code">SELECT flight_status, count(*), 
+ROUND(count(*) * 100.0 / (SELECT count(*) FROM flights), 1) || '%' AS pct 
+FROM flights GROUP BY flight_status;</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SLIDE 9: VIVA DEFENSE SCRIPTS & PROTOTYPE LAUNCH -->
+    <div class="slide" id="slide-9" data-slide="9">
+      <div class="slide-header">
+        <div class="slide-title-group">
+          <h2>VIVA DEFENSE STRATEGY &amp; LIVE DEMONSTRATION</h2>
+          <div class="slide-subtitle">Emergency 15-Second Defense Recitals &amp; Direct Prototype Access</div>
+        </div>
+        <span class="slide-badge">DEFENSE DOSSIER</span>
+      </div>
+      <div class="content-area" style="display: flex; gap: 20px;">
+        <div style="flex: 1.2; display: flex; flex-direction: column; gap: 12px;">
+          <div style="background: var(--bg-card); border-left: 4px solid #0284C7; padding: 12px 16px; border-radius: 8px;">
+            <div style="font-weight: 700; color: #0284C7; font-size: 13px;">Q: How do you enforce 1:1 vs 1:N in relational schema?</div>
+            <div style="font-size: 12px; color: #334155; margin-top: 4px;">
+              "A foreign key is 1:N by default. To make it strictly 1:1, we place a <strong>UNIQUE constraint</strong> on the FK column. For example, <code>checkins.ticket_id</code> is marked UNIQUE, guaranteeing at most one check-in per ticket."
+            </div>
+          </div>
+          <div style="background: var(--bg-card); border-left: 4px solid #10B981; padding: 12px 16px; border-radius: 8px;">
+            <div style="font-weight: 700; color: #10B981; font-size: 13px;">Q: Why did we decompose Passengers &amp; Flights?</div>
+            <div style="font-size: 12px; color: #334155; margin-top: 4px;">
+              "Passengers and Flights have a Many-to-Many (M:N) relationship. To satisfy 1NF, we decomposed M:N into two 1:N relationships via the junction entity <code>tickets</code>."
+            </div>
+          </div>
+        </div>
+        <div style="flex: 0.8; background: linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(56, 189, 248, 0.15)); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 12px; padding: 20px; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+          <div style="font-size: 32px; margin-bottom: 10px;">💻</div>
+          <div style="font-family: 'Outfit', sans-serif; font-size: 18px; font-weight: 700; color: #0F172A; margin-bottom: 6px;">Live Query Workbench</div>
+          <div style="font-size: 12px; color: #94A3B8; margin-bottom: 18px;">Instant SQL query execution on 60+ rows with active constraint validation</div>
+          <a href="../workbench/index.html" target="_blank" style="background: linear-gradient(135deg, #4F46E5, #0EA5E9); color: white; padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 13px; text-decoration: none; box-shadow: 0 4px 15px rgba(14, 165, 233, 0.4);">
+            ⚡ Launch Live Workbench &#8599;
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Floating Navigation & Controls -->
+  <div id="controls-bar">
+    <button class="control-btn" id="prev-btn" onclick="prevSlide()" title="Previous (Left Arrow / Page Up)">
+      &#8592; Prev
+    </button>
+    <span class="slide-counter" id="slide-counter">01 / 10</span>
+    <button class="control-btn" id="next-btn" onclick="nextSlide()" title="Next (Right Arrow / Space / Page Down)">
+      Next &#8594;
+    </button>
+    <div style="width: 1px; height: 16px; background: var(--border-color); margin: 0 4px;"></div>
+    <button class="control-btn" onclick="toggleFullscreen()" title="Fullscreen (F)">
+      &#x26F6; Fullscreen
+    </button>
+    <a href="../docs/VIVA_DEFENSE_PLAYBOOK.pdf" target="_blank" class="control-btn" style="text-decoration:none; color:#F43F5E;">
+      &#128196; PDF Dossier
+    </a>
+  </div>
+
+  <div class="progress-bar-container">
+    <div class="progress-bar-fill" id="progress-bar"></div>
+  </div>
+
+  <script>
+    let currentSlide = 1;
+    const totalSlides = 9;
+
+    function showSlide(index) {
+      if (index < 1) index = 1;
+      if (index > totalSlides) index = totalSlides;
+      currentSlide = index;
+
+      document.querySelectorAll('.slide').forEach((slide, i) => {
+        if (i + 1 === currentSlide) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+
+      const pad = (n) => String(n).padStart(2, '0');
+      document.getElementById('slide-counter').textContent = `${pad(currentSlide)} / ${pad(totalSlides)}`;
+      document.getElementById('progress-bar').style.width = `${(currentSlide / totalSlides) * 100}%`;
+
+      document.getElementById('prev-btn').disabled = currentSlide === 1;
+      document.getElementById('next-btn').disabled = currentSlide === totalSlides;
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 1) {
+        showSlide(currentSlide - 1);
+      }
+    }
+
+    window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT') return;
+      if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+        e.preventDefault();
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+        e.preventDefault();
+        prevSlide();
+      } else if (e.key === 'Home') {
+        e.preventDefault();
+        showSlide(1);
+      } else if (e.key === 'End') {
+        e.preventDefault();
+        showSlide(totalSlides);
+      } else if (e.key === 'f' || e.key === 'F') {
+        toggleFullscreen();
+      }
+    });
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    }
+
+    showSlide(1);
+  </script>
+</body>
+</html>

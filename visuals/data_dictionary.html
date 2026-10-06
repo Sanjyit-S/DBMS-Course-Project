@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relational Data Dictionary | ARFOM-DB (Review 2)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --card-border: #E2E8F0;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --accent-blue: #38BDF8;
+      --accent-indigo: #6366F1;
+      --accent-emerald: #10B981;
+      --accent-amber: #F59E0B;
+      --accent-rose: #F43F5E;
+      --accent-purple: #A855F7;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: 'Inter', -apple-system, sans-serif;
+      min-height: 100vh;
+      padding: 30px;
+    }
+
+    .header-banner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      padding: 24px 32px;
+      border-radius: 16px;
+      margin-bottom: 24px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .title-group h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      color: #0F172A;
+      margin-bottom: 6px;
+    }
+
+    .title-group p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #A5B4FC;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .toolbar {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      background: #F1F5F9;
+      border: 1px solid #E2E8F0;
+      color: #0F172A;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn:hover {
+      background: #E2E8F0;
+      border-color: #334155;
+      color: #0F172A;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4F46E5, #6366F1);
+      border-color: #818CF8;
+      color: white;
+    }
+
+    /* Stats Ribbon */
+    .stats-ribbon {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: #F8FAFC;
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 16px 20px;
+    }
+
+    .stat-val {
+      font-family: 'Outfit', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 4px;
+    }
+
+    /* Filter Bar */
+    .filter-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      padding: 12px 20px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      background: #0B111E;
+      border: 1px solid #1F2937;
+      border-radius: 8px;
+      padding: 8px 14px;
+      color: #F3F4F6;
+      font-size: 13px;
+      font-family: inherit;
+      width: 280px;
+      outline: none;
+    }
+
+    .search-box:focus {
+      border-color: var(--accent-indigo);
+    }
+
+    .filter-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94A3B8;
+      padding: 4px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--accent-indigo);
+      color: white;
+      border-color: var(--accent-indigo);
+    }
+
+    /* Table Dictionary Cards */
+    .dict-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .dict-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .dict-card-header {
+      padding: 16px 24px;
+      background: linear-gradient(90deg, #162032, #111827);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dict-card-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .dict-card-title h2 {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 18px;
+      font-weight: 700;
+      color: #F8FAFC;
+    }
+
+    .module-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tag-infra { background: rgba(14, 165, 233, 0.15); color: #38BDF8; border: 1px solid rgba(14, 165, 233, 0.3); }
+    .tag-ops { background: rgba(168, 85, 247, 0.15); color: #C084FC; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .tag-comm { background: rgba(16, 185, 129, 0.15); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .tag-audit { background: rgba(245, 158, 11, 0.15); color: #FBBF24; border: 1px solid rgba(245, 158, 11, 0.3); }
+
+    .dict-card-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Table */
+    .dict-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+
+    .dict-table th {
+      background: #0E1524;
+      color: #94A3B8;
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 20px;
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--card-border);
+    }
+
+    .dict-table td {
+      padding: 12px 20px;
+      border-bottom: 1px solid #E2E8F0;
+      color: #1E293B;
+      vertical-align: middle;
+    }
+
+    .dict-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .dict-table tr:hover td {
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    .col-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      color: #F8FAFC;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .col-type {
+      font-family: 'JetBrains Mono', monospace;
+      color: #38BDF8;
+      font-size: 12px;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-pk { background: #ECFDF5; color: #047857; border: 1px solid #A7F3D0; font-weight: 700; }
+    .badge-fk { background: #E0F2FE; color: #0369A1; border: 1px solid #7DD3FC; font-weight: 700; }
+    .badge-uq { background: #FAF5FF; color: #6B21A8; border: 1px solid #E9D5FF; font-weight: 700; }
+    .badge-chk { background: #FFFBEB; color: #B45309; border: 1px solid #FDE68A; font-weight: 700; }
+    .badge-nn { background: #F1F5F9; color: #334155; border: 1px solid #CBD5E1; font-weight: 600; }
+
+    .rule-text {
+      color: #475569;
+      font-size: 12.5px;
+    }
+
+    .rule-text strong {
+      color: #1E293B;
+    }
+
+    .footer-watermark {
+      margin-top: 36px;
+      text-align: center;
+      color: #4B5563;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    @media print {
+      body { background: white; color: black; padding: 10px; }
+      .header-banner, .filter-bar, .toolbar { display: none; }
+      .dict-card { break-inside: avoid; border: 1px solid #ccc; margin-bottom: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Banner -->
+  <div class="header-banner">
+    <div class="title-group">
+      <div class="badge-pill">DBMS Course Project — Review 2 Deliverable</div>
+      <h1>Relational Data Dictionary & Schema Specification</h1>
+      <p>12 Normalized Tables • Explicit Constraints • Referential Actions • Domain Invariant Rules</p>
+    </div>
+    <div class="toolbar">
+      <a href="er_diagram_arfom.html" class="btn">View ER Diagram</a>
+      <a href="normalization.html" class="btn">View Normalization Proof</a>
+      <button onclick="window.print()" class="btn btn-primary">Save / Screenshot PDF</button>
+    </div>
+  </div>
+
+  <!-- Stats Ribbon -->
+  <div class="stats-ribbon">
+    <div class="stat-card">
+      <div class="stat-val" style="color: var(--accent-indigo);">12</div>
+      <div class="stat-label">Relational Tables</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" style="color: var(--accent-emerald);">52</div>
+      <div class="stat-label">Atomic Attributes</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" style="color: var(--accent-blue);">18</div>
+      <div class="stat-label">Preserved FDs</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" style="color: var(--accent-amber);">5</div>
+      <div class="stat-label">Enforced Invariant Rules</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-val" style="color: var(--accent-purple);">3NF / BCNF</div>
+      <div class="stat-label">Normalization Standard</div>
+    </div>
+  </div>
+
+  <!-- Filter & Search Bar -->
+  <div class="filter-bar">
+    <input type="text" id="searchBox" class="search-box" placeholder="Search tables, columns, constraints..." onkeyup="filterTables()">
+    <div class="filter-tags">
+      <button class="filter-btn active" onclick="filterModule('all')">All Tables (12)</button>
+      <button class="filter-btn" onclick="filterModule('infra')">Infrastructure (4)</button>
+      <button class="filter-btn" onclick="filterModule('ops')">Operations &amp; Cargo (3)</button>
+      <button class="filter-btn" onclick="filterModule('comm')">Commercial (3)</button>
+      <button class="filter-btn" onclick="filterModule('audit')">Settlement &amp; Audit (2)</button>
+    </div>
+  </div>
+
+  <!-- Data Dictionary Cards Container -->
+  <div class="dict-container" id="dictContainer">
+
+    <!-- 1. AIRPORTS -->
+    <div class="dict-card" data-module="infra">
+      <div class="dict-card-header">
+        <div class="dict-card-title">
+          <h2>airports</h2>
+          <span class="module-tag tag-infra">Infrastructure</span>
+        </div>
+        <div class="dict-card-desc">Master catalog of domestic and international civil airports.</div>
+      </div>
+      <table class="dict-table">
+        <thead>
+          <tr><th>Column Name</th><th>Data Type</th><th>Key / Constraint</th><th>Referential Action</th><th>Business Invariant / Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-pk">PK</span> airport_code</div></td>
+            <td><span class="col-type">CHAR(3)</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Standard IATA 3-letter capital token (e.g., 'DEL', 'BOM', 'BLR', 'DXB').</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">airport_name</div></td>
+            <td><span class="col-type">VARCHAR(100)</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Official aerodrome designation facility name.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">city</div></td>
+            <td><span class="col-type">VARCHAR(50)</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Primary metropolitan jurisdiction served.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">country</div></td>
+            <td><span class="col-type">VARCHAR(50)</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Sovereign nation of airport operations.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 2. ROUTES -->
+    <div class="dict-card" data-module="infra">
+      <div class="dict-card-header">
+        <div class="dict-card-title">
+          <h2>routes</h2>
+          <span class="module-tag tag-infra">Infrastructure</span>
+        </div>
+        <div class="dict-card-desc">Master point-to-point flight corridors with geographic displacement.</div>
+      </div>
+      <table class="dict-table">
+        <thead>
+          <tr><th>Column Name</th><th>Data Type</th><th>Key / Constraint</th><th>Referential Action</th><th>Business Invariant / Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-pk">PK</span> route_id</div></td>
+            <td><span class="col-type">INT SERIAL</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Monotonic surrogate sequence identifier for corridor.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-fk">FK</span> origin_airport</div></td>
+            <td><span class="col-type">CHAR(3)</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td><code>REFERENCES airports(airport_code) ON DELETE RESTRICT</code></td>
+            <td class="rule-text">Departure terminal code. Airport cannot be deleted while routes exist.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-fk">FK</span> dest_airport</div></td>
+            <td><span class="col-type">CHAR(3)</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td><code>REFERENCES airports(airport_code) ON DELETE RESTRICT</code></td>
+            <td class="rule-text">Arrival terminal code.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">distance_km</div></td>
+            <td><span class="col-type">NUMERIC(7,2)</span></td>
+            <td><span class="badge badge-chk">CHECK (&gt; 0)</span></td>
+            <td>-</td>
+            <td class="rule-text">Flight corridor displacement in km. Strictly positive.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><em>Table Constraint</em></div></td>
+            <td><span class="col-type">-</span></td>
+            <td><span class="badge badge-chk">CHECK</span></td>
+            <td>-</td>
+            <td class="rule-text"><code>CHECK (origin_airport &lt;&gt; dest_airport)</code> prevents circular self-loop flights.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 3. AIRCRAFT -->
+    <div class="dict-card" data-module="infra">
+      <div class="dict-card-header">
+        <div class="dict-card-title">
+          <h2>aircraft</h2>
+          <span class="module-tag tag-infra">Infrastructure</span>
+        </div>
+        <div class="dict-card-desc">Airframe fleet catalog defining hardware assets and physical capacity limits.</div>
+      </div>
+      <table class="dict-table">
+        <thead>
+          <tr><th>Column Name</th><th>Data Type</th><th>Key / Constraint</th><th>Referential Action</th><th>Business Invariant / Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-pk">PK</span> aircraft_id</div></td>
+            <td><span class="col-type">INT SERIAL</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Physical airframe hardware identifier.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">model</div></td>
+            <td><span class="col-type">VARCHAR(50)</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Equipment model (e.g., 'Airbus A320neo', 'Boeing 737-800').</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">total_capacity</div></td>
+            <td><span class="col-type">INT</span></td>
+            <td><span class="badge badge-chk">CHECK (&gt; 0)</span></td>
+            <td>-</td>
+            <td class="rule-text"><strong>Core Invariant:</strong> Maximum physical seats configured. Governs overbooking trigger.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 4. SEATS -->
+    <div class="dict-card" data-module="infra">
+      <div class="dict-card-header">
+        <div class="dict-card-title">
+          <h2>seats</h2>
+          <span class="module-tag tag-infra">Infrastructure</span>
+        </div>
+        <div class="dict-card-desc">Airframe internal seat topology and cabin tier stratification.</div>
+      </div>
+      <table class="dict-table">
+        <thead>
+          <tr><th>Column Name</th><th>Data Type</th><th>Key / Constraint</th><th>Referential Action</th><th>Business Invariant / Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-pk">PK</span> seat_id</div></td>
+            <td><span class="col-type">INT SERIAL</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Surrogate physical seat identifier.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-fk">FK</span> aircraft_id</div></td>
+            <td><span class="col-type">INT</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td><code>REFERENCES aircraft(aircraft_id) ON DELETE CASCADE</code></td>
+            <td class="rule-text">Physical airframe ownership. Scrapping airframe cascades seats.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-uq">UQ</span> seat_number</div></td>
+            <td><span class="col-type">VARCHAR(4)</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Row/Column coordinates (e.g., '1A', '2B').</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">seat_class</div></td>
+            <td><span class="col-type">VARCHAR(15)</span></td>
+            <td><span class="badge badge-chk">CHECK IN</span></td>
+            <td>-</td>
+            <td class="rule-text"><code>CHECK (seat_class IN ('ECONOMY', 'BUSINESS', 'FIRST'))</code></td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><em>Composite Unique</em></div></td>
+            <td><span class="col-type">-</span></td>
+            <td><span class="badge badge-uq">UNIQUE</span></td>
+            <td>-</td>
+            <td class="rule-text"><code>UNIQUE (aircraft_id, seat_number)</code> guarantees no duplicate seat labels on same airframe.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 5. FLIGHTS -->
+    <div class="dict-card" data-module="ops">
+      <div class="dict-card-header">
+        <div class="dict-card-title">
+          <h2>flights</h2>
+          <span class="module-tag tag-ops">Operations</span>
+        </div>
+        <div class="dict-card-desc">Scheduled operational segments dispatched onto specific physical airframes.</div>
+      </div>
+      <table class="dict-table">
+        <thead>
+          <tr><th>Column Name</th><th>Data Type</th><th>Key / Constraint</th><th>Referential Action</th><th>Business Invariant / Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-pk">PK</span> flight_id</div></td>
+            <td><span class="col-type">INT SERIAL</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Operational segment token (e.g., Flight 101).</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-fk">FK</span> route_id</div></td>
+            <td><span class="col-type">INT</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td><code>REFERENCES routes(route_id)</code></td>
+            <td class="rule-text">Flight corridor deployed. Indexed via <code>idx_flights_search</code>.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-fk">FK</span> aircraft_id</div></td>
+            <td><span class="col-type">INT</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td><code>REFERENCES aircraft(aircraft_id)</code></td>
+            <td class="rule-text">Airframe deployed. Subject to seat compatibility trigger.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">scheduled_departure</div></td>
+            <td><span class="col-type">TIMESTAMP</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Off-block scheduled departure time.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">scheduled_arrival</div></td>
+            <td><span class="col-type">TIMESTAMP</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">In-block scheduled arrival time.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">flight_status</div></td>
+            <td><span class="col-type">VARCHAR(15)</span></td>
+            <td><span class="badge badge-chk">CHECK IN</span></td>
+            <td>-</td>
+            <td class="rule-text">State machine: <code>('SCHEDULED', 'BOARDING', 'DEPARTED', 'ARRIVED', 'CANCELLED', 'DELAYED')</code>.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><em>Table Constraint</em></div></td>
+            <td><span class="col-type">-</span></td>
+            <td><span class="badge badge-chk">CHECK</span></td>
+            <td>-</td>
+            <td class="rule-text"><code>CHECK (scheduled_arrival &gt; scheduled_departure)</code> enforces temporal progression.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 6. PASSENGERS -->
+    <div class="dict-card" data-module="comm">
+      <div class="dict-card-header">
+        <div class="dict-card-title">
+          <h2>passengers</h2>
+          <span class="module-tag tag-comm">Commercial</span>
+        </div>
+        <div class="dict-card-desc">Customer master profile records and international travel credentials.</div>
+      </div>
+      <table class="dict-table">
+        <thead>
+          <tr><th>Column Name</th><th>Data Type</th><th>Key / Constraint</th><th>Referential Action</th><th>Business Invariant / Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-pk">PK</span> passenger_id</div></td>
+            <td><span class="col-type">INT SERIAL</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Surrogate customer master identity sequence.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">first_name</div></td>
+            <td><span class="col-type">VARCHAR(50)</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Customer legal given name.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">last_name</div></td>
+            <td><span class="col-type">VARCHAR(50)</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Customer legal family name.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-uq">UQ</span> email</div></td>
+            <td><span class="col-type">VARCHAR(100)</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Unique communication handle &amp; authentication endpoint.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-uq">UQ</span> passport_number</div></td>
+            <td><span class="col-type">VARCHAR(20)</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Unique sovereign travel identification credential.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 7. BOOKINGS -->
+    <div class="dict-card" data-module="comm">
+      <div class="dict-card-header">
+        <div class="dict-card-title">
+          <h2>bookings</h2>
+          <span class="module-tag tag-comm">Commercial</span>
+        </div>
+        <div class="dict-card-desc">Commercial transaction orders placed by primary account holders.</div>
+      </div>
+      <table class="dict-table">
+        <thead>
+          <tr><th>Column Name</th><th>Data Type</th><th>Key / Constraint</th><th>Referential Action</th><th>Business Invariant / Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-pk">PK</span> booking_id</div></td>
+            <td><span class="col-type">INT SERIAL</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Surrogate order transaction identifier.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-uq">UQ</span> booking_ref</div></td>
+            <td><span class="col-type">CHAR(6)</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Passenger Name Record (PNR) token (e.g., 'PNR001'). Indexed for instant search.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-fk">FK</span> passenger_id</div></td>
+            <td><span class="col-type">INT</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td><code>REFERENCES passengers(passenger_id)</code></td>
+            <td class="rule-text">Primary billing account holder placing the order.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">booking_date</div></td>
+            <td><span class="col-type">TIMESTAMP</span></td>
+            <td><span class="badge badge-nn">DEFAULT NOW</span></td>
+            <td>-</td>
+            <td class="rule-text">Creation timestamp of transaction ledger.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">booking_status</div></td>
+            <td><span class="col-type">VARCHAR(15)</span></td>
+            <td><span class="badge badge-chk">CHECK IN</span></td>
+            <td>-</td>
+            <td class="rule-text">Lifecycle state: <code>CHECK (booking_status IN ('CONFIRMED', 'PENDING', 'CANCELLED'))</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 8. TICKETS -->
+    <div class="dict-card" data-module="comm">
+      <div class="dict-card-header">
+        <div class="dict-card-title">
+          <h2>tickets</h2>
+          <span class="module-tag tag-comm">Commercial</span>
+        </div>
+        <div class="dict-card-desc">Individual travel coupons allocating physical seats to passengers on operational flights.</div>
+      </div>
+      <table class="dict-table">
+        <thead>
+          <tr><th>Column Name</th><th>Data Type</th><th>Key / Constraint</th><th>Referential Action</th><th>Business Invariant / Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-pk">PK</span> ticket_id</div></td>
+            <td><span class="col-type">INT SERIAL</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Unique segment ticket coupon identifier.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-fk">FK</span> booking_id</div></td>
+            <td><span class="col-type">INT</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td><code>REFERENCES bookings(booking_id) ON DELETE CASCADE</code></td>
+            <td class="rule-text">Parent commercial reservation order.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-fk">FK</span> flight_id</div></td>
+            <td><span class="col-type">INT</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td><code>REFERENCES flights(flight_id)</code></td>
+            <td class="rule-text">Scheduled flight leg allocated. Indexed via <code>idx_tickets_flight</code>.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-fk">FK</span> seat_id</div></td>
+            <td><span class="col-type">INT</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td><code>REFERENCES seats(seat_id)</code></td>
+            <td class="rule-text">Physical seat hardware unit assigned.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">fare_amount</div></td>
+            <td><span class="col-type">NUMERIC(10,2)</span></td>
+            <td><span class="badge badge-chk">CHECK (&gt;= 0)</span></td>
+            <td>-</td>
+            <td class="rule-text">Point-in-time fare transacted. Immutable for GAAP financial auditing.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">ticket_status</div></td>
+            <td><span class="col-type">VARCHAR(15)</span></td>
+            <td><span class="badge badge-chk">CHECK IN</span></td>
+            <td>-</td>
+            <td class="rule-text">Lifecycle state: <code>CHECK (ticket_status IN ('ISSUED', 'CHECKED_IN', 'CANCELLED'))</code>.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><em>Composite Unique</em></div></td>
+            <td><span class="col-type">-</span></td>
+            <td><span class="badge badge-uq">UNIQUE</span></td>
+            <td>-</td>
+            <td class="rule-text"><strong>Core Invariant 1:</strong> <code>UNIQUE (flight_id, seat_id)</code> guarantees exactly one passenger per physical seat.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 9. PAYMENTS -->
+    <div class="dict-card" data-module="audit">
+      <div class="dict-card-header">
+        <div class="dict-card-title">
+          <h2>payments</h2>
+          <span class="module-tag tag-audit">Settlement</span>
+        </div>
+        <div class="dict-card-desc">Monetary settlement journal tracking clearance transactions.</div>
+      </div>
+      <table class="dict-table">
+        <thead>
+          <tr><th>Column Name</th><th>Data Type</th><th>Key / Constraint</th><th>Referential Action</th><th>Business Invariant / Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-pk">PK</span> payment_id</div></td>
+            <td><span class="col-type">INT SERIAL</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Surrogate settlement record identifier.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-fk">FK</span> booking_id</div></td>
+            <td><span class="col-type">INT</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td><code>REFERENCES bookings(booking_id)</code></td>
+            <td class="rule-text">Commercial order being settled.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">amount_paid</div></td>
+            <td><span class="col-type">NUMERIC(10,2)</span></td>
+            <td><span class="badge badge-chk">CHECK (&gt; 0)</span></td>
+            <td>-</td>
+            <td class="rule-text">Total value paid in INR (₹). Strictly positive.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">payment_method</div></td>
+            <td><span class="col-type">VARCHAR(20)</span></td>
+            <td><span class="badge badge-chk">CHECK IN</span></td>
+            <td>-</td>
+            <td class="rule-text">Rail: <code>CHECK (payment_method IN ('CREDIT_CARD', 'DEBIT_CARD', 'UPI', 'NET_BANKING'))</code>.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">payment_status</div></td>
+            <td><span class="col-type">VARCHAR(15)</span></td>
+            <td><span class="badge badge-chk">CHECK IN</span></td>
+            <td>-</td>
+            <td class="rule-text">Status: <code>CHECK (payment_status IN ('SUCCESS', 'FAILED', 'REFUNDED'))</code>.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">payment_timestamp</div></td>
+            <td><span class="col-type">TIMESTAMP</span></td>
+            <td><span class="badge badge-nn">DEFAULT NOW</span></td>
+            <td>-</td>
+            <td class="rule-text">Point-in-time timestamp of payment authorization.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 10. CHECKINS -->
+    <div class="dict-card" data-module="ops">
+      <div class="dict-card-header">
+        <div class="dict-card-title">
+          <h2>checkins</h2>
+          <span class="module-tag tag-ops">DCS Terminal</span>
+        </div>
+        <div class="dict-card-desc">Airport departure control custody and automated gate boarding tokens.</div>
+      </div>
+      <table class="dict-table">
+        <thead>
+          <tr><th>Column Name</th><th>Data Type</th><th>Key / Constraint</th><th>Referential Action</th><th>Business Invariant / Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-pk">PK</span> checkin_id</div></td>
+            <td><span class="col-type">INT SERIAL</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Surrogate departure control sequence identifier.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-fk">FK</span> <span class="badge badge-uq">UQ</span> ticket_id</div></td>
+            <td><span class="col-type">INT</span></td>
+            <td><span class="badge badge-uq">UNIQUE</span></td>
+            <td><code>REFERENCES tickets(ticket_id)</code></td>
+            <td class="rule-text"><strong>Core Invariant 4:</strong> Exactly 1 check-in per ticket. Subject to confirmed ticket trigger.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">checkin_time</div></td>
+            <td><span class="col-type">TIMESTAMP</span></td>
+            <td><span class="badge badge-nn">DEFAULT NOW</span></td>
+            <td>-</td>
+            <td class="rule-text">Gate clearance execution timestamp.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-uq">UQ</span> boarding_pass</div></td>
+            <td><span class="col-type">VARCHAR(20)</span></td>
+            <td><span class="badge badge-uq">UNIQUE</span></td>
+            <td>-</td>
+            <td class="rule-text">Machine-readable gate manifest token (e.g., 'BP-DELBOM-1A').</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 11. BAGGAGE -->
+    <div class="dict-card" data-module="ops">
+      <div class="dict-card-header">
+        <div class="dict-card-title">
+          <h2>baggage</h2>
+          <span class="module-tag tag-ops">Hold Cargo</span>
+        </div>
+        <div class="dict-card-desc">Hold cargo weight audit and excess baggage surcharge billing.</div>
+      </div>
+      <table class="dict-table">
+        <thead>
+          <tr><th>Column Name</th><th>Data Type</th><th>Key / Constraint</th><th>Referential Action</th><th>Business Invariant / Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-pk">PK</span> baggage_id</div></td>
+            <td><span class="col-type">INT SERIAL</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">IATA bag tag sequence identifier.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-fk">FK</span> checkin_id</div></td>
+            <td><span class="col-type">INT</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td><code>REFERENCES checkins(checkin_id) ON DELETE CASCADE</code></td>
+            <td class="rule-text">Owning check-in instance. Deleting check-in cascades baggage custody.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">weight_kg</div></td>
+            <td><span class="col-type">NUMERIC(5,2)</span></td>
+            <td><span class="badge badge-chk">CHECK (&gt;= 0)</span></td>
+            <td>-</td>
+            <td class="rule-text"><strong>Core Invariant 3:</strong> Certified scale weight reading. Strictly non-negative.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">excess_fee</div></td>
+            <td><span class="col-type">NUMERIC(8,2)</span></td>
+            <td><span class="badge badge-chk">CHECK (&gt;= 0)</span></td>
+            <td>-</td>
+            <td class="rule-text">Applied surcharge penalty for luggage exceeding standard tier allowance.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 12. CANCELLATIONS -->
+    <div class="dict-card" data-module="audit">
+      <div class="dict-card-header">
+        <div class="dict-card-title">
+          <h2>cancellations</h2>
+          <span class="module-tag tag-audit">Audit Ledger</span>
+        </div>
+        <div class="dict-card-desc">Audited segment revocations and financial refund reconciliation.</div>
+      </div>
+      <table class="dict-table">
+        <thead>
+          <tr><th>Column Name</th><th>Data Type</th><th>Key / Constraint</th><th>Referential Action</th><th>Business Invariant / Description</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-pk">PK</span> cancellation_id</div></td>
+            <td><span class="col-type">INT SERIAL</span></td>
+            <td><span class="badge badge-nn">NOT NULL</span></td>
+            <td>-</td>
+            <td class="rule-text">Revocation ledger sequence identifier.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name"><span class="badge badge-fk">FK</span> <span class="badge badge-uq">UQ</span> ticket_id</div></td>
+            <td><span class="col-type">INT</span></td>
+            <td><span class="badge badge-uq">UNIQUE</span></td>
+            <td><code>REFERENCES tickets(ticket_id)</code></td>
+            <td class="rule-text">1:1 Linkage: A ticket can only be revoked once. Auto-sets ticket to CANCELLED.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">cancellation_timestamp</div></td>
+            <td><span class="col-type">TIMESTAMP</span></td>
+            <td><span class="badge badge-nn">DEFAULT NOW</span></td>
+            <td>-</td>
+            <td class="rule-text">Audit timestamp of revocation clearance.</td>
+          </tr>
+          <tr>
+            <td><div class="col-name">refund_amount</div></td>
+            <td><span class="col-type">NUMERIC(10,2)</span></td>
+            <td><span class="badge badge-chk">CHECK (&gt;= 0)</span></td>
+            <td>-</td>
+            <td class="rule-text"><strong>Core Invariant 5:</strong> Disbursed refund. Trigger enforces <code>refund_amount &lt;= fare_amount</code>.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="footer-watermark">
+    DBMS COURSE PROJECT • AIRLINE RESERVATION &amp; FLIGHT OPERATIONS MANAGEMENT SYSTEM • DATA DICTIONARY
+  </div>
+
+  <script>
+    function filterTables() {
+      const q = document.getElementById('searchBox').value.toLowerCase();
+      const cards = document.querySelectorAll('.dict-card');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(q) ? 'block' : 'none';
+      });
+    }
+
+    function filterModule(mod) {
+      document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      const cards = document.querySelectorAll('.dict-card');
+      cards.forEach(card => {
+        if (mod === 'all' || card.dataset.module === mod) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>

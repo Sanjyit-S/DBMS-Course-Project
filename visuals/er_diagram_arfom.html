@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entity-Relationship Diagram Studio | ARFOM-DB (Review 2)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F8FAFC;
+      --card-bg: #FFFFFF;
+      --card-border: #E2E8F0;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --text-dim: #64748B;
+      
+      --accent-blue: #0284C7;
+      --accent-indigo: #4F46E5;
+      --accent-emerald: #059669;
+      --accent-amber: #D97706;
+      --accent-purple: #7C3AED;
+      --accent-rose: #E11D48;
+
+      --pk-color: #D97706;
+      --fk-color: #0284C7;
+      --uq-color: #7C3AED;
+      --chk-color: #059669;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #F1F5F9;
+      color: var(--text-main);
+    }
+
+    /* Top Studio Bar */
+    .studio-header {
+      height: 64px;
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--card-border);
+      padding: 0 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 50;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .studio-title-group {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .studio-logo {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, #0284C7, #4F46E5);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: white;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      box-shadow: 0 2px 8px rgba(2, 132, 199, 0.3);
+    }
+
+    .studio-title h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: #0F172A;
+      letter-spacing: -0.3px;
+    }
+
+    .studio-title p {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .studio-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pill-info {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #ECFDF5;
+      border: 1px solid #A7F3D0;
+      color: #065F46;
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 9999px;
+    }
+
+    /* Floating Canvas Zoom Controls */
+    .zoom-toolbar {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: #F8FAFC;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 3px 6px;
+    }
+
+    .ctrl-btn {
+      background: transparent;
+      border: none;
+      color: #334155;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+
+    .ctrl-btn:hover {
+      background: #E2E8F0;
+      color: #0F172A;
+    }
+
+    .zoom-level-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      font-weight: 700;
+      min-width: 48px;
+      text-align: center;
+      color: var(--accent-blue);
+    }
+
+    .btn-action {
+      background: #F1F5F9;
+      border: 1px solid var(--card-border);
+      color: #0F172A;
+      font-size: 12.5px;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+
+    .btn-action:hover {
+      background: #E2E8F0;
+      border-color: #CBD5E1;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #0284C7, #0369A1);
+      border: 1px solid #0284C7;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0369A1, #075985);
+      color: white;
+    }
+
+    /* Canvas Viewport */
+    #viewport {
+      width: 100%;
+      height: calc(100% - 64px);
+      position: relative;
+      overflow: hidden;
+      cursor: grab;
+      user-select: none;
+      background-color: #F8FAFC;
+      background-image: 
+        radial-gradient(#CBD5E1 1.2px, transparent 1.2px),
+        radial-gradient(#CBD5E1 1.2px, #F8FAFC 1.2px);
+      background-size: 32px 32px;
+      background-position: 0 0, 16px 16px;
+    }
+
+    #viewport.panning {
+      cursor: grabbing;
+    }
+
+    /* Transform Wrapper (Pan + Zoom applied here) */
+    #canvasTransform {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4000px;
+      height: 3000px;
+      transform-origin: 0 0;
+      will-change: transform;
+    }
+
+    /* Dynamic SVG Connector Layer */
+    #connectorsSvg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    /* Entity Table Cards */
+    .table-card {
+      position: absolute;
+      width: 310px;
+      background: #FFFFFF;
+      border: 1px solid #CBD5E1;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.08), 0 2px 6px -1px rgba(15, 23, 42, 0.04);
+      z-index: 20;
+      cursor: move;
+      transition: box-shadow 0.2s, border-color 0.2s, transform 0.1s;
+    }
+
+    .table-card:hover {
+      border-color: #94A3B8;
+      box-shadow: 0 10px 28px -4px rgba(15, 23, 42, 0.14);
+    }
+
+    .table-card.dragging {
+      z-index: 100 !important;
+      box-shadow: 0 20px 45px -8px rgba(15, 23, 42, 0.22);
+      border-color: var(--accent-blue);
+      cursor: grabbing;
+    }
+
+    .table-card.highlighted {
+      border-color: var(--accent-indigo) !important;
+      box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3), 0 12px 30px rgba(99, 102, 241, 0.2) !important;
+    }
+
+    /* Card Header */
+    .table-header {
+      padding: 10px 14px;
+      border-top-left-radius: 11px;
+      border-top-right-radius: 11px;
+      border-bottom: 1px solid var(--card-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 700;
+      font-size: 13.5px;
+      font-family: 'JetBrains Mono', monospace;
+      color: #0F172A;
+    }
+
+    /* Module Header Themes */
+    .module-infra { background: #F0F9FF; border-top: 3px solid #0284C7; }
+    .module-ops   { background: #FAF5FF; border-top: 3px solid #7C3AED; }
+    .module-comm  { background: #ECFDF5; border-top: 3px solid #059669; }
+    .module-audit { background: #FFFBEB; border-top: 3px solid #D97706; }
+
+    .module-tag {
+      font-size: 10.5px;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .tag-infra { background: #E0F2FE; color: #0369A1; }
+    .tag-ops   { background: #F3E8FF; color: #6B21A8; }
+    .tag-comm  { background: #D1FAE5; color: #065F46; }
+    .tag-audit { background: #FEF3C7; color: #92400E; }
+
+    /* Columns List */
+    .column-list {
+      padding: 6px 0;
+    }
+
+    .column-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px 14px;
+      font-size: 12.5px;
+      border-bottom: 1px solid #F1F5F9;
+      transition: background 0.15s;
+    }
+
+    .column-row:last-child {
+      border-bottom: none;
+    }
+
+    .column-row:hover {
+      background: #F8FAFC;
+    }
+
+    .column-left {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .col-name {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #1E293B;
+      font-weight: 600;
+    }
+
+    .col-type {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: #64748B;
+    }
+
+    /* Badges */
+    .badge {
+      font-size: 9.5px;
+      font-weight: 800;
+      padding: 1px 5px;
+      border-radius: 4px;
+      font-family: 'Inter', sans-serif;
+      letter-spacing: 0.3px;
+    }
+    .badge-pk { background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; }
+    .badge-fk { background: #E0F2FE; color: #0369A1; border: 1px solid #BAE6FD; }
+    .badge-uq { background: #F3E8FF; color: #6B21A8; border: 1px solid #E9D5FF; }
+    .badge-chk{ background: #D1FAE5; color: #065F46; border: 1px solid #A7F3D0; }
+
+    /* Floating Legend */
+    .floating-legend {
+      position: absolute;
+      bottom: 20px;
+      left: 24px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      padding: 10px 16px;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 12px;
+      color: #334155;
+      z-index: 40;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+    }
+
+    /* Help Floating Tooltip */
+    .help-tooltip {
+      position: absolute;
+      bottom: 20px;
+      right: 24px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--card-border);
+      backdrop-filter: blur(12px);
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 11.5px;
+      color: #64748B;
+      z-index: 40;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Studio Navigation Bar -->
+  <header class="studio-header">
+    <div class="studio-title-group">
+      <div class="studio-logo">✈️</div>
+      <div class="studio-title">
+        <h1>ARFOM-DB Relational ER Studio</h1>
+        <p>12 Tables &bull; Strict 3NF Relational Architecture &bull; Interactive Draggable Canvas</p>
+      </div>
+      <span class="pill-info">Interactive 60fps Physics</span>
+    </div>
+
+    <div class="studio-controls">
+      <!-- Zoom Controls -->
+      <div class="zoom-toolbar">
+        <button class="ctrl-btn" onclick="zoomIn()" title="Zoom In">+</button>
+        <span class="zoom-level-text" id="zoomText">100%</span>
+        <button class="ctrl-btn" onclick="zoomOut()" title="Zoom Out">−</button>
+        <button class="ctrl-btn" onclick="resetZoom()" title="Reset Zoom">100%</button>
+      </div>
+
+      <button class="btn-action" onclick="fitToScreen()" title="Fit all tables onto screen">
+        <span>📐 Fit Screen</span>
+      </button>
+
+      <button class="btn-action btn-primary" onclick="autoLayout()" title="Reset all tables to clean spacious layout">
+        <span>🪄 Auto-Layout</span>
+      </button>
+
+      <button class="btn-action" onclick="toggleFullscreen()" title="Toggle Fullscreen Presentation">
+        <span>⛶ Fullscreen</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Interactive Pan & Zoom Canvas Viewport -->
+  <div id="viewport">
+    <div id="canvasTransform">
+      <svg id="connectorsSvg">
+        <defs>
+          <marker id="marker-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#0284C7"/>
+          </marker>
+          <marker id="marker-arrow-indigo" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#4F46E5"/>
+          </marker>
+          <marker id="marker-arrow-emerald" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#059669"/>
+          </marker>
+          <marker id="marker-arrow-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#7C3AED"/>
+          </marker>
+          <marker id="marker-arrow-amber" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+            <path d="M 0 1 L 10 5 L 0 9 z" fill="#D97706"/>
+          </marker>
+        </defs>
+        <!-- Lines & Badges injected dynamically via JS -->
+      </svg>
+
+      <!-- 12 Relational Tables Container -->
+      <div id="tablesLayer"></div>
+    </div>
+
+    <!-- Floating Bottom Legend -->
+    <div class="floating-legend">
+      <span style="font-weight: 700; color: #0F172A; margin-right: 4px;">MODULES:</span>
+      <div class="legend-item"><div class="legend-dot" style="background:#0284C7;"></div> Infrastructure</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#7C3AED;"></div> Operations</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#059669;"></div> Commercial</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#D97706;"></div> Audit & Ledger</div>
+      <span style="border-left: 1px solid #CBD5E1; height: 16px; margin: 0 4px;"></span>
+      <span class="badge badge-pk">PK Primary</span>
+      <span class="badge badge-fk">FK Foreign</span>
+      <span class="badge badge-uq">UQ Unique</span>
+    </div>
+
+    <div class="help-tooltip">
+      💡 <strong>Drag</strong> tables to rearrange &bull; <strong>Scroll wheel</strong> to zoom &bull; <strong>Drag background</strong> to pan
+    </div>
+  </div>
+
+  <script>
+    // =========================================================================
+    // 12 CORE ARFOM-DB TABLES DATA SPECIFICATION
+    // =========================================================================
+    const TABLES_SCHEMA = [
+      {
+        id: "airports",
+        name: "airports",
+        module: "infra",
+        moduleName: "Infrastructure",
+        x: 60,
+        y: 60,
+        columns: [
+          { name: "airport_code", type: "CHAR(3)", key: "PK" },
+          { name: "airport_name", type: "VARCHAR(100)" },
+          { name: "city", type: "VARCHAR(50)" },
+          { name: "country", type: "VARCHAR(50)" }
+        ]
+      },
+      {
+        id: "routes",
+        name: "routes",
+        module: "infra",
+        moduleName: "Infrastructure",
+        x: 440,
+        y: 60,
+        columns: [
+          { name: "route_id", type: "INT SERIAL", key: "PK" },
+          { name: "origin_airport", type: "CHAR(3)", key: "FK" },
+          { name: "dest_airport", type: "CHAR(3)", key: "FK" },
+          { name: "distance_km", type: "NUMERIC(7,2)", key: "CHK" }
+        ]
+      },
+      {
+        id: "flights",
+        name: "flights",
+        module: "ops",
+        moduleName: "Operations",
+        x: 820,
+        y: 60,
+        columns: [
+          { name: "flight_id", type: "INT SERIAL", key: "PK" },
+          { name: "flight_number", type: "VARCHAR(10)", key: "UQ" },
+          { name: "route_id", type: "INT", key: "FK" },
+          { name: "aircraft_id", type: "INT", key: "FK" },
+          { name: "scheduled_departure", type: "TIMESTAMP" },
+          { name: "scheduled_arrival", type: "TIMESTAMP" },
+          { name: "flight_status", type: "VARCHAR(15)" }
+        ]
+      },
+      {
+        id: "aircraft",
+        name: "aircraft",
+        module: "infra",
+        moduleName: "Infrastructure",
+        x: 60,
+        y: 350,
+        columns: [
+          { name: "aircraft_id", type: "INT SERIAL", key: "PK" },
+          { name: "model", type: "VARCHAR(50)" },
+          { name: "total_capacity", type: "INT", key: "CHK" }
+        ]
+      },
+      {
+        id: "seats",
+        name: "seats",
+        module: "infra",
+        moduleName: "Infrastructure",
+        x: 440,
+        y: 350,
+        columns: [
+          { name: "seat_id", type: "INT SERIAL", key: "PK" },
+          { name: "aircraft_id", type: "INT", key: "FK" },
+          { name: "seat_number", type: "VARCHAR(4)", key: "UQ" },
+          { name: "seat_class", type: "VARCHAR(15)" }
+        ]
+      },
+      {
+        id: "tickets",
+        name: "tickets",
+        module: "comm",
+        moduleName: "Inventory",
+        x: 820,
+        y: 400,
+        columns: [
+          { name: "ticket_id", type: "INT SERIAL", key: "PK" },
+          { name: "booking_id", type: "INT", key: "FK" },
+          { name: "flight_id", type: "INT", key: "FK" },
+          { name: "seat_id", type: "INT", key: "FK" },
+          { name: "passenger_id", type: "INT", key: "FK" },
+          { name: "fare_amount", type: "NUMERIC(10,2)" },
+          { name: "ticket_status", type: "VARCHAR(15)" }
+        ]
+      },
+      {
+        id: "passengers",
+        name: "passengers",
+        module: "comm",
+        moduleName: "Customer",
+        x: 60,
+        y: 620,
+        columns: [
+          { name: "passenger_id", type: "INT SERIAL", key: "PK" },
+          { name: "first_name", type: "VARCHAR(50)" },
+          { name: "last_name", type: "VARCHAR(50)" },
+          { name: "email", type: "VARCHAR(100)", key: "UQ" },
+          { name: "passport_number", type: "VARCHAR(20)", key: "UQ" },
+          { name: "phone", type: "VARCHAR(20)" }
+        ]
+      },
+      {
+        id: "bookings",
+        name: "bookings",
+        module: "comm",
+        moduleName: "Commercial",
+        x: 440,
+        y: 620,
+        columns: [
+          { name: "booking_id", type: "INT SERIAL", key: "PK" },
+          { name: "booking_ref", type: "CHAR(6)", key: "UQ" },
+          { name: "passenger_id", type: "INT", key: "FK" },
+          { name: "booking_date", type: "TIMESTAMP" },
+          { name: "booking_status", type: "VARCHAR(15)" }
+        ]
+      },
+      {
+        id: "payments",
+        name: "payments",
+        module: "audit",
+        moduleName: "Settlement",
+        x: 440,
+        y: 920,
+        columns: [
+          { name: "payment_id", type: "INT SERIAL", key: "PK" },
+          { name: "booking_id", type: "INT", key: "FK" },
+          { name: "amount_paid", type: "NUMERIC(10,2)" },
+          { name: "payment_method", type: "VARCHAR(20)" },
+          { name: "payment_status", type: "VARCHAR(15)" }
+        ]
+      },
+      {
+        id: "checkins",
+        name: "checkins",
+        module: "ops",
+        moduleName: "Operations",
+        x: 1220,
+        y: 400,
+        columns: [
+          { name: "checkin_id", type: "INT SERIAL", key: "PK" },
+          { name: "ticket_id", type: "INT", key: "FK" },
+          { name: "checkin_time", type: "TIMESTAMP" },
+          { name: "boarding_pass", type: "VARCHAR(20)", key: "UQ" }
+        ]
+      },
+      {
+        id: "baggage",
+        name: "baggage",
+        module: "ops",
+        moduleName: "Operations",
+        x: 1220,
+        y: 680,
+        columns: [
+          { name: "baggage_id", type: "INT SERIAL", key: "PK" },
+          { name: "checkin_id", type: "INT", key: "FK" },
+          { name: "weight_kg", type: "NUMERIC(5,2)", key: "CHK" },
+          { name: "excess_fee", type: "NUMERIC(8,2)" }
+        ]
+      },
+      {
+        id: "cancellations",
+        name: "cancellations",
+        module: "audit",
+        moduleName: "Audit",
+        x: 1220,
+        y: 120,
+        columns: [
+          { name: "cancellation_id", type: "INT SERIAL", key: "PK" },
+          { name: "ticket_id", type: "INT", key: "FK" },
+          { name: "cancellation_time", type: "TIMESTAMP" },
+          { name: "refund_amount", type: "NUMERIC(10,2)", key: "CHK" }
+        ]
+      }
+    ];
+
+    // =========================================================================
+    // RELATIONAL CARDINALITY CONNECTIONS
+    // =========================================================================
+    const RELATIONSHIPS = [
+      { from: "airports", to: "routes", label: "originates (1:N)", color: "#0284C7" },
+      { from: "routes", to: "flights", label: "hosts (1:N)", color: "#0284C7" },
+      { from: "aircraft", to: "seats", label: "configures (1:N)", color: "#0284C7" },
+      { from: "aircraft", to: "flights", label: "deploys (1:N)", color: "#0284C7" },
+      { from: "seats", to: "tickets", label: "occupies (1:N)", color: "#4F46E5" },
+      { from: "passengers", to: "bookings", label: "places (1:N)", color: "#059669" },
+      { from: "bookings", to: "tickets", label: "contains (1:N)", color: "#059669" },
+      { from: "flights", to: "tickets", label: "allocates (1:N)", color: "#7C3AED" },
+      { from: "bookings", to: "payments", label: "settles (1:N)", color: "#D97706" },
+      { from: "tickets", to: "checkins", label: "authorizes (1:1)", color: "#7C3AED" },
+      { from: "checkins", to: "baggage", label: "custody (1:N)", color: "#7C3AED" },
+      { from: "tickets", to: "cancellations", label: "revokes (1:1)", color: "#D97706" }
+    ];
+
+    // Initial Positions storage for Auto-Layout
+    const DEFAULT_POSITIONS = {};
+    TABLES_SCHEMA.forEach(t => {
+      DEFAULT_POSITIONS[t.id] = { x: t.x, y: t.y };
+    });
+
+    // =========================================================================
+    // DOM GENERATION
+    // =========================================================================
+    const tablesLayer = document.getElementById("tablesLayer");
+    const connectorsSvg = document.getElementById("connectorsSvg");
+
+    function renderTables() {
+      tablesLayer.innerHTML = "";
+      TABLES_SCHEMA.forEach(table => {
+        const card = document.createElement("div");
+        card.className = "table-card";
+        card.id = `card-${table.id}`;
+        card.style.left = `${table.x}px`;
+        card.style.top = `${table.y}px`;
+
+        const modClass = `module-${table.module}`;
+        const tagClass = `tag-${table.module}`;
+
+        let rowsHtml = table.columns.map(col => {
+          let badgeHtml = "";
+          if (col.key === "PK") badgeHtml = `<span class="badge badge-pk">PK</span>`;
+          else if (col.key === "FK") badgeHtml = `<span class="badge badge-fk">FK</span>`;
+          else if (col.key === "UQ") badgeHtml = `<span class="badge badge-uq">UQ</span>`;
+          else if (col.key === "CHK") badgeHtml = `<span class="badge badge-chk">CHK</span>`;
+
+          return `
+            <div class="column-row">
+              <div class="column-left">
+                ${badgeHtml}
+                <span class="col-name">${col.name}</span>
+              </div>
+              <span class="col-type">${col.type}</span>
+            </div>
+          `;
+        }).join("");
+
+        card.innerHTML = `
+          <div class="table-header ${modClass}" data-table="${table.id}">
+            <span>${table.name}</span>
+            <span class="module-tag ${tagClass}">${table.moduleName}</span>
+          </div>
+          <div class="column-list">
+            ${rowsHtml}
+          </div>
+        `;
+
+        // Card drag listener
+        setupCardDrag(card, table);
+
+        tablesLayer.appendChild(card);
+      });
+    }
+
+    // =========================================================================
+    // DRAG PHYSICS (CARD REPOSITIONING)
+    // =========================================================================
+    let activeDrag = null;
+
+    function setupCardDrag(card, table) {
+      const header = card.querySelector(".table-header");
+
+      header.addEventListener("pointerdown", (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+
+        card.classList.add("dragging");
+        activeDrag = {
+          card: card,
+          table: table,
+          startX: e.clientX,
+          startY: e.clientY,
+          origX: table.x,
+          origY: table.y
+        };
+
+        highlightConnected(table.id);
+      });
+    }
+
+    window.addEventListener("pointermove", (e) => {
+      if (!activeDrag) return;
+
+      const dx = (e.clientX - activeDrag.startX) / currentScale;
+      const dy = (e.clientY - activeDrag.startY) / currentScale;
+
+      activeDrag.table.x = Math.round(activeDrag.origX + dx);
+      activeDrag.table.y = Math.round(activeDrag.origY + dy);
+
+      activeDrag.card.style.left = `${activeDrag.table.x}px`;
+      activeDrag.card.style.top = `${activeDrag.table.y}px`;
+
+      requestAnimationFrame(updateConnectors);
+    });
+
+    window.addEventListener("pointerup", () => {
+      if (activeDrag) {
+        activeDrag.card.classList.remove("dragging");
+        activeDrag = null;
+        clearHighlight();
+      }
+    });
+
+    // =========================================================================
+    // DYNAMIC SVG RELATIONSHIP CONNECTOR LINES
+    // =========================================================================
+    function updateConnectors() {
+      // Clear all lines and text badges except defs
+      const defs = connectorsSvg.querySelector("defs");
+      connectorsSvg.innerHTML = "";
+      connectorsSvg.appendChild(defs);
+
+      RELATIONSHIPS.forEach(rel => {
+        const fromCard = document.getElementById(`card-${rel.from}`);
+        const toCard = document.getElementById(`card-${rel.to}`);
+        if (!fromCard || !toCard) return;
+
+        const x1_c = fromCard.offsetLeft + fromCard.offsetWidth / 2;
+        const y1_c = fromCard.offsetTop + fromCard.offsetHeight / 2;
+        const x2_c = toCard.offsetLeft + toCard.offsetWidth / 2;
+        const y2_c = toCard.offsetTop + toCard.offsetHeight / 2;
+
+        // Determine best attachment points (closest edges)
+        let x1, y1, x2, y2;
+        const dx = x2_c - x1_c;
+        const dy = y2_c - y1_c;
+
+        if (Math.abs(dx) > Math.abs(dy)) {
+          // Horizontal connection
+          if (dx > 0) {
+            x1 = fromCard.offsetLeft + fromCard.offsetWidth;
+            y1 = y1_c;
+            x2 = toCard.offsetLeft;
+            y2 = y2_c;
+          } else {
+            x1 = fromCard.offsetLeft;
+            y1 = y1_c;
+            x2 = toCard.offsetLeft + toCard.offsetWidth;
+            y2 = y2_c;
+          }
+        } else {
+          // Vertical connection
+          if (dy > 0) {
+            x1 = x1_c;
+            y1 = fromCard.offsetTop + fromCard.offsetHeight;
+            x2 = x2_c;
+            y2 = toCard.offsetTop;
+          } else {
+            x1 = x1_c;
+            y1 = fromCard.offsetTop;
+            x2 = x2_c;
+            y2 = toCard.offsetTop + toCard.offsetHeight;
+          }
+        }
+
+        // Draw smooth cubic bezier curve
+        const curveOffset = Math.min(100, Math.max(40, Math.hypot(x2 - x1, y2 - y1) * 0.35));
+        let cx1, cy1, cx2, cy2;
+
+        if (Math.abs(dx) > Math.abs(dy)) {
+          const sign = dx > 0 ? 1 : -1;
+          cx1 = x1 + curveOffset * sign;
+          cy1 = y1;
+          cx2 = x2 - curveOffset * sign;
+          cy2 = y2;
+        } else {
+          const sign = dy > 0 ? 1 : -1;
+          cx1 = x1;
+          cy1 = y1 + curveOffset * sign;
+          cx2 = x2;
+          cy2 = y2 - curveOffset * sign;
+        }
+
+        const pathD = `M ${x1} ${y1} C ${cx1} ${cy1}, ${cx2} ${cy2}, ${x2} ${y2}`;
+
+        // Create Path
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        path.setAttribute("d", pathD);
+        path.setAttribute("fill", "none");
+        path.setAttribute("stroke", rel.color || "#0284C7");
+        path.setAttribute("stroke-width", "2.5");
+        path.setAttribute("stroke-opacity", "0.85");
+        path.setAttribute("marker-end", "url(#marker-arrow)");
+        path.id = `rel-${rel.from}-${rel.to}`;
+
+        // Midpoint coordinates for relationship badge
+        const midX = 0.125 * x1 + 0.375 * cx1 + 0.375 * cx2 + 0.125 * x2;
+        const midY = 0.125 * y1 + 0.375 * cy1 + 0.375 * cy2 + 0.125 * y2;
+
+        // Label Background
+        const badgeWidth = rel.label.length * 6.5 + 16;
+        const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+        rect.setAttribute("x", midX - badgeWidth / 2);
+        rect.setAttribute("y", midY - 10);
+        rect.setAttribute("width", badgeWidth);
+        rect.setAttribute("height", "20");
+        rect.setAttribute("rx", "10");
+        rect.setAttribute("fill", "#FFFFFF");
+        rect.setAttribute("stroke", rel.color || "#CBD5E1");
+        rect.setAttribute("stroke-width", "1.5");
+        rect.setAttribute("filter", "drop-shadow(0 2px 4px rgba(0,0,0,0.06))");
+
+        // Label Text
+        const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+        text.setAttribute("x", midX);
+        text.setAttribute("y", midY + 4);
+        text.setAttribute("text-anchor", "middle");
+        text.setAttribute("fill", "#0F172A");
+        text.setAttribute("font-family", "Inter, sans-serif");
+        text.setAttribute("font-size", "10.5");
+        text.setAttribute("font-weight", "700");
+        text.textContent = rel.label;
+
+        connectorsSvg.appendChild(path);
+        connectorsSvg.appendChild(rect);
+        connectorsSvg.appendChild(text);
+      });
+    }
+
+    // =========================================================================
+    // HIGHLIGHT RELATED TABLES
+    // =========================================================================
+    function highlightConnected(tableId) {
+      document.querySelectorAll(".table-card").forEach(c => c.classList.remove("highlighted"));
+      const connected = new Set([tableId]);
+
+      RELATIONSHIPS.forEach(r => {
+        if (r.from === tableId) connected.add(r.to);
+        if (r.to === tableId) connected.add(r.from);
+      });
+
+      connected.forEach(id => {
+        const el = document.getElementById(`card-${id}`);
+        if (el) el.classList.add("highlighted");
+      });
+    }
+
+    function clearHighlight() {
+      document.querySelectorAll(".table-card").forEach(c => c.classList.remove("highlighted"));
+    }
+
+    // =========================================================================
+    // PAN & ZOOM ENGINE
+    // =========================================================================
+    const viewport = document.getElementById("viewport");
+    const canvasTransform = document.getElementById("canvasTransform");
+    const zoomText = document.getElementById("zoomText");
+
+    let currentScale = 0.95;
+    let panX = 40;
+    let panY = 30;
+    let isPanning = false;
+    let startPanX = 0;
+    let startPanY = 0;
+
+    function applyTransform() {
+      canvasTransform.style.transform = `translate(${panX}px, ${panY}px) scale(${currentScale})`;
+      zoomText.textContent = `${Math.round(currentScale * 100)}%`;
+    }
+
+    // Mouse Wheel Zoom centered on cursor
+    viewport.addEventListener("wheel", (e) => {
+      e.preventDefault();
+      const rect = viewport.getBoundingClientRect();
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      const prevScale = currentScale;
+      const delta = e.deltaY < 0 ? 1.12 : 0.89;
+      currentScale = Math.min(2.5, Math.max(0.35, currentScale * delta));
+
+      // Adjust pan to zoom into mouse cursor position
+      panX = mouseX - (mouseX - panX) * (currentScale / prevScale);
+      panY = mouseY - (mouseY - panY) * (currentScale / prevScale);
+
+      applyTransform();
+    }, { passive: false });
+
+    // Background Canvas Panning
+    viewport.addEventListener("pointerdown", (e) => {
+      // If clicking directly on card, do not start canvas pan
+      if (e.target.closest(".table-card")) return;
+
+      isPanning = true;
+      viewport.classList.add("panning");
+      startPanX = e.clientX - panX;
+      startPanY = e.clientY - panY;
+    });
+
+    window.addEventListener("pointermove", (e) => {
+      if (!isPanning) return;
+      panX = e.clientX - startPanX;
+      panY = e.clientY - startPanY;
+      applyTransform();
+    });
+
+    window.addEventListener("pointerup", () => {
+      if (isPanning) {
+        isPanning = false;
+        viewport.classList.remove("panning");
+      }
+    });
+
+    // Control Buttons
+    function zoomIn() {
+      currentScale = Math.min(2.5, currentScale * 1.2);
+      applyTransform();
+    }
+
+    function zoomOut() {
+      currentScale = Math.max(0.35, currentScale * 0.83);
+      applyTransform();
+    }
+
+    function resetZoom() {
+      currentScale = 1.0;
+      panX = 60;
+      panY = 40;
+      applyTransform();
+    }
+
+    function fitToScreen() {
+      const vWidth = viewport.clientWidth;
+      const vHeight = viewport.clientHeight;
+      const contentWidth = 1600;
+      const contentHeight = 1100;
+
+      const scaleX = vWidth / contentWidth;
+      const scaleY = vHeight / contentHeight;
+      currentScale = Math.max(0.4, Math.min(1.0, Math.min(scaleX, scaleY) * 0.92));
+
+      panX = Math.round((vWidth - contentWidth * currentScale) / 2);
+      panY = Math.round((vHeight - contentHeight * currentScale) / 2);
+
+      applyTransform();
+    }
+
+    function autoLayout() {
+      TABLES_SCHEMA.forEach(table => {
+        const def = DEFAULT_POSITIONS[table.id];
+        table.x = def.x;
+        table.y = def.y;
+        const card = document.getElementById(`card-${table.id}`);
+        if (card) {
+          card.style.left = `${table.x}px`;
+          card.style.top = `${table.y}px`;
+        }
+      });
+      fitToScreen();
+      updateConnectors();
+    }
+
+    function toggleFullscreen() {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) document.exitFullscreen();
+      }
+    }
+
+    // Double click card to center & focus on it
+    tablesLayer.addEventListener("dblclick", (e) => {
+      const card = e.target.closest(".table-card");
+      if (!card) return;
+
+      const tableId = card.id.replace("card-", "");
+      const table = TABLES_SCHEMA.find(t => t.id === tableId);
+      if (!table) return;
+
+      currentScale = 1.2;
+      const vWidth = viewport.clientWidth;
+      const vHeight = viewport.clientHeight;
+
+      panX = Math.round(vWidth / 2 - (table.x + 155) * currentScale);
+      panY = Math.round(vHeight / 2 - (table.y + 120) * currentScale);
+
+      applyTransform();
+      highlightConnected(tableId);
+    });
+
+    // =========================================================================
+    // INITIALIZATION
+    // =========================================================================
+    window.addEventListener("DOMContentLoaded", () => {
+      renderTables();
+      fitToScreen();
+      // Delay connector calculation slightly to ensure CSS bounding boxes are set
+      setTimeout(() => {
+        updateConnectors();
+      }, 50);
+    });
+
+    window.addEventListener("resize", () => {
+      updateConnectors();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+================================================================================
+ARFOM-DB: REVIEW 2 VIVA QUICK CHEATSHEET & COPY-PASTE QUERIES
+================================================================================
+
+1. INSTANT TERMINAL DEMO COMMANDS (ONE-SHOT EXECUTION)
+--------------------------------------------------------------------------------
+# Show all 5 Integrity Constraints & Triggers passing negative tests:
+python3 demo_runner.py --constraints
+
+# Show all 7 Analytical Reports (Joins, Aggregates, Subqueries, Views):
+python3 demo_runner.py --reports
+
+# Run full presentation demo (both suites combined):
+python3 demo_runner.py --demo
+
+# Interactive SQL prompt to type any query on the fly:
+python3 demo_runner.py   (select option 5)
+
+
+================================================================================
+2. FAILING SQL QUERIES (NEGATIVE TESTS TO DEMONSTRATE LIVE ERRORS)
+================================================================================
+
+[FAIL 1] NEGATIVE BAGGAGE WEIGHT (CHECK Constraint Violation)
+SQL:
+INSERT INTO baggage (baggage_id, checkin_id, weight_kg, excess_fee) VALUES (999, 1, -5.50, 0.00);
+
+Terminal One-Liner:
+python3 demo_runner.py --sql "INSERT INTO baggage (baggage_id, checkin_id, weight_kg, excess_fee) VALUES (999, 1, -5.50, 0.00);"
+
+Expected Error:
+CHECK constraint failed: weight_kg >= 0.00
+
+What to say:
+"Ma'am, our schema enforces non-negative baggage weights with CHECK (weight_kg >= 0.00). When an illegal negative weight is inserted, the engine immediately rejects it."
+--------------------------------------------------------------------------------
+
+[FAIL 2] DOUBLE-BOOKING A SEAT (UNIQUE Constraint Violation)
+SQL:
+INSERT INTO tickets (ticket_id, booking_id, flight_id, seat_id, fare_amount, ticket_status) VALUES (999, 2, 101, 1, 8500.00, 'ISSUED');
+
+Terminal One-Liner:
+python3 demo_runner.py --sql "INSERT INTO tickets (ticket_id, booking_id, flight_id, seat_id, fare_amount, ticket_status) VALUES (999, 2, 101, 1, 8500.00, 'ISSUED');"
+
+Expected Error:
+UNIQUE constraint failed: tickets.flight_id, tickets.seat_id
+
+What to say:
+"Ma'am, to enforce 'one seat per passenger per flight', we placed a composite UNIQUE constraint on (flight_id, seat_id). Because Seat 1 on Flight 101 is already taken, this insert is aborted."
+--------------------------------------------------------------------------------
+
+[FAIL 3] SAME ORIGIN & DESTINATION AIRPORT (CHECK Constraint Violation)
+SQL:
+INSERT INTO routes (origin_airport, dest_airport, distance_km) VALUES ('DEL', 'DEL', 500);
+
+Terminal One-Liner:
+python3 demo_runner.py --sql "INSERT INTO routes (origin_airport, dest_airport, distance_km) VALUES ('DEL', 'DEL', 500);"
+
+Expected Error:
+CHECK constraint failed: origin_airport <> dest_airport
+
+What to say:
+"A flight cannot depart and arrive at the same airport. Our schema enforces CHECK (origin_airport <> dest_airport)."
+--------------------------------------------------------------------------------
+
+[FAIL 4] NEGATIVE REFUND AMOUNT (CHECK Constraint Violation)
+SQL:
+INSERT INTO cancellations (cancellation_id, ticket_id, refund_amount) VALUES (999, 1, -500.00);
+
+Terminal One-Liner:
+python3 demo_runner.py --sql "INSERT INTO cancellations (cancellation_id, ticket_id, refund_amount) VALUES (999, 1, -500.00);"
+
+Expected Error:
+CHECK constraint failed: refund_amount >= 0.00
+
+What to say:
+"Our financial refund ledger enforces non-negative refund balances using CHECK (refund_amount >= 0.00)."
+--------------------------------------------------------------------------------
+
+
+================================================================================
+3. THE 7 REVIEW 2 ANALYTICAL QUERIES (RUN IN WORKBENCH OR CLI)
+================================================================================
+
+[REPORT 1] FLIGHT MANIFEST (VIEW + 6-TABLE JOINS)
+SELECT * FROM view_master_manifest LIMIT 50;
+
+[REPORT 2] OCCUPANCY & LOAD FACTOR (AGGREGATES + CASE WHEN)
+SELECT f.flight_id, f.flight_number, a.model, a.total_capacity, COUNT(t.ticket_id) AS confirmed_passengers, ROUND((COUNT(t.ticket_id) * 100.0 / a.total_capacity), 1) || '%' AS occupancy_rate, CASE WHEN (COUNT(t.ticket_id) * 1.0 / a.total_capacity) >= 0.80 THEN 'OPTIMAL' WHEN (COUNT(t.ticket_id) * 1.0 / a.total_capacity) >= 0.50 THEN 'MODERATE' ELSE 'LOW_YIELD' END AS efficiency FROM flights f JOIN aircraft a ON f.aircraft_id = a.aircraft_id LEFT JOIN tickets t ON f.flight_id = t.flight_id AND t.ticket_status != 'CANCELLED' GROUP BY f.flight_id;
+
+[REPORT 3] ROUTE DEMAND & CORRIDOR DENSITY (COUNT DISTINCT + SUM + AVG)
+SELECT r.route_id, r.origin_airport || ' -> ' || r.dest_airport AS corridor, r.distance_km, COUNT(DISTINCT f.flight_id) AS flights_count, COUNT(t.ticket_id) AS total_passengers, COALESCE(SUM(t.fare_amount), 0) AS total_revenue, ROUND(AVG(t.fare_amount), 2) AS avg_ticket_price FROM routes r LEFT JOIN flights f ON r.route_id = f.route_id LEFT JOIN tickets t ON f.flight_id = t.flight_id AND t.ticket_status != 'CANCELLED' GROUP BY r.route_id ORDER BY total_revenue DESC;
+
+[REPORT 4] BAGGAGE LOGISTICS & EXCESS SURCHARGES (5-TABLE JOINS + SUM + AVG)
+SELECT f.flight_number, r.origin_airport || ' -> ' || r.dest_airport AS route, COUNT(b.baggage_id) AS total_bags, ROUND(SUM(b.weight_kg), 1) AS total_weight_kg, ROUND(AVG(b.weight_kg), 1) AS avg_bag_weight, SUM(b.excess_fee) AS total_excess_fees FROM flights f JOIN routes r ON f.route_id = r.route_id JOIN tickets t ON f.flight_id = t.flight_id JOIN checkins c ON t.ticket_id = c.ticket_id JOIN baggage b ON c.checkin_id = b.checkin_id GROUP BY f.flight_id ORDER BY total_weight_kg DESC;
+
+[REPORT 5] CANCELLATIONS & NET PENALTY RETENTION (ARITHMETIC AGGREGATION)
+SELECT COUNT(c.cancellation_id) AS total_cancelled, SUM(t.fare_amount) AS gross_fare, SUM(c.refund_amount) AS total_refunded, SUM(t.fare_amount - c.refund_amount) AS net_retained_penalty, ROUND(SUM(c.refund_amount) * 100.0 / SUM(t.fare_amount), 1) || '%' AS refund_ratio FROM cancellations c JOIN tickets t ON c.ticket_id = t.ticket_id;
+
+[REPORT 6] ON-TIME PERFORMANCE STATUS (SCALAR NESTED SUBQUERY)
+SELECT flight_status, COUNT(*) AS count, ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM flights), 1) || '%' AS percentage FROM flights GROUP BY flight_status ORDER BY count DESC;
+
+[REPORT 7] REVENUE BY CABIN TIER & YIELD (CLASS BREAKDOWN)
+SELECT s.seat_class, COUNT(t.ticket_id) AS tickets_sold, SUM(t.fare_amount) AS total_revenue, ROUND(AVG(t.fare_amount), 2) AS avg_fare FROM tickets t JOIN seats s ON t.seat_id = s.seat_id WHERE t.ticket_status != 'CANCELLED' GROUP BY s.seat_class ORDER BY total_revenue DESC;
+
+
+================================================================================
+4. EMERGENCY VIVA DEFENSE RECITALS (MEMORIZE THESE 3 ANSWERS)
+================================================================================
+
+1. WHAT IS 1:1 AND 1:N OVER HERE?
+"A foreign key is naturally 1:N by default (e.g., one aircraft has many seats). 
+To make it strictly 1:1, we place a UNIQUE constraint on the foreign key column. 
+For example, tickets to checkins is 1:1 because checkins.ticket_id is UNIQUE. 
+A ticket can produce at most one check-in record."
+
+2. HOW DO YOU PREVENT DOUBLE-BOOKING IN DDL?
+"Through table-level composite key uniqueness: 
+CONSTRAINT uq_flight_seat UNIQUE (flight_id, seat_id) in the tickets table. 
+The RDBMS enforces this at the B-tree index level before any row write commits."
+
+3. WHY DID WE DECOMPOSE PASSENGERS AND FLIGHTS?
+"Logically, passengers and flights have a Many-to-Many relationship. 
+To satisfy First Normal Form (1NF) and prevent insertion/deletion anomalies, 
+we decomposed M:N into two 1:N relationships via the junction entity 'tickets'."
+================================================================================

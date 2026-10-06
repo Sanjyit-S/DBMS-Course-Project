@@ -1,0 +1,3145 @@
+DBMS Laboratory Manual,
+School Of Technology
+
+DATA BASE
+MANAGEMENT SYSTEM
+
+Verified by:
+
+Prepared by:
+
+Prof. Amogh Deshmukh
+
+Shreelaxmi k
+
+Page 1 of 110
+
+DBMS Laboratory Manual,
+School Of Technology
+
+1. Lab Instructions:
+
+
+Follow all instructions carefully in the lab.
+
+
+
+Without permission mobile phones are not allowed.
+
+
+
+Formals, shoes and ID Cards are compulsory for the lab.
+
+
+
+Don’t install or delete any software without permission.
+
+
+
+Students should complete writing their experiment records before arriving at the laboratory and
+have them reviewed and signed by the Lab Instructor.
+
+2. Lab Exam Instructions and Evaluation:
+
+
+A total of 12 experiments, as outlined in the provided manual, collectively account for 100
+marks.
+
+
+
+There will be two separate examinations. The first examination will cover the first 6
+experiments, and the second examination will assess the remaining 6 experiments. By default,
+these examinations will take place in the week following the completion of each set of 6
+experiments.
+
+
+
+During the examination, a single experiment will be randomly selected from these six for the
+exam evaluation.
+
+
+
+Each examination carries a total of 50 marks, distributed as follows:
+
+3. Course Objectives:
+Page 2 of 110
+
+DBMS Laboratory Manual,
+School Of Technology
+
+
+
+
+
+
+
+
+
+
+
+
+To understand the fundamentals of database design, including schema creation and attribute
+identification.
+To develop proficiency in SQL for performing basic CRUD (Create, Read, Update, Delete)
+operations.
+To explore advanced SQL queries using clauses such as DISTINCT, WHERE, ORDER BY, and
+functions like COUNT, MIN, MAX, SUM, and AVG.
+To learn and apply constraints like PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL,
+and DEFAULT for maintaining data integrity.
+To master JOIN operations (INNER, LEFT, RIGHT, OUTER) for combining and analyzing data
+across tables.
+To perform data organization and filtering using GROUP BY, HAVING, and advanced WHERE
+clauses with operators.
+To create and utilize database views and stored procedures for simplifying and automating tasks.
+To practice solving real-world database problems with scenario-based exercises.
+To introduce NoSQL concepts and gain hands-on experience with MongoDB for documentbased data management.
+To execute advanced MongoDB queries, updates, and aggregations for complex data handling.
+To understand and apply indexing and search techniques to enhance database performance.
+
+4. Course Learning Outcomes:
+CILO 1
+
+Understand and apply the knowledge of databases to E-R modeling and Relational
+Model.
+
+CILO 2
+
+Design a normalized database and be able to perform transaction management and
+concurrency control.
+
+CILO 3
+
+Explore various database architectures.
+
+CILO 4
+
+Create a sample database for any specific application.
+
+5. Module:
+Module
+
+Topics
+
+CILO
+
+No.
+
+Mapping
+
+Unit 1 Introduction to Database Management Systems
+
+CILO 1
+
+Unit 2 Database Design
+
+CILO 2
+
+Unit 3 Transaction Management and Storage
+
+CILO 2
+Page 3 of 110
+
+DBMS Laboratory Manual,
+School Of Technology
+Unit 4 NoSQL Database
+
+CILO 3
+
+Unit 5 Data Replication
+
+CILO 4
+
+6. Textbooks:
+[T1] Database Systems Concepts, 6th edition by Abraham Silberschatz, Henry F. Krth, S. Sudarshan,
+McGraw
+Hill.
+[T2] Computer System Architecture, M. Morris Mano, Pearson.
+
+7. Reference Books:
+[R1] Principles of Database and Knowledge Base Systems, Vol 1 by J.D. Ullman, Computer Science
+Press.
+[R2] Fundamentals of Database Systems, 5th Edition by R. Elmasri and S. Navathe, Pearson
+Education.
+[R3] Foundations of Databases, Reprint by Serge Abiteboul, Richard Hull, Victor Vianu, AddisonWesley.
+
+8. E-content:
+1. https://www.coursera.org/learn/database-management
+2. https://www.coursera.org/learn/introduction-to-nosql-databases
+9. Attendance Policy:
+1. A Student must normally maintain a minimum of 75% attendance in the course.
+2. Lab without which he/she shall be disqualified from appearing in the
+respective Lab examination`
+Page 4 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+Evaluation Scheme:
+Lab Exam – I:
+Maximum Marks: 45 Marks
+Sr.no
+
+Marks of Distribution
+
+Marks
+
+1
+
+Performed Experiment
+
+35
+
+2
+
+Continuous Attendance
+
+05
+
+3
+
+Viva
+
+05
+
+Lab Exam – II:
+Maximum Marks: 55 Marks
+Sr.no
+
+Marks of Distribution
+
+Marks
+
+1
+
+Performed Experiment
+
+35
+
+2
+
+Record Book
+
+10
+
+3
+
+Continuous Attendance
+
+05
+
+4
+
+Viva
+
+05
+
+Page 5 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+INDEX
+Experiment Names
+
+S.no
+
+Page no
+
+CIO Mapping
+
+1
+
+Identification of attributes based on a given scenario.
+
+5-7
+
+CLO 1
+
+2
+
+Introduction to SQL queries, performing basic CRUD
+operations: (31 Jul – 5 Aug) a. Create DB b. Create Table c.
+Insert data into table d. Fetch data from table (Select query
+and basic where clause) e. Update records in table f. Delete
+table and DB
+More SQL Queries: (7-12 Aug) a. Select DISTINCT b.
+Where with AND, OR and NOT c. Where with BETWEEN
+d. ORDERBY ASC|DESC e. Where Clause with ISNULL
+f. Select TOP g. MIN(), MAX(), AVG(), SUM() and
+COUNT()
+ALTER Table and applying constraints
+
+8-9
+
+CLO 1
+
+10 - 15
+
+CLO 1
+
+16 - 28
+
+CLO 2
+
+29 - 36
+
+CLO 2
+
+6
+
+ALIASES and JOINS - a. AS Keyword b. JOIN c. INNER
+JOIN d. LEFT JOIN e. RIGHT JOIN f. OUTER JOIN g.
+UNION
+LIKE, GROUPBY, HAVING, EXISTS, ANY, ALL
+
+37 - 46
+
+CLO 3
+
+7
+
+VIEW and Procedures
+
+47 - 48
+
+CLO 3
+
+8
+
+Scenario based question on MySQL for practice
+
+49 - 51
+
+CLO 3
+
+3
+
+4
+5
+
+9
+
+Introduction to MongoDB and Performing
+operations
+a. Create DB
+b. Create Collection
+c. InsertOne and InertMany
+d. Find and FindOne
+e. UpdateOne and UpdateMany
+f. DeleteOne and DeleteMany
+10 MongoDB Query Operators (2-7 Oct)
+
+CRUD
+52 – 60
+
+CLO 4
+
+61 - 78
+
+CLO 4
+
+11 MongoDB Update Operations - a. Fields b. Array
+
+79 - 90
+
+CLO 4
+
+12 MongoDb Aggregations.
+
+91 - 102
+
+CLO 4
+
+13 Search and Index
+
+103 - 106
+
+CLO 4
+
+Page 6 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Experiment No: 1
+1. Objective: Identification of attributes based on a given scenario.
+What are all attributes required to create a Database for any hotel booking?
+Creating a database for a hotel booking system requires careful consideration of various attributes to
+efficiently manage the data related to reservations, rooms, guests, and other relevant information. Here
+are some essential attributes that you might need for a hotel booking database:
+
+1. Guest Information:
+- Guest ID (unique identifier)
+- First Name
+- Last Name
+- Contact Information (phone number, email)
+- Address
+2. Room Information:
+- Room ID (unique identifier)
+- Room Type (e.g., single, double, suite)
+- Room Number
+- Room Rate
+- Room Capacity (number of guests it can accommodate)
+- Description
+3. Reservation Information:
+- Reservation ID (unique identifier)
+- Guest ID (foreign key to link with guest information)
+- Room ID (foreign key to link with room information)
+- Check-in Date
+- Check-out Date
+- Total Price
+- Special Requests
+Page 7 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+4. Payment Information:
+- Payment ID (unique identifier)
+- Reservation ID (foreign key to link with reservation information)
+- Payment Date
+- Payment Method (e.g., credit card, cash)
+- Amount Paid
+5. Staff Information:
+- Staff ID (unique identifier)
+- Staff Name
+- Job Title
+- Contact Information
+6. Amenities:
+- Amenities ID (unique identifier)
+- Amenity Name
+- Description - Price (if applicable)
+7. Booking History:
+- Booking History ID (unique identifier)
+- Guest ID (foreign key to link with guest information)
+- Reservation ID (foreign key to link with reservation information)
+- Dates of Previous Stays
+- Total Amount Spent
+8. Availability Calendar:
+- Date
+- Room ID (foreign key to link with room information)
+- Availability Status (e.g., available, booked)
+Page 8 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+9. User Accounts (for staff access):
+- User ID (unique identifier)
+- Username
+- Password
+- Access Level (e.g., admin, receptionist, manager)
+10. Reviews and Ratings:
+- Review ID (unique identifier)
+- Guest ID (foreign key to link with guest information)
+- Room ID (foreign key to link with room information)
+- Rating
+- Review Text
+- Date of Review
+11. Promotions and Discounts:
+- Promotion ID (unique identifier)
+- Promotion Name
+- Discount Percentage
+- Valid Dates
+12. Hotel Information:
+- Hotel Name
+- Location
+- Contact Information
+- Check-in/Check-out Policies
+
+Page 9 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Experiment No: 2
+1. Objective: Introduction to SQL queries, performing basic CRUD operations:
+a
+b
+c
+d
+e
+f
+g
+
+Select DISTINCT
+Where with AND, OR and NOT
+Where with BETWEEN
+ORDERBY ASC|DESC
+Where Clause with ISNULL
+Select TOP
+MIN(), MAX(), AVG(), SUM() and COUNT()
+
+a. Create DataBase  create database Students;
+(CREATE DATABASE database_name;)
+
+b. Create Table  create table Students(Name varchar(20), ID numeric(4), Course varchar(8), DOB
+numeric(6), Gender varchar(2), BloodGroup varchar(4));
+(CREATE TABLE table_name(<columnname1> <datatype1>,
+<columnname2> <datatype2>,…..);)
+
+c. Insert data into table  insert into Students (Name, ID, Course, DOB, Gender, BloodGroup) values ('Abhiram',
+1001, 'CSE-AIML', 101003, 'M', 'O+ve');
+
+ insert into Students (Name, ID, Course, DOB, Gender, BloodGroup) values ('Abhimanyu',
+1002, 'CSE', 010303, 'M', 'B+ve');
+
+ insert into Students (Name, ID, Course, DOB, Gender, BloodGroup) values ('Rudra', 1003,
+'CSE-DS', 210503, 'M', 'O+ve');
+
+ insert into Students (Name, ID, Course, DOB, Gender, BloodGroup) values ('Nandani',
+1004, 'CSE', 280303, 'F', 'B+ve');
+
+ insert into Students (Name, ID, Course, DOB, Gender, BloodGroup) values ('Ridhima',
+1005, 'CSE-BIC', 031003, 'F', 'O+ve');
+
+ insert into Students (Name, ID, Course, DOB, Gender, BloodGroup) values ('Nithya', 1006,
+'CSE-DS', 190603, 'F', 'A+ve');
+
+ insert into Students (Name, ID, Course, DOB, Gender, BloodGroup) values ('Rohit', 1007,
+'CSE-BIC', 070203, 'M', 'A+ve');
+
+ insert into Students (Name, ID, Course, DOB, Gender, BloodGroup) values ('Kshithija',
+1008, 'CSE-BIC', 180903, 'F', 'O+ve');
+Page 10 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+ insert into Students (Name, ID, Course, DOB, Gender, BloodGroup) values ('Veer', 1009,
+'CSE-AIML', 300503, 'M', 'B+ve');
+
+ insert into Students (Name, ID, Course, DOB, Gender, BloodGroup) values ('Sita', 1010,
+'CSE', 291203, 'F', 'A+ve');
+
+d. Fetch data from table (Select query and basic where clause) -
+
+select * from Students where ID
+
+== 1005;
+
+e. Update records in table  UPDATE Students SET Course = 'CSE', BloodGroup = 'B+ve' WHERE ID = 1005;
+(UPDATE table_name SET column1 = value1, column2 = value2, ... WHERE condition;)
+
+Page 11 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Experiment No: 3
+1.
+
+Objective: More SQL Queries:
+
+a)
+
+Select DISTINCT
+
+b)
+
+Where with AND, OR and NOT
+
+c)
+
+Where with BETWEEN
+
+d)
+
+ORDERBY ASC|DESC
+
+e)
+
+Where Clause with ISNULL
+
+f)
+
+Select TOP
+
+create table Student (sID numeric(8) NOT NULL, sName varchar(20), Course_Name
+varchar(5), Address varchar(10));
+
+insert into Student(sID, sName, Course_Name, Address) values (1001, 'Anand',
+'CSE', 'Secunderabad');
+insert into Student(sID, sName, Course_Name, Address) values (1002, 'Raj', 'CSEAIML',
+'Hyderabad');
+insert into Student(sID, sName, Course_Name, Address) values (1003, 'Ajay', 'CSEDS',
+'Sadashivapet');
+insert into Student(sID, sName, Course_Name, Address) values (1004, 'Sandhya',
+'CSE-BIC', 'Kurnool');
+insert into Student(sID, sName, Course_Name, Address) values (1005, 'Ruhanika', 'CSE-BIC',
+'Nandyal');
+
+sID
+
+sName
+
+Course_Name
+
+Address
+
+1001
+
+Anand
+
+CSE
+
+Secunderabad
+
+1002
+
+Raj
+
+CSE-AIML
+
+Hyderabad
+
+1003
+
+Ajay
+
+CSE-DS
+
+Sadashivapet
+
+1004
+
+Sandhya
+
+CSE-BIC
+
+Kurnool
+
+1005
+
+Ruhanika
+
+CSE-BIC
+
+Nandyal
+
+Page 12 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+alter table Student add email varchar(25);
+
+sID
+
+sName
+
+Course_Name
+
+Address
+
+email
+
+1001 Anand
+
+CSE
+
+Secunderabad
+
+null
+
+1002 Raj
+
+CSE-AIML
+
+Hyderabad
+
+null
+
+1003 Ajay
+
+CSE-DS
+
+Sadashivapet
+
+null
+
+1004 Sandhya
+
+CSE-BIC
+
+Kurnool
+
+null
+
+1005 Ruhanika
+
+CSE-BIC
+
+Nandyal
+
+null
+
+a. Select DISTINCT –
+
+ SELECT DISTINCT Course_Name from Student;
+
+b. Where with AND, OR, and NOT -
+
+ select * from Student WHERE sName == 'Sandhya' AND Address ==
+'Kurnool';
+
+ select * from Student WHERE sName == 'Sandhya' OR Address ==
+'Hyderabad';
+
+Page 13 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+ select * from Student WHERE sName == 'Ajay' OR Address == 'Hyderabad'
+AND NOT Course_Name = 'CSE-BIC';
+
+ select * from Student WHERE sID BETWEEN 1002 AND 1005 AND NOT
+Course_Name = 'CSE-DS';
+
+c. Where with BETWEEN –
+
+ select * from Student WHERE sID BETWEEN 1002 AND 1004;
+
+Page 14 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+d. ORDER BY ASC | DESC –
+
+ select * from Student ORDER BY sID ASC;
+
+ select * from Student ORDER BY sID DESC;
+
+e. Where Clause with ISNULL –
+
+ select * from Student where sName == 'Ajay' AND Address == 'Sadashivapet' and email
+IS NULL;
+
+Page 15 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+a. Select TOP –
+
+ select * from Student ORDER BY sID DESC LIMIT 3;
+
+ delete from Student where sName == 'Anand'; sID
+Course_Name Address
+Hyderabad
+null
+
+email 1002
+
+Raj
+
+sName
+CSE-AIML
+
+1003
+
+Ajay
+
+CSE-DS
+
+Sadashivapet
+
+null
+
+1004
+
+Sandhya
+
+CSE-BIC
+
+Kurnool
+
+null
+
+1005
+
+Ruhanika
+
+CSE-BIC
+
+Nandyal
+
+null
+
+ ONE MORE Method to Insert into Table:
+INSERT INTO Student(sID, sName, Course_Name, Address) VALUES (1001,
+'Anand', 'CSE', 'Secunderabad'),
+(1002, 'Raj', 'CSE-AIML', 'Hyderabad'),
+(1003, 'Ajay', 'CSE-DS', 'Sadashivapet'),
+(1004, 'Sandhya', 'CSE-BIC', 'Kurnool'),
+(1005, 'Ruhanika', 'CSE-BIC', 'Nandyal');
+
+ To fetch or Display the Whole Table:
+SELECT * FROM <table_name>;
+
+ To RENAME a Table:
+Page 16 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+ALTER TABLE Old_table_name RENAME TO New_table_name;
+
+ TOP:
+
+Page 17 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Experiment No: 4
+1.
+
+Objective: ALTER Table and applying constraints:
+
+a)
+
+AUTO_INCREMENT - to perform an auto-increment
+
+b)
+
+NOT NULL - Ensures that a column cannot have a NULL value
+
+c)
+
+UNIQUE - Ensures that all values in a column are different
+
+d)
+PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely
+each row in a table
+e)
+
+FOREIGN KEY - Prevents actions that would destroy links between tables
+
+f)
+
+CHECK - Ensures that the values in a column satisfies a specific condition
+
+g)
+
+DEFAULT - Sets a default value for a column if no value is specified
+
+• create table for an <employee> with attributes emp_no
+emp_name
+
+job
+
+hire_date
+
+"primary
+
+identifies
+
+key"
+
+salary commission
+
+ create table Employee (emp_no numeric(6) PRIMARY KEY, emp_name varchar(20), job
+numeric(20), hire_date varchar(10), salary numeric(8), commission numeric(6));
+
+• add another col to existing table alter table <employee> add dept_no
+ alter table Employee add dept_no numeric(4);
+
+• modify the name of the col to some suitable name alter table <employee>
+rename column hire_date to joining_date;
+
+ alter table Employee rename column hire_date to joining_date;
+
+• insert values into the table
+ insert into Employee (emp_no, emp_name, job, joining_date, salary, commission,dept_no)
+values (201001, 'Anand', 'Manager', '16-08-2020',
+50000, 1000, 2);
+
+Page 18 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+ insert into Employee (emp_no, emp_name, job, joining_date, salary, commission,dept_no)
+values (201002, 'Vamsi', 'Manager', '07-05-2020', 50000, 1000, 2);
+
+ insert into Employee (emp_no, emp_name, job, joining_date, salary, commission,dept_no)
+values (201003, 'Sanjana', 'Clerk', '21-12-2020', 20000, 2000, 4);
+
+ insert into Employee (emp_no, emp_name, job, joining_date, salary, commission,dept_no)
+values (201004, 'Nanditha', 'Clerk', '30-01-2020', 20000, 2000, 4);
+
+ insert into Employee (emp_no, emp_name, job, joining_date, salary, commission,dept_no)
+values (201005, 'Rahul', 'Salesman', '19-04-2020',
+40000, 3000, 5);
+
+ insert into Employee (emp_no, emp_name, job, joining_date, salary, commission,dept_no)
+values (211001, 'Veer', 'Assistant', '22-03-2021', 25000, 500, 3);
+
+ insert into Employee (emp_no, emp_name, job, joining_date, salary, commission,dept_no)
+values (211002, 'Rudra', 'Assistant', '17-05-2021', 25000, 500, 3);
+
+ insert into Employee (emp_no, emp_name, job, joining_date, salary, commission,dept_no)
+values (211003, 'Kshitija', 'Analyst', '27-11-2021',
+35000, 1500, 1);
+
+ insert into Employee (emp_no, emp_name, job, joining_date, salary, commission,dept_no)
+values (211004, 'Meera', 'Analyst', '29-09-2021', 35000, 1500, 1);
+
+ insert into Employee (emp_no, emp_name, job, joining_date, salary, commission,dept_no)
+values (211005, 'Rohan', 'Assistant', '11-04-2021',
+25000, 500, 3);
+
+ insert into Employee (emp_no, emp_name, job, joining_date, salary, commission,dept_no)
+values (221001, 'Jaya', 'Manager', '08-06-2022', 50000,
+1000, 2);
+
+ insert into Employee (emp_no, emp_name, job, joining_date, salary, commission,dept_no)
+values (221002, 'Akshay', 'Engineer', '13-12-2022',
+60000, 5000, 6);
+Page 19 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+ insert into Employee (emp_no, emp_name, job, joining_date, salary, commission,dept_no)
+values (221003, 'Harsha', 'Engineer', '22-02-2022',
+60000, 5000, 6);
+
+ insert into Employee (emp_no, emp_name, job, joining_date, salary, commission,dept_no)
+values (221004, 'Pranav', 'Engineer', '01-10-2022',
+60000, 5000, 6);
+
+ insert into Employee (emp_no, emp_name, job, joining_date, salary, commission,dept_no)
+values (221005, 'Sita', 'Manager', '13-07-2022', 50000, 1000, 2);
+
+Page 20 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+make sure you enter some sensible values
+
+• enter at least 15 rows in order to understand what all operation can be done on the
+created table
+
+• increase salary by 500
+
+select salary, salary+500 from <employee>;
+
+ select salary, salary+500 from Employee;
+
+• display annual salary of an employee with his name
+
+select
+
+Employee, 12*salary as Annual_Salary from <employee>
+
+emp_name
+
+as
+
+select emp_name as
+
+Employee, 12*salary as Annual_Salary from Employee;
+
+Page 21 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+• combine name and job select emp_name||job as Employee_Details from
+<employee>
+
+ select emp_name || job as Employee_Details from Employee;
+
+Page 22 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+combine col with some meaning select emp_name||' works as '||job as Employee_Details from
+<employee>
+
+select emp_name||' works as '||job as Employee_Details from Employee;
+
+Page 23 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+• display employees belonging to a particular department
+
+select
+
+*
+
+from
+
+<employee> where dept_no == 5;
+
+ select * from Employee where dept_no == 5;
+
+• display employees who are managers
+
+select * from <employee> where job ==
+
+'manager';
+
+ select * from Employee where job == 'Manager';
+
+Page 24 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+display employees whose salary is between 50000 and 60000 select
+
+*
+
+from
+
+<employee> where salary between 50000 and 60000;
+
+ select * from Employee where salary between 50000 and 60000;
+
+• display employees who are not managers
+<employee> where job != 'manager';
+
+ select * from Employee where job != 'Manager';
+
+select
+
+*
+
+from
+
+DBMS Laboratory Manual,
+School of Technology
+
+display employee no and name who are doing Manager or Teacher job
+
+ select emp_no, emp_name from Employee where job in ('Manager', 'Clerk');
+
+• ALTER Table and applying constraints
+ alter table Employee add dept_no numeric(4);
+ alter table Employee rename column hire_date to joining_date;
+a. AUTO INCREMENT - to perform an auto-increment
+ create table Employee(emp_no numeric(8) AUTO INCREMENT, emp_name varchar(21),job
+numeric(24),hire_date varchar(20),salary numeric(6),commission numeric(9));
+
+b. NOT NULL - Ensures that a column cannot have a NULL value
+ create table Employee(emp_no numeric(8) NOT NULL, emp_name varchar(21),job
+numeric(24),hire_date varchar(20),salary numeric(6),commission numeric(9));
+
+c. UNIQUE - Ensures that all values in a column are different
+ create table Employee(emp_no numeric(8) NOT NULL, emp_name varchar(21),job
+numeric(24),hire_date varchar(20) UNIQUE,salary numeric(6),commission numeric(9));
+
+d. PRIMARY KEY - A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in
+a table
+
+ create table Employee(emp_no numeric(8) PRIMARY KEY, emp_name varchar(21),job
+numeric(24),hire_date varchar(20),salary numeric(6),commission numeric(9));
+Page 26 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+e. FOREIGN KEY - Prevents actions that would destroy links between tables.
+ create table Employee(emp_no numeric(8) PRIMARY KEY, emp_name varchar(21)
+FOREIGN KEY,job numeric(24),hire_date varchar(20),salary numeric(6),commission
+numeric(9));
+
+f. CHECK - Ensures that the values in a column satisfies a specific condition.
+ create table Employee(emp_no numeric(8) PRIMARY KEY, emp_name varchar(21),job
+numeric(24),hire_date
+salary>50000);
+
+varchar(20),salary
+
+numeric(6),commission
+
+numeric(9)
+
+check
+
+g. DEFAULT - Sets a default value for a column if no value is specified.
+ create table Employee(emp_no numeric(8) PRIMARY KEY, emp_name varchar(21),job
+numeric(24),hire_date varchar(20) DEFAULT,salary numeric(6),commission numeric(9));
+
+1. display employee no and name who have m in their name
+
+ select emp_no, emp_name from Employee where emp_name like ‘%m%’;
+
+2. display employee no whose name starts with ‘a’
+
+ select emp_no from Employee where emp_name like 'a%';
+
+Page 27 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+3. display employee no whose name ends with ‘r’
+
+ select emp_no from Employee where emp_name like '%r';
+
+4. display employee details in order
+
+ select * from Employee order by emp_no;
+
+Page 28 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+5. display employee details in descending order
+
+ select * from Employee order by emp_no desc;
+
+6. MIN() -
+
+ SELECT MIN(salary) AS min_salary FROM Employee;
+
+(selects the ‘minimum’ salary from the table)
+
+7. MAX() -
+
+ SELECT MAX(salary) AS max_salary FROM Employee;
+
+Page 29 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+(selects the ‘maximum’ salary from the table)
+8. AVG() -
+
+ SELECT AVG(salary) AS avg_salary FROM Employee;
+
+(selects the ‘average’ salary from the table)
+
+9. LIMIT -
+
+ SELECT emp_name, salary FROM Employee ORDER BY salary DESC LIMIT 1;
+
+10. COUNT() -
+
+ select COUNT(emp_name) as total_employees from Employee;
+
+(after choosing the column name, in general ‘count’
+diplays the ‘total number of records’ stored in the table)
+
+11. SUM() –
+
+ select SUM(salary) as sum_salary from Employee;
+
+Page 30 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Experiment No: 5
+1.
+
+Objective: ALIASES and JOINS :
+
+a)
+
+AS Keyword
+
+b)
+
+JOIN
+
+c)
+
+INNER JOIN
+
+d)
+
+LEFT JOIN
+
+e)
+
+RIGHT JOIN
+
+f)
+
+OUTER JOIN
+
+g)
+
+UNION
+
+a.
+
+(Alias) AS Keyword – SQL aliases are used to give a table, or a column in a table, a temporary
+name. Aliases are often used to make column names more readable. An alias only exists for the duration of
+that query. An alias is created with the ‘AS’ keyword.
+• SELECT column_name AS alias_name FROM table_name;
+ SELECT Name AS Student_Name FROM Students;
+
+• SELECT column_name(s) FROM table_name AS alias_name;
+ SELECT ID AS Student_ID, BloodGroup AS [Blood Group] FROM Students;
+(The above statement creates two aliases, one for the ID column and one for the BloodGroup column. It
+requires double quotation marks or square brackets if the alias name contains spaces)
+
+Page 31 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+b.
+
+JOIN – A ‘Join’ clause is used to combine rows from two or more tables, based on a related
+column between them.
+
+ SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers
+ON Orders.CustomerID=Customers.CustomerID;
+
+c.
+
+INNER JOIN - Returns records that have matching values in both tables. The INNER JOIN
+keyword selects records that have matching values in both tables.
+• SELECT column_name(s)
+FROM table1
+INNER JOIN table2
+ON table1.column_name = table2.column_name;
+Page 32 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+ select OrderID, CustomerName from Orders inner join Customers on
+Orders.CustomerID = Customers.CustomerID;
+
+d.
+
+LEFT (OUTER) JOIN - The LEFT JOIN keyword returns all records from the left table (table1),
+and the matching records from the right table (table2). The result is 0 records from the right side, if there is
+no match.
+
+•
+
+SELECT column_name(s)
+FROM table1
+LEFT JOIN table2
+ON table1.column_name = table2.column_name;
+
+•
+
+select CustomerName, OrderID from Customers Left Join Orders on Customers.CustomerID =
+Orders.CustomerID order by CustomerName;
+
+Page 33 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+e. RIGHT (OUTER) JOIN - The RIGHT JOIN keyword returns all records from the right table (table2),
+and the matching records from the left table (table1). The result is 0 records from the left side, if there is
+no match.
+
+•
+
+SELECT column_name(s)
+FROM table1
+RIGHT JOIN table2
+ON table1.column_name = table2.column_name;
+
+•
+
+select CustomerName, OrderID from Customers Right Join Orders on
+Customers.CustomerID = Orders.CustomerID order by CustomerName;
+
+Page 34 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+•
+
+select OrderID, FirstName, LastName from Orders Right Join Employees on
+Orders.EmployeeID = Employees.EmployeeID order by OrderID;
+
+f. FULL (OUTER) JOIN - The FULL OUTER JOIN keyword returns all records when there is a
+match in left (table1) or right (table2) table records.
+
+• SELECT column_name(s)
+FROM table1
+FULL OUTER JOIN table2
+Page 35 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+ON table1.column_name = table2.column_name
+WHERE condition;
+
+• select CustomerName, OrderID from Customers full join Orders on
+Customers.CustomerID = Orders.CustomerID order by CustomerName;
+
+Page 36 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+g. UNION - The UNION operator is used to combine the result-set of two or more SELECT
+statements. The UNION operator selects only distinct values by default.
+
+•
+•
+•
+•
+
+Every SELECT statement within UNION must have the same number of columns
+The columns must also have similar data types
+The columns in every SELECT statement must also be in the same order
+SELECT column_name(s) FROM table1 UNION
+SELECT column_name(s) FROM table2;
+select Course from Students UNION select Course_Name from Student;
+
+h. UNION ALL – To allow ‘DUPLICATE’ Values, we use UNION ALL.
+• SELECT column_name(s) FROM table1 UNION ALL
+SELECT column_name(s) FROM table2;
+select Course from Students UNION ALL select Course_Name from Student;
+
+Page 37 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+Page 38 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Experiment No: 6
+1. Objective: LIKE, GROUPBY, HAVING, EXISTS, ANY,
+ALL.
+
+Using TABLE ‘Students’:
+
+1. LIKE – The LIKE operator is used in a WHERE clause to search for a specified pattern in a
+column.
+There are two wildcards often used in conjunction with the LIKE operator:
+The percent sign % represents zero, one, or multiple characters
+underscore sign _ represents one, single character
+
+The
+
+• SELECT column1, column2, ... FROM
+table_name
+WHERE columnN LIKE pattern;
+
+- The _ wildcard represents a single character. It can be any character or number, but each _
+represents one, and only one, character.
+
+• SELECT * FROM Students WHERE Course LIKE 'C__-_I__';
+
+Page 39 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+•
+
+Return s all the Students from a ‘Course’ that starts with ' C ' followed by
+2 wildcard character
+s , then ' - ' and then 1 wildcard character
+then followed by
+‘I” and then 2 wildcard characters.
+
+The % wildcard represents any number of characters, even zero characters.
+
+• SELECT * FROM Students WHERE Name LIKE '%t%';
+• Return all Students whose ‘Name’ contains the letter ‘t’.
+
+- Starts With: To return records that starts with a specific letter or phrase, add the % at the end
+of the letter or phrase.
+
+• SELECT * FROM Students WHERE Name LIKE ‘Ab%’; • Return all Students whose
+‘Name’ STARTS with 'Ab'.
+
+• You can also combine any number of conditions using AND or OR operators.
+• SELECT * FROM Students WHERE Name LIKE 'a%' OR Name LIKE 'r%';
+• Return all Students whose ‘Name’ starts with 'a' or starts with 'r'.
+
+Page 40 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+Ends With: To return records that ends with a specific letter or phrase, add the % at the
+beginning of the letter or phrase.
+
+• SELECT * FROM Students WHERE Name LIKE '%a'; • Return all Students whose ‘Name’
+ENDS with 'A'.
+
+• You can also combine "starts with" and "ends with".
+• SELECT * FROM Students WHERE Name LIKE 'r%a';
+• Return all Students whose ‘Name’ STARTS with ‘r’ and ENDS with ‘a’.
+
+- Contains: To return records that contains a specific letter or phrase, add the % both before and
+after the letter or phrase.
+
+• SELECT * FROM Students WHERE Course LIKE '%AIML%';
+Page 41 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+• Return all Students whose ‘Course’ (name) contains the phrase 'AIML'.
+
+Combining Wildcards: Any wildcard, like % and _ , can be used in combination with other
+wildcards.
+
+• SELECT * FROM Students WHERE Name LIKE 'r_____%';
+characters in length
+
+.
+
+• Return all Students whose ‘Name’ starts with ‘r’ and are at least 6
+
+• SELECT * FROM Students WHERE Name LIKE '___i%';
+• Return all Students whose ‘Name’ has ‘i’ in the 4th position.
+
+- Without Wildcard: If no wildcard (% or _) is specified, the phrase has to have an exact match
+to return a result.
+• SELECT * FROM Students WHERE Course LIKE 'CSE-BIC'; • Return all
+Students whose ‘Course’ is ‘CSE-BIC’.
+Page 42 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+Page 43 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Using TABLE ‘Employee’:
+
+2. GROUP BY – The GROUP BY statement groups rows that have the same values into
+summary rows, like "find the number of customers in each country".
+
+• SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+ORDER BY column_name(s);
+
+• SELECT COUNT (emp_no), job FROM Employee GROUP BY job;
+• It lists the ‘number of employees’ in ‘each job role’.
+
+Page 44 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+• SELECT COUNT(emp_no), job FROM Employee GROUP BY job ORDER BY
+COUNT(emp_no) DESC;
+
+• It lists the ‘number of employees’ in ‘each job role’ sorted high to low i.e., in Descending
+Order.
+
+3. HAVING - The HAVING clause was added to SQL because the WHERE keyword cannot
+be used with aggregate functions.
+
+• SELECT column_name(s)
+FROM table_name
+WHERE condition
+GROUP BY column_name(s)
+HAVING condition
+ORDER BY column_name(s);
+
+• SELECT COUNT(emp_no), job FROM Employee GROUP BY job HAVING
+COUNT(emp_no) > 1;
+
+• It lists the ‘number of employees’ in each job role. Only includes ‘jobs’ with ‘more than 1
+employee’.
+
+Page 45 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+• SELECT COUNT(emp_no), job FROM Employee GROUP BY job HAVING
+COUNT(emp_no) > 1 ORDER BY COUNT(emp_no) ASC;
+
+• It lists the ‘number of employees’ in ‘each job role’ sorted high to low i.e., in Descending
+Order AND Only includes countries with more than includes
+‘jobs’ with ‘more than 1 employee’.
+
+4. EXISTS – The EXISTS operator is used to test for the existence of any record in a
+subquery. The EXISTS operator returns TRUE if the subquery returns one or more records.
+
+• SELECT column_name(s)
+FROM table_name
+WHERE EXISTS
+(SELECT column_name FROM table_name WHERE condition);
+
+• SELECT SupplierName
+FROM Suppliers
+WHERE EXISTS (SELECT ProductName FROM Products WHERE
+Products.SupplierID = Suppliers.supplierID AND Price < 20);
+
+Page 46 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+5. ANY – The ANY operator:
+
+• returns a boolean value as a result
+• returns TRUE if ANY of the subquery values meet the condition
+ANY means that the condition will be true if the operation is true for any of the values in the
+range. The operator must be a standard comparison operator (=, <>, !=, >, >=, <, or <=).
+
+• SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ANY
+(SELECT column_name
+FROM table_name WHERE
+condition);
+
+• SELECT ProductName
+FROM Products
+WHERE ProductID = ANY (SELECT ProductID FROM OrderDetails
+WHERE Quantity = 10);
+
+Page 47 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+6. ALL - The ALL operator:
+•
+•
+•
+
+returns a boolean value as a result
+returns TRUE if ALL of the subquery values meet the condition
+is used with SELECT, WHERE and HAVING statements
+
+ALL means that the condition will be true only if the operation is true for all values in the range.
+The operator must be a standard comparison operator (=, <>, !=, >, >=, <, or <=).
+ALL Syntax With SELECT –
+• SELECT ALL column_name(s)
+FROM table_name
+WHERE condition;
+ALL Syntax With WHERE or HAVING -
+
+• SELECT column_name(s)
+FROM table_name
+WHERE column_name operator ALL
+Page 48 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+(SELECT column_name
+FROM table_name WHERE
+condition);
+
+• SELECT ProductName
+FROM Products
+WHERE ProductID = ALL (SELECT ProductID FROM OrderDetails WHERE Quantity =
+10);
+
+Page 49 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Experiment No: 7
+1. Objective: VIEW and Procedures.
+a) Views in SQL
+A View in SQL is a virtual table created by querying data from one or more real tables. It does not store
+data itself but provides a way to simplify complex queries and enhance security by controlling access to
+specific data.
+b)Procedures in SQL
+A Procedure is a set of precompiled SQL statements that can be executed as a single unit. Procedures are
+used for tasks like inserting, updating, or manipulating data in the database.
+
+You are given two tables: Employees and Departments. Your tasks involve creating specific VIEWs and
+PROCEDUREs to fulfill certain business requirements.
+Table: Employees
+EmployeeID
+
+Name
+
+DepartmentID
+
+Salary
+
+1
+
+John Doe
+
+101
+
+5000
+
+2
+
+Jane Smith
+
+102
+
+6000
+
+3
+
+Emily Davis
+
+101
+
+5500
+
+4
+
+Michael Brown
+
+1031
+
+7000
+
+5
+
+Sarah Johnson
+
+102
+
+7500
+
+6
+
+David Miller
+
+101
+
+5200
+
+Table: Departments
+DepartmentID DepartmentName
+101 Sales
+102 Marketing
+103 IT
+Task 1: Create a VIEW to Display Employees with Salary Above a Given Threshold
+Create a view named HighEarningEmployees that displays the EmployeeID, Name, Salary, and
+DepartmentName for employees earning more than 6000.
+Page 50 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Task 2: Create a VIEW for Total Salary Expenses per Department
+Create a view named DepartmentSalaryExpenses that shows the DepartmentName and the total Salary
+expense for each department.
+Task 3: Create a Procedure to Add a New Employee
+Create a stored procedure named AddNewEmployee that inserts a new employee into the Employees
+table. The procedure should take the following parameters:
+•
+•
+•
+•
+
+IN emp_name VARCHAR(50)
+IN dept_id INT
+IN emp_salary DECIMAL(10, 2)
+CALL AddNewEmployee('Anna Taylor', 103, 6800);
+
+Task 4: Create a Procedure to Update Employee Salary Based on Department
+Create a stored procedure named UpdateDepartmentSalary that increases the salary of all employees in a
+given department by a certain percentage. The procedure should take the following parameters:
+•
+•
+•
+
+IN dept_id INT
+IN increment_percentage DECIMAL(5, 2)
+CALL UpdateDepartmentSalary(101, 10);
+
+Task 5: Create a Procedure to Remove Employees Earning Below a Certain Salary
+Create a stored procedure named RemoveLowSalaryEmployees that deletes all employees who are
+earning below a given salary threshold. The procedure should take the following parameter:
+•
+•
+
+IN salary_threshold DECIMAL(10, 2)
+CALL RemoveLowSalaryEmployees(6000);
+
+Task 6: Create a Procedure to Calculate Total Salary Expense for a Given Department
+Create a stored procedure named CalculateTotalSalaryExpense that calculates the total salary expense for
+a given department. The procedure should take the following parameter:
+•
+•
+
+IN dept_id INT: The DepartmentID of the department for which the total salary expense should
+be calculated.
+CALL TransferEmployee(3, 103);
+
+Page 51 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+Experiment No: 8
+1. Objective: Scenario based question on MySQL for practice.
+Employees Table
+EmployeeID Name Department Salary Age
+1
+Alice IT
+70000 30
+2
+Bob
+IT
+60000 28
+3
+Charlie HR
+55000 35
+4
+David HR
+48000 40
+5
+Eve
+Marketing 70000 30
+6
+Frank Marketing
+75000 32
+7
+Grace IT
+72000 29
+
+City
+New York
+Chicago
+New York
+Chicago
+Seattle
+Chicago
+Seattle
+
+Projects Table
+ProjectID
+ProjectName EmployeeID Budget
+1
+AI Research
+1
+50000
+2
+Web Development 2
+45000
+3
+Recruitment
+3
+30000
+4
+Employee Training 4
+35000
+5
+Marketing Plan
+5
+40000
+6
+Campaign
+6
+60000
+7
+Infrastructure
+7
+55000
+TASKS:
+1. Find the names of employees whose names end with the letter 'e'. (Use LIKE)
+2. Count the number of employees in each department. (Use GROUP BY)
+3. Find departments with an average salary greater than $65,000. (Use HAVING) 4. Find employees
+who are working on a project with a budget greater than $50,000. (Use EXISTS)
+5. Find employees whose salary is greater than any salary in the HR department. (Use
+ANY)
+6. Find employees whose salary is greater than all salaries in the HR department. (Use ALL)
+7. Find employees who are from cities that start with the letter 'C'.
+8. Find the total budget for each employee's projects.
+9. Find employees who are associated with more than one project.
+10. List all employees who are not working on any project.
+11. Find projects that have a budget less than any project assigned to an employee in the 'IT'
+department.
+Page 52 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+12. Find employees whose salary is greater than all employees in the 'Marketing' department.
+1. Find the names of employees whose names end with the letter 'e'. (Use LIKE)
+SELECT Name
+FROM Employees
+WHERE Name LIKE '%e';
+2. Count the number of employees in each department. (Use GROUP BY)
+SELECT Department, COUNT(*) AS EmployeeCount
+FROM Employees
+GROUP BY Department;
+3. Find departments with an average salary greater than $65,000. (Use HAVING)
+SELECT Department, AVG(Salary) AS AvgSalary
+FROM Employees
+GROUP BY Department
+HAVING AVG(Salary) > 65000;
+4. Find employees who are working on a project with a budget greater than $50,000. (Use EXISTS)
+SELECT Name
+FROM Employees e
+WHERE EXISTS (
+SELECT 1
+FROM Projects p
+WHERE p.EmployeeID = e.EmployeeID AND p.Budget > 50000
+);
+5. Find employees whose salary is greater than any salary in the HR department. (Use ANY)
+SELECT Name
+FROM Employees
+WHERE Salary > ANY (
+SELECT Salary
+FROM Employees
+WHERE Department = 'HR'
+);
+
+6. Find employees whose salary is greater than all salaries in the HR department. (Use ALL)
+SELECT Name
+FROM Employees
+WHERE Salary > ALL (
+SELECT Salary
+FROM Employees
+WHERE Department = 'HR'
+);
+Page 53 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+7. Find employees who are from cities that start with the letter 'C'.
+SELECT Name
+FROM Employees
+WHERE City LIKE 'C%';
+8. Find the total budget for each employee's projects.
+SELECT e.Name, SUM(p.Budget) AS TotalBudget
+FROM Employees e
+JOIN Projects p ON e.EmployeeID = p.EmployeeID
+GROUP BY e.Name;
+9. Find employees who are associated with more than one project.
+SELECT e.Name
+FROM Employees e
+JOIN Projects p ON e.EmployeeID = p.EmployeeID
+GROUP BY e.EmployeeID, e.Name
+HAVING COUNT(p.ProjectID) > 1;
+10. List all employees who are not working on any project.
+SELECT Name
+FROM Employees e
+WHERE NOT EXISTS (
+SELECT 1
+FROM Projects p
+WHERE p.EmployeeID = e.EmployeeID
+);
+
+11. Find projects that have a budget less than any project assigned to an employee in the 'IT'
+department.
+SELECT ProjectName
+FROM Projects
+WHERE Budget < ANY (
+SELECT Budget
+FROM Projects p
+JOIN Employees e ON p.EmployeeID = e.EmployeeID
+WHERE e.Department = 'IT'
+);
+12. Find employees whose salary is greater than all employees in the 'Marketing' department.
+SELECT Name
+FROM Employees
+WHERE Salary > ALL (
+SELECT Salary
+FROM Employees
+WHERE Department = 'Marketing'
+);
+
+Page 54 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Experiment No: 9
+1.
+
+Objective: Introduction to MongoDB and Performing CRUD operations.
+
+a)
+
+Create DB
+
+b)
+
+Create Collection
+
+c)
+
+InsertOne and InertMany
+
+d)
+
+Find and FindOne
+
+e)
+
+UpdateOne and UpdateMany
+
+f)
+
+DeleteOne and DeleteMany
+
+ Introduction to MongoDB
+MongoDB is a widely used NoSQL database designed to store and manage largescale data.
+Unlike traditional relational databases, MongoDB uses a document-oriented data model where data
+is stored in flexible, schema-less JSON-like documents.
+CRUD Operations in MongoDB
+CRUD operations represent the four core functions of managing data in MongoDB: Create,
+Read, Update, and Delete.
+1. Create
+The "Create" operation involves adding new documents to a collection. This allows you to
+initialize or expand your dataset. You can insert one or multiple documents into a collection
+at once.
+2. Read
+The "Read" operation is used to query and retrieve data from a collection. MongoDB
+supports a variety of query options to filter and retrieve specific subsets of documents based
+on criteria.
+3. Update
+The "Update" operation modifies existing documents in a collection. You can update one or
+multiple documents at a time and specify which fields to update or replace.
+4. Delete
+The "Delete" operation removes documents from a collection. It can be used to delete
+individual or multiple documents based on specified criteria.
+
+Page 55 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+a. Create DB (Change or Create a Database) -
+
+use db_name
+
+- use DBMSLab
+
+b. Create Collection db.createCollection(“collection_name”)
+- db.createCollection(“Lab8”)
+
+c. InsertOne and InertMany (Insert Values into the Collection (Table): [Insert
+Documents] –
+InsertOne() : to insert a single value
+
+- db.collection_name.insertOne({object})
+- db.Lab8.insertOne({“id”:6017, “name”:”Vaishnavi”})
+
+Page 56 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+InsertMany() : to insert multiple values
+
+- db.collection_name.insertMany([{object1},{object2},{…}])
+- db.Lab8.insertMany([{“id”:6013, “name”:”Vamsi”}, {“id”:5037,
+“name”:”Mohitha”}])
+
+Page 57 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+d. Find and FindOne –
+
+ find() - To select data from a collection in MongoDB. Selects all the data.
+- db.collection_name.find()
+- db.Lab8.find()
+
+Page 58 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+ findOne() - To select only one document
+- db.collection_name.findOne({sub-object})
+- db.Lab8.findOne({“id”:6017})
+
+e. Projection - This parameter is an object that describes which fields to include in the results. We
+use a 1 to include a field and 0 to exclude a field. Notice that the _id field is also included. This
+field is always included unless specifically excluded.
+
+- db.CollectionName.find({},{sub-object})
+- db.Lab8.find({},{“name”:1}) – “1” INCLUDES “_id” field
+
+f. UpdateOne and UpdateMany – The first parameter is a query object to define which document
+or documents should be updated. The second parameter is an object defining the updated data.
+
+ updateOne() - will update the first document that is found matching the provided query. $set is
+used to set/update the value.
+Page 59 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+- db.CollectionName.updateOne({refernce-sub-object-search},{$set:{subobject-to-beupdated}})
+
+- db.Lab8.updateOne({“id”:6017}, {$set:{“name”:”Satya Vaishnavi”}})
+- here, the reference-sub-object is “id” and update-sub-object is “name”. It means that
+“id”:6017 is to be searched and that id’s “name” is to be updated.
+
+ updateMany() - Update all documents by 1. For this we will use the $inc (increment) operator:
+- db.CollectionName.updateMany({},{$inc:{sub-object-to-be-updated:1}})
+- db.Lab8.updateMany({}, {$inc:{“id”:1}})
+
+Page 60 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+g. DeleteOne and DeleteMany - These methods accept a query object. The matching documents
+will be deleted.
+
+ deleteOne() – The deleteOne() method will delete the first document that matches the query
+provided.
+- db.CollectionName.deleteOne({sub-object-to-be-deleted})
+- db.Lab8.({“id”:5037})
+
+Page 61 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+ deleteMany() - The deleteMany() method will delete all documents that match the query
+provided.
+- db.CollectionName.deleteMany({})
+- db.Lab8.deleteMany({})
+
+Page 62 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+h. Show all Databases:
+
+• show dbs
+
+• Nested Lists:
+db.CollcetionName.insertOne({“subjects”: [“maths”, “physics”, “chemistry”]})
+
+Page 63 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Experiment No: 10
+1. Objective: MongoDB Query Operators.
+
+Page 64 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+•
+
+:
+
+MongoDB Query Operators
+
+If the specified <value> is an array, MongoDB matches documents where the <field> matches the
+array exactly or the <field> contains an element that matches the array exactly. The order of the
+elements matters. <field> = sub-object
+➢ Comparison Operators – These operators can be used in queries to compare values.
+$eq: Values are equal. Specifies equality condition. The
+
+$eq
+
+operator matches
+
+documents where the value of a field equals the specified value.
+
+- {<field>: {$eq: <value>}}
+- db.Lab9.find({“id”:{$eq: 1006}}) is equivalent to
+- db.Lab9.find({“id”: 1006})
+
+$ne: Values are not equal.
+
+$ne selects the documents where the value of the
+
+specified field is not equal to the specified value. This includes documents that
+do not contain the specified field.
+
+- {field: {$ne: <value>}}
+- db.Lab9.find({“id”: {$ne: 1006}})
+
+Page 65 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+$gt: Value is greater than another value.
+> ) the the value of the specified field is greater than (i.e.
+
+$gt
+
+selects those documents where
+specified value.
+
+- {field: {$gt:<value>}}
+- db.Lab9.find({“marks”:{$gt: 80}})
+
+Page 66 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+$gte: Value is greater than or equal to another value. $gte selects the documents where
+the value of the specified field is greater than or equal to
+(i.e. >= ) a specified value (e.g. value .)
+
+- {field: {$gte:<value>}}
+- db.Lab9.find({“marks”: {$gte: 80}})
+
+$lt: Value is less than another value. selects $lt the documents where the value of the is
+less than (i.e. field < ) the specified .
+value
+- {field: {$lt:<value>}} db.Lab9.find({“marks”:{$lt: 80}})
+Page 67 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+$lte: Value is less than or equal to another value. $lte selects the documents where the
+value of
+
+the field is less than or equal to (i.e. <=) the specified .
+Value
+
+- {field: {$lte:<value>}} - db.Lab9.find({“marks”:{$lte: 80}})
+
+Page 68 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+Page 69 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+$in: Value is matched within an array. The
+
+$in operator selects the
+
+documents where the value of a field equals any value in the specified array.
+We use a 1 to include a field and 0 to exclude a field.
+
+- {field: {$in: [<value1>, <value2>, ... <valueN>]}}
+- db.Lab9.find({“id”:{$in:[ 1001, 1005 ]}}, { _id: 0}) – “0” EXCLUDES “_id” field
+
+- db.Lab9.find({“id”:{$in:[ 1001, 1005 ]}}, { _id: 1}) – “1” INCLUDES “_id” field
+
+- db.Lab9.find({“id”:{$in”[1001, 1005]}, {}, {_id:1}) – Displays both the data and “_id”
+field
+
+Page 70 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+➢ Logical Operators - These operators can logically compare multiple queries.
+$and: Returns documents where both queries match. $and performs a logical AND
+operation on an array of one or more expressions
+(<expression1>, <expression2> , and so on) and selects the documents that satisfy all the
+expressions.
+
+- {$and: [{<expression1>}, {<expression2>},...,{<expressionN>}]}
+- db.Lab9.find({$and: [{“id”: {$ne: 1001}}, {“marks”: {$exists: true}}]})
+
+The query selects all documents in the
+•
+
+the “id” field value is not equal to
+
+•
+
+the “marks” field exists.
+
+Lab9 collection where:
+1001 and
+
+Page 71 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+One more model type of query can be written with an implicit operation AND that combines
+the operator expressions for the field: -
+
+“id” db.Lab9.find({“id”: {$eq: 1006, $exists:
+
+true}})
+
+------------------------------------------------------------------------------------------------------- db.Lab9.find({$and: [{“id”: {$ne: 1001}}, {“subject”: {$exists: false}}]})
+
+Page 72 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+The query selects all documents in the
+
+Lab9 collection where:
+
+•
+
+the “id” field value is not equal to
+
+•
+
+the “subject” field that DOESN’T exists.
+
+1001 and
+
+$or: Returns documents where either query matches. The operator
+logical OR operation on an array of one or
+
+$or performs a
+
+more <expressions> and selects the documents that satisfy at least one of the
+<expressions>.
+
+- {$or: [{<expression1>}, {<expression2>}, ..., {<expressionN>}]} - db.Lab9.find({$or:
+[{“marks”: {$lt: 70}}, {“id”: {$eq :1006}}]})
+
+Page 73 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+- db.Lab9.find({$or: [{“marks”: {$lt: 70}}, {“id”: 1006}]})
+
+•
+
+This query will select all
+documents in the Lab9 collection where either
+the “marks” field value is less than
+7 0 or the “id” field value equals
+10 06 .
+
+$nor: Returns documents where both queries fail to match.
+a logical
+
+$nor performs
+
+NOR operation on an array of one or more query expression and
+
+selects the documents that fail all the query expressions in the array. It comes
+“before” the field. The
+
+$nor has the following syntax:
+
+- {$nor: [{<expression1>}, {<expression2>}, ... {<expressionN>}]}
+- db.Lab9.find({$nor: [{“id”: 1001}, {“marks”: true}]})
+
+Page 74 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+Page 75 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+This query will return all documents that:
+
+•
+
+contain the
+“marks”
+
+• contain the
+
+“id” field whose value is not equal to
+field whose value is not equal to
+“id” field whose value is not equal to
+
+1001 and contain the or
+true
+1.99 but do not contain
+
+the “marks” field or
+
+•
+
+do not contain the “id” field but contain the “marks” field whose value is not equal to true or
+
+•
+
+do not contain the field “id” and do not contain the “marks” field
+
+------------------------------------------------------------------------------------------------------- db.inventory.find({$nor: [{price: 1.99}, {qty: {$lt: 20}}, {sale: true}]})
+This query will select all documents in the collection inventory
+•
+
+the price field value does not equal
+
+•
+
+the qty field value is not less than
+
+20 and
+
+•
+
+the sale field value is not equal to
+
+true
+
+where:
+
+1.99 and
+
+including those documents that do not contain these field(s).
+
+$not: Returns documents where the query does not match. $not performs a logical NOT operation on
+the specified <operator-expression> and selects the documents that do not match the <operatorexpression>. It comes “after” the field. This includes documents that do not contain the field.
+
+-
+
+{field: {$not: {<operator-expression>}}}
+
+-
+
+db.Lab9.find({“id”: {$not: {$gt: 1003 }}})
+
+Page 76 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+This query will select all documents in the collection inventory
+•
+
+the “id” field value is less than or equal to
+
+the “id” field does not exist
+field
+{ $not: { $gt: 1003 } }
+
+where:
+
+1003 or
+
+•
+
+1003} returns only the documents where
+
+is different from the
+
+$lte operator.
+
+“id” value is less than or
+
+{$lte: exists
+and its
+
+equal to . 1003
+
+AND Variation - $and:
+- db.Lab9.find({$and: [{"id": {$eq: 1001}}, {"marks": {$eq: 70}}]})
+
+•
+
+Page 77 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+➢ Evaluation Operators - The following operators assist in evaluating documents.
+$regex: Allows the use of regular expressions when evaluating field values. Provides regular expression
+capabilities for pattern matching strings in queries.
+
+-
+
+{ <field>: { $regex: /pattern/, $options: '<options>' } }
+{ <field>: { $regex: 'pattern', $options: '<options>' } }
+{ <field>: { $regex: /pattern/<options> } }
+
+-
+
+In MongoDB, you can also use regular expression objects (i.e. /pattern/) to specify regular
+expressions: { <field>: /pattern/<options> }
+
+-
+
+db.sampledata.find({“name”:{$regex:/^E/}})
+It will return the document where name starts with letter ‘E’
+
+Page 78 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+Page 79 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+$text: Performs a text search.
+
+-
+
+db.sampledata.createIndex({position:“text”})
+db.sampledata.find({$text:{$search: “Developer”}})
+For this first you need to ‘create an index: name text’ and then search ‘Developer’ in the collection
+and return that document.
+
+Page 80 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+Page 81 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Experiment No: 11
+1. Objective: MongoDB Update Operations
+a)
+
+Fields
+
+b)
+
+Array
+
+➢ Fields Operators - The following operators can be used to update “fields”.
+We use the ‘updateOne’ or ‘updateMany’ Commands to update the fields and
+values.
+$currentDate: Sets the field value to the current date. The $currentDate
+operator sets the value of a field to the current date, either as a Date or a
+timestamp. The default type is Date.
+
+- <typeSpecification> can be either:
+- a boolean true to set the field value to the current date as a Date,
+- or a document {$type: "timestamp"} or {$type: "date"} which explicitly
+specifies the type. The operator is case-sensitive and accepts only the lowercase
+"timestamp" or the lowercase "date". - To specify a <field> in an embedded
+document or in an array, use dot notation.
+
+- {$currentDate: {<field1>: <typeSpecification1>, ...}}
+- db.sampledata.updateOne({“name”: “Emily Davis”}, {$currentDate:
+{“joinDate”:true}}) - It has updated the value of ‘joinDate’ as the current date.
+
+Page 82 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+$inc: Increments the field value. The $inc operator increments a field by a
+specified value.
+
+- {$inc: {<field1>: <amount1>, <field2>: <amount2>, ...}}
+- The following updateOne() operation uses the $inc operator to:
+- increase the ‘age’ field by -1 (which decreases age)
+- increase the ‘salary’ field by 5000
+- db.sampledata.updateOne({“name”: “Emily Davis”}, {$inc: {“age”: -1,
+“salary”: 5000}})
+
+Page 83 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+$rename: Renames the field. The $rename operator updates the name of a field
+and has the following form.
+
+- {$rename: {<field1>: <newName1>, <field2>: <newName2>, ...}}
+- db.sampledata.updateOne({name:"Emily Davis"},{$rename:{“joinDate”:
+" JoiningDate"}})
+
+- It will rename the field of ‘joinDate’ as ‘JoiningDate’ for Emily Davis.
+
+Page 84 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+$set: Sets the value of a field. The $set operator replaces the value of a field
+with the specified value.
+
+- {$set: {<field1>: <value1>, ...}}
+- db.sampledata.updateOne({"name":"Emily Davis"}, {$set: {"name":"Emilia
+Davis", "salary":10000}})
+
+- For the ‘name’ which is Emily Davis it is going to be set ‘salary’ as ‘10000’ and
+‘name’ as ‘Emilia Davis’.
+
+Page 85 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+- db.sampledata.updateOne({“name”: ”Sophia Brown”}, {$set : {“skills”:
+[“Python, “R”, “Machine Learning”, “C++”]}})
+
+- For the ‘name’ which is Sophia Brown it is going to be set ‘skills’ as Python, R,
+Machine Learning, C++ and we should update by writing the new values in the
+[] brackets as multiple values are stored in array form [].
+
+- This operator only sets values, but does not add values in it.
+- To add extra values, we need to write the old values along with the new values
+we want to add like shown in the below command and example.
+
+Page 86 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+- OR ELSE, If we enter the only new value we want to add, it will be ‘set’ to the
+‘new value only’ like shown in the value.
+
+Page 87 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+$unset: Removes the field from the document. The $unset operator deletes a
+particular field.
+
+- {$unset: {<field1>: "", ...}}
+- The specified value in the $unset expression (i.e., "") does not impact the
+operation. It just means to remove and make it erase.
+
+- db.sampledata.updateOne({“name”: "Emilia Davis"},{$unset:{“JoiningDate”:
+“ ”, “address”:" "}})
+
+- It will remove ‘JoiningDate’ (previously ‘joinDate’) and ‘address’ from the
+selected document.
+
+Page 88 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+➢ Array Operators - The following operators assist with updating “arrays”.
+
+ $addToSet: Adds distinct elements to an array. The
+
+$addToSet
+
+operator adds a value to an array unless the value is already
+$addToSet present, in which case does nothing to that array.
+
+ only
+
+$addToSet ensures that there are no duplicate items added
+to the set and does
+not affect existing $addToSet duplicate
+elements. does not guarantee a particular ordering
+of elements in
+the modified set.
+
+- {$addToSet: {<field1>: <value1>, ...}}
+- db.sampledata.updateOne({“name”: “Ava Hall”}, {$addToSet: {“skills”:
+“Java”}}) - It will add a new value to the array skills if it is not present
+already.
+
+Page 89 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+$pop: Removes the first or last element of an array. The operator $pop
+removes the first or last element of an
+$pop a value of ( - array. Pass
+to
+remove the first element of an array and ( to
+an array.
+
+1)
+1) remove the last element in
+
+- {$pop: {<field>: <-1 | 1>, ...}}
+- db.sampledata.updateOne({“name”: “Ava Hall”}, {$pop: {“skills”: -1}})
+
+Page 90 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+ $pull: Removes all elements from an array that match the query.
+The $pull operator removes from an existing array all instances of a value or
+values that match a specified condition.
+
+ If you specify a
+documents,
+element
+
+<condition> and the array elements are embedded
+
+$pull operator applies the
+
+<condition> as if each array
+
+were a document in a collection. See Remove All Items That Match a
+Specified $pull Condition With
+bulkWrite() for an example.
+
+ If the specified
+
+<value> to remove is an array,
+elements in the array that match the specified
+including order.
+
+$pull removes only the
+<value> exactly,
+
+ If the specified <value> to remove is a document, $pull removes only the
+elements in the array that have the exact same fields and values. The ordering
+of the fields can differ.
+
+Page 91 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+- {$pull: {<field1>: <value|condition>, <field2>: <value|condition>, ...}} db.sampledata.updateOne({"name": "Ava Hall"}, {$pull: {"skills": {$in:
+["Swift", "Android", "Java"]}}})
+
+$push: Adds an element to an array. The
+specified value to an array.
+
+$push operator appends a
+
+- {$push: {<field1>: <value1>, ...}}
+- db.sampledata.updateOne({"name": "Ava Hall"}, {$push: {"skills": [“React
+Native”, “Swift”, “Android”, "JavaScript", "C++"]}})
+
+Page 92 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+Page 93 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Experiment No: 12
+1.
+
+Objective: MongoDb Aggregations:
+
+a)
+
+GROUP
+
+b)
+
+LIMIT
+
+c)
+
+PROJECT
+
+d)
+
+SORT
+
+e)
+
+MATCH
+
+f)
+
+COUNT
+
+g)
+
+LOOKUP
+
+h)
+
+OUT
+
+i)
+
+ADDFIELDS
+
+1. $group: Groups documents by a field and performs aggregations, like SUM, on specified
+fields.
+2. $limit: Limits the number of documents returned in the output.
+3. $project: Selects specific fields and can create new computed fields.
+4. $sort: Sorts documents based on specified field(s) in ascending or descending order.
+5. $match: Filters documents based on a specified condition.
+6. $count: Counts the total number of documents and returns the count as a single
+document.
+7. $lookup: Performs a left join with another collection based on matching fields.
+8. $out: Writes the results of the aggregation pipeline to a new collection.
+9. $addFields: Adds or modifies fields in documents by computing values.
+
+Page 94 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+use SalesDB
+switched to db SalesDB
+db["sales"].find()
+db.sales.insertMany([
+{ item: "apple", price: 1.2, quantity: 50, status: "A" },
+{ item: "banana", price: 0.8, quantity: 100, status: "A" },
+{ item: "orange", price: 1.5, quantity: 75, status: "B" },
+{ item: "apple", price: 1.2, quantity: 30, status: "B" },
+{ item: "banana", price: 0.8, quantity: 50, status: "A" }
+])
+{
+acknowledged: true,
+insertedIds: {
+'0': ObjectId('672c428ea88246916737a113'),
+'1': ObjectId('672c428ea88246916737a114'),
+'2': ObjectId('672c428ea88246916737a115'),
+'3': ObjectId('672c428ea88246916737a116'),
+'4': ObjectId('672c428ea88246916737a117')
+}
+}
+1. db.sales.aggregate([{$group: { _id: "$item", totalQuantity: { $sum:
+"$quantity" }}}])
+{
+_id: 'apple',
+totalQuantity: 80
+}
+{
+_id: 'orange',
+totalQuantity: 75
+Page 95 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+}
+{
+_id: 'banana',
+totalQuantity: 150
+}
+2. db.sales.aggregate([{ $limit: 5 }])
+{
+_id: ObjectId('672c428ea88246916737a113'),
+item: 'apple',
+price: 1.2,
+quantity: 50,
+status: 'A'
+}
+{
+_id: ObjectId('672c428ea88246916737a114'),
+item: 'banana',
+price: 0.8,
+quantity: 100,
+status: 'A'
+}
+{
+_id: ObjectId('672c428ea88246916737a115'),
+item: 'orange',
+price: 1.5,
+quantity: 75,
+status: 'B'
+}
+{
+
+Page 96 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+_id: ObjectId('672c428ea88246916737a116'),
+item: 'apple',
+price: 1.2,
+quantity: 30,
+status: 'B'
+}
+{
+_id: ObjectId('672c428ea88246916737a117'),
+item: 'banana',
+price: 0.8,
+quantity: 50,
+status: 'A'
+}
+3. db.sales.aggregate([{ $project: {item: 1,totalAmount: { $multiply: ["$price",
+"$quantity"] }}}])
+{
+_id: ObjectId('672c428ea88246916737a113'),
+item: 'apple',
+totalAmount: 60
+}
+{
+_id: ObjectId('672c428ea88246916737a114'),
+item: 'banana',
+totalAmount: 80
+}
+{
+_id: ObjectId('672c428ea88246916737a115'),
+item: 'orange',
+totalAmount: 112.5
+Page 97 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+}
+{
+_id: ObjectId('672c428ea88246916737a116'),
+item: 'apple',
+totalAmount: 36
+}
+{
+_id: ObjectId('672c428ea88246916737a117'),
+item: 'banana',
+totalAmount: 40
+}
+4. db.sales.aggregate([
+{
+$project: {
+item: 1,
+totalAmount: { $multiply: ["$price", "$quantity"] }
+}
+},
+{ $sort: { totalAmount: -1 } }
+])
+{
+_id: ObjectId('672c428ea88246916737a115'),
+item: 'orange',
+totalAmount: 112.5
+}
+{
+_id: ObjectId('672c428ea88246916737a114'),
+item: 'banana',
+
+Page 98 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+totalAmount: 80
+}
+{
+_id: ObjectId('672c428ea88246916737a113'),
+item: 'apple',
+totalAmount: 60
+}
+{
+_id: ObjectId('672c428ea88246916737a117'),
+item: 'banana',
+totalAmount: 40
+}
+{
+_id: ObjectId('672c428ea88246916737a116'),
+item: 'apple',
+totalAmount: 36
+}
+5. db.sales.aggregate([{ $match: { status: "A" } }])
+{
+_id: ObjectId('672c428ea88246916737a113'),
+item: 'apple',
+price: 1.2,
+quantity: 50,
+status: 'A'
+}
+{
+_id: ObjectId('672c428ea88246916737a114'),
+item: 'banana',
+
+Page 99 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+price: 0.8,
+quantity: 100,
+status: 'A'
+}
+{
+_id: ObjectId('672c428ea88246916737a117'),
+item: 'banana',
+price: 0.8,
+quantity: 50,
+status: 'A'
+}
+6. db.sales.aggregate([{ $count: "total_sales" }])
+{
+total_sales: 5
+}
+
+Let’s create another collection called inventory for this example.
+use SalesDB
+switched to db SalesDB
+db["inventory"].find()
+
+db.inventory.insertMany([
+{ sku: "apple", stock: 150 },
+{ sku: "banana", stock: 200 },
+{ sku: "orange", stock: 100 }
+])
+{
+
+Page 100 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+_id: ObjectId('672c4a276b115129ae67f2dd'),
+sku: 'apple',
+stock: 150
+}
+{
+_id: ObjectId('672c4a276b115129ae67f2de'),
+sku: 'banana',
+stock: 200
+}
+{
+_id: ObjectId('672c4a276b115129ae67f2df'),
+sku: 'orange',
+stock: 100
+}
+7. db.sales.aggregate([
+{
+$lookup: {
+from: "inventory",
+localField: "item",
+foreignField: "sku",
+as: "inventoryDetails"
+}
+}
+])
+{
+_id: ObjectId('672c428ea88246916737a113'),
+item: 'apple',
+price: 1.2,
+
+Page 101 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+quantity: 50,
+status: 'A',
+inventoryDetails: [
+{
+_id: ObjectId('672c4a276b115129ae67f2dd'),
+sku: 'apple',
+stock: 150
+}
+]
+}
+{
+_id: ObjectId('672c428ea88246916737a114'),
+item: 'banana',
+price: 0.8,
+quantity: 100,
+status: 'A',
+inventoryDetails: [
+{
+_id: ObjectId('672c4a276b115129ae67f2de'),
+sku: 'banana',
+stock: 200
+}
+]
+}
+{
+_id: ObjectId('672c428ea88246916737a115'),
+item: 'orange',
+price: 1.5,
+
+Page 102 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+quantity: 75,
+status: 'B',
+inventoryDetails: [
+{
+_id: ObjectId('672c4a276b115129ae67f2df'),
+sku: 'orange',
+stock: 100
+}
+]
+}
+{
+_id: ObjectId('672c428ea88246916737a116'),
+item: 'apple',
+price: 1.2,
+quantity: 30,
+status: 'B',
+inventoryDetails: [
+{
+_id: ObjectId('672c4a276b115129ae67f2dd'),
+sku: 'apple',
+stock: 150
+}
+]
+}
+{
+_id: ObjectId('672c428ea88246916737a117'),
+item: 'banana',
+price: 0.8,
+
+Page 103 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+quantity: 50,
+status: 'A',
+inventoryDetails: [
+{
+_id: ObjectId('672c4a276b115129ae67f2de'),
+sku: 'banana',
+stock: 200
+}
+]
+}
+
+8. db.sales.aggregate([
+{ $match: { status: "A" } },
+{ $out: "outCollection" }
+])
+
+
+Filters documents with status: "A" and writes them to outCollection.
+
+9. db.sales.aggregate([
+{
+$addFields: {
+totalAmount: { $multiply: ["$price", "$quantity"] }
+}
+}
+])
+{
+_id: ObjectId('672c428ea88246916737a113'),
+item: 'apple',
+Page 104 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+price: 1.2,
+quantity: 50,
+status: 'A',
+totalAmount: 60
+}
+{
+_id: ObjectId('672c428ea88246916737a114'),
+item: 'banana',
+price: 0.8,
+quantity: 100,
+status: 'A',
+totalAmount: 80
+}
+{
+_id: ObjectId('672c428ea88246916737a115'),
+item: 'orange',
+price: 1.5,
+quantity: 75,
+status: 'B',
+totalAmount: 112.5
+}
+{
+_id: ObjectId('672c428ea88246916737a116'),
+item: 'apple',
+price: 1.2,
+quantity: 30,
+status: 'B',
+totalAmount: 36
+
+Page 105 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+}
+{
+_id: ObjectId('672c428ea88246916737a117'),
+item: 'banana',
+price: 0.8,
+quantity: 50,
+status: 'A',
+totalAmount: 40
+
+Page 106 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Experiment No: 13
+1. Objective: Search and Index.
+Step 1: Creating a MongoDB Database and Collection
+In MongoDB, you don't explicitly create a database. The database is created when you
+first store data in it.
+use companyDB; // Switches to the database or creates it if it doesn't exist
+db.createCollection("employees"); // Creates the "employees" collection
+db.createCollection("articles"); // Creates the "articles" collection
+Output:
+{ "ok": 1 }
+Step 2: Inserting Data into Collections
+Employees Collection
+db.employees.insertMany([
+{ first_name: "John", last_name: "Doe", salary: 75000, date_of_birth: "1990-01-15",
+email: "john.doe@example.com" },
+{ first_name: "Joan", last_name: "Smith", salary: 85000, date_of_birth: "1985-0520", email: "joan.smith@example.com" }
+]);
+Articles Collection
+db.articles.insertMany([
+{ content: "MongoDB is a NoSQL database." },
+{ content: "Databases like MongoDB are popular for modern web applications." }
+]);
+Output:
+{ "acknowledged": true, "insertedIds": [ObjectId(...), ObjectId(...)] }
+Step 3: Performing Searches
+1. Simple Search
+SQL: SELECT * FROM employees WHERE first_name = 'John';
+MongoDB:
+db.employees.find({ first_name: "John" });
+Page 107 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Output:
+[
+{ "_id": ObjectId("..."), "first_name": "John", "last_name": "Doe", "salary": 75000,
+"date_of_birth": "1990-01-15", "email": "john.doe@example.com" }
+]
+2. Wildcard Search
+SQL: SELECT * FROM employees WHERE first_name LIKE 'Jo%';
+MongoDB:
+db.employees.find({ first_name: { $regex: "^Jo" } });
+Output:
+[
+{ "_id": ObjectId("..."), "first_name": "John", "last_name": "Doe", ... },
+{ "_id": ObjectId("..."), "first_name": "Joan", "last_name": "Smith", ... }
+]
+3. Full-Text Search
+Full-text search in MongoDB requires creating a text index first.
+Create Full-Text Index:
+db.articles.createIndex({ content: "text" });
+Output:
+{ "createdCollectionAutomatically": false, "numIndexesBefore": 1,
+"numIndexesAfter": 2, "ok": 1 }
+Perform Full-Text Search:
+SQL: SELECT * FROM articles WHERE MATCH(content) AGAINST('database');
+MongoDB:
+db.articles.find({ $text: { $search: "database" } });
+Output:
+[
+{ "_id": ObjectId("..."), "content": "MongoDB is a NoSQL database." },
+{ "_id": ObjectId("..."), "content": "Databases like MongoDB are popular for modern
+web applications." }
+]
+
+Page 108 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+
+4. Range Search
+SQL: SELECT * FROM employees WHERE salary BETWEEN 50000 AND 100000;
+MongoDB:
+db.employees.find({ salary: { $gte: 50000, $lte: 100000 } });
+Output:
+[
+{ "_id": ObjectId("..."), "first_name": "John", "last_name": "Doe", "salary": 75000, ...
+},
+{ "_id": ObjectId("..."), "first_name": "Joan", "last_name": "Smith", "salary": 85000,
+... }
+]
+Step 4: Indexing in MongoDB
+1. Creating an Index
+SQL: CREATE INDEX idx_firstname ON employees(first_name);
+MongoDB:
+db.employees.createIndex({ first_name: 1 });
+Output:
+{ "createdCollectionAutomatically": false, "numIndexesBefore": 1,
+"numIndexesAfter": 2, "ok": 1 }
+2. Creating a Unique Index
+SQL: CREATE UNIQUE INDEX idx_unique_email ON employees(email);
+MongoDB:
+db.employees.createIndex({ email: 1 }, { unique: true });
+Output:
+{ "createdCollectionAutomatically": false, "numIndexesBefore": 2,
+"numIndexesAfter": 3, "ok": 1 }
+3. Composite Index
+SQL: CREATE INDEX idx_name_dob ON employees(last_name, date_of_birth);
+MongoDB:
+db.employees.createIndex({ last_name: 1, date_of_birth: 1 });
+Page 109 of 110
+
+DBMS Laboratory Manual,
+School of Technology
+Output:
+{ "createdCollectionAutomatically": false, "numIndexesBefore": 3,
+"numIndexesAfter": 4, "ok": 1 }
+4. Full-Text Index
+SQL: CREATE FULLTEXT INDEX idx_content ON articles(content);
+MongoDB:
+This step is the same as creating a text index shown earlier.
+5. Dropping an Index
+SQL: DROP INDEX idx_firstname ON employees;
+MongoDB:
+db.employees.dropIndex("first_name_1");
+Output:
+{ "nIndexesWas": 4, "ok": 1 }
+
+Page 110 of 110
+
+
