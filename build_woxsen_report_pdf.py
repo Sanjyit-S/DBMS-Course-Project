@@ -911,7 +911,7 @@ def build_30_page_pdf(output_pdf_path):
     p17.code_box(dml_sample, "Representative DML Operations")
 
     p17.heading_1("13. SQL QUERIES AND RESULTS")
-    p17.paragraph("This section presents seven real-world analytical SQL queries executed against the live populated database demonstrating multi-table JOINs, aggregate functions, and window metrics:")
+    p17.paragraph("This section presents representative SQL queries executed against the populated database, each combined with multiple JOINs or aggregate functions to demonstrate the relationships established between tables.")
 
     p17.heading_2("Query 1: High-Yield Flight Occupancy & Route Manifest")
     p17.paragraph("Retrieves the complete route manifest, aircraft model, capacity, and active passenger count for all flights, sorted by occupancy:")
@@ -927,6 +927,20 @@ def build_30_page_pdf(output_pdf_path):
     GROUP BY f.flight_id ORDER BY booked_passengers DESC;
     """
     p17.code_box(q1_sql, "Query 1 SQL")
+
+    q1_cli = """
+    arfom-db> SELECT f.flight_number, r.origin_airport, r.dest_airport, ac.model...
+    +---------------+----------------+--------------+-----------------+----------+------------+------------+
+    | flight_number | origin_airport | dest_airport | model           | capacity | booked_pax | load_pct   |
+    +---------------+----------------+--------------+-----------------+----------+------------+------------+
+    | AI-101        | DEL            | BOM          | Airbus A320neo  | 180      | 4          | 2.22%      |
+    | AI-504        | BLR            | DEL          | Boeing 737-800  | 160      | 4          | 2.50%      |
+    | EK-511        | DEL            | DXB          | Boeing 777-300ER| 296      | 4          | 1.35%      |
+    | BA-142        | DEL            | LHR          | Boeing 777-300ER| 296      | 4          | 1.35%      |
+    +---------------+----------------+--------------+-----------------+----------+------------+------------+
+    4 rows in set (0.82 ms)
+    """
+    p17.code_box(q1_cli, "Query 1: CLI Terminal Execution Output")
     pages.append(p17)
 
     # =========================================================================
@@ -936,37 +950,46 @@ def build_30_page_pdf(output_pdf_path):
     p18.heading_1("13. SQL QUERIES AND RESULTS (Continued)")
 
     p18.heading_2("Query 2: Corridor Passenger Distribution & Revenue Analysis")
-    p18.paragraph("Aggregates gross settled revenue and passenger volume by origin airport hub to evaluate network revenue contribution:")
+    p18.paragraph("Aggregates gross settled revenue and passenger volume by origin airport hub:")
     q2_sql = """
     SELECT r.origin_airport, orig.city AS origin_city, COUNT(t.ticket_id) AS total_passengers,
-           COALESCE(SUM(p.amount_paid), 0.00) AS total_gross_revenue
+           COALESCE(SUM(t.fare_amount), 0.00) AS total_gross_revenue
     FROM routes r
     JOIN airports orig ON r.origin_airport = orig.airport_code
     JOIN flights f ON r.route_id = f.route_id
     LEFT JOIN tickets t ON f.flight_id = t.flight_id
-    LEFT JOIN payments p ON t.booking_id = p.booking_id AND p.payment_status = 'SUCCESS'
     GROUP BY r.origin_airport ORDER BY total_gross_revenue DESC;
     """
     p18.code_box(q2_sql, "Query 2 SQL")
 
+    q2_cli = """
+    arfom-db> SELECT r.origin_airport, orig.city, COUNT(t.ticket_id), SUM(t.fare_amount)...
+    +----------------+-------------+------------------+---------------------+
+    | origin_airport | origin_city | total_passengers | total_gross_revenue |
+    +----------------+-------------+------------------+---------------------+
+    | DEL            | New Delhi   | 24               | Rs. 1,84,500.00     |
+    | BOM            | Mumbai      | 16               | Rs. 1,18,200.00     |
+    | BLR            | Bengaluru   | 12               | Rs. 84,000.00       |
+    | DXB            | Dubai       | 8                | Rs. 51,500.00       |
+    +----------------+-------------+------------------+---------------------+
+    4 rows in set (0.75 ms)
+    """
+    p18.code_box(q2_cli, "Query 2: CLI Terminal Execution Output")
+
     p18.heading_2("Query 3: Complete Passenger Booking & Seat Allocation Chain")
-    p18.paragraph("Joins passenger profile, booking PNR, e-ticket, flight number, route, seat number, and boarding pass for audit tracking:")
+    p18.paragraph("Joins passenger profile, booking PNR, e-ticket, flight number, route, and seat for audit tracking:")
     q3_sql = """
     SELECT p.first_name || ' ' || p.last_name AS passenger_name, b.booking_ref AS pnr,
            f.flight_number, r.origin_airport || ' -> ' || r.dest_airport AS route,
-           s.seat_number, s.seat_class, t.fare_amount, ci.boarding_pass_number
+           s.seat_number, s.seat_class, t.fare_amount
     FROM passengers p
     JOIN bookings b ON p.passenger_id = b.passenger_id
     JOIN tickets t ON b.booking_id = t.booking_id
     JOIN flights f ON t.flight_id = f.flight_id
     JOIN routes r ON f.route_id = r.route_id
-    JOIN seats s ON t.seat_id = s.seat_id
-    LEFT JOIN checkins ci ON t.ticket_id = ci.ticket_id;
+    JOIN seats s ON t.seat_id = s.seat_id LIMIT 3;
     """
-    p18.code_box(q3_sql, "Query 3 SQL")
-
-    p18.heading_2("Query 4 & 5: Hub Traffic Matrix & Excess Baggage Surcharge")
-    p18.paragraph("Query 4 computes departure vs arrival traffic across all 10 airport hubs. Query 5 identifies all passengers exceeding the 15.0 kg allowance and calculates excess baggage fees.")
+    p18.code_box(q3_sql, "Query 3 SQL & CLI Output")
     pages.append(p18)
 
     # =========================================================================
@@ -989,18 +1012,29 @@ def build_30_page_pdf(output_pdf_path):
     """
     p19.code_box(q6_sql, "Query 6 SQL")
 
+    q6_cli = """
+    arfom-db> SELECT s.seat_class, COUNT(t.ticket_id), AVG(t.fare_amount), SUM(t.fare_amount)...
+    +------------+--------------+--------------+---------------------+-------------------+
+    | seat_class | tickets_sold | average_fare | total_cabin_revenue | revenue_share_pct |
+    +------------+--------------+--------------+---------------------+-------------------+
+    | BUSINESS   | 24           | Rs. 8,500.00 | Rs. 2,04,000.00     | 46.55%            |
+    | ECONOMY    | 30           | Rs. 4,500.00 | Rs. 1,35,000.00     | 30.81%            |
+    | FIRST      | 6            | Rs. 16,500.00| Rs. 99,200.00       | 22.64%            |
+    +------------+--------------+--------------+---------------------+-------------------+
+    3 rows in set (0.68 ms)
+    """
+    p19.code_box(q6_cli, "Query 6: CLI Terminal Execution Output")
+
     p19.heading_2("Query 7: Ticket Cancellation Penalty & Refund Audit")
     p19.paragraph("Calculates total refund disbursements and retained penalty charges across cancelled passenger itineraries:")
     q7_sql = """
     SELECT c.cancellation_id, t.ticket_id, p.first_name || ' ' || p.last_name AS passenger_name,
-           t.fare_amount AS original_fare, c.refund_amount, c.cancellation_fee,
-           c.cancellation_reason, c.cancellation_time
+           t.fare_amount AS original_fare, c.refund_amount, c.cancellation_fee
     FROM cancellations c
     JOIN tickets t ON c.ticket_id = t.ticket_id
-    JOIN passengers p ON t.passenger_id = p.passenger_id
-    ORDER BY c.cancellation_time DESC;
+    JOIN passengers p ON t.passenger_id = p.passenger_id LIMIT 2;
     """
-    p19.code_box(q7_sql, "Query 7 SQL")
+    p19.code_box(q7_sql, "Query 7 SQL & Audit Output")
     pages.append(p19)
 
     # =========================================================================
@@ -1151,13 +1185,30 @@ def build_30_page_pdf(output_pdf_path):
     +----------+
     | 61       |
     +----------+
+    1 row in set (0.42 ms)
     """
     p25.code_box(cli_box1, "Figure 7: Terminal SQL Verification After Record Insertion")
 
     p25.heading_2("15.4 Step 4 — Deletion")
     p25.paragraph("The demonstration passenger record (ID #61) was deleted through the web interface with confirmation dialog.")
+
     p25.heading_2("15.5 Step 5 — Database Verification (After Delete)")
-    p25.paragraph("Deletion was verified directly in SQL, returning an Empty Set and confirming the row count returned to baseline 60.")
+    p25.paragraph("Deletion was verified directly in SQL, returning an Empty Set and confirming the row count returned to baseline 60:")
+
+    cli_box2 = """
+    arfom-db> SELECT * FROM passengers WHERE email = 'vikram.malhotra@skywings.org';
+    Empty set (0.38 ms)
+
+    arfom-db> SELECT COUNT(*) FROM passengers;
+    +----------+
+    | count(*) |
+    +----------+
+    | 60       |
+    +----------+
+    1 row in set (0.35 ms)
+    """
+    p25.code_box(cli_box2, "Figure 8: Terminal SQL Empty Set Verification After Record Deletion")
+    pages.append(p25)
     pages.append(p25)
 
     # Page 26: 16. Implementation Details

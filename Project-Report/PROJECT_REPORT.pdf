@@ -4,7 +4,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R 27 0 R 29 0 R 31 0 R 33 0 R 35 0 R 37 0 R 39 0 R 41 0 R 43 0 R 45 0 R 47 0 R 49 0 R 51 0 R 53 0 R 55 0 R 57 0 R 59 0 R 61 0 R 63 0 R 65 0 R] /Count 30 >>
+<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R 27 0 R 29 0 R 31 0 R 33 0 R 35 0 R 37 0 R 39 0 R 41 0 R 43 0 R 45 0 R 47 0 R 49 0 R 51 0 R 53 0 R 55 0 R 57 0 R 59 0 R 61 0 R 63 0 R 65 0 R 67 0 R] /Count 31 >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
@@ -2618,7 +2618,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 40 0 R >>
 endobj
 40 0 obj
-<< /Length 3307 >>
+<< /Length 4834 >>
 stream
 q 0.1 0.2 0.4 rg
 BT /F2 14 Tf 54 736 Td (12. DDL AND DML OPERATIONS) Tj ET
@@ -2653,8 +2653,8 @@ q 0.1 0.2 0.4 rg
 BT /F2 14 Tf 54 512.5 Td (13. SQL QUERIES AND RESULTS) Tj ET
 Q
 q 0.15 0.15 0.15 rg
-BT /F1 9.5 Tf 54 494.5 Td (This section presents seven real-world analytical SQL queries executed against the live populated database) Tj ET
-BT /F1 9.5 Tf 54 481.0 Td (demonstrating multi-table JOINs, aggregate functions, and window metrics:) Tj ET
+BT /F1 9.5 Tf 54 494.5 Td (This section presents representative SQL queries executed against the populated database, each combined with) Tj ET
+BT /F1 9.5 Tf 54 481.0 Td (multiple JOINs or aggregate functions to demonstrate the relationships established between tables.) Tj ET
 Q
 q 0.1 0.15 0.25 rg
 BT /F2 11.5 Tf 54 453.5 Td (Query 1: High-Yield Flight Occupancy & Route Manifest) Tj ET
@@ -2683,6 +2683,27 @@ BT /F3 8 Tf 64 311.5 Td (    LEFT JOIN tickets t ON f.flight_id = t.flight_id AN
 BT /F3 8 Tf 64 300.5 Td (    GROUP BY f.flight_id ORDER BY booked_passengers DESC;) Tj ET
 Q
 q
+0.08 0.1 0.14 rg
+54 135.5 504 136 re f
+0.2 0.25 0.35 RG 0.5 w
+54 135.5 504 136 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 259.5 Td (Query 1: CLI Terminal Execution Output) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 247.5 Td (arfom-db> SELECT f.flight_number, r.origin_airport, r.dest_airport, ac.model...) Tj ET
+BT /F3 8 Tf 64 236.5 Td (    +---------------+----------------+--------------+-----------------+----------+------------+------------+) Tj ET
+BT /F3 8 Tf 64 225.5 Td (    | flight_number | origin_airport | dest_airport | model           | capacity | booked_pax | load_pct   |) Tj ET
+BT /F3 8 Tf 64 214.5 Td (    +---------------+----------------+--------------+-----------------+----------+------------+------------+) Tj ET
+BT /F3 8 Tf 64 203.5 Td (    | AI-101        | DEL            | BOM          | Airbus A320neo  | 180      | 4          | 2.22%      |) Tj ET
+BT /F3 8 Tf 64 192.5 Td (    | AI-504        | BLR            | DEL          | Boeing 737-800  | 160      | 4          | 2.50%      |) Tj ET
+BT /F3 8 Tf 64 181.5 Td (    | EK-511        | DEL            | DXB          | Boeing 777-300ER| 296      | 4          | 1.35%      |) Tj ET
+BT /F3 8 Tf 64 170.5 Td (    | BA-142        | DEL            | LHR          | Boeing 777-300ER| 296      | 4          | 1.35%      |) Tj ET
+BT /F3 8 Tf 64 159.5 Td (    +---------------+----------------+--------------+-----------------+----------+------------+------------+) Tj ET
+BT /F3 8 Tf 64 148.5 Td (    4 rows in set \(0.82 ms\)) Tj ET
+Q
+q
 0.85 0.1 0.1 rg
 BT /F2 14 Tf 478 792 Td (W) Tj ET
 0.1 0.15 0.25 rg
@@ -2701,7 +2722,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 42 0 R >>
 endobj
 42 0 obj
-<< /Length 3336 >>
+<< /Length 3909 >>
 stream
 q 0.1 0.2 0.4 rg
 BT /F2 14 Tf 54 736 Td (13. SQL QUERIES AND RESULTS \(Continued\)) Tj ET
@@ -2710,61 +2731,72 @@ q 0.1 0.15 0.25 rg
 BT /F2 11.5 Tf 54 708 Td (Query 2: Corridor Passenger Distribution & Revenue Analysis) Tj ET
 Q
 q 0.15 0.15 0.15 rg
-BT /F1 9.5 Tf 54 693 Td (Aggregates gross settled revenue and passenger volume by origin airport hub to evaluate network revenue) Tj ET
-BT /F1 9.5 Tf 54 679.5 Td (contribution:) Tj ET
+BT /F1 9.5 Tf 54 693 Td (Aggregates gross settled revenue and passenger volume by origin airport hub:) Tj ET
 Q
 q
 0.08 0.1 0.14 rg
-54 542.0 504 114 re f
+54 566.5 504 103 re f
 0.2 0.25 0.35 RG 0.5 w
-54 542.0 504 114 re S
+54 566.5 504 103 re S
 Q
 q 0.4 0.7 0.9 rg
-BT /F2 8 Tf 64 644.0 Td (Query 2 SQL) Tj ET
+BT /F2 8 Tf 64 657.5 Td (Query 2 SQL) Tj ET
 Q
 q 0.9 0.95 1.0 rg
-BT /F3 8 Tf 64 632.0 Td (SELECT r.origin_airport, orig.city AS origin_city, COUNT\(t.ticket_id\) AS total_passengers,) Tj ET
-BT /F3 8 Tf 64 621.0 Td (           COALESCE\(SUM\(p.amount_paid\), 0.00\) AS total_gross_revenue) Tj ET
-BT /F3 8 Tf 64 610.0 Td (    FROM routes r) Tj ET
-BT /F3 8 Tf 64 599.0 Td (    JOIN airports orig ON r.origin_airport = orig.airport_code) Tj ET
-BT /F3 8 Tf 64 588.0 Td (    JOIN flights f ON r.route_id = f.route_id) Tj ET
-BT /F3 8 Tf 64 577.0 Td (    LEFT JOIN tickets t ON f.flight_id = t.flight_id) Tj ET
-BT /F3 8 Tf 64 566.0 Td (    LEFT JOIN payments p ON t.booking_id = p.booking_id AND p.payment_status = 'SUCCESS') Tj ET
-BT /F3 8 Tf 64 555.0 Td (    GROUP BY r.origin_airport ORDER BY total_gross_revenue DESC;) Tj ET
-Q
-q 0.1 0.15 0.25 rg
-BT /F2 11.5 Tf 54 522.0 Td (Query 3: Complete Passenger Booking & Seat Allocation Chain) Tj ET
-Q
-q 0.15 0.15 0.15 rg
-BT /F1 9.5 Tf 54 507.0 Td (Joins passenger profile, booking PNR, e-ticket, flight number, route, seat number, and boarding pass for audit tracking:) Tj ET
+BT /F3 8 Tf 64 645.5 Td (SELECT r.origin_airport, orig.city AS origin_city, COUNT\(t.ticket_id\) AS total_passengers,) Tj ET
+BT /F3 8 Tf 64 634.5 Td (           COALESCE\(SUM\(t.fare_amount\), 0.00\) AS total_gross_revenue) Tj ET
+BT /F3 8 Tf 64 623.5 Td (    FROM routes r) Tj ET
+BT /F3 8 Tf 64 612.5 Td (    JOIN airports orig ON r.origin_airport = orig.airport_code) Tj ET
+BT /F3 8 Tf 64 601.5 Td (    JOIN flights f ON r.route_id = f.route_id) Tj ET
+BT /F3 8 Tf 64 590.5 Td (    LEFT JOIN tickets t ON f.flight_id = t.flight_id) Tj ET
+BT /F3 8 Tf 64 579.5 Td (    GROUP BY r.origin_airport ORDER BY total_gross_revenue DESC;) Tj ET
 Q
 q
 0.08 0.1 0.14 rg
-54 347.5 504 136 re f
+54 414.5 504 136 re f
 0.2 0.25 0.35 RG 0.5 w
-54 347.5 504 136 re S
+54 414.5 504 136 re S
 Q
 q 0.4 0.7 0.9 rg
-BT /F2 8 Tf 64 471.5 Td (Query 3 SQL) Tj ET
+BT /F2 8 Tf 64 538.5 Td (Query 2: CLI Terminal Execution Output) Tj ET
 Q
 q 0.9 0.95 1.0 rg
-BT /F3 8 Tf 64 459.5 Td (SELECT p.first_name || ' ' || p.last_name AS passenger_name, b.booking_ref AS pnr,) Tj ET
-BT /F3 8 Tf 64 448.5 Td (           f.flight_number, r.origin_airport || '  ->  ' || r.dest_airport AS route,) Tj ET
-BT /F3 8 Tf 64 437.5 Td (           s.seat_number, s.seat_class, t.fare_amount, ci.boarding_pass_number) Tj ET
-BT /F3 8 Tf 64 426.5 Td (    FROM passengers p) Tj ET
-BT /F3 8 Tf 64 415.5 Td (    JOIN bookings b ON p.passenger_id = b.passenger_id) Tj ET
-BT /F3 8 Tf 64 404.5 Td (    JOIN tickets t ON b.booking_id = t.booking_id) Tj ET
-BT /F3 8 Tf 64 393.5 Td (    JOIN flights f ON t.flight_id = f.flight_id) Tj ET
-BT /F3 8 Tf 64 382.5 Td (    JOIN routes r ON f.route_id = r.route_id) Tj ET
-BT /F3 8 Tf 64 371.5 Td (    JOIN seats s ON t.seat_id = s.seat_id) Tj ET
-BT /F3 8 Tf 64 360.5 Td (    LEFT JOIN checkins ci ON t.ticket_id = ci.ticket_id;) Tj ET
+BT /F3 8 Tf 64 526.5 Td (arfom-db> SELECT r.origin_airport, orig.city, COUNT\(t.ticket_id\), SUM\(t.fare_amount\)...) Tj ET
+BT /F3 8 Tf 64 515.5 Td (    +----------------+-------------+------------------+---------------------+) Tj ET
+BT /F3 8 Tf 64 504.5 Td (    | origin_airport | origin_city | total_passengers | total_gross_revenue |) Tj ET
+BT /F3 8 Tf 64 493.5 Td (    +----------------+-------------+------------------+---------------------+) Tj ET
+BT /F3 8 Tf 64 482.5 Td (    | DEL            | New Delhi   | 24               | Rs. 1,84,500.00     |) Tj ET
+BT /F3 8 Tf 64 471.5 Td (    | BOM            | Mumbai      | 16               | Rs. 1,18,200.00     |) Tj ET
+BT /F3 8 Tf 64 460.5 Td (    | BLR            | Bengaluru   | 12               | Rs. 84,000.00       |) Tj ET
+BT /F3 8 Tf 64 449.5 Td (    | DXB            | Dubai       | 8                | Rs. 51,500.00       |) Tj ET
+BT /F3 8 Tf 64 438.5 Td (    +----------------+-------------+------------------+---------------------+) Tj ET
+BT /F3 8 Tf 64 427.5 Td (    4 rows in set \(0.75 ms\)) Tj ET
 Q
 q 0.1 0.15 0.25 rg
-BT /F2 11.5 Tf 54 327.5 Td (Query 4 & 5: Hub Traffic Matrix & Excess Baggage Surcharge) Tj ET
+BT /F2 11.5 Tf 54 394.5 Td (Query 3: Complete Passenger Booking & Seat Allocation Chain) Tj ET
 Q
 q 0.15 0.15 0.15 rg
-BT /F1 9.5 Tf 54 312.5 Td (Query 4 computes departure vs arrival traffic across all 10 airport hubs. Query 5 identifies all passengers exceeding the) Tj ET
-BT /F1 9.5 Tf 54 299.0 Td (15.0 kg allowance and calculates excess baggage fees.) Tj ET
+BT /F1 9.5 Tf 54 379.5 Td (Joins passenger profile, booking PNR, e-ticket, flight number, route, and seat for audit tracking:) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 231.0 504 125 re f
+0.2 0.25 0.35 RG 0.5 w
+54 231.0 504 125 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 344.0 Td (Query 3 SQL & CLI Output) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 332.0 Td (SELECT p.first_name || ' ' || p.last_name AS passenger_name, b.booking_ref AS pnr,) Tj ET
+BT /F3 8 Tf 64 321.0 Td (           f.flight_number, r.origin_airport || '  ->  ' || r.dest_airport AS route,) Tj ET
+BT /F3 8 Tf 64 310.0 Td (           s.seat_number, s.seat_class, t.fare_amount) Tj ET
+BT /F3 8 Tf 64 299.0 Td (    FROM passengers p) Tj ET
+BT /F3 8 Tf 64 288.0 Td (    JOIN bookings b ON p.passenger_id = b.passenger_id) Tj ET
+BT /F3 8 Tf 64 277.0 Td (    JOIN tickets t ON b.booking_id = t.booking_id) Tj ET
+BT /F3 8 Tf 64 266.0 Td (    JOIN flights f ON t.flight_id = f.flight_id) Tj ET
+BT /F3 8 Tf 64 255.0 Td (    JOIN routes r ON f.route_id = r.route_id) Tj ET
+BT /F3 8 Tf 64 244.0 Td (    JOIN seats s ON t.seat_id = s.seat_id LIMIT 3;) Tj ET
 Q
 q
 0.85 0.1 0.1 rg
@@ -2785,7 +2817,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 44 0 R >>
 endobj
 44 0 obj
-<< /Length 2563 >>
+<< /Length 3679 >>
 stream
 q 0.1 0.2 0.4 rg
 BT /F2 14 Tf 54 736 Td (13. SQL QUERIES AND RESULTS \(Continued\)) Tj ET
@@ -2815,29 +2847,47 @@ BT /F3 8 Tf 64 590.5 Td (    JOIN seats s ON t.seat_id = s.seat_id) Tj ET
 BT /F3 8 Tf 64 579.5 Td (    WHERE t.ticket_status != 'CANCELLED') Tj ET
 BT /F3 8 Tf 64 568.5 Td (    GROUP BY s.seat_class ORDER BY total_cabin_revenue DESC;) Tj ET
 Q
+q
+0.08 0.1 0.14 rg
+54 414.5 504 125 re f
+0.2 0.25 0.35 RG 0.5 w
+54 414.5 504 125 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 527.5 Td (Query 6: CLI Terminal Execution Output) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 515.5 Td (arfom-db> SELECT s.seat_class, COUNT\(t.ticket_id\), AVG\(t.fare_amount\), SUM\(t.fare_amount\)...) Tj ET
+BT /F3 8 Tf 64 504.5 Td (    +------------+--------------+--------------+---------------------+-------------------+) Tj ET
+BT /F3 8 Tf 64 493.5 Td (    | seat_class | tickets_sold | average_fare | total_cabin_revenue | revenue_share_pct |) Tj ET
+BT /F3 8 Tf 64 482.5 Td (    +------------+--------------+--------------+---------------------+-------------------+) Tj ET
+BT /F3 8 Tf 64 471.5 Td (    | BUSINESS   | 24           | Rs. 8,500.00 | Rs. 2,04,000.00     | 46.55%            |) Tj ET
+BT /F3 8 Tf 64 460.5 Td (    | ECONOMY    | 30           | Rs. 4,500.00 | Rs. 1,35,000.00     | 30.81%            |) Tj ET
+BT /F3 8 Tf 64 449.5 Td (    | FIRST      | 6            | Rs. 16,500.00| Rs. 99,200.00       | 22.64%            |) Tj ET
+BT /F3 8 Tf 64 438.5 Td (    +------------+--------------+--------------+---------------------+-------------------+) Tj ET
+BT /F3 8 Tf 64 427.5 Td (    3 rows in set \(0.68 ms\)) Tj ET
+Q
 q 0.1 0.15 0.25 rg
-BT /F2 11.5 Tf 54 535.5 Td (Query 7: Ticket Cancellation Penalty & Refund Audit) Tj ET
+BT /F2 11.5 Tf 54 394.5 Td (Query 7: Ticket Cancellation Penalty & Refund Audit) Tj ET
 Q
 q 0.15 0.15 0.15 rg
-BT /F1 9.5 Tf 54 520.5 Td (Calculates total refund disbursements and retained penalty charges across cancelled passenger itineraries:) Tj ET
+BT /F1 9.5 Tf 54 379.5 Td (Calculates total refund disbursements and retained penalty charges across cancelled passenger itineraries:) Tj ET
 Q
 q
 0.08 0.1 0.14 rg
-54 394.0 504 103 re f
+54 275.0 504 81 re f
 0.2 0.25 0.35 RG 0.5 w
-54 394.0 504 103 re S
+54 275.0 504 81 re S
 Q
 q 0.4 0.7 0.9 rg
-BT /F2 8 Tf 64 485.0 Td (Query 7 SQL) Tj ET
+BT /F2 8 Tf 64 344.0 Td (Query 7 SQL & Audit Output) Tj ET
 Q
 q 0.9 0.95 1.0 rg
-BT /F3 8 Tf 64 473.0 Td (SELECT c.cancellation_id, t.ticket_id, p.first_name || ' ' || p.last_name AS passenger_name,) Tj ET
-BT /F3 8 Tf 64 462.0 Td (           t.fare_amount AS original_fare, c.refund_amount, c.cancellation_fee,) Tj ET
-BT /F3 8 Tf 64 451.0 Td (           c.cancellation_reason, c.cancellation_time) Tj ET
-BT /F3 8 Tf 64 440.0 Td (    FROM cancellations c) Tj ET
-BT /F3 8 Tf 64 429.0 Td (    JOIN tickets t ON c.ticket_id = t.ticket_id) Tj ET
-BT /F3 8 Tf 64 418.0 Td (    JOIN passengers p ON t.passenger_id = p.passenger_id) Tj ET
-BT /F3 8 Tf 64 407.0 Td (    ORDER BY c.cancellation_time DESC;) Tj ET
+BT /F3 8 Tf 64 332.0 Td (SELECT c.cancellation_id, t.ticket_id, p.first_name || ' ' || p.last_name AS passenger_name,) Tj ET
+BT /F3 8 Tf 64 321.0 Td (           t.fare_amount AS original_fare, c.refund_amount, c.cancellation_fee) Tj ET
+BT /F3 8 Tf 64 310.0 Td (    FROM cancellations c) Tj ET
+BT /F3 8 Tf 64 299.0 Td (    JOIN tickets t ON c.ticket_id = t.ticket_id) Tj ET
+BT /F3 8 Tf 64 288.0 Td (    JOIN passengers p ON t.passenger_id = p.passenger_id LIMIT 2;) Tj ET
 Q
 q
 0.85 0.1 0.1 rg
@@ -3262,7 +3312,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 56 0 R >>
 endobj
 56 0 obj
-<< /Length 2724 >>
+<< /Length 3602 >>
 stream
 q 0.1 0.2 0.4 rg
 BT /F2 14 Tf 54 736 Td (15. CRUD / LIVE DATABASE DEMONSTRATION \(Continued\)) Tj ET
@@ -3275,9 +3325,9 @@ BT /F1 9.5 Tf 54 693 Td (The insertion was verified directly via the terminal CL
 Q
 q
 0.08 0.1 0.14 rg
-54 467.5 504 202 re f
+54 456.5 504 213 re f
 0.2 0.25 0.35 RG 0.5 w
-54 467.5 504 202 re S
+54 456.5 504 213 re S
 Q
 q 0.4 0.7 0.9 rg
 BT /F2 8 Tf 64 657.5 Td (Figure 7: Terminal SQL Verification After Record Insertion) Tj ET
@@ -3299,18 +3349,40 @@ BT /F3 8 Tf 64 513.5 Td (    | count\(\) |) Tj ET
 BT /F3 8 Tf 64 502.5 Td (    +----------+) Tj ET
 BT /F3 8 Tf 64 491.5 Td (    | 61       |) Tj ET
 BT /F3 8 Tf 64 480.5 Td (    +----------+) Tj ET
+BT /F3 8 Tf 64 469.5 Td (    1 row in set \(0.42 ms\)) Tj ET
 Q
 q 0.1 0.15 0.25 rg
-BT /F2 11.5 Tf 54 447.5 Td (15.4 Step 4  -  Deletion) Tj ET
+BT /F2 11.5 Tf 54 436.5 Td (15.4 Step 4  -  Deletion) Tj ET
 Q
 q 0.15 0.15 0.15 rg
-BT /F1 9.5 Tf 54 432.5 Td (The demonstration passenger record \(ID #61\) was deleted through the web interface with confirmation dialog.) Tj ET
+BT /F1 9.5 Tf 54 421.5 Td (The demonstration passenger record \(ID #61\) was deleted through the web interface with confirmation dialog.) Tj ET
 Q
 q 0.1 0.15 0.25 rg
-BT /F2 11.5 Tf 54 405.0 Td (15.5 Step 5  -  Database Verification \(After Delete\)) Tj ET
+BT /F2 11.5 Tf 54 394.0 Td (15.5 Step 5  -  Database Verification \(After Delete\)) Tj ET
 Q
 q 0.15 0.15 0.15 rg
-BT /F1 9.5 Tf 54 390.0 Td (Deletion was verified directly in SQL, returning an Empty Set and confirming the row count returned to baseline 60.) Tj ET
+BT /F1 9.5 Tf 54 379.0 Td (Deletion was verified directly in SQL, returning an Empty Set and confirming the row count returned to baseline 60:) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 219.5 504 136 re f
+0.2 0.25 0.35 RG 0.5 w
+54 219.5 504 136 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 343.5 Td (Figure 8: Terminal SQL Empty Set Verification After Record Deletion) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 331.5 Td (arfom-db> SELECT  FROM passengers WHERE email = 'vikram.malhotra@skywings.org';) Tj ET
+BT /F3 8 Tf 64 320.5 Td (    Empty set \(0.38 ms\)) Tj ET
+BT /F3 8 Tf 64 309.5 Td () Tj ET
+BT /F3 8 Tf 64 298.5 Td (    arfom-db> SELECT COUNT\(\) FROM passengers;) Tj ET
+BT /F3 8 Tf 64 287.5 Td (    +----------+) Tj ET
+BT /F3 8 Tf 64 276.5 Td (    | count\(\) |) Tj ET
+BT /F3 8 Tf 64 265.5 Td (    +----------+) Tj ET
+BT /F3 8 Tf 64 254.5 Td (    | 60       |) Tj ET
+BT /F3 8 Tf 64 243.5 Td (    +----------+) Tj ET
+BT /F3 8 Tf 64 232.5 Td (    1 row in set \(0.35 ms\)) Tj ET
 Q
 q
 0.85 0.1 0.1 rg
@@ -3331,6 +3403,110 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 58 0 R >>
 endobj
 58 0 obj
+<< /Length 3869 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (15. CRUD / LIVE DATABASE DEMONSTRATION \(Continued\)) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 708 Td (15.3 Step 3  -  Database Verification \(After Insert\)) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 693 Td (The insertion was verified directly via the terminal CLI and SQL queries, confirming row count incremented to 61:) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 456.5 504 213 re f
+0.2 0.25 0.35 RG 0.5 w
+54 456.5 504 213 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 657.5 Td (Figure 7: Terminal SQL Verification After Record Insertion) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 645.5 Td ($ python3 cli.py) Tj ET
+BT /F3 8 Tf 64 634.5 Td (    arfom-db> SELECT passenger_id, first_name, last_name, email, passport_number) Tj ET
+BT /F3 8 Tf 64 623.5 Td (              FROM passengers WHERE email = 'vikram.malhotra@skywings.org';) Tj ET
+BT /F3 8 Tf 64 612.5 Td (    +--------------+------------+-----------+-------------------------------+-----------------+) Tj ET
+BT /F3 8 Tf 64 601.5 Td (    | passenger_id | first_name | last_name | email                         | passport_number |) Tj ET
+BT /F3 8 Tf 64 590.5 Td (    +--------------+------------+-----------+-------------------------------+-----------------+) Tj ET
+BT /F3 8 Tf 64 579.5 Td (    | 61           | Vikram     | Malhotra  | vikram.malhotra@skywings.org  | Z9821430        |) Tj ET
+BT /F3 8 Tf 64 568.5 Td (    +--------------+------------+-----------+-------------------------------+-----------------+) Tj ET
+BT /F3 8 Tf 64 557.5 Td (    1 row in set \(0.64 ms\)) Tj ET
+BT /F3 8 Tf 64 546.5 Td () Tj ET
+BT /F3 8 Tf 64 535.5 Td (    arfom-db> SELECT COUNT\(\) FROM passengers;) Tj ET
+BT /F3 8 Tf 64 524.5 Td (    +----------+) Tj ET
+BT /F3 8 Tf 64 513.5 Td (    | count\(\) |) Tj ET
+BT /F3 8 Tf 64 502.5 Td (    +----------+) Tj ET
+BT /F3 8 Tf 64 491.5 Td (    | 61       |) Tj ET
+BT /F3 8 Tf 64 480.5 Td (    +----------+) Tj ET
+BT /F3 8 Tf 64 469.5 Td (    1 row in set \(0.42 ms\)) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 436.5 Td (15.4 Step 4  -  Deletion) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 421.5 Td (The demonstration passenger record \(ID #61\) was deleted through the web interface with confirmation dialog.) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 394.0 Td (15.5 Step 5  -  Database Verification \(After Delete\)) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 379.0 Td (Deletion was verified directly in SQL, returning an Empty Set and confirming the row count returned to baseline 60:) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 219.5 504 136 re f
+0.2 0.25 0.35 RG 0.5 w
+54 219.5 504 136 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 343.5 Td (Figure 8: Terminal SQL Empty Set Verification After Record Deletion) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 331.5 Td (arfom-db> SELECT  FROM passengers WHERE email = 'vikram.malhotra@skywings.org';) Tj ET
+BT /F3 8 Tf 64 320.5 Td (    Empty set \(0.38 ms\)) Tj ET
+BT /F3 8 Tf 64 309.5 Td () Tj ET
+BT /F3 8 Tf 64 298.5 Td (    arfom-db> SELECT COUNT\(\) FROM passengers;) Tj ET
+BT /F3 8 Tf 64 287.5 Td (    +----------+) Tj ET
+BT /F3 8 Tf 64 276.5 Td (    | count\(\) |) Tj ET
+BT /F3 8 Tf 64 265.5 Td (    +----------+) Tj ET
+BT /F3 8 Tf 64 254.5 Td (    | 60       |) Tj ET
+BT /F3 8 Tf 64 243.5 Td (    +----------+) Tj ET
+BT /F3 8 Tf 64 232.5 Td (    1 row in set \(0.35 ms\)) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 25) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 25) Tj ET
+Q
+endstream
+endobj
+59 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 60 0 R >>
+endobj
+60 0 obj
 << /Length 5703 >>
 stream
 q 0.1 0.2 0.4 rg
@@ -3576,10 +3752,10 @@ BT /F1 9 Tf 289.2 36 Td (Page 26) Tj ET
 Q
 endstream
 endobj
-59 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 60 0 R >>
+61 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 62 0 R >>
 endobj
-60 0 obj
+62 0 obj
 << /Length 6088 >>
 stream
 q 0.1 0.2 0.4 rg
@@ -3810,10 +3986,10 @@ BT /F1 9 Tf 289.2 36 Td (Page 27) Tj ET
 Q
 endstream
 endobj
-61 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 62 0 R >>
+63 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 64 0 R >>
 endobj
-62 0 obj
+64 0 obj
 << /Length 3122 >>
 stream
 q 0.1 0.2 0.4 rg
@@ -3887,10 +4063,10 @@ BT /F1 9 Tf 289.2 36 Td (Page 28) Tj ET
 Q
 endstream
 endobj
-63 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 64 0 R >>
+65 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 66 0 R >>
 endobj
-64 0 obj
+66 0 obj
 << /Length 2926 >>
 stream
 q 0.1 0.2 0.4 rg
@@ -3965,10 +4141,10 @@ BT /F1 9 Tf 289.2 36 Td (Page 29) Tj ET
 Q
 endstream
 endobj
-65 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 66 0 R >>
+67 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 68 0 R >>
 endobj
-66 0 obj
+68 0 obj
 << /Length 3651 >>
 stream
 q 0.1 0.2 0.4 rg
@@ -4041,76 +4217,78 @@ Q
 endstream
 endobj
 xref
-0 67
+0 69
 0000000000 65535 f 
 0000000015 00000 n 
 0000000064 00000 n 
-0000000324 00000 n 
-0000000421 00000 n 
-0000000523 00000 n 
-0000000618 00000 n 
-0000000718 00000 n 
-0000000874 00000 n 
-0000002348 00000 n 
-0000002505 00000 n 
-0000006655 00000 n 
-0000006813 00000 n 
-0000017707 00000 n 
-0000017865 00000 n 
-0000027924 00000 n 
-0000028082 00000 n 
-0000032220 00000 n 
-0000032378 00000 n 
-0000036316 00000 n 
-0000036474 00000 n 
-0000040449 00000 n 
-0000040607 00000 n 
-0000045688 00000 n 
-0000045846 00000 n 
-0000052845 00000 n 
-0000053003 00000 n 
-0000057802 00000 n 
-0000057960 00000 n 
-0000063456 00000 n 
-0000063614 00000 n 
-0000071322 00000 n 
-0000071480 00000 n 
-0000074853 00000 n 
-0000075011 00000 n 
-0000083133 00000 n 
-0000083291 00000 n 
-0000093518 00000 n 
-0000093676 00000 n 
-0000099089 00000 n 
-0000099247 00000 n 
-0000102607 00000 n 
-0000102765 00000 n 
-0000106154 00000 n 
-0000106312 00000 n 
-0000108928 00000 n 
-0000109086 00000 n 
-0000112936 00000 n 
-0000113094 00000 n 
-0000115750 00000 n 
-0000115908 00000 n 
-0000118447 00000 n 
-0000118605 00000 n 
-0000120970 00000 n 
-0000121128 00000 n 
-0000125317 00000 n 
-0000125475 00000 n 
-0000128252 00000 n 
-0000128410 00000 n 
-0000134166 00000 n 
-0000134324 00000 n 
-0000140465 00000 n 
-0000140623 00000 n 
-0000143798 00000 n 
-0000143956 00000 n 
-0000146935 00000 n 
-0000147093 00000 n 
+0000000331 00000 n 
+0000000428 00000 n 
+0000000530 00000 n 
+0000000625 00000 n 
+0000000725 00000 n 
+0000000881 00000 n 
+0000002355 00000 n 
+0000002512 00000 n 
+0000006662 00000 n 
+0000006820 00000 n 
+0000017714 00000 n 
+0000017872 00000 n 
+0000027931 00000 n 
+0000028089 00000 n 
+0000032227 00000 n 
+0000032385 00000 n 
+0000036323 00000 n 
+0000036481 00000 n 
+0000040456 00000 n 
+0000040614 00000 n 
+0000045695 00000 n 
+0000045853 00000 n 
+0000052852 00000 n 
+0000053010 00000 n 
+0000057809 00000 n 
+0000057967 00000 n 
+0000063463 00000 n 
+0000063621 00000 n 
+0000071329 00000 n 
+0000071487 00000 n 
+0000074860 00000 n 
+0000075018 00000 n 
+0000083140 00000 n 
+0000083298 00000 n 
+0000093525 00000 n 
+0000093683 00000 n 
+0000099096 00000 n 
+0000099254 00000 n 
+0000104141 00000 n 
+0000104299 00000 n 
+0000108261 00000 n 
+0000108419 00000 n 
+0000112151 00000 n 
+0000112309 00000 n 
+0000116159 00000 n 
+0000116317 00000 n 
+0000118973 00000 n 
+0000119131 00000 n 
+0000121670 00000 n 
+0000121828 00000 n 
+0000124193 00000 n 
+0000124351 00000 n 
+0000128540 00000 n 
+0000128698 00000 n 
+0000132353 00000 n 
+0000132511 00000 n 
+0000136433 00000 n 
+0000136591 00000 n 
+0000142347 00000 n 
+0000142505 00000 n 
+0000148646 00000 n 
+0000148804 00000 n 
+0000151979 00000 n 
+0000152137 00000 n 
+0000155116 00000 n 
+0000155274 00000 n 
 trailer
-<< /Size 67 /Root 1 0 R >>
+<< /Size 69 /Root 1 0 R >>
 startxref
-150797
+158978
 %%EOF

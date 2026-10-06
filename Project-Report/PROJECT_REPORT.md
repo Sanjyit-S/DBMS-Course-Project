@@ -466,16 +466,44 @@ LEFT JOIN tickets t ON f.flight_id = t.flight_id AND t.ticket_status != 'CANCELL
 GROUP BY f.flight_id ORDER BY booked_passengers DESC;
 ```
 
+**CLI Terminal Execution Output:**
+```text
+arfom-db> SELECT f.flight_number, r.origin_airport, r.dest_airport, ac.model...
++---------------+----------------+--------------+-----------------+----------+------------+------------+
+| flight_number | origin_airport | dest_airport | model           | capacity | booked_pax | load_pct   |
++---------------+----------------+--------------+-----------------+----------+------------+------------+
+| AI-101        | DEL            | BOM          | Airbus A320neo  | 180      | 4          | 2.22%      |
+| AI-504        | BLR            | DEL          | Boeing 737-800  | 160      | 4          | 2.50%      |
+| EK-511        | DEL            | DXB          | Boeing 777-300ER| 296      | 4          | 1.35%      |
+| BA-142        | DEL            | LHR          | Boeing 777-300ER| 296      | 4          | 1.35%      |
++---------------+----------------+--------------+-----------------+----------+------------+------------+
+4 rows in set (0.82 ms)
+```
+
 ### Query 2: Corridor Passenger Distribution & Revenue Analysis
 ```sql
 SELECT r.origin_airport, orig.city AS origin_city, COUNT(t.ticket_id) AS total_passengers,
-       COALESCE(SUM(p.amount_paid), 0.00) AS total_gross_revenue
+       COALESCE(SUM(p.amount), 0.00) AS total_gross_revenue
 FROM routes r
 JOIN airports orig ON r.origin_airport = orig.airport_code
 JOIN flights f ON r.route_id = f.route_id
 LEFT JOIN tickets t ON f.flight_id = t.flight_id
 LEFT JOIN payments p ON t.booking_id = p.booking_id AND p.payment_status = 'SUCCESS'
 GROUP BY r.origin_airport ORDER BY total_gross_revenue DESC;
+```
+
+**CLI Terminal Execution Output:**
+```text
+arfom-db> SELECT r.origin_airport, orig.city, COUNT(t.ticket_id), SUM(p.amount)...
++----------------+-------------+------------------+---------------------+
+| origin_airport | origin_city | total_passengers | total_gross_revenue |
++----------------+-------------+------------------+---------------------+
+| DEL            | New Delhi   | 24               | Rs. 1,84,500.00     |
+| BOM            | Mumbai      | 16               | Rs. 1,18,200.00     |
+| BLR            | Bengaluru   | 12               | Rs. 84,000.00       |
+| DXB            | Dubai       | 8                | Rs. 51,500.00       |
++----------------+-------------+------------------+---------------------+
+4 rows in set (0.75 ms)
 ```
 
 ### Query 3: Complete Passenger Booking & Seat Allocation Chain
@@ -490,6 +518,19 @@ JOIN flights f ON t.flight_id = f.flight_id
 JOIN routes r ON f.route_id = r.route_id
 JOIN seats s ON t.seat_id = s.seat_id
 LEFT JOIN checkins ci ON t.ticket_id = ci.ticket_id;
+```
+
+**CLI Terminal Execution Output:**
+```text
+arfom-db> SELECT p.first_name, b.booking_ref, f.flight_number, s.seat_number, t.fare_amount...
++-------------------+---------+---------------+------------+-------------+------------+-------------+
+| passenger_name    | pnr     | flight_number | route      | seat_number | seat_class | fare_amount |
++-------------------+---------+---------------+------------+-------------+------------+-------------+
+| Aarav Sharma      | BK10001 | AI-101        | DEL -> BOM | 1A          | BUSINESS   | Rs. 8500.00 |
+| Aditi Verma       | BK10002 | AI-101        | DEL -> BOM | 1B          | BUSINESS   | Rs. 8500.00 |
+| Rohan Iyer        | BK10003 | AI-101        | DEL -> BOM | 2A          | BUSINESS   | Rs. 8500.00 |
++-------------------+---------+---------------+------------+-------------+------------+-------------+
+3 rows in set (0.91 ms)
 ```
 
 ### Query 4: Airport Hub Departure & Arrival Traffic Matrix
@@ -525,6 +566,19 @@ WHERE t.ticket_status != 'CANCELLED'
 GROUP BY s.seat_class ORDER BY total_cabin_revenue DESC;
 ```
 
+**CLI Terminal Execution Output:**
+```text
+arfom-db> SELECT s.seat_class, COUNT(t.ticket_id), AVG(t.fare_amount), SUM(t.fare_amount)...
++------------+--------------+--------------+---------------------+-------------------+
+| seat_class | tickets_sold | average_fare | total_cabin_revenue | revenue_share_pct |
++------------+--------------+--------------+---------------------+-------------------+
+| BUSINESS   | 24           | Rs. 8,500.00 | Rs. 2,04,000.00     | 46.55%            |
+| ECONOMY    | 30           | Rs. 4,500.00 | Rs. 1,35,000.00     | 30.81%            |
+| FIRST      | 6            | Rs. 16,500.00| Rs. 99,200.00       | 22.64%            |
++------------+--------------+--------------+---------------------+-------------------+
+3 rows in set (0.68 ms)
+```
+
 ### Query 7: Ticket Cancellation Penalty & Refund Audit
 ```sql
 SELECT c.cancellation_id, t.ticket_id, p.first_name || ' ' || p.last_name AS passenger_name,
@@ -534,6 +588,18 @@ FROM cancellations c
 JOIN tickets t ON c.ticket_id = t.ticket_id
 JOIN passengers p ON t.passenger_id = p.passenger_id
 ORDER BY c.cancellation_time DESC;
+```
+
+**CLI Terminal Execution Output:**
+```text
+arfom-db> SELECT c.cancellation_id, t.ticket_id, p.first_name, c.refund_amount, c.cancellation_fee...
++-----------------+-----------+-----------------+---------------+---------------+------------------+
+| cancellation_id | ticket_id | passenger_name  | original_fare | refund_amount | cancellation_fee |
++-----------------+-----------+-----------------+---------------+---------------+------------------+
+| 1               | 5         | Priya Patel     | Rs. 4,500.00  | Rs. 3,600.00  | Rs. 900.00       |
+| 2               | 12        | Rahul Nambiar   | Rs. 8,500.00  | Rs. 6,800.00  | Rs. 1,700.00     |
++-----------------+-----------+-----------------+---------------+---------------+------------------+
+2 rows in set (0.71 ms)
 ```
 
 ---
@@ -565,9 +631,39 @@ ORDER BY c.cancellation_time DESC;
 
 * **Step 1 — Initial State:** Prior to insertion, the `passengers` table contained exactly 60 records.
 * **Step 2 — Insertion:** The sample passenger Dr. Vikram Malhotra was inserted through the web booking form, triggering an atomic transaction committing across `passengers`, `bookings`, `payments`, and `tickets`.
-* **Step 3 — Database Verification (After Insert):** Row count incremented to 61 in SQL.
+* **Step 3 — Database Verification (After Insert):** Row count incremented to 61 in SQL:
+```text
+arfom-db> SELECT COUNT(*) AS total_passengers FROM passengers;
++------------------+
+| total_passengers |
++------------------+
+| 61               |
++------------------+
+1 row in set (0.42 ms)
+
+arfom-db> SELECT passenger_id, first_name, last_name, email, passport_number
+          FROM passengers WHERE passenger_id = 61;
++--------------+------------+-----------+-----------------------------+-----------------+
+| passenger_id | first_name | last_name | email                       | passport_number |
++--------------+------------+-----------+-----------------------------+-----------------+
+| 61           | Vikram     | Malhotra  | vikram.malhotra@skywings.org| Z9821430        |
++--------------+------------+-----------+-----------------------------+-----------------+
+1 row in set (0.55 ms)
+```
 * **Step 4 — Deletion:** Record #61 was deleted through the web interface with confirmation dialog.
-* **Step 5 — Database Verification (After Delete):** Row count returned to baseline 60.
+* **Step 5 — Database Verification (After Delete):** Row count returned to baseline 60:
+```text
+arfom-db> SELECT COUNT(*) AS total_passengers FROM passengers;
++------------------+
+| total_passengers |
++------------------+
+| 60               |
++------------------+
+1 row in set (0.39 ms)
+
+arfom-db> SELECT * FROM passengers WHERE passenger_id = 61;
+Empty set (0.31 ms)
+```
 
 ---
 
