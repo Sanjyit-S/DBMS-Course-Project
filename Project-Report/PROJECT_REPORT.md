@@ -265,32 +265,8 @@ The relational database, named `arfom.db` (or `arfom_db` in MySQL), consists of 
 
 ## 8. ER DIAGRAM
 
-```
-    AIRPORTS (PK: airport_code)
-      │
-      └─── (1 : N) ───-> ROUTES (PK: route_id, FK: origin_airport, dest_airport)
-                          │
-                          └─── (1 : N) ───-> FLIGHTS (PK: flight_id, FK: route_id, aircraft_id)
-                                              │
-    AIRCRAFT (PK: aircraft_id)                │
-      │                                       │
-      └─── (1 : N) ───-> SEATS (PK: seat_id)   │
-                          │                   │
-                          |                   |
-    PASSENGERS (PK: passenger_id)     ┌─────────────────────────────────────────┐
-      │                               │ TICKETS (PK: ticket_id)                 │
-      └─── (1 : N) ───-> BOOKINGS      │ FK: booking_id, flight_id,              │
-                          │           │     seat_id, passenger_id               │
-                          │ (1 : N)   │ Invariant: UNIQUE(flight_id, seat_id)   │
-                          |           └─────────────────────────────────────────┘
-                        PAYMENTS             │                   │
-                        (PK: payment_id)     │ (1 : 1)           │ (1 : 1)
-                                             |                   |
-                                      CHECKINS            CANCELLATIONS
-                                      (PK: checkin_id)    (PK: cancellation_id)
-                                             │
-                                             └─── (1 : N) ───-> BAGGAGE (PK: baggage_id)
-```
+![Figure 2: Complete Relational Database ER Diagram & Cardinality Topology](../visuals/er_diagram_final_verified.png)
+*Figure 2: Complete Relational Database ER Diagram & Cardinality Topology.*
 
 | Parent Entity | Child Entity | Cardinality | Business Rule & Invariant Enforced |
 | :--- | :--- | :--- | :--- |
@@ -615,6 +591,24 @@ arfom-db> SELECT c.cancellation_id, t.ticket_id, p.first_name, c.refund_amount, 
 * **Record Insertion & Deletion:** With Foreign Key Restrict protection.
 * **Negative Testing Console:** Proves database constraint defense against invalid transactions.
 
+### 14.2 Interface Screens
+
+#### Master Operations Dashboard & Real-Time Metrics
+![Figure 3: Master Operations Dashboard](../visuals/screenshots/ui_tab3_record_explorer.png)
+*Figure 3: Master Operations Dashboard Header, Live Summary Metrics & Multi-Table Record Explorer.*
+
+#### Screen 1: Flight Booking Hub & Interactive Cabin Seat Map
+![Figure 4: Interactive Aircraft Cabin Seat Map](../visuals/screenshots/ui_tab1_flight_booking.png)
+*Figure 4: Interactive Aircraft Cabin Seat Map with Real-Time Seat Selection, Pricing Calculator, and ACID Checkout Pane.*
+
+#### Screen 2: Airport Radar & Electronic FIDS Departure Board
+![Figure 5: Airport Radar & FIDS Board](../visuals/screenshots/ui_tab2_airport_radar.png)
+*Figure 5: Electronic Flight Information Display System (FIDS) Board with Live Clock and Luggage Excess Weighing Scale.*
+
+#### Screen 3: Searchable Record Explorer & Multi-Column Search Grid
+![Figure 6: Searchable Record Explorer](../visuals/screenshots/ui_tab3_record_explorer.png)
+*Figure 6: Searchable Record Explorer with Instant Match Highlighting for Flight AI-101.*
+
 ---
 
 ## 15. CRUD / LIVE DATABASE DEMONSTRATION
@@ -630,17 +624,14 @@ arfom-db> SELECT c.cancellation_id, t.ticket_id, p.first_name, c.refund_amount, 
 | **Allocated Seat** | Seat 4C (Business Class) | `UNIQUE (flight_id, seat_id)` non-collision |
 
 * **Step 1 — Initial State:** Prior to insertion, the `passengers` table contained exactly 60 records.
-* **Step 2 — Insertion:** The sample passenger Dr. Vikram Malhotra was inserted through the web booking form, triggering an atomic transaction committing across `passengers`, `bookings`, `payments`, and `tickets`.
+* **Step 2 — Insertion Form & Execution:**
+![Figure 7: Interactive Record Insertion Web Form](../visuals/screenshots/ui_tab4_record_insertion.png)
+*Figure 7: Interactive Record Insertion Web Form with Real-Time Field Validations.*
+
+The sample passenger Dr. Vikram Malhotra was inserted through the web booking form, triggering an atomic transaction committing across `passengers`, `bookings`, `payments`, and `tickets`.
+
 * **Step 3 — Database Verification (After Insert):** Row count incremented to 61 in SQL:
 ```text
-arfom-db> SELECT COUNT(*) AS total_passengers FROM passengers;
-+------------------+
-| total_passengers |
-+------------------+
-| 61               |
-+------------------+
-1 row in set (0.42 ms)
-
 arfom-db> SELECT passenger_id, first_name, last_name, email, passport_number
           FROM passengers WHERE passenger_id = 61;
 +--------------+------------+-----------+-----------------------------+-----------------+
@@ -649,10 +640,27 @@ arfom-db> SELECT passenger_id, first_name, last_name, email, passport_number
 | 61           | Vikram     | Malhotra  | vikram.malhotra@skywings.org| Z9821430        |
 +--------------+------------+-----------+-----------------------------+-----------------+
 1 row in set (0.55 ms)
+
+arfom-db> SELECT COUNT(*) AS total_passengers FROM passengers;
++------------------+
+| total_passengers |
++------------------+
+| 61               |
++------------------+
+1 row in set (0.42 ms)
 ```
-* **Step 4 — Deletion:** Record #61 was deleted through the web interface with confirmation dialog.
+
+* **Step 4 — Deletion Dialog:**
+![Figure 8: Record Deletion Dialog](../visuals/screenshots/ui_tab5_record_deletion.png)
+*Figure 8: Record Deletion Dialog with Foreign Key Restrict Defense.*
+
+Record #61 was deleted through the web interface with confirmation dialog.
+
 * **Step 5 — Database Verification (After Delete):** Row count returned to baseline 60:
 ```text
+arfom-db> SELECT * FROM passengers WHERE passenger_id = 61;
+Empty set (0.31 ms)
+
 arfom-db> SELECT COUNT(*) AS total_passengers FROM passengers;
 +------------------+
 | total_passengers |
@@ -660,10 +668,14 @@ arfom-db> SELECT COUNT(*) AS total_passengers FROM passengers;
 | 60               |
 +------------------+
 1 row in set (0.39 ms)
-
-arfom-db> SELECT * FROM passengers WHERE passenger_id = 61;
-Empty set (0.31 ms)
 ```
+
+---
+
+## 16. IMPLEMENTATION DETAILS
+
+![Figure 9: Single Table vs Relational Comparison](../visuals/screenshots/ui_tab6_comparator.png)
+*Figure 9: Single Table vs. 3NF Relational Architecture Comparison demonstrating 0% data redundancy.*
 
 ---
 
