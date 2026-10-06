@@ -148,16 +148,42 @@ document.addEventListener('DOMContentLoaded', async () => {
     }, 400);
   }
 
-  // Search input with debounce
-  let searchTimeout = null;
-  document.getElementById('searchInput').addEventListener('input', (e) => {
-    clearTimeout(searchTimeout);
-    searchTimeout = setTimeout(() => {
-      state.searchQuery = e.target.value.trim();
+  // Search input with robust debounce and clear button handling
+  const searchInput = document.getElementById('searchInput');
+  const btnClear = document.getElementById('btnSearchClear');
+  if (searchInput) {
+    let searchTimeout = null;
+    const executeSearch = () => {
+      state.searchQuery = searchInput.value.trim();
       state.currentPage = 1;
+      if (btnClear) {
+        btnClear.style.display = state.searchQuery ? 'block' : 'none';
+      }
       loadTableData();
-    }, 200);
-  });
+    };
+
+    searchInput.addEventListener('input', () => {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(executeSearch, 150);
+    });
+
+    searchInput.addEventListener('keyup', (e) => {
+      if (e.key === 'Enter') {
+        clearTimeout(searchTimeout);
+        executeSearch();
+      }
+    });
+
+    searchInput.addEventListener('search', executeSearch);
+
+    if (btnClear) {
+      btnClear.addEventListener('click', () => {
+        searchInput.value = '';
+        executeSearch();
+        searchInput.focus();
+      });
+    }
+  }
 
   // Refresh Table Button
   document.getElementById('btnRefreshTable').addEventListener('click', () => {
@@ -395,8 +421,26 @@ function switchTable(tableName) {
   loadTableData();
 }
 
+function applyQuickSearch(term) {
+  const searchInput = document.getElementById('searchInput');
+  const btnClear = document.getElementById('btnSearchClear');
+  if (searchInput) {
+    searchInput.value = term;
+    state.searchQuery = term.trim();
+    state.currentPage = 1;
+    if (btnClear) btnClear.style.display = state.searchQuery ? 'block' : 'none';
+    loadTableData();
+  }
+}
+
+function highlightSearchMatch(text, search) {
+  if (!search || !text) return text;
+  const regex = new RegExp(`(${search.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
+  return String(text).replace(regex, '<mark style="background: #FEF08A; color: #854D0E; padding: 1px 3px; border-radius: 3px; font-weight: 700;">$1</mark>');
+}
+
 // ==============================================================================
-// TAB 1: VIEWING OF RECORDS (DATA GRID)
+// TAB 3: VIEWING OF RECORDS (DATA GRID)
 // ==============================================================================
 async function loadTableData() {
   const thead = document.getElementById('dataTableHead');
@@ -404,7 +448,7 @@ async function loadTableData() {
   const countBadge = document.getElementById('activeTableCountBadge');
   const queryMeta = document.getElementById('tableQueryMeta');
 
-  countBadge.textContent = 'Fetching...';
+  if (countBadge) countBadge.textContent = 'Fetching...';
 
   let data = null;
 
@@ -428,15 +472,25 @@ async function loadTableData() {
     data = queryLocalTable(state.currentTable, state.currentPage, state.pageSize, state.searchQuery, state.sortCol, state.sortDir);
   }
 
-  state.totalRecords = data.total_records;
-  state.totalPages = data.total_pages;
+  state.totalRecords = data.total_records || 0;
+  state.totalPages = data.total_pages || 1;
 
   // Update Meta info
-  countBadge.textContent = `${data.total_records} Records (${data.execution_time_ms} ms)`;
-  queryMeta.textContent = data.sql_executed;
-  document.getElementById('pageIndicator').textContent = `Page ${data.page} of ${data.total_pages}`;
-  document.getElementById('btnPrevPage').disabled = data.page <= 1;
-  document.getElementById('btnNextPage').disabled = data.page >= data.total_pages;
+  if (countBadge) {
+    countBadge.textContent = `${data.total_records} Records (${data.execution_time_ms} ms)`;
+  }
+  if (queryMeta) {
+    queryMeta.textContent = data.sql_executed || `SELECT * FROM ${state.currentTable};`;
+  }
+  
+  const pageIndicator = document.getElementById('pageIndicator');
+  if (pageIndicator) {
+    pageIndicator.textContent = `Page ${data.page} of ${data.total_pages}`;
+  }
+  const btnPrev = document.getElementById('btnPrevPage');
+  const btnNext = document.getElementById('btnNextPage');
+  if (btnPrev) btnPrev.disabled = data.page <= 1;
+  if (btnNext) btnNext.disabled = data.page >= data.total_pages;
 
   // Build Headers
   thead.innerHTML = '';
@@ -449,7 +503,7 @@ async function loadTableData() {
   thAction.style.textAlign = 'center';
   trHead.appendChild(thAction);
 
-  data.columns.forEach(col => {
+  (data.columns || []).forEach(col => {
     const th = document.createElement('th');
     th.textContent = col;
     if (col === data.pk_col) {
@@ -472,8 +526,15 @@ async function loadTableData() {
 
   // Build Rows
   tbody.innerHTML = '';
-  if (data.rows.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="${data.columns.length + 1}" style="text-align:center; padding:36px; color:#64748B;">No matching records found.</td></tr>`;
+  if (!data.rows || data.rows.length === 0) {
+    const colSpan = (data.columns ? data.columns.length : 4) + 1;
+    tbody.innerHTML = `
+      <tr>
+        <td colspan="${colSpan}" style="text-align: center; padding: 36px; color: #64748B;">
+          No matching records found in <strong>${state.currentTable}</strong> ${state.searchQuery ? `for "<strong>${state.searchQuery}</strong>"` : ''}.
+        </td>
+      </tr>
+    `;
     return;
   }
 
@@ -481,7 +542,8 @@ async function loadTableData() {
 
   data.rows.forEach(row => {
     const tr = document.createElement('tr');
-    const pkVal = pkIdx !== -1 ? row[pkIdx] : null;
+    const isArray = Array.isArray(row);
+    const pkVal = isArray ? (pkIdx !== -1 ? row[pkIdx] : null) : (data.pk_col ? row[data.pk_col] : null);
 
     // Check if this is the newly inserted record
     if (state.highlightTable === state.currentTable && state.lastInsertedId && pkVal == state.lastInsertedId) {
@@ -510,23 +572,24 @@ async function loadTableData() {
     tr.appendChild(tdAction);
 
     // Data columns cells
-    row.forEach((val, idx) => {
+    (data.columns || []).forEach((colName, idx) => {
       const td = document.createElement('td');
-      const colName = data.columns[idx].toLowerCase();
+      const lowerCol = colName.toLowerCase();
+      const val = isArray ? row[idx] : row[colName];
 
       if (val === null || val === undefined) {
         td.innerHTML = '<span style="color:#64748B; font-style:italic;">NULL</span>';
       } else {
         const str = String(val);
-        if (['status', 'flight_status', 'ticket_status', 'booking_status', 'payment_status', 'seat_class', 'payment_method'].some(k => colName.includes(k))) {
+        if (['status', 'flight_status', 'ticket_status', 'booking_status', 'payment_status', 'seat_class', 'payment_method'].some(k => lowerCol.includes(k))) {
           td.innerHTML = getStatusBadge(str);
-        } else if (colName.includes('fare') || colName.includes('amount') || colName.includes('fee') || colName.includes('refund')) {
+        } else if (lowerCol.includes('fare') || lowerCol.includes('amount') || lowerCol.includes('fee') || lowerCol.includes('refund')) {
           td.textContent = typeof val === 'number' ? `₹${val.toLocaleString('en-IN', { minimumFractionDigits: 2 })}` : `₹${val}`;
           td.style.fontFamily = 'var(--font-mono)';
           td.style.color = '#047857';
           td.style.fontWeight = '700';
         } else {
-          td.textContent = str;
+          td.innerHTML = state.searchQuery ? highlightSearchMatch(str, state.searchQuery) : str;
         }
       }
       tr.appendChild(td);
@@ -537,13 +600,15 @@ async function loadTableData() {
 }
 
 function queryLocalTable(tableName, page, pageSize, search, sortCol, sortDir) {
-  const tableData = state.localDb[tableName] || { columns: [], rows: [] };
-  const cols = [...tableData.columns];
-  let rows = tableData.rows.map(r => [...r]);
+  const tableData = state.localDb ? state.localDb[tableName] : null;
+  const cols = tableData && tableData.columns ? [...tableData.columns] : [];
+  let rawRows = tableData && tableData.rows ? tableData.rows : [];
+
+  let rows = rawRows.map(r => Array.isArray(r) ? [...r] : cols.map(c => r[c]));
 
   if (search) {
-    const q = search.toLowerCase();
-    rows = rows.filter(r => r.some(val => String(val).toLowerCase().includes(q)));
+    const q = search.toLowerCase().trim();
+    rows = rows.filter(r => r.some(val => val !== null && val !== undefined && String(val).toLowerCase().includes(q)));
   }
 
   if (sortCol) {

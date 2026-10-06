@@ -558,10 +558,21 @@
         </div>
 
         <!-- Toolbar -->
-        <div class="toolbar-row">
-          <div class="search-box">
-            <span>🔍</span>
-            <input type="text" id="searchInput" placeholder="Filter current table records...">
+        <div class="toolbar-row" style="flex-wrap: wrap; gap: 12px;">
+          <div class="search-box" style="flex: 1; min-width: 280px; position: relative; display: flex; align-items: center;">
+            <span style="font-size: 14px; margin-right: 6px;">🔍</span>
+            <input type="search" id="searchInput" placeholder="Search by name, ID, PNR, flight, city..." style="width: 100%; padding-right: 30px;">
+            <button id="btnSearchClear" style="display: none; position: absolute; right: 10px; background: none; border: none; font-size: 14px; color: #94A3B8; cursor: pointer; padding: 2px 6px;" title="Clear Search">✕</button>
+          </div>
+
+          <!-- Quick Filter Tags -->
+          <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap;">
+            <span style="font-size: 11.5px; font-weight: 600; color: var(--text-dim);">Quick Filter:</span>
+            <button type="button" class="preset-btn" onclick="applyQuickSearch('')">All</button>
+            <button type="button" class="preset-btn" onclick="applyQuickSearch('DEL')">DEL</button>
+            <button type="button" class="preset-btn" onclick="applyQuickSearch('BOM')">BOM</button>
+            <button type="button" class="preset-btn" onclick="applyQuickSearch('CONFIRMED')">CONFIRMED</button>
+            <button type="button" class="preset-btn" onclick="applyQuickSearch('BUSINESS')">BUSINESS</button>
           </div>
 
           <div class="toolbar-actions">
