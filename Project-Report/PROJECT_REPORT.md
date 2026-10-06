@@ -4,7 +4,7 @@
 **Course:** Database Management Systems (DBMS)  
 **Learner Name:** Sanjyit Suresh Kumar  
 **Roll Number:** 25WU0102243  
-**Section:** AIML Whales (Merged with AIML Panthers &bull; Project Title #18)  
+**Section:** AIML Whales (Serial #18)  
 **Faculty In-Charge:** Department of Computer Science & Engineering / Artificial Intelligence & Machine Learning  
 **Academic Year:** 2026&ndash;2027  
 
@@ -13,7 +13,6 @@
 ## 1. Cover Page Details
 * **Project Title:** Design and Implementation of a Database Management System for Airline Reservation and Flight Operations Management (ARFOM-DB)
 * **Candidate:** Sanjyit Suresh Kumar (Roll No. 25WU0102243)
-* **Co-Learner (Title Peer):** Konduru Sharva Teja (Roll No. 25WU0102128 - AIML Panthers)
 * **Course Code:** DBMS-2026
 * **Submission Date:** October 2026
 
@@ -176,5 +175,5 @@ ARFOM-DB provides a scalable, 3NF-compliant relational foundation for airline op
 ---
 
 ## 16. Appendix: GitHub Repository
-**Repository Link:** `https://github.com/sanjyit-sureshkumar/DBMS-Course-Project`  
+**Repository Link:** [https://github.com/Sanjyit-S/DBMS-Course-Project](https://github.com/Sanjyit-S/DBMS-Course-Project)  
 *(Includes Presentation-I, Presentation-II, Presentation-III, and Project-Report directories).*

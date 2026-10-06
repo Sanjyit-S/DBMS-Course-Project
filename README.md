@@ -2,7 +2,7 @@
 
 * **Learner Name:** Sanjyit Suresh Kumar  
 * **Roll Number:** 25WU0102243  
-* **Section:** AIML Whales (Merged with AIML Panthers &bull; Serial #18)  
+* **Section:** AIML Whales (Serial #18)  
 * **Presentation Slot:** Tuesday, 6 October 2026 | 11:50 am &ndash; 12:00 pm  
 * **Project Title:** Design and Implementation of a Database Management System for Airline Reservation and Flight Operations Management  
 * **Description:** A strict 3NF-normalized relational database system managing fleet scheduling, customer ticketing, airport check-in logistics, and live transactional CRUD operations with real-time database state reflection.
