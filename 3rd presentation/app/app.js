@@ -106,13 +106,23 @@ document.addEventListener('DOMContentLoaded', async () => {
   renderInsertForm();
   populateDeleteSelects();
 
+  // Initialize Interactive Operations
+  await initFlightBooking();
+  await initAirportHub();
+
   // URL Hash & Query routing for instant demonstration jumping
   const urlParams = new URLSearchParams(window.location.search);
   const targetTable = urlParams.get('table');
   if (targetTable) switchTable(targetTable);
 
   const hash = window.location.hash;
-  if (hash === '#tab-insert') {
+  if (hash === '#tab-booking') {
+    switchTab('tab-booking');
+  } else if (hash === '#tab-airport') {
+    switchTab('tab-airport');
+  } else if (hash === '#tab-view') {
+    switchTab('tab-view');
+  } else if (hash === '#tab-insert') {
     switchTab('tab-insert');
   } else if (hash === '#tab-insert-after') {
     switchTab('tab-insert');
@@ -1229,4 +1239,680 @@ async function handleResetDatabase() {
   await loadStats();
   await loadTablesMetadata();
   loadTableData();
+  await initFlightBooking();
+  await initAirportHub();
 }
+
+// ==============================================================================
+// FLIGHT BOOKING & INTERACTIVE CABIN SEAT MAP LOGIC
+// ==============================================================================
+
+const bookingState = {
+  flights: [],
+  selectedFlightId: null,
+  selectedFlight: null,
+  seats: [],
+  selectedSeat: null,
+  baseFare: 4500,
+  taxRate: 0.12,
+  gstRate: 0.05,
+  airportCode: 'DEL',
+  fidsMode: 'departures',
+  fidsData: { departures: [], arrivals: [] },
+  allAirports: [],
+  recentTickets: []
+};
+
+async function initFlightBooking() {
+  await loadBookingFlights();
+  const select = document.getElementById('bookingFlightSelect');
+  if (select && select.value) {
+    onBookingFlightChange(select.value);
+  }
+}
+
+async function loadBookingFlights() {
+  let flights = [];
+  if (state.isServerOnline) {
+    try {
+      const res = await fetch('/api/flights_list');
+      if (res.ok) {
+        const json = await res.json();
+        if (json.status === 'success') flights = json.flights;
+      }
+    } catch (e) {}
+  }
+
+  // Fallback if offline
+  if (!flights.length) {
+    const rawFlights = state.localDb?.flights || [];
+    const rawRoutes = state.localDb?.routes || [];
+    const rawAirports = state.localDb?.airports || [];
+    const rawAircraft = state.localDb?.aircraft || [];
+    
+    flights = rawFlights.map(f => {
+      const route = rawRoutes.find(r => r.route_id === f.route_id) || {};
+      const orig = rawAirports.find(a => a.airport_code === route.origin_airport) || {};
+      const dest = rawAirports.find(a => a.airport_code === route.dest_airport) || {};
+      const ac = rawAircraft.find(a => a.aircraft_id === f.aircraft_id) || {};
+      const bookedCount = (state.localDb?.tickets || []).filter(t => t.flight_id === f.flight_id && t.ticket_status !== 'CANCELLED').length;
+      return {
+        flight_id: f.flight_id,
+        flight_number: f.flight_number,
+        origin_airport: route.origin_airport || 'DEL',
+        origin_city: orig.city || 'Delhi',
+        dest_airport: route.dest_airport || 'BOM',
+        dest_city: dest.city || 'Mumbai',
+        distance_km: route.distance_km || 1148,
+        aircraft_model: ac.model || 'Boeing 737-800',
+        total_capacity: ac.total_capacity || 180,
+        scheduled_departure: f.scheduled_departure,
+        scheduled_arrival: f.scheduled_arrival,
+        flight_status: f.flight_status || 'SCHEDULED',
+        booked_count: bookedCount
+      };
+    });
+  }
+
+  bookingState.flights = flights;
+  const select = document.getElementById('bookingFlightSelect');
+  if (!select) return;
+
+  select.innerHTML = flights.map(f => `
+    <option value="${f.flight_id}">
+      ${f.flight_number} : ${f.origin_airport} (${f.origin_city}) ➔ ${f.dest_airport} (${f.dest_city}) &bull; ${f.scheduled_departure}
+    </option>
+  `).join('');
+
+  const countBadge = document.getElementById('bookingFlightCountBadge');
+  if (countBadge) countBadge.textContent = `${flights.length} Flights Available`;
+}
+
+async function onBookingFlightChange(flightId) {
+  flightId = parseInt(flightId);
+  bookingState.selectedFlightId = flightId;
+  const flight = bookingState.flights.find(f => f.flight_id === flightId);
+  bookingState.selectedFlight = flight;
+
+  if (flight) {
+    document.getElementById('bookingOriginCity').value = `${flight.origin_city} (${flight.origin_airport})`;
+    document.getElementById('bookingDestCity').value = `${flight.dest_city} (${flight.dest_airport})`;
+    document.getElementById('bookingAircraftModel').textContent = flight.aircraft_model;
+    document.getElementById('bookingDepTime').textContent = flight.scheduled_departure;
+    document.getElementById('bookingDistance').textContent = `${flight.distance_km} km`;
+    
+    const stBadge = document.getElementById('bookingFlightStatus');
+    if (stBadge) {
+      stBadge.textContent = flight.flight_status;
+      stBadge.className = flight.flight_status === 'SCHEDULED' ? 'badge badge-emerald' : 'badge badge-blue';
+    }
+  }
+
+  await renderSeatMap(flightId);
+}
+
+async function renderSeatMap(flightId) {
+  const container = document.getElementById('seatMapGrid');
+  if (!container) return;
+
+  container.innerHTML = '<div style="text-align: center; padding: 20px; color: var(--text-muted);">Fetching live aircraft seat configuration...</div>';
+
+  let seats = [];
+  if (state.isServerOnline) {
+    try {
+      const res = await fetch(`/api/available_seats?flight_id=${flightId}`);
+      if (res.ok) {
+        const json = await res.json();
+        if (json.status === 'success') seats = json.seats;
+      }
+    } catch (e) {}
+  }
+
+  // Fallback if offline
+  if (!seats.length) {
+    const rawSeats = (state.localDb?.seats || []).filter(s => s.aircraft_id === (bookingState.selectedFlight?.aircraft_id || 1));
+    const occupiedTickets = (state.localDb?.tickets || []).filter(t => t.flight_id === flightId && t.ticket_status !== 'CANCELLED');
+    const occupiedSeatIds = new Set(occupiedTickets.map(t => t.seat_id));
+
+    seats = rawSeats.map(s => {
+      const isOcc = occupiedSeatIds.has(s.seat_id);
+      const fare = s.seat_class === 'FIRST' ? 15000.0 : (s.seat_class === 'BUSINESS' ? 8500.0 : 4500.0);
+      return {
+        seat_id: s.seat_id,
+        seat_number: s.seat_number,
+        seat_class: s.seat_class,
+        is_occupied: isOcc,
+        fare: fare
+      };
+    });
+  }
+
+  bookingState.seats = seats;
+
+  // Group seats by rows
+  const rowsMap = {};
+  seats.forEach(s => {
+    const rowNum = s.seat_number.replace(/[A-Z]/g, '');
+    const colLetter = s.seat_number.replace(/[0-9]/g, '');
+    if (!rowsMap[rowNum]) rowsMap[rowNum] = [];
+    rowsMap[rowNum].push({ ...s, colLetter });
+  });
+
+  let html = '';
+  let currentClass = '';
+
+  const sortedRowKeys = Object.keys(rowsMap).sort((a, b) => parseInt(a) - parseInt(b));
+
+  sortedRowKeys.forEach(rowNum => {
+    const rowSeats = rowsMap[rowNum].sort((a, b) => a.colLetter.localeCompare(b.colLetter));
+    const firstSeat = rowSeats[0];
+    
+    if (firstSeat.seat_class !== currentClass) {
+      currentClass = firstSeat.seat_class;
+      const classLabel = currentClass === 'FIRST' ? '👑 First Class (₹15,000)' : (currentClass === 'BUSINESS' ? '💼 Business Class (₹8,500)' : '💺 Economy Class (₹4,500)');
+      html += `<div class="cabin-section-divider">${classLabel}</div>`;
+    }
+
+    const leftSeats = rowSeats.filter(s => ['A', 'B', 'C'].includes(s.colLetter));
+    const rightSeats = rowSeats.filter(s => ['D', 'E', 'F'].includes(s.colLetter));
+
+    html += `
+      <div class="seat-row">
+        <div class="seat-row-label">${rowNum}</div>
+        <div class="seat-group">
+          ${leftSeats.map(s => renderSeatBox(s)).join('')}
+        </div>
+        <div class="aisle-space">&bull;</div>
+        <div class="seat-group">
+          ${rightSeats.map(s => renderSeatBox(s)).join('')}
+        </div>
+        <div class="seat-row-label">${rowNum}</div>
+      </div>
+    `;
+  });
+
+  container.innerHTML = html;
+
+  // Select first available seat by default
+  const firstAvail = seats.find(s => !s.is_occupied);
+  if (firstAvail) {
+    selectSeat(firstAvail.seat_id, firstAvail.seat_number, firstAvail.seat_class, firstAvail.fare);
+  }
+}
+
+function renderSeatBox(seat) {
+  let stateClass = seat.is_occupied ? 'occupied' : 'available';
+  let isSelected = bookingState.selectedSeat && bookingState.selectedSeat.seat_id === seat.seat_id;
+  if (isSelected) stateClass = 'selected';
+
+  const titleText = `${seat.seat_number} (${seat.seat_class}) - ₹${seat.fare.toLocaleString()} - ${seat.is_occupied ? 'OCCUPIED' : 'CLICK TO SELECT'}`;
+  const clickAttr = seat.is_occupied ? '' : `onclick="selectSeat(${seat.seat_id}, '${seat.seat_number}', '${seat.seat_class}', ${seat.fare})"`;
+
+  return `
+    <div class="seat-box ${stateClass} ${seat.seat_class.toLowerCase()}-class" 
+         id="seat-box-${seat.seat_id}"
+         title="${titleText}"
+         ${clickAttr}>
+      ${seat.seat_number}
+    </div>
+  `;
+}
+
+function selectSeat(seatId, seatNumber, seatClass, fare) {
+  bookingState.selectedSeat = { seat_id: seatId, seat_number: seatNumber, seat_class: seatClass, fare: fare };
+
+  document.querySelectorAll('.seat-box').forEach(el => {
+    if (!el.classList.contains('occupied')) {
+      el.classList.remove('selected');
+    }
+  });
+
+  const targetBox = document.getElementById(`seat-box-${seatId}`);
+  if (targetBox) targetBox.classList.add('selected');
+
+  const baseFare = fare;
+  const taxFee = Math.round(baseFare * bookingState.taxRate);
+  const gst = Math.round(baseFare * bookingState.gstRate);
+  const total = baseFare + taxFee + gst;
+
+  document.getElementById('bkSeatSummary').textContent = `Seat ${seatNumber} (${seatClass})`;
+  document.getElementById('bkBaseFare').textContent = `₹${baseFare.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`;
+  document.getElementById('bkTaxFee').textContent = `₹${taxFee.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`;
+  document.getElementById('bkGst').textContent = `₹${gst.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`;
+  document.getElementById('bkTotalAmount').textContent = `₹${total.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`;
+}
+
+function fillBookingPassenger(fn, ln, email) {
+  document.getElementById('bkFirstName').value = fn;
+  document.getElementById('bkLastName').value = ln;
+  document.getElementById('bkEmail').value = email;
+  document.getElementById('bkPassport').value = fn[0].toUpperCase() + Math.floor(1000000 + Math.random() * 9000000);
+}
+
+async function submitFlightBooking() {
+  const firstName = document.getElementById('bkFirstName').value.trim();
+  const lastName = document.getElementById('bkLastName').value.trim();
+  const email = document.getElementById('bkEmail').value.trim();
+  const passport = document.getElementById('bkPassport').value.trim();
+  const paymentMethod = document.getElementById('bkPaymentMethod').value;
+
+  if (!firstName || !lastName || !email || !passport) {
+    alert('Please enter complete passenger name, email, and passport number.');
+    return;
+  }
+
+  if (!bookingState.selectedSeat) {
+    alert('Please select an available seat from the aircraft seat map.');
+    return;
+  }
+
+  const btn = document.getElementById('btnSubmitBooking');
+  btn.disabled = true;
+  btn.textContent = '⏳ Processing ACID Transaction...';
+
+  const payload = {
+    first_name: firstName,
+    last_name: lastName,
+    email: email,
+    passport_number: passport,
+    flight_id: bookingState.selectedFlightId,
+    seat_id: bookingState.selectedSeat.seat_id,
+    fare_amount: bookingState.selectedSeat.fare,
+    payment_method: paymentMethod
+  };
+
+  let json = null;
+  if (state.isServerOnline) {
+    try {
+      const res = await fetch('/api/book_ticket', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) json = await res.json();
+    } catch (e) {}
+  }
+
+  // Fallback if offline
+  if (!json) {
+    const pnr = 'AR' + Math.floor(1000 + Math.random() * 9000);
+    const newPassengerId = (state.localDb.passengers?.length || 0) + 1;
+    const newBookingId = (state.localDb.bookings?.length || 0) + 1;
+    const newTicketId = (state.localDb.tickets?.length || 0) + 1;
+
+    state.localDb.passengers = state.localDb.passengers || [];
+    state.localDb.passengers.push({
+      passenger_id: newPassengerId,
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      passport_number: passport
+    });
+
+    state.localDb.bookings = state.localDb.bookings || [];
+    state.localDb.bookings.push({
+      booking_id: newBookingId,
+      booking_ref: pnr,
+      passenger_id: newPassengerId,
+      booking_status: 'CONFIRMED'
+    });
+
+    state.localDb.tickets = state.localDb.tickets || [];
+    state.localDb.tickets.push({
+      ticket_id: newTicketId,
+      booking_id: newBookingId,
+      flight_id: bookingState.selectedFlightId,
+      seat_id: bookingState.selectedSeat.seat_id,
+      passenger_id: newPassengerId,
+      fare_amount: bookingState.selectedSeat.fare,
+      ticket_status: 'ISSUED'
+    });
+
+    json = {
+      status: 'success',
+      message: `Ticket #${newTicketId} booked successfully with PNR ${pnr}!`,
+      booking_ref: pnr,
+      ticket_id: newTicketId,
+      booking_id: newBookingId,
+      seat_number: bookingState.selectedSeat.seat_number,
+      seat_class: bookingState.selectedSeat.seat_class,
+      flight_number: bookingState.selectedFlight?.flight_number || 'AR-101',
+      departure_time: bookingState.selectedFlight?.scheduled_departure || '06:00 AM',
+      origin_airport: bookingState.selectedFlight?.origin_airport || 'DEL',
+      dest_airport: bookingState.selectedFlight?.dest_airport || 'BOM',
+      passenger_name: `${firstName} ${lastName}`
+    };
+  }
+
+  btn.disabled = false;
+  btn.textContent = '🎫 Confirm Reservation & Issue Live Ticket';
+
+  if (json.status === 'success') {
+    const resCard = document.getElementById('bookingResultCard');
+    resCard.style.display = 'block';
+    document.getElementById('bpFlightNo').textContent = json.flight_number || bookingState.selectedFlight?.flight_number;
+    document.getElementById('bpPnr').textContent = `PNR: ${json.booking_ref}`;
+    document.getElementById('bpPassengerName').textContent = json.passenger_name || `${firstName} ${lastName}`;
+    document.getElementById('bpSeatNo').textContent = `${json.seat_number || bookingState.selectedSeat.seat_number} (${json.seat_class || bookingState.selectedSeat.seat_class})`;
+    document.getElementById('bpRoute').textContent = `${json.origin_airport || bookingState.selectedFlight?.origin_airport} ➔ ${json.dest_airport || bookingState.selectedFlight?.dest_airport}`;
+    document.getElementById('bpDepTime').textContent = json.departure_time || bookingState.selectedFlight?.scheduled_departure;
+    document.getElementById('bpTicketId').textContent = `#${json.ticket_id}`;
+
+    await renderSeatMap(bookingState.selectedFlightId);
+    await loadStats();
+    await loadTablesMetadata();
+    await populateCheckinTickets();
+
+    resCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  } else {
+    alert(`Booking Error: ${json.error || json.message}`);
+  }
+}
+
+// ==============================================================================
+// AIRPORT RADAR & FIDS DISPLAY BOARD LOGIC
+// ==============================================================================
+
+async function initAirportHub() {
+  initAirportClock();
+  await loadAirportBoard('DEL');
+  await populateCheckinTickets();
+}
+
+function initAirportClock() {
+  const clockEl = document.getElementById('airportLiveClock');
+  if (!clockEl) return;
+  setInterval(() => {
+    const now = new Date();
+    clockEl.textContent = now.toTimeString().split(' ')[0];
+  }, 1000);
+}
+
+async function loadAirportBoard(airportCode) {
+  airportCode = airportCode.toUpperCase();
+  bookingState.airportCode = airportCode;
+
+  let data = null;
+  if (state.isServerOnline) {
+    try {
+      const res = await fetch(`/api/airport_board?airport=${airportCode}`);
+      if (res.ok) {
+        const json = await res.json();
+        if (json.status === 'success') data = json;
+      }
+    } catch (e) {}
+  }
+
+  // Fallback if offline
+  if (!data) {
+    const rawFlights = state.localDb?.flights || [];
+    const rawRoutes = state.localDb?.routes || [];
+    const rawAirports = state.localDb?.airports || [];
+    const rawAircraft = state.localDb?.aircraft || [];
+    const airportInfo = rawAirports.find(a => a.airport_code === airportCode) || { airport_code: airportCode, airport_name: 'International Airport', city: 'City', country: 'India' };
+
+    const deps = [];
+    const arrs = [];
+
+    rawFlights.forEach(f => {
+      const r = rawRoutes.find(route => route.route_id === f.route_id) || {};
+      const ac = rawAircraft.find(a => a.aircraft_id === f.aircraft_id) || {};
+      const paxCount = (state.localDb?.tickets || []).filter(t => t.flight_id === f.flight_id).length;
+
+      if (r.origin_airport === airportCode) {
+        const dest = rawAirports.find(a => a.airport_code === r.dest_airport) || {};
+        deps.push({
+          flight_id: f.flight_id,
+          flight_number: f.flight_number,
+          dest_airport: r.dest_airport,
+          dest_city: dest.city || r.dest_airport,
+          scheduled_departure: f.scheduled_departure,
+          model: ac.model || 'Boeing 737',
+          flight_status: f.flight_status || 'SCHEDULED',
+          passenger_count: paxCount
+        });
+      }
+
+      if (r.dest_airport === airportCode) {
+        const orig = rawAirports.find(a => a.airport_code === r.origin_airport) || {};
+        arrs.push({
+          flight_id: f.flight_id,
+          flight_number: f.flight_number,
+          origin_airport: r.origin_airport,
+          origin_city: orig.city || r.origin_airport,
+          scheduled_arrival: f.scheduled_arrival,
+          model: ac.model || 'Airbus A320',
+          flight_status: f.flight_status || 'ON TIME',
+          passenger_count: paxCount
+        });
+      }
+    });
+
+    data = {
+      airport: airportInfo,
+      departures: deps,
+      arrivals: arrs
+    };
+  }
+
+  bookingState.fidsData = data;
+
+  const titleEl = document.getElementById('fidsAirportTitle');
+  const subEl = document.getElementById('fidsAirportSub');
+  if (titleEl) titleEl.textContent = `${data.airport.name || data.airport.airport_name || data.airport.code} (${data.airport.code || airportCode})`;
+  if (subEl) subEl.textContent = `${data.airport.city}, ${data.airport.country} &bull; Hub Operations &bull; 4 Active Runways`;
+
+  document.getElementById('fidsDepCount').textContent = data.departures.length;
+  document.getElementById('fidsArrCount').textContent = data.arrivals.length;
+
+  renderFidsTable();
+}
+
+function onAirportSelectChange(airportCode) {
+  loadAirportBoard(airportCode);
+}
+
+function toggleFidsMode(mode) {
+  bookingState.fidsMode = mode;
+  document.getElementById('btnFidsDepartures').classList.toggle('active', mode === 'departures');
+  document.getElementById('btnFidsArrivals').classList.toggle('active', mode === 'arrivals');
+  document.getElementById('fidsColRoute').textContent = mode === 'departures' ? 'DESTINATION' : 'ORIGIN';
+  renderFidsTable();
+}
+
+function renderFidsTable() {
+  const tbody = document.getElementById('fidsTableBody');
+  if (!tbody) return;
+
+  const isDep = bookingState.fidsMode === 'departures';
+  const list = isDep ? (bookingState.fidsData?.departures || []) : (bookingState.fidsData?.arrivals || []);
+
+  if (!list.length) {
+    tbody.innerHTML = `<tr><td colspan="7" style="text-align: center; color: #94A3B8; padding: 24px;">No active ${isDep ? 'departures' : 'arrivals'} scheduled for this airport at this time.</td></tr>`;
+    return;
+  }
+
+  const gates = ['A1', 'A3', 'B2', 'B5', 'C4', 'C8', 'D1', 'D6'];
+
+  tbody.innerHTML = list.map((item, idx) => {
+    const routeText = isDep ? `${item.dest_city} (${item.dest_airport})` : `${item.origin_city} (${item.origin_airport})`;
+    const timeText = isDep ? item.scheduled_departure : item.scheduled_arrival;
+    const gate = gates[idx % gates.length];
+
+    let statusBadge = '<span class="fids-status-pill fids-status-scheduled">SCHEDULED</span>';
+    if (item.flight_status === 'BOARDING') {
+      statusBadge = '<span class="fids-status-pill fids-status-boarding">BOARDING</span>';
+    } else if (item.flight_status === 'ON TIME') {
+      statusBadge = '<span class="fids-status-pill fids-status-ontime">ON TIME</span>';
+    } else if (item.flight_status === 'LANDED') {
+      statusBadge = '<span class="fids-status-pill fids-status-landed">LANDED</span>';
+    }
+
+    return `
+      <tr>
+        <td style="font-weight: 800; color: #38BDF8;">${item.flight_number}</td>
+        <td style="color: #F8FAFC; font-weight: 600;">${routeText}</td>
+        <td>${timeText}</td>
+        <td style="color: #CBD5E1;">${item.model}</td>
+        <td>${statusBadge}</td>
+        <td style="font-weight: 700; color: #34D399;">${item.passenger_count || 4} Pax</td>
+        <td style="font-weight: 800; color: #FCD34D;">${gate}</td>
+      </tr>
+    `;
+  }).join('');
+}
+
+async function populateCheckinTickets() {
+  const select = document.getElementById('checkinTicketSelect');
+  if (!select) return;
+
+  let tickets = [];
+  if (state.isServerOnline) {
+    try {
+      const res = await fetch('/api/data?table=view_master_manifest&pageSize=50');
+      if (res.ok) {
+        const json = await res.json();
+        if (json.status === 'success') tickets = json.data;
+      }
+    } catch (e) {}
+  }
+
+  if (!tickets.length && state.localDb) {
+    tickets = (state.localDb.tickets || []).slice(0, 30).map(t => {
+      const p = (state.localDb.passengers || []).find(x => x.passenger_id === t.passenger_id) || {};
+      const f = (state.localDb.flights || []).find(x => x.flight_id === t.flight_id) || {};
+      const b = (state.localDb.bookings || []).find(x => x.booking_id === t.booking_id) || {};
+      const s = (state.localDb.seats || []).find(x => x.seat_id === t.seat_id) || {};
+      return {
+        ticket_id: t.ticket_id,
+        booking_ref: b.booking_ref || 'AR1001',
+        passenger_name: `${p.first_name} ${p.last_name}`,
+        flight_number: f.flight_number || 'AR-101',
+        seat_number: s.seat_number || '1A',
+        origin_airport: 'DEL',
+        dest_airport: 'BOM'
+      };
+    });
+  }
+
+  bookingState.recentTickets = tickets;
+
+  select.innerHTML = tickets.map(t => `
+    <option value="${t.ticket_id}">
+      Ticket #${t.ticket_id} (PNR: ${t.booking_ref}) - ${t.passenger_name} (${t.flight_number})
+    </option>
+  `).join('');
+
+  if (tickets.length) {
+    onCheckinTicketSelectChange(tickets[0].ticket_id);
+  }
+}
+
+function onCheckinTicketSelectChange(ticketId) {
+  ticketId = parseInt(ticketId);
+  const ticket = bookingState.recentTickets.find(t => t.ticket_id === ticketId);
+  if (!ticket) return;
+
+  document.getElementById('ciPaxName').textContent = ticket.passenger_name;
+  document.getElementById('ciSeat').textContent = `Seat ${ticket.seat_number || '--'}`;
+  document.getElementById('ciFlightInfo').textContent = `Flight ${ticket.flight_number} &bull; ${ticket.origin_airport || 'DEL'} ➔ ${ticket.dest_airport || 'BOM'} (PNR: ${ticket.booking_ref})`;
+}
+
+function updateBaggageWeight(val) {
+  val = parseFloat(val);
+  document.getElementById('digitalWeight').textContent = val.toFixed(1);
+
+  const freeLimit = 15.0;
+  const ratePerKg = 500.0;
+  let excessFee = 0;
+  let diff = 0;
+
+  if (val > freeLimit) {
+    diff = val - freeLimit;
+    excessFee = diff * ratePerKg;
+    document.getElementById('excessFeeAmount').textContent = `₹${excessFee.toLocaleString('en-IN', { minimumFractionDigits: 2 })}`;
+    document.getElementById('excessFeeExplanation').textContent = `${diff.toFixed(1)} kg excess over 15.0 kg allowance @ ₹500/kg`;
+    document.getElementById('excessFeeBox').style.display = 'block';
+  } else {
+    document.getElementById('excessFeeAmount').textContent = `₹0.00`;
+    document.getElementById('excessFeeExplanation').textContent = `Within standard 15.0 kg allowance. No excess charges.`;
+  }
+}
+
+async function submitCheckinBaggage() {
+  const select = document.getElementById('checkinTicketSelect');
+  if (!select || !select.value) {
+    alert('Please select a ticket for check-in.');
+    return;
+  }
+
+  const ticketId = parseInt(select.value);
+  const weight = parseFloat(document.getElementById('baggageWeightSlider').value);
+
+  const btn = document.getElementById('btnSubmitCheckin');
+  btn.disabled = true;
+  btn.textContent = '⏳ Printing Boarding Pass & Registering Baggage...';
+
+  const payload = {
+    ticket_id: ticketId,
+    weight_kg: weight
+  };
+
+  let json = null;
+  if (state.isServerOnline) {
+    try {
+      const res = await fetch('/api/checkin_baggage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (res.ok) json = await res.json();
+    } catch (e) {}
+  }
+
+  // Fallback if offline
+  if (!json) {
+    const bpNum = 'BP-DEL-' + Math.floor(1000 + Math.random() * 9000);
+    const bagTag = 'BAG-DEL-' + Math.floor(1000 + Math.random() * 9000);
+    const excess = weight > 15.0 ? (weight - 15.0) * 500.0 : 0.0;
+
+    json = {
+      status: 'success',
+      boarding_pass_number: bpNum,
+      baggage_tag: bagTag,
+      excess_fee: excess,
+      weight_kg: weight,
+      message: `Checked-in successfully! Boarding Pass ${bpNum} generated with Baggage Tag ${bagTag}.`
+    };
+  }
+
+  btn.disabled = false;
+  btn.textContent = '🖨️ Issue Boarding Pass & Tag Baggage';
+
+  const resultBox = document.getElementById('checkinResultBox');
+  resultBox.style.display = 'block';
+
+  if (json.status === 'success') {
+    document.getElementById('ciResultPassNo').textContent = json.boarding_pass_number;
+    document.getElementById('ciResultPassNo').className = 'badge badge-emerald';
+    document.getElementById('ciResultSummary').innerHTML = `
+      <strong>${json.message}</strong><br>
+      <span style="font-family: var(--font-mono); color: #7DD3FC; font-size: 12px;">
+        Checked Weight: ${json.weight_kg} kg &bull; Excess Fee: ₹${(json.excess_fee || 0).toLocaleString()} &bull; 1:1 Invariant Committed
+      </span>
+    `;
+    await loadStats();
+    await loadTablesMetadata();
+  } else {
+    document.getElementById('ciResultPassNo').textContent = 'CHECK-IN BLOCKED';
+    document.getElementById('ciResultPassNo').className = 'badge badge-red';
+    document.getElementById('ciResultSummary').innerHTML = `
+      <span style="color: #F87171; font-weight: 700;">Constraint Defense:</span> ${json.error || json.message}
+    `;
+  }
+}
+
+function loadAirportCheckinWithTicket() {
+  populateCheckinTickets();
+}
+

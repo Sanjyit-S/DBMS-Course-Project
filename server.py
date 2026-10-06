@@ -79,6 +79,15 @@ class UnifiedProjectHandler(http.server.SimpleHTTPRequestHandler):
         elif path == "/api/stats":
             self.handle_stats()
             return
+        elif path == "/api/flights_list":
+            self.handle_flights_list(query_params)
+            return
+        elif path == "/api/airport_board":
+            self.handle_airport_board(query_params)
+            return
+        elif path == "/api/available_seats":
+            self.handle_available_seats(query_params)
+            return
 
         # Friendly URL Aliases & Redirects
         if path in ["/", "/index.html"]:
@@ -138,6 +147,10 @@ class UnifiedProjectHandler(http.server.SimpleHTTPRequestHandler):
             self.handle_insert(payload)
         elif path == "/api/delete":
             self.handle_delete(payload)
+        elif path == "/api/book_ticket":
+            self.handle_book_ticket(payload)
+        elif path == "/api/checkin_baggage":
+            self.handle_checkin_baggage(payload)
         elif path == "/api/query":
             self.handle_raw_query(payload)
         elif path == "/api/reset":
@@ -530,6 +543,287 @@ class UnifiedProjectHandler(http.server.SimpleHTTPRequestHandler):
             self._send_json({"status": "success", "stats": stats})
         except Exception as e:
             self._send_json({"status": "error", "error": str(e)}, status_code=500)
+
+    def handle_flights_list(self, query_params):
+        try:
+            conn = get_db_connection()
+            cur = conn.cursor()
+            cur.execute("""
+                SELECT 
+                    f.flight_id,
+                    f.flight_number,
+                    r.origin_airport,
+                    orig.city AS origin_city,
+                    r.dest_airport,
+                    dest.city AS dest_city,
+                    r.distance_km,
+                    ac.model AS aircraft_model,
+                    ac.total_capacity,
+                    f.scheduled_departure,
+                    f.scheduled_arrival,
+                    f.flight_status,
+                    (SELECT COUNT(*) FROM tickets t WHERE t.flight_id = f.flight_id AND t.ticket_status != 'CANCELLED') AS booked_count
+                FROM flights f
+                JOIN routes r ON f.route_id = r.route_id
+                JOIN airports orig ON r.origin_airport = orig.airport_code
+                JOIN airports dest ON r.dest_airport = dest.airport_code
+                JOIN aircraft ac ON f.aircraft_id = ac.aircraft_id
+                ORDER BY f.flight_id ASC;
+            """)
+            cols = [c[0] for c in cur.description]
+            rows = [dict(zip(cols, r)) for r in cur.fetchall()]
+            conn.close()
+            self._send_json({"status": "success", "flights": rows})
+        except Exception as e:
+            self._send_json({"status": "error", "error": str(e)}, status_code=500)
+
+    def handle_airport_board(self, query_params):
+        airport_code = query_params.get("airport", ["DEL"])[0].upper()
+        try:
+            conn = get_db_connection()
+            cur = conn.cursor()
+            
+            # Airport Info
+            cur.execute("SELECT airport_code, airport_name, city, country FROM airports WHERE airport_code = ?;", (airport_code,))
+            airport_info = cur.fetchone()
+            
+            # Departures from this airport
+            cur.execute("""
+                SELECT 
+                    f.flight_id, f.flight_number, r.dest_airport, dest.city AS dest_city,
+                    f.scheduled_departure, ac.model, f.flight_status,
+                    (SELECT COUNT(*) FROM tickets t WHERE t.flight_id = f.flight_id) AS passenger_count
+                FROM flights f
+                JOIN routes r ON f.route_id = r.route_id
+                JOIN airports dest ON r.dest_airport = dest.airport_code
+                JOIN aircraft ac ON f.aircraft_id = ac.aircraft_id
+                WHERE r.origin_airport = ?
+                ORDER BY f.scheduled_departure ASC;
+            """, (airport_code,))
+            dep_cols = [c[0] for c in cur.description]
+            departures = [dict(zip(dep_cols, r)) for r in cur.fetchall()]
+
+            # Arrivals to this airport
+            cur.execute("""
+                SELECT 
+                    f.flight_id, f.flight_number, r.origin_airport, orig.city AS origin_city,
+                    f.scheduled_arrival, ac.model, f.flight_status,
+                    (SELECT COUNT(*) FROM tickets t WHERE t.flight_id = f.flight_id) AS passenger_count
+                FROM flights f
+                JOIN routes r ON f.route_id = r.route_id
+                JOIN airports orig ON r.origin_airport = orig.airport_code
+                JOIN aircraft ac ON f.aircraft_id = ac.aircraft_id
+                WHERE r.dest_airport = ?
+                ORDER BY f.scheduled_arrival ASC;
+            """, (airport_code,))
+            arr_cols = [c[0] for c in cur.description]
+            arrivals = [dict(zip(arr_cols, r)) for r in cur.fetchall()]
+
+            # List of all airports for selector
+            cur.execute("SELECT airport_code, airport_name, city, country FROM airports ORDER BY airport_code ASC;")
+            all_airports = [{"code": r[0], "name": r[1], "city": r[2], "country": r[3]} for r in cur.fetchall()]
+
+            conn.close()
+            self._send_json({
+                "status": "success",
+                "airport": {
+                    "code": airport_info[0] if airport_info else airport_code,
+                    "name": airport_info[1] if airport_info else "",
+                    "city": airport_info[2] if airport_info else "",
+                    "country": airport_info[3] if airport_info else ""
+                },
+                "departures": departures,
+                "arrivals": arrivals,
+                "all_airports": all_airports
+            })
+        except Exception as e:
+            self._send_json({"status": "error", "error": str(e)}, status_code=500)
+
+    def handle_available_seats(self, query_params):
+        try:
+            flight_id = int(query_params.get("flight_id", ["1"])[0])
+            conn = get_db_connection()
+            cur = conn.cursor()
+            
+            cur.execute("SELECT aircraft_id FROM flights WHERE flight_id = ?;", (flight_id,))
+            flight_row = cur.fetchone()
+            if not flight_row:
+                conn.close()
+                self._send_json({"status": "error", "error": f"Flight {flight_id} not found."}, status_code=404)
+                return
+
+            aircraft_id = flight_row[0]
+
+            # Get all seats for this aircraft
+            cur.execute("SELECT seat_id, seat_number, seat_class FROM seats WHERE aircraft_id = ? ORDER BY seat_id ASC;", (aircraft_id,))
+            seats = cur.fetchall()
+
+            # Get occupied seat_ids for this specific flight
+            cur.execute("SELECT seat_id, ticket_id, passenger_id FROM tickets WHERE flight_id = ? AND ticket_status != 'CANCELLED';", (flight_id,))
+            occupied_map = {r[0]: {"ticket_id": r[1], "passenger_id": r[2]} for r in cur.fetchall()}
+
+            result = []
+            for s_id, s_num, s_cls in seats:
+                is_occ = s_id in occupied_map
+                base_fare = 15000.0 if s_cls == 'FIRST' else (8500.0 if s_cls == 'BUSINESS' else 4500.0)
+                result.append({
+                    "seat_id": s_id,
+                    "seat_number": s_num,
+                    "seat_class": s_cls,
+                    "is_occupied": is_occ,
+                    "fare": base_fare,
+                    "ticket_id": occupied_map.get(s_id, {}).get("ticket_id") if is_occ else None
+                })
+
+            conn.close()
+            self._send_json({"status": "success", "flight_id": flight_id, "seats": result})
+        except Exception as e:
+            self._send_json({"status": "error", "error": str(e)}, status_code=500)
+
+    def handle_book_ticket(self, payload):
+        first_name = payload.get("first_name", "").strip()
+        last_name = payload.get("last_name", "").strip()
+        email = payload.get("email", "").strip()
+        passport = payload.get("passport_number", "").strip()
+        flight_id = payload.get("flight_id")
+        seat_id = payload.get("seat_id")
+        fare_amount = payload.get("fare_amount", 5500.0)
+        payment_method = payload.get("payment_method", "CREDIT_CARD")
+
+        if not (first_name and last_name and email and passport and flight_id and seat_id):
+            self._send_json({"status": "error", "error": "Missing required booking fields (passenger names, email, passport, flight, seat)."}, status_code=400)
+            return
+
+        t0 = time.perf_counter()
+        try:
+            conn = get_db_connection()
+            cur = conn.cursor()
+
+            # 1. Passenger
+            cur.execute("SELECT passenger_id FROM passengers WHERE email = ? OR passport_number = ?;", (email, passport))
+            p_row = cur.fetchone()
+            if p_row:
+                passenger_id = p_row[0]
+            else:
+                cur.execute("INSERT INTO passengers (first_name, last_name, email, passport_number) VALUES (?, ?, ?, ?);",
+                            (first_name, last_name, email, passport))
+                passenger_id = cur.lastrowid
+
+            # 2. Check if seat is already occupied (Enforces UNIQUE constraint!)
+            cur.execute("SELECT ticket_id FROM tickets WHERE flight_id = ? AND seat_id = ? AND ticket_status != 'CANCELLED';", (flight_id, seat_id))
+            if cur.fetchone():
+                conn.close()
+                self._send_json({"status": "error", "error_type": "SEAT_ALREADY_OCCUPIED", "error": "This seat has already been booked by another passenger. Invariant UNIQUE (flight_id, seat_id) enforced!"}, status_code=200)
+                return
+
+            # 3. Create Booking (Random 6-character PNR)
+            import random, string
+            pnr = "AR" + ''.join(random.choices(string.digits, k=4))
+            cur.execute("INSERT INTO bookings (booking_ref, passenger_id, booking_status) VALUES (?, ?, 'CONFIRMED');", (pnr, passenger_id))
+            booking_id = cur.lastrowid
+
+            # 4. Payment
+            cur.execute("INSERT INTO payments (booking_id, amount_paid, payment_method, payment_status) VALUES (?, ?, ?, 'SUCCESS');",
+                        (booking_id, float(fare_amount), payment_method))
+            payment_id = cur.lastrowid
+
+            # 5. Issue Ticket
+            cur.execute("INSERT INTO tickets (booking_id, flight_id, seat_id, passenger_id, fare_amount, ticket_status) VALUES (?, ?, ?, ?, ?, 'ISSUED');",
+                        (booking_id, int(flight_id), int(seat_id), int(passenger_id), float(fare_amount)))
+            ticket_id = cur.lastrowid
+
+            # Fetch seat number and flight number for confirmation
+            cur.execute("SELECT seat_number, seat_class FROM seats WHERE seat_id = ?;", (seat_id,))
+            seat_info = cur.fetchone()
+            cur.execute("SELECT f.flight_number, r.origin_airport, r.dest_airport, f.scheduled_departure FROM flights f JOIN routes r ON f.route_id = r.route_id WHERE f.flight_id = ?;", (flight_id,))
+            flight_info = cur.fetchone()
+
+            conn.commit()
+            conn.close()
+            elapsed_ms = round((time.perf_counter() - t0) * 1000, 2)
+
+            self._send_json({
+                "status": "success",
+                "message": f"Ticket #{ticket_id} booked successfully with PNR {pnr}!",
+                "booking_ref": pnr,
+                "ticket_id": ticket_id,
+                "booking_id": booking_id,
+                "payment_id": payment_id,
+                "passenger": f"{first_name} {last_name}",
+                "seat_number": seat_info[0] if seat_info else "",
+                "seat_class": seat_info[1] if seat_info else "",
+                "flight_number": flight_info[0] if flight_info else "",
+                "route": f"{flight_info[1]} -> {flight_info[2]}" if flight_info else "",
+                "departure": flight_info[3] if flight_info else "",
+                "fare_paid": float(fare_amount),
+                "execution_time_ms": elapsed_ms
+            })
+        except Exception as e:
+            elapsed_ms = round((time.perf_counter() - t0) * 1000, 2)
+            self._send_json({"status": "error", "error": str(e), "execution_time_ms": elapsed_ms}, status_code=500)
+
+    def handle_checkin_baggage(self, payload):
+        ticket_id = payload.get("ticket_id")
+        weight_kg = float(payload.get("weight_kg", 0.0))
+
+        if not ticket_id:
+            self._send_json({"status": "error", "error": "Ticket ID is required for check-in."}, status_code=400)
+            return
+
+        t0 = time.perf_counter()
+        try:
+            conn = get_db_connection()
+            cur = conn.cursor()
+
+            # Check if ticket exists
+            cur.execute("SELECT t.ticket_id, t.ticket_status, r.origin_airport FROM tickets t JOIN flights f ON t.flight_id = f.flight_id JOIN routes r ON f.route_id = r.route_id WHERE t.ticket_id = ?;", (ticket_id,))
+            t_row = cur.fetchone()
+            if not t_row:
+                conn.close()
+                self._send_json({"status": "error", "error": f"Ticket #{ticket_id} not found."}, status_code=404)
+                return
+
+            # Check if already checked in (Enforces 1:1 invariant!)
+            cur.execute("SELECT checkin_id, boarding_pass FROM checkins WHERE ticket_id = ?;", (ticket_id,))
+            existing_ci = cur.fetchone()
+            if existing_ci:
+                conn.close()
+                self._send_json({"status": "error", "error_type": "CHECKIN_1_TO_1_VIOLATION", "error": f"Ticket #{ticket_id} has already been checked in (Boarding Pass: {existing_ci[1]}). 1:1 constraint UNIQUE(ticket_id) enforced!"}, status_code=200)
+                return
+
+            import random
+            bp_code = f"BP-{t_row[2]}-{random.randint(1000, 9999)}"
+            cur.execute("INSERT INTO checkins (ticket_id, boarding_pass) VALUES (?, ?);", (int(ticket_id), bp_code))
+            checkin_id = cur.lastrowid
+
+            # Baggage excess fee calculation: >15kg charged ₹500/kg
+            excess_fee = 0.0
+            baggage_id = None
+            if weight_kg > 0:
+                if weight_kg > 15.0:
+                    excess_fee = round((weight_kg - 15.0) * 500.0, 2)
+                cur.execute("INSERT INTO baggage (checkin_id, weight_kg, excess_fee) VALUES (?, ?, ?);",
+                            (checkin_id, weight_kg, excess_fee))
+                baggage_id = cur.lastrowid
+
+            conn.commit()
+            conn.close()
+            elapsed_ms = round((time.perf_counter() - t0) * 1000, 2)
+
+            self._send_json({
+                "status": "success",
+                "message": f"Check-in complete! Boarding pass {bp_code} issued.",
+                "checkin_id": checkin_id,
+                "boarding_pass": bp_code,
+                "ticket_id": ticket_id,
+                "weight_kg": weight_kg,
+                "excess_fee": excess_fee,
+                "baggage_id": baggage_id,
+                "execution_time_ms": elapsed_ms
+            })
+        except Exception as e:
+            elapsed_ms = round((time.perf_counter() - t0) * 1000, 2)
+            self._send_json({"status": "error", "error": str(e), "execution_time_ms": elapsed_ms}, status_code=500)
 
     def handle_reset(self):
         try:

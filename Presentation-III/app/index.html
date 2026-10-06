@@ -94,36 +94,462 @@
 
     <!-- Presentation Mode Tab Navigation -->
     <nav class="tabs-nav">
-      <button class="tab-btn active" data-tab="tab-view">
-        <span>📋 1. Record Explorer</span>
+      <button class="tab-btn active" data-tab="tab-booking">
+        <span>✈️ 1. Flight Booking & Seats</span>
+        <span class="tab-badge">Live Reservation</span>
+      </button>
+
+      <button class="tab-btn" data-tab="tab-airport">
+        <span>🏢 2. Airport Radar & FIDS</span>
+        <span class="tab-badge">Airport Operations</span>
+      </button>
+
+      <button class="tab-btn" data-tab="tab-view">
+        <span>📋 3. Record Explorer</span>
         <span class="tab-badge">Viewing</span>
       </button>
 
       <button class="tab-btn" data-tab="tab-insert">
-        <span>➕ 2. Record Insertion</span>
+        <span>➕ 4. Record Insertion</span>
         <span class="tab-badge">Insertion</span>
       </button>
 
       <button class="tab-btn" data-tab="tab-delete">
-        <span>🗑️ 3. Record Deletion</span>
+        <span>🗑️ 5. Record Deletion</span>
         <span class="tab-badge">Deletion</span>
       </button>
 
       <button class="tab-btn" data-tab="tab-compare">
-        <span>⚖️ 4. Before & After Comparator</span>
+        <span>⚖️ 6. Before & After Comparator</span>
         <span class="tab-badge">Live Reflection</span>
       </button>
 
       <button class="tab-btn" data-tab="tab-constraints">
-        <span>🛡️ 5. Negative Testing & Constraints</span>
+        <span>🛡️ 7. Negative Testing & Constraints</span>
         <span class="tab-badge">Integrity</span>
       </button>
     </nav>
 
     <!-- ======================================================================
-         TAB 1: VIEWING OF RECORDS (BROWSE & SEARCH TABLES)
+         TAB 1: FLIGHT BOOKING & INTERACTIVE CABIN SEAT MAP
          ====================================================================== -->
-    <section id="tab-view" class="tab-content active">
+    <section id="tab-booking" class="tab-content active">
+      <div class="booking-layout-grid">
+        
+        <!-- Left Column: Flight Selection & Aircraft Seat Map -->
+        <div class="booking-left-pane">
+          
+          <!-- Flight Selector Card -->
+          <div class="panel-card" style="padding: 18px 22px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div>
+                <h2 style="font-size: 17px; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+                  <span>🛫</span> Select Scheduled Flight
+                </h2>
+                <p style="font-size: 13px; color: var(--text-muted); margin-top: 2px;">
+                  Choose an active flight to view real-time cabin occupancy and reserve available seats.
+                </p>
+              </div>
+              <span class="badge badge-blue" id="bookingFlightCountBadge">15 Flights Available</span>
+            </div>
+
+            <!-- Flights Carousel / Dropdown Filter -->
+            <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 12px; align-items: flex-end;">
+              <div class="form-group" style="margin-bottom: 0;">
+                <label>Flight Route & Number:</label>
+                <select class="form-control" id="bookingFlightSelect" onchange="onBookingFlightChange(this.value)">
+                  <!-- Populated dynamically via JS -->
+                </select>
+              </div>
+
+              <div class="form-group" style="margin-bottom: 0;">
+                <label>Departure City:</label>
+                <input type="text" class="form-control" id="bookingOriginCity" readonly value="New Delhi (DEL)" style="background: #F8FAFC;">
+              </div>
+
+              <div class="form-group" style="margin-bottom: 0;">
+                <label>Arrival City:</label>
+                <input type="text" class="form-control" id="bookingDestCity" readonly value="Mumbai (BOM)" style="background: #F8FAFC;">
+              </div>
+            </div>
+
+            <!-- Active Flight Info Bar -->
+            <div id="bookingFlightInfoBar" class="flight-info-banner" style="margin-top: 14px;">
+              <div class="flight-pill">
+                <span class="flight-pill-label">AIRCRAFT</span>
+                <strong id="bookingAircraftModel">Boeing 737-800</strong>
+              </div>
+              <div class="flight-pill">
+                <span class="flight-pill-label">SCHEDULED DEPARTURE</span>
+                <strong id="bookingDepTime">06:00 AM</strong>
+              </div>
+              <div class="flight-pill">
+                <span class="flight-pill-label">DISTANCE</span>
+                <strong id="bookingDistance">1,148 km</strong>
+              </div>
+              <div class="flight-pill">
+                <span class="flight-pill-label">STATUS</span>
+                <span class="badge badge-emerald" id="bookingFlightStatus">SCHEDULED</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Cabin Seat Map Card -->
+          <div class="panel-card" style="margin-top: 16px; padding: 22px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px; margin-bottom: 16px;">
+              <div>
+                <h3 style="font-size: 16px; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+                  <span>💺</span> Interactive Cabin Seat Map
+                </h3>
+                <p style="font-size: 12.5px; color: var(--text-muted);">
+                  Click any green seat to allocate. Red seats are already occupied by confirmed passengers.
+                </p>
+              </div>
+
+              <!-- Seat Legend -->
+              <div class="seat-legend">
+                <div class="legend-item"><span class="seat-box available small"></span> Available</div>
+                <div class="legend-item"><span class="seat-box occupied small"></span> Occupied</div>
+                <div class="legend-item"><span class="seat-box selected small"></span> Selected</div>
+              </div>
+            </div>
+
+            <!-- Airplane Cabin Hull Container -->
+            <div class="airplane-fuselage">
+              <div class="cockpit-nose">
+                <div class="windshield"></div>
+                <span style="font-size: 11px; font-weight: 700; color: #64748B; letter-spacing: 1px;">COCKPIT &bull; NOSE</span>
+              </div>
+
+              <!-- Dynamic Seat Grid -->
+              <div id="seatMapGrid" class="seat-map-container">
+                <div style="text-align: center; padding: 40px; color: var(--text-muted);">
+                  Loading aircraft cabin configuration...
+                </div>
+              </div>
+
+              <div class="airplane-tail">
+                <span style="font-size: 11px; font-weight: 700; color: #64748B; letter-spacing: 1px;">GALLEY &bull; TAIL CONE</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Passenger Details, Price Breakdown & Ticket Issuer -->
+        <div class="booking-right-pane">
+          
+          <!-- Booking Form Card -->
+          <div class="panel-card" style="padding: 22px;">
+            <h3 style="font-size: 16px; font-weight: 800; color: var(--text-main); margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
+              <span>👤</span> Passenger & Payment Details
+            </h3>
+            <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 16px;">
+              Direct ACID transaction into <code>passengers</code>, <code>bookings</code>, <code>payments</code>, and <code>tickets</code>.
+            </p>
+
+            <!-- Preset Fill Shortcut -->
+            <div style="margin-bottom: 14px; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px; padding: 10px 12px;">
+              <span style="font-size: 11.5px; font-weight: 600; color: var(--text-dim); display: block; margin-bottom: 6px;">
+                ⚡ Quick Fill Demo Passenger:
+              </span>
+              <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                <button type="button" class="preset-btn" onclick="fillBookingPassenger('Vikram', 'Malhotra', 'vikram.malhotra@skywings.org')">Dr. Vikram</button>
+                <button type="button" class="preset-btn" onclick="fillBookingPassenger('Priya', 'Sharma', 'priya.sharma@horizon.com')">Priya S.</button>
+                <button type="button" class="preset-btn" onclick="fillBookingPassenger('Arjun', 'Kapoor', 'arjun.k@voyager.in')">Arjun K.</button>
+              </div>
+            </div>
+
+            <!-- Form Inputs -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+              <div class="form-group">
+                <label>First Name: <span style="color:#EF4444;">*</span></label>
+                <input type="text" class="form-control" id="bkFirstName" placeholder="e.g. Vikram" value="Vikram">
+              </div>
+              <div class="form-group">
+                <label>Last Name: <span style="color:#EF4444;">*</span></label>
+                <input type="text" class="form-control" id="bkLastName" placeholder="e.g. Malhotra" value="Malhotra">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Email Address: <span style="color:#EF4444;">*</span></label>
+              <input type="email" class="form-control" id="bkEmail" placeholder="vikram.malhotra@skywings.org" value="vikram.malhotra@skywings.org">
+            </div>
+
+            <div class="form-group">
+              <label>Passport Number: <span style="color:#EF4444;">*</span></label>
+              <input type="text" class="form-control" id="bkPassport" placeholder="Z7891234" value="Z9821430">
+            </div>
+
+            <div class="form-group">
+              <label>Payment Method:</label>
+              <select class="form-control" id="bkPaymentMethod">
+                <option value="CREDIT_CARD">💳 Credit Card (Instant Settlement)</option>
+                <option value="UPI">📱 UPI / QR Transfer</option>
+                <option value="DEBIT_CARD">🏧 Debit Card</option>
+                <option value="NET_BANKING">🏦 Internet Banking</option>
+              </select>
+            </div>
+
+            <!-- Selected Seat Summary & Pricing Box -->
+            <div class="pricing-summary-card">
+              <div class="pricing-row">
+                <span>Allocated Seat:</span>
+                <strong id="bkSeatSummary" style="color: var(--accent-blue);">Seat 4C (BUSINESS)</strong>
+              </div>
+              <div class="pricing-row">
+                <span>Base Airfare:</span>
+                <span id="bkBaseFare">₹8,500.00</span>
+              </div>
+              <div class="pricing-row">
+                <span>Airport & Fuel Charges (12%):</span>
+                <span id="bkTaxFee">₹1,020.00</span>
+              </div>
+              <div class="pricing-row">
+                <span>GST (5%):</span>
+                <span id="bkGst">₹425.00</span>
+              </div>
+              <div class="pricing-total">
+                <span>Total Amount Payable:</span>
+                <strong id="bkTotalAmount" style="color: #059669; font-size: 17px;">₹9,945.00</strong>
+              </div>
+            </div>
+
+            <!-- Submit Booking Button -->
+            <button class="btn btn-primary" id="btnSubmitBooking" style="width: 100%; padding: 14px; font-size: 15px; font-weight: 700; margin-top: 16px;" onclick="submitFlightBooking()">
+              🎫 Confirm Reservation & Issue Live Ticket
+            </button>
+          </div>
+
+          <!-- Live Boarding Pass Preview (Appears After Booking) -->
+          <div id="bookingResultCard" class="panel-card boarding-pass-card" style="display: none; margin-top: 16px;">
+            <div class="boarding-pass-header">
+              <div>
+                <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: #94A3B8;">ARFOM AIRLINES BOARDING PASS</div>
+                <h4 style="font-size: 18px; font-weight: 800; color: #FFFFFF;" id="bpFlightNo">AR-101</h4>
+              </div>
+              <div class="pnr-badge" id="bpPnr">PNR: AR8192</div>
+            </div>
+
+            <div class="boarding-pass-body">
+              <div class="bp-field">
+                <span class="bp-label">PASSENGER NAME</span>
+                <span class="bp-val" id="bpPassengerName">Vikram Malhotra</span>
+              </div>
+              <div class="bp-field">
+                <span class="bp-label">SEAT ALLOCATED</span>
+                <span class="bp-val" id="bpSeatNo" style="color: #38BDF8; font-weight: 800;">4C (BUSINESS)</span>
+              </div>
+              <div class="bp-field">
+                <span class="bp-label">ROUTE</span>
+                <span class="bp-val" id="bpRoute">DEL ➔ BOM</span>
+              </div>
+              <div class="bp-field">
+                <span class="bp-label">DEPARTURE</span>
+                <span class="bp-val" id="bpDepTime">06:00 AM</span>
+              </div>
+              <div class="bp-field">
+                <span class="bp-label">TICKET ID</span>
+                <span class="bp-val" id="bpTicketId">#61</span>
+              </div>
+              <div class="bp-field">
+                <span class="bp-label">STATUS</span>
+                <span class="badge badge-emerald">CONFIRMED / ISSUED</span>
+              </div>
+            </div>
+
+            <div class="boarding-pass-footer">
+              <div class="barcode-graphic"></div>
+              <button class="btn btn-secondary" style="font-size: 12px; padding: 6px 12px;" onclick="switchTab('tab-airport'); loadAirportCheckinWithTicket();">
+                🏢 Go to Airport Check-in & Baggage Counter &rarr;
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         TAB 2: AIRPORT RADAR & FIDS (FLIGHT INFORMATION DISPLAY SYSTEM)
+         ====================================================================== -->
+    <section id="tab-airport" class="tab-content">
+      
+      <!-- Top Airport Control & Live Radar Bar -->
+      <div class="panel-card" style="padding: 18px 24px; margin-bottom: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+          <div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 24px;">🏢</span>
+              <div>
+                <h2 style="font-size: 18px; font-weight: 800; color: var(--text-main);" id="fidsAirportTitle">
+                  Indira Gandhi International Airport (DEL)
+                </h2>
+                <p style="font-size: 13px; color: var(--text-muted);" id="fidsAirportSub">
+                  New Delhi, India &bull; Hub Operations &bull; 4 Active Runways
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Airport Switcher Dropdown & Live Clock -->
+          <div style="display: flex; align-items: center; gap: 14px;">
+            <div class="form-group" style="margin-bottom: 0;">
+              <label style="font-size: 11px;">Switch Airport Hub:</label>
+              <select class="form-control" id="fidsAirportSelect" style="min-width: 220px; font-weight: 600;" onchange="onAirportSelectChange(this.value)">
+                <option value="DEL">DEL - Indira Gandhi (New Delhi)</option>
+                <option value="BOM">BOM - Chhatrapati Shivaji (Mumbai)</option>
+                <option value="BLR">BLR - Kempegowda (Bengaluru)</option>
+                <option value="DXB">DXB - Dubai International</option>
+                <option value="LHR">LHR - London Heathrow</option>
+                <option value="SIN">SIN - Singapore Changi</option>
+                <option value="MAA">MAA - Chennai International</option>
+                <option value="CCU">CCU - Netaji Subhash Chandra (Kolkata)</option>
+              </select>
+            </div>
+
+            <!-- Live Clock -->
+            <div class="airport-clock-pill">
+              <div class="radar-sweep"></div>
+              <div>
+                <div style="font-size: 10px; color: #94A3B8; text-transform: uppercase;">AIRPORT UTC+05:30</div>
+                <div id="airportLiveClock" style="font-family: var(--font-mono); font-size: 16px; font-weight: 700; color: #0284C7;">
+                  14:30:00
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Main FIDS Board & Baggage Counter Grid -->
+      <div class="airport-grid-layout">
+        
+        <!-- Left: FIDS Electronic Flight Display Board -->
+        <div class="fids-display-container">
+          <div class="fids-header-bar">
+            <div style="display: flex; align-items: center; gap: 12px;">
+              <button class="fids-tab-btn active" id="btnFidsDepartures" onclick="toggleFidsMode('departures')">
+                🛫 Departures Board (<span id="fidsDepCount">0</span>)
+              </button>
+              <button class="fids-tab-btn" id="btnFidsArrivals" onclick="toggleFidsMode('arrivals')">
+                🛬 Arrivals Board (<span id="fidsArrCount">0</span>)
+              </button>
+            </div>
+            <span class="badge badge-emerald" style="font-size: 11px;">● LIVE RADAR SYNC</span>
+          </div>
+
+          <!-- High-Contrast Electronic Flight Table -->
+          <div class="table-wrapper" style="max-height: 480px; overflow-y: auto;">
+            <table class="fids-table" id="fidsTable">
+              <thead>
+                <tr>
+                  <th>FLIGHT</th>
+                  <th id="fidsColRoute">DESTINATION</th>
+                  <th>SCHEDULED</th>
+                  <th>AIRCRAFT</th>
+                  <th>STATUS</th>
+                  <th>BOOKED PAX</th>
+                  <th>GATE</th>
+                </tr>
+              </thead>
+              <tbody id="fidsTableBody">
+                <!-- Populated dynamically via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Right: Passenger Check-in & Luggage Baggage Scale Counter -->
+        <div class="baggage-counter-pane">
+          <div class="panel-card" style="padding: 22px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <h3 style="font-size: 16px; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
+                <span>🧳</span> Check-in & Baggage Scale
+              </h3>
+              <span class="badge badge-blue">Desk 04</span>
+            </div>
+            <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 14px;">
+              Enforces 1:1 Check-in invariant per ticket and calculates excess baggage fees (>15kg @ ₹500/kg).
+            </p>
+
+            <!-- Ticket Selection -->
+            <div class="form-group">
+              <label>Select Confirmed Ticket / PNR:</label>
+              <select class="form-control" id="checkinTicketSelect" onchange="onCheckinTicketSelectChange(this.value)">
+                <!-- Populated dynamically via JS -->
+              </select>
+            </div>
+
+            <!-- Passenger Preview Pill -->
+            <div id="checkinPassengerInfo" class="checkin-info-box">
+              <div style="display: flex; justify-content: space-between;">
+                <strong id="ciPaxName">Select a ticket</strong>
+                <span id="ciSeat">Seat --</span>
+              </div>
+              <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;" id="ciFlightInfo">
+                Flight AR-101 &bull; DEL ➔ BOM
+              </div>
+            </div>
+
+            <!-- Baggage Scale Simulator -->
+            <div style="margin-top: 14px; background: #F8FAFC; border: 1px solid var(--border-card); border-radius: 10px; padding: 14px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <label style="font-weight: 700; font-size: 13px;">Checked Luggage Weight (kg):</label>
+                <div class="weight-digital-display">
+                  <span id="digitalWeight">16.5</span> <span style="font-size: 11px;">KG</span>
+                </div>
+              </div>
+
+              <!-- Weight Slider -->
+              <input type="range" id="baggageWeightSlider" min="5" max="35" step="0.5" value="16.5" style="width: 100%; accent-color: var(--accent-blue);" oninput="updateBaggageWeight(this.value)">
+
+              <div style="display: flex; justify-content: space-between; font-size: 11px; color: var(--text-dim); margin-top: 4px;">
+                <span>5 kg (Cabin)</span>
+                <span style="font-weight: 700; color: #059669;">15 kg (Free Limit)</span>
+                <span>35 kg (Heavy)</span>
+              </div>
+
+              <!-- Excess Fee Live Calculation -->
+              <div class="excess-fee-pill" id="excessFeeBox" style="margin-top: 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span>Excess Weight Fee:</span>
+                  <strong id="excessFeeAmount" style="color: #D97706; font-size: 15px;">₹750.00</strong>
+                </div>
+                <div style="font-size: 11px; color: #64748B; margin-top: 2px;" id="excessFeeExplanation">
+                  1.5 kg over standard 15.0 kg allowance @ ₹500/kg
+                </div>
+              </div>
+            </div>
+
+            <!-- Submit Check-in Button -->
+            <button class="btn btn-primary" id="btnSubmitCheckin" style="width: 100%; padding: 13px; font-size: 14px; font-weight: 700; margin-top: 16px;" onclick="submitCheckinBaggage()">
+              🖨️ Issue Boarding Pass & Tag Baggage
+            </button>
+
+            <!-- Checkin Confirmation Result -->
+            <div id="checkinResultBox" class="reflection-console" style="margin-top: 14px; display: none;">
+              <div class="reflection-header">
+                <span class="reflection-title" style="color: #34D399;">BOARDING PASS ISSUED:</span>
+                <span class="badge badge-emerald" id="ciResultPassNo">BP-DEL-8921</span>
+              </div>
+              <div style="font-size: 12.5px; color: #E2E8F0; padding: 6px 0;" id="ciResultSummary">
+                Passenger successfully checked in. Baggage tag generated and saved to database.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         TAB 3: VIEWING OF RECORDS (BROWSE & SEARCH TABLES)
+         ====================================================================== -->
+    <section id="tab-view" class="tab-content">
       <div class="panel-card">
         
         <!-- Table Selectors -->
