@@ -1,0 +1,96 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [4 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> /F2 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >> >> >>
+endobj
+4 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 5 0 R /Resources 3 0 R >>
+endobj
+5 0 obj
+<< /Length 7581 >>
+stream
+BT /F2 18.00 Tf 0.060 0.150 0.350 rg 1 0 0 1 42.00 796.89 Tm (ARFOM-DB: PROBLEM DESCRIPTION & SYSTEM SCOPE) Tj ET
+BT /F1 11.00 Tf 0.300 0.380 0.480 rg 1 0 0 1 42.00 774.89 Tm (Airline Reservation and Flight Operations Management System) Tj ET
+0.100 0.450 0.850 rg 42.00 758.89 511.28 1.50 re f
+BT /F2 9.50 Tf 0.200 0.250 0.350 rg 1 0 0 1 42.00 740.89 Tm (Course:) Tj ET
+BT /F1 9.50 Tf 0.080 0.120 0.180 rg 1 0 0 1 172.00 740.89 Tm (Database Management Systems \(DBMS\) - Presentation-I) Tj ET
+BT /F2 9.50 Tf 0.200 0.250 0.350 rg 1 0 0 1 42.00 726.89 Tm (Learner Name:) Tj ET
+BT /F1 9.50 Tf 0.080 0.120 0.180 rg 1 0 0 1 172.00 726.89 Tm (Sanjyit Suresh Kumar \(Roll No. 25WU0102243\)) Tj ET
+BT /F2 9.50 Tf 0.200 0.250 0.350 rg 1 0 0 1 42.00 712.89 Tm (Section / Serial:) Tj ET
+BT /F1 9.50 Tf 0.080 0.120 0.180 rg 1 0 0 1 172.00 712.89 Tm (AIML Whales - Serial #18) Tj ET
+BT /F2 9.50 Tf 0.200 0.250 0.350 rg 1 0 0 1 42.00 698.89 Tm (Evaluation Stage:) Tj ET
+BT /F1 9.50 Tf 0.080 0.120 0.180 rg 1 0 0 1 172.00 698.89 Tm (Review 1 & Scope Definition) Tj ET
+0.5 w 0.850 0.890 0.940 RG 0.940 0.960 0.980 rg 42.00 666.89 511.28 18.00 re B
+BT /F2 11.00 Tf 0.080 0.220 0.450 rg 1 0 0 1 50.00 671.89 Tm (1. Executive Summary & Problem Statement) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 646.89 Tm (Modern airline operators manage complex, highly concurrent transactional environments spanning flight scheduling, fleet) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 633.39 Tm (allocation, seat inventory, customer reservations, electronic ticketing, baggage handling, and financial settlements.) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 615.89 Tm (Traditional spreadsheet-driven and legacy file-based reservation mechanisms suffer from four critical failure modes:) Tj ET
+BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 598.39 Tm (-) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 598.39 Tm (Double-Booking & Seat Contention: Inability to enforce strict multi-attribute uniqueness, leading to simultaneous) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 584.89 Tm (booking of identical physical aircraft seats.) Tj ET
+BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 569.39 Tm (-) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 569.39 Tm (Data Redundancy & Anomalies: Redundant storage of flight routes, passenger identities, and aircraft capacities) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 555.89 Tm (across disparate logs leads to update, insertion, and deletion anomalies.) Tj ET
+BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 540.39 Tm (-) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 540.39 Tm (Lack of Referential Integrity: Orphaned baggage items, inconsistent cancellation refunds, and untracked itinerary) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 526.89 Tm (changes.) Tj ET
+BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 511.39 Tm (-) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 511.39 Tm (Weak Domain Constraints: Unchecked domain values \(e.g., negative luggage weights, flights departing and arriving) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 497.89 Tm (at identical hubs, or chronological departure/arrival inversions\).) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 482.39 Tm (ARFOM-DB resolves these operational challenges by designing and implementing an enterprise-grade, normalized) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 468.89 Tm (relational database management system with rigorous integrity constraints, zero-loss 3NF decomposition, and) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 455.39 Tm (high-performance transactional query interfaces.) Tj ET
+0.5 w 0.850 0.890 0.940 RG 0.940 0.960 0.980 rg 42.00 427.89 511.28 18.00 re B
+BT /F2 11.00 Tf 0.080 0.220 0.450 rg 1 0 0 1 50.00 432.89 Tm (2. Project Objectives) Tj ET
+BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 407.89 Tm (-) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 407.89 Tm (Comprehensive Relational Modeling: Engineer an end-to-end database architecture encompassing 10+ core entities) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 394.39 Tm (covering passenger lifecycles from booking to baggage claim.) Tj ET
+BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 378.89 Tm (-) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 378.89 Tm (Strict Normalization \(3NF/BCNF\): Eliminate data redundancy and eliminate anomalies by decomposing) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 365.39 Tm (Many-to-Many relationships via dedicated junction entities.) Tj ET
+BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 349.89 Tm (-) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 349.89 Tm (Declarative Constraint Architecture: Enforce physical, temporal, and financial invariants at the storage engine level) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 336.39 Tm (\(PRIMARY KEY, FOREIGN KEY, CHECK, and UNIQUE\).) Tj ET
+BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 320.89 Tm (-) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 320.89 Tm (High-Concurrency Operational Performance: Support sub-millisecond multi-table analytical joins and real-time flight) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 307.39 Tm (manifest projections.) Tj ET
+BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 291.89 Tm (-) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 291.89 Tm (Interactive Management UI: Provide an intuitive, real-time web portal supporting CRUD operations with live database) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 278.39 Tm (state reflection.) Tj ET
+0.5 w 0.850 0.890 0.940 RG 0.940 0.960 0.980 rg 42.00 252.89 511.28 18.00 re B
+BT /F2 11.00 Tf 0.080 0.220 0.450 rg 1 0 0 1 50.00 257.89 Tm (3. Scope of the System) Tj ET
+BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 232.89 Tm (-) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 232.89 Tm (Fleet & Flight Infrastructure: Aircraft topology \(airframe models, cabin seat classes: Economy, Business, First\),) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 219.39 Tm (airport registries, route networks with geographic distance validation, and operational flight schedules.) Tj ET
+BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 203.89 Tm (-) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 203.89 Tm (Customer Reservation & Commercial Ticketing: Passenger demographic registration, multi-passenger booking) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 190.39 Tm (orders \(PNRs\), individual flight leg ticket issuance, and double-booking prevention.) Tj ET
+BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 174.89 Tm (-) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 174.89 Tm (Settlement & Audit Ledger: Multi-mode payment tracking \(Credit Card, Debit Card, UPI, Net Banking\), transaction) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 161.39 Tm (verification, and cancellation fee/refund processing.) Tj ET
+BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 145.89 Tm (-) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 145.89 Tm (Departure Control & Logistics: Airport check-in management, electronic boarding pass generation, baggage) Tj ET
+BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 132.39 Tm (allowance tracking, and excess weight surcharge accounting.) Tj ET
+BT /F1 8 Tf 0.45 0.50 0.60 rg 1 0 0 1 493.28 22 Tm (Page 1 of 1) Tj ET
+0.5 w 0.85 0.88 0.92 RG 42.00 32.00 511.28 0.5 re S
+
+endstream
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000271 00000 n 
+0000000381 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+8014
+%%EOF
