@@ -1,182 +1,4116 @@
 %PDF-1.4
+%����
 1 0 obj
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Kids [4 0 R 6 0 R] /Count 2 >>
+<< /Type /Pages /Kids [7 0 R 9 0 R 11 0 R 13 0 R 15 0 R 17 0 R 19 0 R 21 0 R 23 0 R 25 0 R 27 0 R 29 0 R 31 0 R 33 0 R 35 0 R 37 0 R 39 0 R 41 0 R 43 0 R 45 0 R 47 0 R 49 0 R 51 0 R 53 0 R 55 0 R 57 0 R 59 0 R 61 0 R 63 0 R 65 0 R] /Count 30 >>
 endobj
 3 0 obj
-<< /Font << /F1 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> /F2 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >> >> >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
 endobj
 4 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 5 0 R /Resources 3 0 R >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
 endobj
 5 0 obj
-<< /Length 8337 >>
-stream
-BT /F2 18.00 Tf 0.060 0.150 0.350 rg 1 0 0 1 42.00 796.89 Tm (COURSE PROJECT REPORT: ARFOM-DB) Tj ET
-BT /F1 11.00 Tf 0.300 0.380 0.480 rg 1 0 0 1 42.00 774.89 Tm (Airline Reservation and Flight Operations Management System) Tj ET
-0.100 0.450 0.850 rg 42.00 758.89 511.28 1.50 re f
-BT /F2 9.50 Tf 0.200 0.250 0.350 rg 1 0 0 1 42.00 740.89 Tm (Course:) Tj ET
-BT /F1 9.50 Tf 0.080 0.120 0.180 rg 1 0 0 1 172.00 740.89 Tm (Database Management Systems \(DBMS\)) Tj ET
-BT /F2 9.50 Tf 0.200 0.250 0.350 rg 1 0 0 1 42.00 726.89 Tm (Candidate Name:) Tj ET
-BT /F1 9.50 Tf 0.080 0.120 0.180 rg 1 0 0 1 172.00 726.89 Tm (Sanjyit Suresh Kumar \(Roll No. 25WU0102243\)) Tj ET
-BT /F2 9.50 Tf 0.200 0.250 0.350 rg 1 0 0 1 42.00 712.89 Tm (Section / Roll:) Tj ET
-BT /F1 9.50 Tf 0.080 0.120 0.180 rg 1 0 0 1 172.00 712.89 Tm (AIML Whales - Serial #18) Tj ET
-BT /F2 9.50 Tf 0.200 0.250 0.350 rg 1 0 0 1 42.00 698.89 Tm (Academic Year:) Tj ET
-BT /F1 9.50 Tf 0.080 0.120 0.180 rg 1 0 0 1 172.00 698.89 Tm (2026 - 2027) Tj ET
-BT /F2 9.50 Tf 0.200 0.250 0.350 rg 1 0 0 1 42.00 684.89 Tm (Submission:) Tj ET
-BT /F1 9.50 Tf 0.080 0.120 0.180 rg 1 0 0 1 172.00 684.89 Tm (Final Comprehensive Report \(5 Marks\)) Tj ET
-0.5 w 0.850 0.890 0.940 RG 0.940 0.960 0.980 rg 42.00 652.89 511.28 18.00 re B
-BT /F2 11.00 Tf 0.080 0.220 0.450 rg 1 0 0 1 50.00 657.89 Tm (1. Abstract) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 632.89 Tm (Airline flight operations and reservation networks demand zero-downtime, ACID-compliant relational architectures) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 619.39 Tm (capable of guaranteeing seat exclusivity, customer itinerary tracking, and baggage reconciliation across complex route) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 605.89 Tm (networks. ARFOM-DB is a normalized relational database management system engineered to manage the complete) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 592.39 Tm (lifecycle of airline operations. Built upon strict Third Normal Form \(3NF\) relational decomposition, the database models) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 578.89 Tm (10 core tables and analytical views encompassing airport hubs, aircraft configurations, seat maps, scheduled flight legs,) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 565.39 Tm (customer profiles, booking transactions, e-tickets, payments, check-in custody, baggage manifests, and cancellation) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 551.89 Tm (penalty ledgers. The system features engine-enforced domain, entity, and referential constraints - including a composite) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 538.39 Tm (unique invariant preventing physical double-booking. A multi-tier web application and Python REST dispatch API) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 524.89 Tm (interface directly with the relational engine, enabling live record viewing, atomic insertions, and referential-safe deletions) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 511.39 Tm (with sub-millisecond database reflection.) Tj ET
-0.5 w 0.850 0.890 0.940 RG 0.940 0.960 0.980 rg 42.00 483.89 511.28 18.00 re B
-BT /F2 11.00 Tf 0.080 0.220 0.450 rg 1 0 0 1 50.00 488.89 Tm (2. Problem Statement & System Objectives) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 463.89 Tm (Commercial aviation operates under narrow financial margins where seat allocation errors, uncollected baggage) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 450.39 Tm (surcharges, or untracked cancellations directly impact profitability and regulatory compliance. Legacy reservation) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 436.89 Tm (approaches often rely on decentralized or partially normalized flat files, leading to three critical database failure modes:) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 419.39 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 419.39 Tm (Concurrency Contention & Double-Booking: Simultaneous reservations writing to identical flight-seat pairs.) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 403.89 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 403.89 Tm (Relational Redundancy: Repeated entry of passenger profiles, route distances, and airframe capacities leading to) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 390.39 Tm (update and deletion anomalies.) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 374.89 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 374.89 Tm (Lack of Auditability: Inability to trace financial transactions from initial booking to check-in or cancellation.) Tj ET
-0.5 w 0.850 0.890 0.940 RG 0.940 0.960 0.980 rg 42.00 349.39 511.28 18.00 re B
-BT /F2 11.00 Tf 0.080 0.220 0.450 rg 1 0 0 1 50.00 354.39 Tm (3. Objectives and Scope) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 329.39 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 329.39 Tm (Design a complete Entity-Relationship model capturing 1:1, 1:N, and decomposed M:N relationships.) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 313.89 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 313.89 Tm (Achieve strict 3NF and BCNF normalization across all tables.) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 298.39 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 298.39 Tm (Enforce declarative integrity constraints \(PK, FK RESTRICT/CASCADE, CHECK, UNIQUE\).) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 282.89 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 282.89 Tm (Implement multi-table analytical queries for flight load factor, revenue corridor density, and cargo logistics.) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 267.39 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 267.39 Tm (Develop a fully connected, responsive User Interface demonstrating live record viewing, insertion, and deletion.) Tj ET
-0.5 w 0.850 0.890 0.940 RG 0.940 0.960 0.980 rg 42.00 241.89 511.28 18.00 re B
-BT /F2 11.00 Tf 0.080 0.220 0.450 rg 1 0 0 1 50.00 246.89 Tm (4. System Architecture & Relational Topology) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 221.89 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 221.89 Tm (Infrastructure Module: airports, routes, aircraft, seats) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 206.39 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 206.39 Tm (Operations Module: flights, checkins, baggage) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 190.89 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 190.89 Tm (Commercial Module: passengers, bookings, tickets \(junction entity resolving M:N\)) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 175.39 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 175.39 Tm (Audit & Finance Module: payments, cancellations) Tj ET
-0.5 w 0.850 0.890 0.940 RG 0.940 0.960 0.980 rg 42.00 149.89 511.28 18.00 re B
-BT /F2 11.00 Tf 0.080 0.220 0.450 rg 1 0 0 1 50.00 154.89 Tm (5. Relational Normalization Analysis) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 129.89 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 129.89 Tm (1NF Compliance: All attribute values are strictly atomic. Multi-valued contacts or baggage items are fully) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 116.39 Tm (decomposed into dedicated tuples.) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 100.89 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 100.89 Tm (2NF Compliance: All non-prime attributes are fully functionally dependent on the primary key. Composite primary) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 87.39 Tm (keys \(e.g. seats.aircraft_id, seat_number\) contain no partial dependencies.) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 71.89 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 71.89 Tm (3NF Compliance: No transitive functional dependencies exist among non-prime attributes \(X  ->  Y holds only where X) Tj ET
-BT /F1 8 Tf 0.45 0.50 0.60 rg 1 0 0 1 493.28 22 Tm (Page 1 of 2) Tj ET
-0.5 w 0.85 0.88 0.92 RG 42.00 32.00 511.28 0.5 re S
-
-endstream
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier /Encoding /WinAnsiEncoding >>
 endobj
 6 0 obj
-<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 7 0 R /Resources 3 0 R >>
+<< /Type /Font /Subtype /Type1 /BaseFont /Courier-Bold /Encoding /WinAnsiEncoding >>
 endobj
 7 0 obj
-<< /Length 6564 >>
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 1422 >>
 stream
-1 w 0.820 0.860 0.920 RG 42.00 813.89 511.28 0.50 re S
-BT /F2 8.00 Tf 0.350 0.400 0.500 rg 1 0 0 1 42.00 817.89 Tm (ARFOM-DB | Comprehensive Project Report) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 796.89 Tm (is a superkey\). Dynamic values like excess baggage fees are computed via operational views.) Tj ET
-0.5 w 0.850 0.890 0.940 RG 0.940 0.960 0.980 rg 42.00 771.39 511.28 18.00 re B
-BT /F2 11.00 Tf 0.080 0.220 0.450 rg 1 0 0 1 50.00 776.39 Tm (6. Verification & Negative Constraint Test Results) Tj ET
-0.080 0.250 0.500 rg 42.00 738.39 511.28 16.00 re f
-BT /F2 8.50 Tf 1.000 1.000 1.000 rg 1 0 0 1 48.00 743.39 Tm (Test ID) Tj ET
-BT /F2 8.50 Tf 1.000 1.000 1.000 rg 1 0 0 1 150.26 743.39 Tm (Constraint Evaluated) Tj ET
-BT /F2 8.50 Tf 1.000 1.000 1.000 rg 1 0 0 1 252.51 743.39 Tm (Test Input) Tj ET
-BT /F2 8.50 Tf 1.000 1.000 1.000 rg 1 0 0 1 354.77 743.39 Tm (Engine Behavior) Tj ET
-BT /F2 8.50 Tf 1.000 1.000 1.000 rg 1 0 0 1 457.02 743.39 Tm (Status) Tj ET
-0.5 w 0.880 0.900 0.940 RG 0.970 0.980 1.000 rg 42.00 722.39 511.28 16.00 re B
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 48.00 727.39 Tm (TC-01) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 150.26 727.39 Tm (CHECK \(weight_kg >= 0\)) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 252.51 727.39 Tm (weight_kg = -5.50) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 354.77 727.39 Tm (Engine aborts write in 0.8ms) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 457.02 727.39 Tm (PASS) Tj ET
-0.5 w 0.880 0.900 0.940 RG 1.000 1.000 1.000 rg 42.00 706.39 511.28 16.00 re B
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 48.00 711.39 Tm (TC-02) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 150.26 711.39 Tm (UNIQUE \(flight_id, seat_id\)) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 252.51 711.39 Tm (Flight 1, Seat 1 twice) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 354.77 711.39 Tm (Duplicate key rejected) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 457.02 711.39 Tm (PASS) Tj ET
-0.5 w 0.880 0.900 0.940 RG 0.970 0.980 1.000 rg 42.00 690.39 511.28 16.00 re B
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 48.00 695.39 Tm (TC-03) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 150.26 695.39 Tm (CHECK \(origin != dest\)) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 252.51 695.39 Tm (DEL  ->  DEL) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 354.77 695.39 Tm (Write aborted) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 457.02 695.39 Tm (PASS) Tj ET
-0.5 w 0.880 0.900 0.940 RG 1.000 1.000 1.000 rg 42.00 674.39 511.28 16.00 re B
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 48.00 679.39 Tm (TC-04) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 150.26 679.39 Tm (FOREIGN KEY ON DELETE RESTRICT) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 252.51 679.39 Tm (DELETE airport 'DEL') Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 354.77 679.39 Tm (Deletion blocked) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 457.02 679.39 Tm (PASS) Tj ET
-0.5 w 0.880 0.900 0.940 RG 0.970 0.980 1.000 rg 42.00 658.39 511.28 16.00 re B
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 48.00 663.39 Tm (TC-05) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 150.26 663.39 Tm (ACID INSERT Transaction) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 252.51 663.39 Tm (Passenger: V. Malhotra) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 354.77 663.39 Tm (Row ID 61 allocated in 2.1ms) Tj ET
-BT /F1 8.00 Tf 0.100 0.120 0.160 rg 1 0 0 1 457.02 663.39 Tm (PASS) Tj ET
-0.5 w 0.850 0.890 0.940 RG 0.940 0.960 0.980 rg 42.00 637.39 511.28 18.00 re B
-BT /F2 11.00 Tf 0.080 0.220 0.450 rg 1 0 0 1 50.00 642.39 Tm (7. User Interface Implementation & CRUD Operations) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 617.39 Tm (The application layer connects directly to the relational database through a zero-dependency Python REST server:) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 599.89 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 599.89 Tm (Viewing Module: Live data grid with multi-table selector, search filters, column sorting, and pagination.) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 584.39 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 584.39 Tm (Insertion Module: Form validation with 1-click viva presets and real-time row count increment \(+1\).) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 568.89 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 568.89 Tm (Deletion Module: Pre-deletion inspection with referential safety warnings and instant row count decrement \(-1\).) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 553.39 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 553.39 Tm (Before & After Comparator: Side-by-side 3-column state transition proving live storage engine reflection.) Tj ET
-0.5 w 0.850 0.890 0.940 RG 0.940 0.960 0.980 rg 42.00 527.89 511.28 18.00 re B
-BT /F2 11.00 Tf 0.080 0.220 0.450 rg 1 0 0 1 50.00 532.89 Tm (8. Conclusion & Repository Deliverables) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 507.89 Tm (ARFOM-DB provides an enterprise-ready, mathematically rigorous relational foundation for airline reservation and fleet) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 42.00 494.39 Tm (dispatching. All source code, DDL/DML scripts, slide decks, and test harnesses are submitted in the public repository:) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 476.89 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 476.89 Tm (Repository URL: https://github.com/Sanjyit-S/DBMS-Course-Project) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 461.39 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 461.39 Tm (Presentation-I: Problem Description PDF & Scope Definition) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 445.89 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 445.89 Tm (Presentation-II: Interactive ER Studio, DDL Scripts & Analytical Queries) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 430.39 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 430.39 Tm (Presentation-III: Live UI Source Code, Slide Deck & CRUD Verification) Tj ET
-BT /F2 9.50 Tf 0.100 0.450 0.850 rg 1 0 0 1 46.00 414.89 Tm (-) Tj ET
-BT /F1 9.50 Tf 0.120 0.150 0.200 rg 1 0 0 1 58.00 414.89 Tm (Project-Report: Comprehensive 16-Chapter Technical Documentation) Tj ET
-BT /F1 8 Tf 0.45 0.50 0.60 rg 1 0 0 1 493.28 22 Tm (Page 2 of 2) Tj ET
-0.5 w 0.85 0.88 0.92 RG 42.00 32.00 511.28 0.5 re S
-
+q 0.6 0.65 0.7 RG 1 w 54 740 m 558 740 l S Q
+q 0.1 0.2 0.4 rg
+BT /F2 18 Tf 210 680 Td (PROJECT REPORT) Tj ET
+Q
+q 0.1 0.15 0.2 rg
+BT /F2 13 Tf 100.1 640 Td (Design and Implementation of a Database Management System for) Tj ET
+BT /F2 13 Tf 111.3 622 Td (Airline Reservation and Flight Operations Management System) Tj ET
+Q
+q 0.88 0.12 0.12 rg
+BT /F2 64 Tf 240 480 Td (W) Tj ET
+0.2 0.2 0.2 rg
+BT /F2 64 Tf 315 480 Td (U) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 22 Tf 180 440 Td (WOXSEN) Tj ET
+0.88 0.12 0.12 rg
+BT /F2 22 Tf 285 440 Td (UNIVERSITY) Tj ET
+Q
+q 0.15 0.2 0.3 rg
+BT /F2 10.5 Tf 130 340 Td (NAME:) Tj ET
+BT /F1 10.5 Tf 240 340 Td (SANJYIT SURESH KUMAR) Tj ET
+Q
+q 0.15 0.2 0.3 rg
+BT /F2 10.5 Tf 130 318 Td (ROLL NO:) Tj ET
+BT /F1 10.5 Tf 240 318 Td (25WU0102243) Tj ET
+Q
+q 0.15 0.2 0.3 rg
+BT /F2 10.5 Tf 130 296 Td (PROGRAM:) Tj ET
+BT /F1 10.5 Tf 240 296 Td (B.Tech Artificial Intelligence and Machine Learning) Tj ET
+Q
+q 0.15 0.2 0.3 rg
+BT /F2 10.5 Tf 130 274 Td (COURSE NAME:) Tj ET
+BT /F1 10.5 Tf 240 274 Td (DATABASE MANAGEMENT SYSTEMS) Tj ET
+Q
+q 0.15 0.2 0.3 rg
+BT /F2 10.5 Tf 130 252 Td (FACULTY NAME:) Tj ET
+BT /F1 10.5 Tf 240 252 Td (Dr. Kiran Mayee Adavala) Tj ET
+Q
+q 0.15 0.2 0.3 rg
+BT /F2 10.5 Tf 130 230 Td (ACADEMIC YEAR:) Tj ET
+BT /F1 10.5 Tf 240 230 Td (2025 - 2029) Tj ET
+Q
+q 0.1 0.2 0.4 rg
+BT /F2 11 Tf 220 110 Td (WOXSEN UNIVERSITY) Tj ET
+0.4 0.45 0.5 rg
+BT /F1 10 Tf 232 95 Td (School of Technology) Tj ET
+Q
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 4097 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (ABSTRACT) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 718 Td (Managing commercial airline operations manually or through fragmented legacy spreadsheets is an increasingly) Tj ET
+BT /F1 9.5 Tf 54 704.5 Td (intractable challenge for aviation enterprises, particularly as passenger volumes, flight route frequencies, aircraft cabin) Tj ET
+BT /F1 9.5 Tf 54 691.0 Td (topologies, and baggage custody logistics expand. Information related to flight route schedules, aircraft seating) Tj ET
+BT /F1 9.5 Tf 54 677.5 Td (arrangements, passenger reservations, passenger name records \(PNRs\), e-ticketing, airport check-in custody, excess) Tj ET
+BT /F1 9.5 Tf 54 664.0 Td (baggage fee collection, and cancellations is often scattered across disconnected ledgers, leading to relational) Tj ET
+BT /F1 9.5 Tf 54 650.5 Td (inconsistency, double-booking contention, revenue leakage, and severe retrieval latency.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 633.0 Td (This project, titled 'Design and Implementation of a Database Management System for Airline Reservation and Flight) Tj ET
+BT /F1 9.5 Tf 54 619.5 Td (Operations Management System' \(ARFOM-DB\), addresses these industry-critical failure modes by engineering and) Tj ET
+BT /F1 9.5 Tf 54 606.0 Td (implementing a centralized, ACID-compliant relational database management system that systematically unifies all) Tj ET
+BT /F1 9.5 Tf 54 592.5 Td (flight operations and passenger booking data.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 575.0 Td (The system models ten interrelated entities - Airports, Aircraft, Routes, Flights, Seats, Passengers, Bookings, Tickets,) Tj ET
+BT /F1 9.5 Tf 54 561.5 Td (Payments, Check-ins, Baggage, and Cancellations - using a strictly normalized 3NF schema implemented in MySQL) Tj ET
+BT /F1 9.5 Tf 54 548.0 Td (and SQLite. Primary key, composite unique, and foreign key constraints enforce referential integrity across the entire) Tj ET
+BT /F1 9.5 Tf 54 534.5 Td (operational lifecycle, guaranteeing that duplicate seat bookings on identical flight legs are rejected at the storage) Tj ET
+BT /F1 9.5 Tf 54 521.0 Td (engine level.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 503.5 Td (A high-contrast web-based administrative and customer operations interface was developed using modern HTML5,) Tj ET
+BT /F1 9.5 Tf 54 490.0 Td (CSS3, and JavaScript on the frontend, communicating directly with a lightweight Python backend server through) Tj ET
+BT /F1 9.5 Tf 54 476.5 Td (RESTful JSON endpoints. The interface allows authorized station dispatchers and passengers to view, search, filter,) Tj ET
+BT /F1 9.5 Tf 54 463.0 Td (allocate cabin seats, issue live tickets with PNRs, execute check-in baggage weighing with automated excess fee) Tj ET
+BT /F1 9.5 Tf 54 449.5 Td (calculation, and perform safe deletions across the entire flight management domain.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 432.0 Td (The database was populated with a complete dataset covering 10 international airport hubs, 4 commercial aircraft) Tj ET
+BT /F1 9.5 Tf 54 418.5 Td (models, 15 scheduled flight routes, 60 passengers, 60 confirmed bookings, 60 issued e-tickets, and live payment) Tj ET
+BT /F1 9.5 Tf 54 405.0 Td (records. A comprehensive battery of analytical SQL queries was executed to validate fleet load factors, route revenue) Tj ET
+BT /F1 9.5 Tf 54 391.5 Td (yields, corridor demand, and passenger baggage distribution.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 374.0 Td (Functional testing, including live transactional CRUD demonstrations, constraint defense evaluations, and negative) Tj ET
+BT /F1 9.5 Tf 54 360.5 Td (testing scenarios, confirmed the absolute correctness of multi-table commits and the structural integrity of the) Tj ET
+BT /F1 9.5 Tf 54 347.0 Td (underlying relational schema.) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 291.7 36 Td (Page 2) Tj ET
+Q
+endstream
+endobj
+11 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 12 0 R >>
+endobj
+12 0 obj
+<< /Length 10840 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (TABLE OF CONTENTS) Tj ET
+Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 718 Td (ABSTRACT) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 106.006 718 Td (...............................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 718 Td (2) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 703.5 Td (TABLE OF CONTENTS) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 153.517 703.5 Td (.....................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 703.5 Td (3) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 54 689.0 Td (1. INTRODUCTION) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 137.002 689.0 Td (........................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 689.0 Td (5) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 54 674.5 Td (2. PROBLEM STATEMENT) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 170.50900000000001 674.5 Td (.................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 674.5 Td (6) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 54 660.0 Td (3. OBJECTIVES AND SCOPE) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 181.03 660.0 Td (...............................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 660.0 Td (7) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 645.5 Td (    3.1 Objectives) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 125.032 645.5 Td (...........................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 645.5 Td (7) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 631.0 Td (    3.2 Scope) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 108.535 631.0 Td (...............................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 631.0 Td (7) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 54 616.5 Td (4. EXISTING SYSTEM AND PROPOSED SYSTEM) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 264.55 616.5 Td (............................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 616.5 Td (8) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 54 602.0 Td (5. SOFTWARE AND HARDWARE REQUIREMENTS) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 272.497 602.0 Td (...........................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 602.0 Td (9) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 587.5 Td (    5.1 Software Requirements) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 177.05200000000002 587.5 Td (...............................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 587.5 Td (9) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 573.0 Td (    5.2 Hardware Requirements) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 180.54399999999998 573.0 Td (...............................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 573.0 Td (9) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 54 558.5 Td (6. SYSTEM ARCHITECTURE) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 178.51 558.5 Td (..............................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 558.5 Td (10) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 544.0 Td (    6.1 Frontend Layer \(Web Operations Portal\)) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 243.58 544.0 Td (................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 544.0 Td (10) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 529.5 Td (    6.2 Backend Layer \(Python REST Dispatcher\)) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 251.581 529.5 Td (..............................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 529.5 Td (10) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 515.0 Td (    6.3 Database Layer \(Relational Engine\)) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 225.58 515.0 Td (....................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 515.0 Td (10) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 54 500.5 Td (7. DATABASE DESIGN) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 155.011 500.5 Td (....................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 500.5 Td (11) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 54 486.0 Td (8. ER DIAGRAM) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 126.004 486.0 Td (..........................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 486.0 Td (12) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 54 471.5 Td (9. RELATIONAL SCHEMA AND NORMALIZATION) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 267.493 471.5 Td (...........................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 471.5 Td (13) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 457.0 Td (    9.1 Relational Schema Overview) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 198.553 457.0 Td (..........................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 457.0 Td (13) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 442.5 Td (    9.2 Normalization) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 138.02800000000002 442.5 Td (.......................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 442.5 Td (13) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 54 428.0 Td (10. DATA DICTIONARY) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 156.505 428.0 Td (...................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 428.0 Td (14) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 413.5 Td (    airports) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 98.01400000000001 413.5 Td (................................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 413.5 Td (14) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 399.0 Td (    aircraft) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 95.512 399.0 Td (................................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 399.0 Td (14) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 384.5 Td (    routes) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 93.019 384.5 Td (.................................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 384.5 Td (14) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 370.0 Td (    seats) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 89.518 370.0 Td (..................................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 370.0 Td (14) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 355.5 Td (    flights) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 91.51599999999999 355.5 Td (.................................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 355.5 Td (15) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 341.0 Td (    passengers) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 114.529 341.0 Td (............................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 341.0 Td (15) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 326.5 Td (    bookings) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 104.02600000000001 326.5 Td (...............................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 326.5 Td (15) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 312.0 Td (    tickets) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 93.51400000000001 312.0 Td (.................................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 312.0 Td (15) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 297.5 Td (    payments) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 107.023 297.5 Td (..............................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 297.5 Td (16) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 283.0 Td (    checkins) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 103.018 283.0 Td (...............................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 283.0 Td (16) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 268.5 Td (    baggage) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 103.036 268.5 Td (...............................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 268.5 Td (16) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 254.0 Td (    cancellations) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 120.02799999999999 254.0 Td (...........................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 254.0 Td (16) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 54 239.5 Td (11. DATABASE IMPLEMENTATION) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 206.509 239.5 Td (........................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 239.5 Td (16) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 225.0 Td (    11.1 Database Creation) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 163.05700000000002 225.0 Td (.................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 225.0 Td (16) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 210.5 Td (    11.2 Representative Table Creation) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 210.073 210.5 Td (.......................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 210.5 Td (16) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 196.0 Td (    11.3 Representative Alteration) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 189.067 196.0 Td (............................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 196.0 Td (16) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 54 181.5 Td (12. DDL AND DML OPERATIONS) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 197.509 181.5 Td (..........................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 181.5 Td (17) Tj ET Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 291.7 36 Td (Page 3) Tj ET
+Q
+endstream
+endobj
+13 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 14 0 R >>
+endobj
+14 0 obj
+<< /Length 10005 >>
+stream
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 750 Td (12.1 INSERT) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 111.019 750 Td (.............................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 750 Td (17) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 734.5 Td (12.2 UPDATE) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 114.52000000000001 734.5 Td (............................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 734.5 Td (17) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 719.0 Td (12.3 DELETE) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 113.02600000000001 719.0 Td (.............................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 719.0 Td (17) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 703.5 Td (12.4 SELECT) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 113.02600000000001 703.5 Td (.............................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 703.5 Td (17) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 54 688.0 Td (13. SQL QUERIES AND RESULTS) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 201.028 688.0 Td (.........................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 688.0 Td (17) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 672.5 Td (    Query 1: High-Yield Flight Occupancy & Route Manifest) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 290.092 672.5 Td (.....................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 672.5 Td (17) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 657.0 Td (    Query 2: Corridor Passenger Distribution & Revenue Analysis) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 313.591 657.0 Td (................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 657.0 Td (18) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 641.5 Td (    Query 3: Complete Passenger Booking & Seat Allocation Chain) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 321.124 641.5 Td (..............................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 641.5 Td (18) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 626.0 Td (    Query 4: Airport Hub Departure & Arrival Traffic Matrix) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 284.062 626.0 Td (.......................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 626.0 Td (18) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 610.5 Td (    Query 5: Excess Baggage Surcharge & Revenue Reconciliation) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 322.123 610.5 Td (..............................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 610.5 Td (18) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 595.0 Td (    Query 6: Cabin Class Load Factor & Yield Optimization) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 287.59000000000003 595.0 Td (......................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 595.0 Td (19) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 579.5 Td (    Query 7: Ticket Cancellation Penalty & Refund Audit) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 276.601 579.5 Td (........................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 579.5 Td (19) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 564.0 Td (14. USER INTERFACE DESIGN) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 188.527 564.0 Td (............................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 564.0 Td (20) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 548.5 Td (    14.1 Interface Features) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 161.059 548.5 Td (..................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 548.5 Td (20) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 533.0 Td (    14.2 Interface Screens) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 158.55700000000002 533.0 Td (..................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 533.0 Td (20) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 517.5 Td (15. CRUD / LIVE DATABASE DEMONSTRATION) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 258.043 517.5 Td (............................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 517.5 Td (24) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 502.0 Td (    15.1 Step 1 — Initial State) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 168.51999999999998 502.0 Td (................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 502.0 Td (24) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 486.5 Td (    15.2 Step 2 — Insertion) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 158.512 486.5 Td (..................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 486.5 Td (24) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 471.0 Td (    15.3 Step 3 — Database Verification \(After Insert\)) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 262.048 471.0 Td (...........................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 471.0 Td (25) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 455.5 Td (    15.4 Step 4 — Deletion) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 157.00900000000001 455.5 Td (...................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 455.5 Td (25) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 440.0 Td (    15.5 Step 5 — Database Verification \(After Delete\)) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 265.549 440.0 Td (...........................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 440.0 Td (25) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 424.5 Td (16. IMPLEMENTATION DETAILS) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 193.036 424.5 Td (...........................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 424.5 Td (26) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 409.0 Td (    16.1 Final Database Statistics) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 187.06 409.0 Td (............................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 409.0 Td (26) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 393.5 Td (    16.2 Backend Implementation) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 187.069 393.5 Td (............................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 393.5 Td (26) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 378.0 Td (    16.3 Frontend Implementation) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 188.068 378.0 Td (............................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 378.0 Td (26) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 54 362.5 Td (17. TESTING AND VALIDATION) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 191.515 362.5 Td (............................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 362.5 Td (27) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 347.0 Td (18. CHALLENGES AND LIMITATIONS) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 214.042 347.0 Td (......................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 347.0 Td (28) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 331.5 Td (    18.1 Challenges Faced) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 160.555 331.5 Td (..................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 331.5 Td (28) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 316.0 Td (    18.2 Limitations) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 131.035 316.0 Td (.........................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 316.0 Td (28) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 300.5 Td (19. CONCLUSION, FUTURE SCOPE AND REFERENCES) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 294.034 300.5 Td (....................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 300.5 Td (28) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 285.0 Td (    19.1 Conclusion) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 132.538 285.0 Td (........................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 285.0 Td (28) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 269.5 Td (    19.2 Future Scope) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 142.051 269.5 Td (......................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 269.5 Td (29) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 254.0 Td (    19.3 References) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 134.041 254.0 Td (........................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 254.0 Td (29) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 54 238.5 Td (A. GITHUB APPENDIX) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 152.50900000000001 238.5 Td (....................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 238.5 Td (30) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F1 9 Tf 54 223.0 Td (    Repository Structure) Tj ET Q
+q 0.6 0.65 0.7 rg BT /F1 8 Tf 150.034 223.0 Td (....................................................................................) Tj ET Q
+q 0.15 0.15 0.2 rg BT /F2 9 Tf 540 223.0 Td (30) Tj ET Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 291.7 36 Td (Page 4) Tj ET
+Q
+endstream
+endobj
+15 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 16 0 R >>
+endobj
+16 0 obj
+<< /Length 4085 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (1. INTRODUCTION) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 718 Td (Database Management Systems \(DBMS\) form the computational bedrock of global aviation and transportation) Tj ET
+BT /F1 9.5 Tf 54 704.5 Td (enterprises. An airline reservation and flight operations network is, fundamentally, a highly intricate web of) Tj ET
+BT /F1 9.5 Tf 54 691.0 Td (interdependent entities - airport hubs, airframes, cabin physical topologies, flight schedules, customer identities,) Tj ET
+BT /F1 9.5 Tf 54 677.5 Td (reservation transactions, electronic tickets, departure check-in manifests, baggage handling custody, and financial) Tj ET
+BT /F1 9.5 Tf 54 664.0 Td (ledgers - whose relational integrity must be maintained with zero margin for error.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 646.5 Td (In a commercial airline network, thousands of passengers interact with seat maps, flight departures, and baggage) Tj ET
+BT /F1 9.5 Tf 54 633.0 Td (desks simultaneously. Coordinating which passenger occupies which seat on which flight leg, ensuring that baggage) Tj ET
+BT /F1 9.5 Tf 54 619.5 Td (weight allowances are reconciled accurately, tracking flight departure statuses across multiple airport terminals, and) Tj ET
+BT /F1 9.5 Tf 54 606.0 Td (managing transaction refunds requires a robust, ACID-compliant database architecture.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 588.5 Td (Manually maintained records, physical registers, or disconnected flat spreadsheets suffer from fatal concurrency flaws,) Tj ET
+BT /F1 9.5 Tf 54 575.0 Td (data duplication, lack of referential enforcement, and update anomalies. A relational database system, in contrast, is) Tj ET
+BT /F1 9.5 Tf 54 561.5 Td (designed specifically to maintain structured, normalized records, enforcing domain and foreign key integrity constraints) Tj ET
+BT /F1 9.5 Tf 54 548.0 Td (at the database engine level.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 530.5 Td (This project presents the complete design and implementation of the Airline Reservation & Flight Operations) Tj ET
+BT /F1 9.5 Tf 54 517.0 Td (Management System \(ARFOM-DB\). The database is structured across twelve fully normalized relational tables) Tj ET
+BT /F1 9.5 Tf 54 503.5 Td (capturing airports, aircraft fleet, seat configurations, routes, flights, passengers, bookings, tickets, payments, airport) Tj ET
+BT /F1 9.5 Tf 54 490.0 Td (check-ins, baggage weight records, and cancellation penalties.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 472.5 Td (An ANSI-standard relational engine \(SQLite 3.x / MySQL 8.0\) serves as the persistent data storage layer, while a) Tj ET
+BT /F1 9.5 Tf 54 459.0 Td (responsive, high-contrast web operations application built with vanilla HTML5, CSS3, and JavaScript, paired with a) Tj ET
+BT /F1 9.5 Tf 54 445.5 Td (Python REST server, enables administrative dispatchers and passengers to execute real-time flight bookings,) Tj ET
+BT /F1 9.5 Tf 54 432.0 Td (interactive cabin seat allocation, live airport radar tracking, and baggage check-in without requiring direct SQL) Tj ET
+BT /F1 9.5 Tf 54 418.5 Td (command-line knowledge.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 401.0 Td (The operational flight routes, airport hubs, and schedules modelled in this project reference authentic global aviation) Tj ET
+BT /F1 9.5 Tf 54 387.5 Td (corridors \(such as New Delhi DEL, Mumbai BOM, Dubai DXB, London Heathrow LHR, and Singapore SIN\) to establish) Tj ET
+BT /F1 9.5 Tf 54 374.0 Td (industrial realism. The overarching motivation is academic - applying advanced relational modelling, Boyce-Codd / 3NF) Tj ET
+BT /F1 9.5 Tf 54 360.5 Td (normalization, constraint defense engineering, and full-stack database integration concepts to a mission-critical) Tj ET
+BT /F1 9.5 Tf 54 347.0 Td (domain.) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 291.7 36 Td (Page 5) Tj ET
+Q
+endstream
+endobj
+17 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 18 0 R >>
+endobj
+18 0 obj
+<< /Length 3885 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (2. PROBLEM STATEMENT) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 718 Td (Commercial airline operations involve coordinating an enormous volume of interdependent operational and commercial) Tj ET
+BT /F1 9.5 Tf 54 704.5 Td (information - passenger credentials, aircraft seating configurations, scheduled flight trajectories, ticket issuance,) Tj ET
+BT /F1 9.5 Tf 54 691.0 Td (payment settlements, airport boarding pass generation, baggage weight custody, and cancellation refunds. When such) Tj ET
+BT /F1 9.5 Tf 54 677.5 Td (information is managed through manual spreadsheets or un-normalized file systems, several critical failure modes) Tj ET
+BT /F1 9.5 Tf 54 664.0 Td (emerge:) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 646.5 Td () Tj ET
+BT /F1 9.5 Tf 70 646.5 Td (Concurrency Contention & Double-Booking: Simultaneous reservation requests attempting to book the same) Tj ET
+BT /F1 9.5 Tf 70 633.0 Td (physical seat on the same flight leg result in double-allocation when proper composite unique constraints are) Tj ET
+BT /F1 9.5 Tf 70 619.5 Td (absent.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 604.0 Td () Tj ET
+BT /F1 9.5 Tf 70 604.0 Td (Data Redundancy & Update Anomalies: Repeating aircraft specifications, route distances, and passenger contact) Tj ET
+BT /F1 9.5 Tf 70 590.5 Td (details across multiple booking sheets leads to severe relational inconsistencies when changes occur.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 575.0 Td () Tj ET
+BT /F1 9.5 Tf 70 575.0 Td (Referential Integrity Violations: Deleting a flight or passenger record without foreign-key cascade/restrict protection) Tj ET
+BT /F1 9.5 Tf 70 561.5 Td (leaves orphaned tickets, check-in records, and baggage manifests.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 546.0 Td () Tj ET
+BT /F1 9.5 Tf 70 546.0 Td (Absence of Domain Invariants: Without engine-level CHECK constraints, invalid data - such as negative baggage) Tj ET
+BT /F1 9.5 Tf 70 532.5 Td (masses, origin airports identical to destination airports, or departure timestamps succeeding arrival timestamps -) Tj ET
+BT /F1 9.5 Tf 70 519.0 Td (enters the database unchecked.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 503.5 Td () Tj ET
+BT /F1 9.5 Tf 70 503.5 Td (Inefficient Airport Departure Processing: Airport ground staff cannot quickly verify passenger check-in status,) Tj ET
+BT /F1 9.5 Tf 70 490.0 Td (calculate excess baggage surcharges accurately \(>15 kg allowance\), or allocate boarding passes in real time.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 474.5 Td () Tj ET
+BT /F1 9.5 Tf 70 474.5 Td (Lack of Centralized Reporting: Operational questions - such as fleet load factors, route profitability, corridor) Tj ET
+BT /F1 9.5 Tf 70 461.0 Td (passenger volume, and cancellation penalty audits - require hours of manual cross-referencing rather than instant) Tj ET
+BT /F1 9.5 Tf 70 447.5 Td (SQL aggregation.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 432.0 Td () Tj ET
+BT /F1 9.5 Tf 70 432.0 Td (Lack of Secure Non-Technical Interface: Administrative staff and ground personnel cannot safely view, search,) Tj ET
+BT /F1 9.5 Tf 70 418.5 Td (insert, or delete records without direct, error-prone command-line database access.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 403.0 Td (These systemic deficiencies establish the definitive requirement for a normalized, centralized relational database) Tj ET
+BT /F1 9.5 Tf 54 389.5 Td (management system accessible through an intuitive, real-time web operations interface - the core objective of this) Tj ET
+BT /F1 9.5 Tf 54 376.0 Td (project.) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 291.7 36 Td (Page 6) Tj ET
+Q
+endstream
+endobj
+19 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 20 0 R >>
+endobj
+20 0 obj
+<< /Length 3922 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (3. OBJECTIVES AND SCOPE) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 708 Td (3.1 Objectives) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9 Tf 54 693 Td (1. Design a comprehensive, fully normalized 3NF relational schema for airline reservation and flight operations.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9 Tf 54 676.5 Td (2. Store and organize airport hubs, aircraft fleets, cabin seat maps, routes, and flight schedules systematically.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9 Tf 54 660.0 Td (3. Manage passenger profiles, commercial bookings, 6-character PNR references, and electronic ticket issuance.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9 Tf 54 643.5 Td (4. Enforce engine-level entity, referential, domain, and unique constraints \(e.g. composite uniqueness on flight_id + seat_id\).) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9 Tf 54 627.0 Td (5. Implement airport departure control workflows: passenger check-in processing and automated excess luggage calculation) Tj ET
+BT /F1 9 Tf 54 614.5 Td (\(>15 kg allowance\).) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9 Tf 54 598.0 Td (6. Manage financial payment records and cancellation penalty/refund ledgers with ACID transaction integrity.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9 Tf 54 581.5 Td (7. Develop a responsive, modern web interface connected to the relational database using Python REST backend APIs.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9 Tf 54 565.0 Td (8. Implement multi-column search, filtering, and pagination across all database entities and master operational manifests.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9 Tf 54 548.5 Td (9. Implement interactive aircraft cabin seat allocation \(First, Business, Economy\) with visual occupancy feedback.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9 Tf 54 532.0 Td (10. Provide an airport Flight Information Display System \(FIDS\) radar board for tracking real-time departures and arrivals.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9 Tf 54 515.5 Td (11. Validate database performance and data consistency through representative multi-table analytical SQL queries.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9 Tf 54 499.0 Td (12. Perform comprehensive testing including live CRUD verification, negative testing, and constraint violation rejection.) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 472.5 Td (3.2 Scope) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 457.5 Td (The system, as implemented, encompasses the following operational domains:) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 440.0 Td () Tj ET
+BT /F1 9.5 Tf 70 440.0 Td (Airport Hub & Route Network Management \(10 domestic & international hubs\)) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 424.5 Td () Tj ET
+BT /F1 9.5 Tf 70 424.5 Td (Fleet & Cabin Configuration \(Airbus A320, Boeing 737, Boeing 787, ATR-72 with First, Business, and Economy) Tj ET
+BT /F1 9.5 Tf 70 411.0 Td (classes\)) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 395.5 Td () Tj ET
+BT /F1 9.5 Tf 70 395.5 Td (Flight Scheduling & Status Tracking \(SCHEDULED, BOARDING, ON TIME, DELAYED, LANDED\)) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 380.0 Td () Tj ET
+BT /F1 9.5 Tf 70 380.0 Td (Passenger Booking & PNR E-Ticketing Lifecycle) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 364.5 Td () Tj ET
+BT /F1 9.5 Tf 70 364.5 Td (Airport Check-in & Baggage Weighing Scale Management) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 349.0 Td () Tj ET
+BT /F1 9.5 Tf 70 349.0 Td (Financial Settlement & Cancellation Audit Accounting) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 333.5 Td () Tj ET
+BT /F1 9.5 Tf 70 333.5 Td (Web-Based Administrative Operations Portal with Full-Stack Live Database Reflection) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 291.7 36 Td (Page 7) Tj ET
+Q
+endstream
+endobj
+21 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 22 0 R >>
+endobj
+22 0 obj
+<< /Length 5028 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (4. EXISTING SYSTEM AND PROPOSED SYSTEM) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 718 Td (Many small-to-medium regional charter carriers and transport operations continue to rely on manual, semi-automated) Tj ET
+BT /F1 9.5 Tf 54 704.5 Td (spreadsheets or disconnected software for record keeping. This section formally compares the limitations of legacy) Tj ET
+BT /F1 9.5 Tf 54 691.0 Td (manual workflows with the centralized relational architecture designed and implemented in ARFOM-DB.) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 651.5 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 8.2 Tf 60 656.5 Td (Existing / Manual Approach) Tj ET
+BT /F2 8.2 Tf 300 656.5 Td (Proposed ARFOM-DB System) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 623.5 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 623.5 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 59 640.5 Td (Records maintained manually in spreadsheets or standalone) Tj ET
+BT /F1 8.2 Tf 59 629.5 Td (logbooks) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 299 640.5 Td (Centralized, ACID-compliant relational database engine \(SQLite 3.x /) Tj ET
+BT /F1 8.2 Tf 299 629.5 Td (MySQL 8.0\)) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 595.5 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 595.5 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 59 612.5 Td (Searching for passenger itineraries or flights is slow, manual,) Tj ET
+BT /F1 8.2 Tf 59 601.5 Td (and error-prone) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 299 612.5 Td (Indexed relational tables enabling sub-millisecond SQL search and) Tj ET
+BT /F1 8.2 Tf 299 601.5 Td (multi-column filtering) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 567.5 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 567.5 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 59 584.5 Td (High risk of seat double-booking due to uncoordinated) Tj ET
+BT /F1 8.2 Tf 59 573.5 Td (concurrent entries) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 299 584.5 Td (Engine-enforced UNIQUE\(flight_id, seat_id\) constraint preventing) Tj ET
+BT /F1 8.2 Tf 299 573.5 Td (double-allocation) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 539.5 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 539.5 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 59 556.5 Td (Relationships between passengers, flights, seats, and) Tj ET
+BT /F1 8.2 Tf 59 545.5 Td (payments tracked informally) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 299 556.5 Td (Foreign key constraints formally enforce referential integrity across) Tj ET
+BT /F1 8.2 Tf 299 545.5 Td (all 12 tables) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 511.5 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 511.5 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 59 528.5 Td (Risk of invalid entries \(e.g. negative baggage weight, invalid) Tj ET
+BT /F1 8.2 Tf 59 517.5 Td (flight timestamps\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 299 528.5 Td (CHECK constraints guarantee domain validity \(e.g. weight_kg > 0,) Tj ET
+BT /F1 8.2 Tf 299 517.5 Td (origin != dest\)) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 483.5 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 483.5 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 59 500.5 Td (Baggage excess fees calculated manually at check-in desks) Tj ET
+BT /F1 8.2 Tf 59 489.5 Td (with frequent calculation errors) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 299 500.5 Td (Automated baggage scale engine with dynamic surcharge calculation) Tj ET
+BT /F1 8.2 Tf 299 489.5 Td (\(>15 kg @ Rs. 500/kg\)) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 455.5 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 455.5 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 59 472.5 Td (No centralized real-time access for airport ground staff and) Tj ET
+BT /F1 8.2 Tf 59 461.5 Td (dispatchers) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 299 472.5 Td (Web-based operations portal with live visual seat maps and) Tj ET
+BT /F1 8.2 Tf 299 461.5 Td (electronic FIDS radar boards) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 427.5 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 427.5 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 59 444.5 Td (Audit reporting for flight load factors and revenue yields is slow) Tj ET
+BT /F1 8.2 Tf 59 433.5 Td (and cumbersome) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 299 444.5 Td (Analytical SQL queries and views provide instant executive metrics) Tj ET
+BT /F1 8.2 Tf 299 433.5 Td (and load factor reports) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 399.5 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 399.5 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 59 416.5 Td (No referential deletion protection leading to orphaned baggage) Tj ET
+BT /F1 8.2 Tf 59 405.5 Td (and ticket records) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 299 416.5 Td (ON DELETE RESTRICT constraints protect master operational) Tj ET
+BT /F1 8.2 Tf 299 405.5 Td (entities from accidental deletion) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 291.7 36 Td (Page 8) Tj ET
+Q
+endstream
+endobj
+23 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 24 0 R >>
+endobj
+24 0 obj
+<< /Length 6946 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (5. SOFTWARE AND HARDWARE REQUIREMENTS) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 708 Td (5.1 Software Requirements) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 693 Td (The following software technologies were utilized in the architectural design, database implementation, and full-stack) Tj ET
+BT /F1 9.5 Tf 54 679.5 Td (operational deployment of the system:) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 640.0 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 8.2 Tf 60 645.0 Td (Category) Tj ET
+BT /F2 8.2 Tf 170 645.0 Td (Technology Used) Tj ET
+BT /F2 8.2 Tf 320 645.0 Td (Purpose / Role in System) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 612.0 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 612.0 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 629.0 Td (Database Engine) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 629.0 Td (SQLite 3.40+ / MySQL 8.0) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 319 629.0 Td (Persistent relational storage, foreign key enforcement, ACID) Tj ET
+BT /F1 8.2 Tf 319 618.0 Td (transactions) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 595.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 595.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 601.0 Td (Backend Runtime) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 601.0 Td (Python 3.10+) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 319 601.0 Td (RESTful dispatch server, database connector, query routing) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 567.0 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 567.0 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 584.0 Td (Backend Framework) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 584.0 Td (Python Native http.server) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 319 584.0 Td (Lightweight HTTP dispatcher, JSON API handlers,) Tj ET
+BT /F1 8.2 Tf 319 573.0 Td (Zero-dependency runtime) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 539.0 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 539.0 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 556.0 Td (Database Driver) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 556.0 Td (sqlite3 / mysql-connector) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 319 556.0 Td (Direct parameterised SQL execution, transaction) Tj ET
+BT /F1 8.2 Tf 319 545.0 Td (commit/rollback) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 511.0 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 511.0 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 528.0 Td (Frontend UI) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 528.0 Td (Vanilla HTML5 / CSS3) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 319 528.0 Td (High-contrast light Apple/Stripe design, cabin seat map, FIDS) Tj ET
+BT /F1 8.2 Tf 319 517.0 Td (board) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 494.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 494.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 500.0 Td (Frontend Logic) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 500.0 Td (Vanilla JavaScript \(ES6+\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 319 500.0 Td (Asynchronous fetch APIs, live DOM rendering, client validation) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 477.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 477.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 483.0 Td (Version Control) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 483.0 Td (Git 2.40+) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 319 483.0 Td (Source code revision tracking, commit history management) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 460.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 460.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 466.0 Td (Code Hosting) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 466.0 Td (GitHub) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 319 466.0 Td (Public repository hosting, continuous artefact backup) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 443.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 443.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 449.0 Td (Dev Environment) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 449.0 Td (Visual Studio Code) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 319 449.0 Td (IDE for code development, schema authoring, and testing) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 425.0 Td (5.2 Hardware Requirements) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 410.0 Td (The following system hardware specifications represent the minimum and recommended operational baselines for) Tj ET
+BT /F1 9.5 Tf 54 396.5 Td (developing, hosting, and executing the application:) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 357.0 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 8.2 Tf 60 362.0 Td (Component) Tj ET
+BT /F2 8.2 Tf 170 362.0 Td (Minimum Requirement) Tj ET
+BT /F2 8.2 Tf 350 362.0 Td (Recommended Specification) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 340.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 340.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 346.0 Td (Processor) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 346.0 Td (Dual-core 64-bit CPU, 1.8 GHz) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 349 346.0 Td (Quad-core 2.4 GHz CPU or Apple Silicon M-series) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 323.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 323.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 329.0 Td (RAM) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 329.0 Td (4 GB RAM) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 349 329.0 Td (8 GB to 16 GB DDR4/Unified Memory) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 306.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 306.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 312.0 Td (Storage) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 312.0 Td (500 MB available disk space) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 349 312.0 Td (2 GB SSD available storage) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 289.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 289.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 295.0 Td (Operating System) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 295.0 Td (Windows 10/11, macOS 12+, Ubuntu 20.04+) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 349 295.0 Td (macOS Sonoma / Linux Ubuntu 22.04 LTS) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 272.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 272.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 278.0 Td (Display Resolution) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 278.0 Td (1280 x 800 pixels) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 349 278.0 Td (1920 x 1080 pixels \(Full HD\) or higher) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 244.0 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 244.0 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 261.0 Td (Network) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 261.0 Td (Localhost loopback / Standard TCP/IP) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 349 261.0 Td (Active broadband connection for remote mobile tunnel) Tj ET
+BT /F1 8.2 Tf 349 250.0 Td (access) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 291.7 36 Td (Page 9) Tj ET
+Q
+endstream
+endobj
+25 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 26 0 R >>
+endobj
+26 0 obj
+<< /Length 4746 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (6. SYSTEM ARCHITECTURE) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 718 Td (The system follows an industry-standard three-tier architecture, establishing strict decoupling between presentation,) Tj ET
+BT /F1 9.5 Tf 54 704.5 Td (application business logic, and relational storage. This separation ensures maintainability, security against direct SQL) Tj ET
+BT /F1 9.5 Tf 54 691.0 Td (injection, and high throughput.) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 322.5 504 345 re f
+0.2 0.25 0.35 RG 0.5 w
+54 322.5 504 345 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 655.5 Td (Figure 1: Three-Tier System Architecture) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 643.5 Td (OPERATIONAL USER / DISPATCHER / PASSENGER) Tj ET
+BT /F3 8 Tf 64 632.5 Td (                                         |) Tj ET
+BT /F3 8 Tf 64 621.5 Td (                                         v) Tj ET
+BT /F3 8 Tf 64 610.5 Td (               +----------------------------------------------------+) Tj ET
+BT /F3 8 Tf 64 599.5 Td (               |     PRESENTATION LAYER \(HTML5 + CSS3 + JS\)         |) Tj ET
+BT /F3 8 Tf 64 588.5 Td (               |  - Flight Booking Hub & Interactive Cabin Seat Map  |) Tj ET
+BT /F3 8 Tf 64 577.5 Td (               |  - Airport Radar & Electronic FIDS Departure Board  |) Tj ET
+BT /F3 8 Tf 64 566.5 Td (               |  - Record Explorer with Search, Sort & Pagination   |) Tj ET
+BT /F3 8 Tf 64 555.5 Td (               |  - Passenger Check-in Desk & Baggage Scale Counter  |) Tj ET
+BT /F3 8 Tf 64 544.5 Td (               +----------------------------------------------------+) Tj ET
+BT /F3 8 Tf 64 533.5 Td (                                         |) Tj ET
+BT /F3 8 Tf 64 522.5 Td (                            HTTP / REST JSON \(Port 8000\)) Tj ET
+BT /F3 8 Tf 64 511.5 Td (                                         v) Tj ET
+BT /F3 8 Tf 64 500.5 Td (               +----------------------------------------------------+) Tj ET
+BT /F3 8 Tf 64 489.5 Td (               |         APPLICATION BACKEND LAYER \(PYTHON\)          |) Tj ET
+BT /F3 8 Tf 64 478.5 Td (               |  - REST Dispatcher \(do_GET, do_POST Endpoints\)      |) Tj ET
+BT /F3 8 Tf 64 467.5 Td (               |  - ACID Multi-Table Transaction Coordinator        |) Tj ET
+BT /F3 8 Tf 64 456.5 Td (               |  - Parameterised Query Binding & Exception Handler  |) Tj ET
+BT /F3 8 Tf 64 445.5 Td (               |  - Excess Baggage & Airfare Calculation Engine      |) Tj ET
+BT /F3 8 Tf 64 434.5 Td (               +----------------------------------------------------+) Tj ET
+BT /F3 8 Tf 64 423.5 Td (                                         |) Tj ET
+BT /F3 8 Tf 64 412.5 Td (                                 SQL Query / Cursor) Tj ET
+BT /F3 8 Tf 64 401.5 Td (                                         v) Tj ET
+BT /F3 8 Tf 64 390.5 Td (               +----------------------------------------------------+) Tj ET
+BT /F3 8 Tf 64 379.5 Td (               |      RELATIONAL DATABASE LAYER \(SQLITE / MYSQL\)     |) Tj ET
+BT /F3 8 Tf 64 368.5 Td (               |  - 10 Core Tables + Master Manifest Analytical View |) Tj ET
+BT /F3 8 Tf 64 357.5 Td (               |  - Strict Foreign Key \(FK\) & Domain CHECK Rules     |) Tj ET
+BT /F3 8 Tf 64 346.5 Td (               |  - Composite UNIQUE Invariants \(flight_id, seat_id\) |) Tj ET
+BT /F3 8 Tf 64 335.5 Td (               +----------------------------------------------------+) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 302.5 Td (6.1 Frontend Layer \(Web Operations Portal\)) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 287.5 Td (Renders responsive administrative dashboards, visual cabin seat maps, electronic departures boards, and table) Tj ET
+BT /F1 9.5 Tf 54 274.0 Td (explorer grids with asynchronous fetch requests.) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 246.5 Td (6.2 Backend Layer \(Python REST Dispatcher\)) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 231.5 Td (Exposes structured RESTful endpoints \(/api/data, /api/book_ticket, /api/checkin_baggage, /api/airport_board\),) Tj ET
+BT /F1 9.5 Tf 54 218.0 Td (coordinates atomic multi-table transactions, and returns clean JSON responses.) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 190.5 Td (6.3 Database Layer \(Relational Engine\)) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 175.5 Td (Stores persistent records across 12 relational tables, strictly enforcing primary/foreign keys, uniqueness, and domain) Tj ET
+BT /F1 9.5 Tf 54 162.0 Td (constraints.) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 10) Tj ET
+Q
+endstream
+endobj
+27 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 28 0 R >>
+endobj
+28 0 obj
+<< /Length 5443 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (7. DATABASE DESIGN) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 718 Td (The relational database, named arfom.db \(or arfom_db in MySQL\), consists of twelve relational entities and analytical) Tj ET
+BT /F1 9.5 Tf 54 704.5 Td (views. Each entity encapsulates a specific domain in commercial flight operations, connected through strict referential) Tj ET
+BT /F1 9.5 Tf 54 691.0 Td (keys described in detail in Section 9. The functional purpose of each table is summarized below:) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 651.5 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 8.0 Tf 60 656.5 Td (Table / Entity) Tj ET
+BT /F2 8.0 Tf 150 656.5 Td (Primary Key) Tj ET
+BT /F2 8.0 Tf 250 656.5 Td (Functional Purpose in System) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 634.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 634.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 640.5 Td (airports) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 640.5 Td (airport_code) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 249 640.5 Td (Stores global airport hubs, IATA codes, cities, and geographical coordinates) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 617.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 617.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 623.5 Td (aircraft) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 623.5 Td (aircraft_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 249 623.5 Td (Stores commercial aircraft fleet models, registration numbers, and total capacities) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 600.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 600.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 606.5 Td (routes) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 606.5 Td (route_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 249 606.5 Td (Defines directional flight corridors connecting origin and destination airport hubs) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 583.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 583.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 589.5 Td (flights) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 589.5 Td (flight_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 249 589.5 Td (Stores scheduled flight operations, departure/arrival timestamps, and live statuses) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 566.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 566.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 572.5 Td (seats) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 572.5 Td (seat_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 249 572.5 Td (Maintains physical aircraft cabin seat inventory \(First, Business, and Economy\)) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 549.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 549.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 555.5 Td (passengers) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 555.5 Td (passenger_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 249 555.5 Td (Stores verified customer profiles, full names, emails, and passport numbers) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 532.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 532.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 538.5 Td (bookings) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 538.5 Td (booking_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 249 538.5 Td (Stores reservation transactions, timestamps, and 6-character PNR references) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 515.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 515.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 521.5 Td (tickets) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 521.5 Td (ticket_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 249 521.5 Td (Issues electronic tickets linking bookings to flight legs, seats, and airfares) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 498.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 498.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 504.5 Td (payments) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 504.5 Td (payment_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 249 504.5 Td (Records financial transactions, payment modes \(UPI/Card\), and settlement statuses) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 470.5 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 470.5 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 487.5 Td (checkins) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 487.5 Td (checkin_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 249 487.5 Td (Maintains airport departure control records, boarding pass numbers, and check-in) Tj ET
+BT /F1 8.0 Tf 249 476.5 Td (times) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 453.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 453.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 459.5 Td (baggage) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 459.5 Td (baggage_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 249 459.5 Td (Tracks checked luggage weight custody and calculates excess weight surcharges) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 436.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 436.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 442.5 Td (cancellations) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 442.5 Td (cancellation_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 249 442.5 Td (Manages ticket cancellation requests, refund calculations, and retained penalty fees) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 11) Tj ET
+Q
+endstream
+endobj
+29 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 30 0 R >>
+endobj
+30 0 obj
+<< /Length 7655 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (8. ER DIAGRAM) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 718 Td (The Entity Relationship \(ER\) mapping below represents the relational architecture of the airline management database,) Tj ET
+BT /F1 9.5 Tf 54 704.5 Td (depicting entities, primary keys \(PK\), foreign keys \(FK\), and cardinalities.) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 391.0 504 290 re f
+0.2 0.25 0.35 RG 0.5 w
+54 391.0 504 290 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 669.0 Td (Figure 2: Entity Relationship Diagram & Cardinality Topology) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 657.0 Td (AIRPORTS \(PK: airport_code\)) Tj ET
+BT /F3 8 Tf 64 646.0 Td (      |) Tj ET
+BT /F3 8 Tf 64 635.0 Td (      +--- \(1 : N\) -- ->  ROUTES \(PK: route_id, FK: origin_airport, dest_airport\)) Tj ET
+BT /F3 8 Tf 64 624.0 Td (                          |) Tj ET
+BT /F3 8 Tf 64 613.0 Td (                          +--- \(1 : N\) -- ->  FLIGHTS \(PK: flight_id, FK: route_id, aircraft_id\)) Tj ET
+BT /F3 8 Tf 64 602.0 Td (                                              |) Tj ET
+BT /F3 8 Tf 64 591.0 Td (    AIRCRAFT \(PK: aircraft_id\)                |) Tj ET
+BT /F3 8 Tf 64 580.0 Td (      |                                       |) Tj ET
+BT /F3 8 Tf 64 569.0 Td (      +--- \(1 : N\) -- ->  SEATS \(PK: seat_id\)   |) Tj ET
+BT /F3 8 Tf 64 558.0 Td (                          |                   |) Tj ET
+BT /F3 8 Tf 64 547.0 Td (                          v                   v) Tj ET
+BT /F3 8 Tf 64 536.0 Td (    PASSENGERS \(PK: passenger_id\)     +-----------------------------------------+) Tj ET
+BT /F3 8 Tf 64 525.0 Td (      |                               | TICKETS \(PK: ticket_id\)                 |) Tj ET
+BT /F3 8 Tf 64 514.0 Td (      +--- \(1 : N\) -- ->  BOOKINGS      | FK: booking_id, flight_id,              |) Tj ET
+BT /F3 8 Tf 64 503.0 Td (                          |           |     seat_id, passenger_id               |) Tj ET
+BT /F3 8 Tf 64 492.0 Td (                          | \(1 : N\)   | Invariant: UNIQUE\(flight_id, seat_id\)   |) Tj ET
+BT /F3 8 Tf 64 481.0 Td (                          v           +-----------------------------------------+) Tj ET
+BT /F3 8 Tf 64 470.0 Td (                        PAYMENTS             |                   |) Tj ET
+BT /F3 8 Tf 64 459.0 Td (                        \(PK: payment_id\)     | \(1 : 1\)           | \(1 : 1\)) Tj ET
+BT /F3 8 Tf 64 448.0 Td (                                             v                   v) Tj ET
+BT /F3 8 Tf 64 437.0 Td (                                      CHECKINS            CANCELLATIONS) Tj ET
+BT /F3 8 Tf 64 426.0 Td (                                      \(PK: checkin_id\)    \(PK: cancellation_id\)) Tj ET
+BT /F3 8 Tf 64 415.0 Td (                                             |) Tj ET
+BT /F3 8 Tf 64 404.0 Td (                                             +--- \(1 : N\) -- ->  BAGGAGE \(PK: baggage_id\)) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 371.0 Td (Cardinality & Relationship Matrix) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 334.0 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 7.8 Tf 60 339.0 Td (Parent Entity) Tj ET
+BT /F2 7.8 Tf 150 339.0 Td (Child Entity) Tj ET
+BT /F2 7.8 Tf 235 339.0 Td (Cardinality) Tj ET
+BT /F2 7.8 Tf 300 339.0 Td (Business Rule & Invariant Enforced) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 317.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 317.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 323.0 Td (airports) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 149 323.0 Td (routes) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 234 323.0 Td (1 : N) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 299 323.0 Td (An airport hub can serve as origin/destination for multiple routes) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 300.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 300.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 306.0 Td (aircraft) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 149 306.0 Td (seats) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 234 306.0 Td (1 : N) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 299 306.0 Td (An aircraft airframe contains multiple categorized cabin seats) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 283.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 283.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 289.0 Td (aircraft) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 149 289.0 Td (flights) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 234 289.0 Td (1 : N) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 299 289.0 Td (An aircraft is scheduled across multiple sequential flight legs) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 266.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 266.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 272.0 Td (routes) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 149 272.0 Td (flights) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 234 272.0 Td (1 : N) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 299 272.0 Td (A route corridor accommodates multiple scheduled flight operations) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 249.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 249.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 255.0 Td (passengers) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 149 255.0 Td (bookings) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 234 255.0 Td (1 : N) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 299 255.0 Td (A customer profile can place multiple independent booking orders) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 232.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 232.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 238.0 Td (bookings) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 149 238.0 Td (tickets) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 234 238.0 Td (1 : N) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 299 238.0 Td (A single booking order can encompass multiple passenger e-tickets) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 215.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 215.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 221.0 Td (flights / seats) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 149 221.0 Td (tickets) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 234 221.0 Td (1 : 1 \(Unique\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 299 221.0 Td (Strict invariant: A seat on a flight leg can only be ticketed once) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 187.0 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 187.0 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 204.0 Td (tickets) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 149 204.0 Td (checkins) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 234 204.0 Td (1 : 1) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 299 204.0 Td (A ticket can only undergo departure check-in and boarding pass issue) Tj ET
+BT /F1 7.8 Tf 299 193.0 Td (once) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 170.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 170.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 176.0 Td (checkins) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 149 176.0 Td (baggage) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 234 176.0 Td (1 : N) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 299 176.0 Td (A checked-in passenger can check multiple baggage pieces) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 153.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 153.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 159.0 Td (tickets) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 149 159.0 Td (cancellations) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 234 159.0 Td (1 : 1) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 299 159.0 Td (A ticket can only be cancelled once with calculated refund penalty) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 12) Tj ET
+Q
+endstream
+endobj
+31 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 32 0 R >>
+endobj
+32 0 obj
+<< /Length 3320 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (9. RELATIONAL SCHEMA AND NORMALIZATION) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 708 Td (9.1 Relational Schema Overview) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 693 Td (The relational schema translates the ER model into twelve concrete tables with explicit primary and foreign key) Tj ET
+BT /F1 9.5 Tf 54 679.5 Td (constraints:) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 662.0 Td () Tj ET
+BT /F1 9.5 Tf 70 662.0 Td (airports -> routes \(1:N\) - Origin and destination hubs validate against registered airport codes.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 646.5 Td () Tj ET
+BT /F1 9.5 Tf 70 646.5 Td (aircraft -> flights \(1:N\) and aircraft -> seats \(1:N\) - Aircraft airframes partition physical seats.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 631.0 Td () Tj ET
+BT /F1 9.5 Tf 70 631.0 Td (passengers -> bookings \(1:N\) -> tickets \(1:N\) - Commercial reservation hierarchy.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 615.5 Td () Tj ET
+BT /F1 9.5 Tf 70 615.5 Td (tickets -> checkins \(1:1\) -> baggage \(1:N\) - Airport ground custody chain.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 600.0 Td () Tj ET
+BT /F1 9.5 Tf 70 600.0 Td (tickets -> cancellations \(1:1\) - Refund and cancellation penalty accounting.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 584.5 Td (Referential integrity is strictly maintained via ON DELETE RESTRICT on foundational infrastructure \(airports, aircraft,) Tj ET
+BT /F1 9.5 Tf 54 571.0 Td (routes\) preventing accidental operational disruption.) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 543.5 Td (9.2 Normalization \(1NF, 2NF, 3NF\)) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 528.5 Td (The schema was decomposed following mathematical normalization principles to eliminate redundancy and prevent) Tj ET
+BT /F1 9.5 Tf 54 515.0 Td (update/delete anomalies:) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 497.5 Td () Tj ET
+BT /F1 9.5 Tf 70 497.5 Td (First Normal Form \(1NF\): All attributes store atomic, indivisible values. Multi-valued elements \(e.g. passenger bags,) Tj ET
+BT /F1 9.5 Tf 70 484.0 Td (multiple tickets under a PNR\) are decomposed into independent child tables with surrogate primary keys.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 468.5 Td () Tj ET
+BT /F1 9.5 Tf 70 468.5 Td (Second Normal Form \(2NF\): Every table relies on a single-column primary key or full functional dependency. In) Tj ET
+BT /F1 9.5 Tf 70 455.0 Td (composite entities, non-key attributes depend on the entire candidate key, eliminating partial dependencies.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 439.5 Td () Tj ET
+BT /F1 9.5 Tf 70 439.5 Td (Third Normal Form \(3NF\): Non-key attributes depend strictly and exclusively on the primary key, eliminating) Tj ET
+BT /F1 9.5 Tf 70 426.0 Td (transitive dependencies. For example, aircraft model and total capacity are stored only in aircraft; flights stores only) Tj ET
+BT /F1 9.5 Tf 70 412.5 Td (an aircraft_id foreign key reference rather than duplicating airframe specs.) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 13) Tj ET
+Q
+endstream
+endobj
+33 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 34 0 R >>
+endobj
+34 0 obj
+<< /Length 8069 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (10. DATA DICTIONARY) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 718 Td (The data dictionary documents every attribute across the database tables, detailing physical data types, constraints,) Tj ET
+BT /F1 9.5 Tf 54 704.5 Td (and operational descriptions.) Tj ET
+Q
+q 0.15 0.2 0.3 rg
+BT /F2 10 Tf 54 679.0 Td (Table: airports) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 644.0 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 8.0 Tf 60 649.0 Td (Attribute) Tj ET
+BT /F2 8.0 Tf 150 649.0 Td (Data Type) Tj ET
+BT /F2 8.0 Tf 230 649.0 Td (Constraint) Tj ET
+BT /F2 8.0 Tf 330 649.0 Td (Description) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 627.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 627.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 633.0 Td (airport_code) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 633.0 Td (CHAR\(3\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 633.0 Td (PRIMARY KEY) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 633.0 Td (Unique 3-letter IATA airport code \(e.g. DEL, BOM\)) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 610.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 610.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 616.0 Td (airport_name) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 616.0 Td (VARCHAR\(100\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 616.0 Td (NOT NULL) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 616.0 Td (Full commercial name of the airport) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 593.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 593.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 599.0 Td (city) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 599.0 Td (VARCHAR\(50\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 599.0 Td (NOT NULL) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 599.0 Td (Municipality / City location of the airport) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 576.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 576.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 582.0 Td (country) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 582.0 Td (VARCHAR\(50\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 582.0 Td (NOT NULL) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 582.0 Td (Country of jurisdiction) Tj ET
+Q
+q 0.15 0.2 0.3 rg
+BT /F2 10 Tf 54 560.0 Td (Table: aircraft) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 525.0 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 8.0 Tf 60 530.0 Td (Attribute) Tj ET
+BT /F2 8.0 Tf 150 530.0 Td (Data Type) Tj ET
+BT /F2 8.0 Tf 230 530.0 Td (Constraint) Tj ET
+BT /F2 8.0 Tf 330 530.0 Td (Description) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 508.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 508.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 514.0 Td (aircraft_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 514.0 Td (INT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 514.0 Td (PRIMARY KEY) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 514.0 Td (Unique numeric airframe identifier) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 491.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 491.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 497.0 Td (model) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 497.0 Td (VARCHAR\(50\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 497.0 Td (NOT NULL) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 497.0 Td (Aircraft manufacturer model \(e.g. Boeing 737-800\)) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 474.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 474.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 480.0 Td (registration_no) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 480.0 Td (VARCHAR\(20\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 480.0 Td (UNIQUE, NOT NULL) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 480.0 Td (Civil aviation aircraft tail registration number) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 457.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 457.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 463.0 Td (total_capacity) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 463.0 Td (INT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 463.0 Td (CHECK \(> 0\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 463.0 Td (Total certified passenger seating capacity) Tj ET
+Q
+q 0.15 0.2 0.3 rg
+BT /F2 10 Tf 54 441.0 Td (Table: routes) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 406.0 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 8.0 Tf 60 411.0 Td (Attribute) Tj ET
+BT /F2 8.0 Tf 150 411.0 Td (Data Type) Tj ET
+BT /F2 8.0 Tf 230 411.0 Td (Constraint) Tj ET
+BT /F2 8.0 Tf 330 411.0 Td (Description) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 389.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 389.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 395.0 Td (route_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 395.0 Td (INT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 395.0 Td (PRIMARY KEY) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 395.0 Td (Unique route trajectory identifier) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 372.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 372.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 378.0 Td (origin_airport) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 378.0 Td (CHAR\(3\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 378.0 Td (FK -> airports) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 378.0 Td (Departure airport hub code) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 355.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 355.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 361.0 Td (dest_airport) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 361.0 Td (CHAR\(3\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 361.0 Td (FK -> airports) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 361.0 Td (Arrival destination airport hub code) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 338.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 338.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 344.0 Td (distance_km) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 344.0 Td (NUMERIC\(8,2\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 344.0 Td (CHECK \(> 0\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 344.0 Td (Direct flight corridor distance in kilometres) Tj ET
+Q
+q 0.15 0.2 0.3 rg
+BT /F2 10 Tf 54 322.0 Td (Table: seats) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 287.0 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 8.0 Tf 60 292.0 Td (Attribute) Tj ET
+BT /F2 8.0 Tf 150 292.0 Td (Data Type) Tj ET
+BT /F2 8.0 Tf 230 292.0 Td (Constraint) Tj ET
+BT /F2 8.0 Tf 330 292.0 Td (Description) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 270.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 270.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 276.0 Td (seat_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 276.0 Td (INT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 276.0 Td (PRIMARY KEY) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 276.0 Td (Unique cabin seat identifier) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 253.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 253.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 259.0 Td (aircraft_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 259.0 Td (INT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 259.0 Td (FK -> aircraft) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 259.0 Td (Airframe containing this seat) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 236.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 236.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 242.0 Td (seat_number) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 242.0 Td (VARCHAR\(4\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 242.0 Td (NOT NULL) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 242.0 Td (Cabin alphanumeric position \(e.g. 1A, 4C, 12F\)) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 219.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 219.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 225.0 Td (seat_class) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 149 225.0 Td (VARCHAR\(15\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 229 225.0 Td (CHECK \(CLASS\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 225.0 Td (Cabin tier: FIRST, BUSINESS, or ECONOMY) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 14) Tj ET
+Q
+endstream
+endobj
+35 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 36 0 R >>
+endobj
+36 0 obj
+<< /Length 10173 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (10. DATA DICTIONARY \(Continued\)) Tj ET
+Q
+q 0.15 0.2 0.3 rg
+BT /F2 10 Tf 54 710 Td (Table: flights) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 675 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 8.0 Tf 60 680 Td (Attribute) Tj ET
+BT /F2 8.0 Tf 160 680 Td (Data Type) Tj ET
+BT /F2 8.0 Tf 235 680 Td (Constraint) Tj ET
+BT /F2 8.0 Tf 330 680 Td (Description) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 658 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 658 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 664 Td (flight_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 664 Td (INT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 664 Td (PRIMARY KEY) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 664 Td (Unique flight operation identifier) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 641 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 641 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 647 Td (flight_number) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 647 Td (VARCHAR\(10\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 647 Td (NOT NULL) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 647 Td (Commercial flight designator \(e.g. AR-101\)) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 624 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 624 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 630 Td (route_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 630 Td (INT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 630 Td (FK -> routes) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 630 Td (Assigned route corridor) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 607 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 607 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 613 Td (aircraft_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 613 Td (INT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 613 Td (FK -> aircraft) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 613 Td (Assigned operating airframe) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 590 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 590 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 596 Td (scheduled_departure) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 596 Td (TIMESTAMP) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 596 Td (NOT NULL) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 596 Td (Timetabled departure timestamp) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 573 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 573 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 579 Td (scheduled_arrival) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 579 Td (TIMESTAMP) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 579 Td (NOT NULL) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 579 Td (Timetabled arrival timestamp) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 556 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 556 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 562 Td (flight_status) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 562 Td (VARCHAR\(20\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 562 Td (DEFAULT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 562 Td (Status: SCHEDULED, BOARDING, ON TIME, LANDED) Tj ET
+Q
+q 0.15 0.2 0.3 rg
+BT /F2 10 Tf 54 540 Td (Table: passengers) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 505 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 8.0 Tf 60 510 Td (Attribute) Tj ET
+BT /F2 8.0 Tf 160 510 Td (Data Type) Tj ET
+BT /F2 8.0 Tf 235 510 Td (Constraint) Tj ET
+BT /F2 8.0 Tf 330 510 Td (Description) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 488 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 488 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 494 Td (passenger_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 494 Td (INT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 494 Td (PRIMARY KEY) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 494 Td (Unique passenger profile identifier) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 471 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 471 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 477 Td (first_name) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 477 Td (VARCHAR\(50\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 477 Td (NOT NULL) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 477 Td (Legal given name of passenger) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 454 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 454 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 460 Td (last_name) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 460 Td (VARCHAR\(50\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 460 Td (NOT NULL) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 460 Td (Legal family surname of passenger) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 437 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 437 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 443 Td (email) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 443 Td (VARCHAR\(100\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 443 Td (UNIQUE, NOT NULL) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 443 Td (Contact and e-ticket email address) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 420 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 420 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 426 Td (passport_number) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 426 Td (VARCHAR\(20\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 426 Td (UNIQUE, NOT NULL) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 426 Td (Government travel document / Passport number) Tj ET
+Q
+q 0.15 0.2 0.3 rg
+BT /F2 10 Tf 54 404 Td (Table: bookings) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 369 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 8.0 Tf 60 374 Td (Attribute) Tj ET
+BT /F2 8.0 Tf 160 374 Td (Data Type) Tj ET
+BT /F2 8.0 Tf 235 374 Td (Constraint) Tj ET
+BT /F2 8.0 Tf 330 374 Td (Description) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 352 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 352 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 358 Td (booking_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 358 Td (INT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 358 Td (PRIMARY KEY) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 358 Td (Unique commercial reservation identifier) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 335 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 335 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 341 Td (booking_ref) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 341 Td (CHAR\(6\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 341 Td (UNIQUE, NOT NULL) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 341 Td (Passenger Name Record \(PNR, e.g. AR8192\)) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 318 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 318 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 324 Td (passenger_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 324 Td (INT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 324 Td (FK -> passengers) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 324 Td (Primary customer placing the booking) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 301 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 301 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 307 Td (booking_time) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 307 Td (TIMESTAMP) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 307 Td (DEFAULT CURRENT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 307 Td (Timestamp when reservation was placed) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 284 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 284 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 290 Td (booking_status) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 290 Td (VARCHAR\(20\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 290 Td (CHECK) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 290 Td (Status: CONFIRMED, CANCELLED, or ON_HOLD) Tj ET
+Q
+q 0.15 0.2 0.3 rg
+BT /F2 10 Tf 54 268 Td (Table: tickets) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 233 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 8.0 Tf 60 238 Td (Attribute) Tj ET
+BT /F2 8.0 Tf 160 238 Td (Data Type) Tj ET
+BT /F2 8.0 Tf 235 238 Td (Constraint) Tj ET
+BT /F2 8.0 Tf 330 238 Td (Description) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 216 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 216 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 222 Td (ticket_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 222 Td (INT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 222 Td (PRIMARY KEY) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 222 Td (Unique electronic ticket number) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 199 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 199 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 205 Td (booking_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 205 Td (INT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 205 Td (FK -> bookings) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 205 Td (Associated commercial booking order) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 182 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 182 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 188 Td (flight_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 188 Td (INT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 188 Td (FK -> flights) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 188 Td (Assigned scheduled flight leg) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 165 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 165 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 171 Td (seat_id) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 171 Td (INT) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 171 Td (FK -> seats) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 171 Td (Assigned cabin physical seat) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 148 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 148 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 154 Td (fare_amount) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 154 Td (NUMERIC\(10,2\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 154 Td (CHECK \(> 0\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 154 Td (Settled base airfare amount in INR) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 131 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 131 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 137 Td (ticket_status) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 159 137 Td (VARCHAR\(20\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 234 137 Td (DEFAULT ISSUED) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 329 137 Td (Status: ISSUED, BOARDED, or CANCELLED) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 15) Tj ET
+Q
+endstream
+endobj
+37 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 38 0 R >>
+endobj
+38 0 obj
+<< /Length 5360 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (10. DATA DICTIONARY \(Final Entities\)) Tj ET
+Q
+q 0.15 0.2 0.3 rg
+BT /F2 10 Tf 54 710 Td (Table: payments, checkins, baggage, cancellations) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 675 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 7.8 Tf 60 680 Td (Table) Tj ET
+BT /F2 7.8 Tf 130 680 Td (Key Attributes) Tj ET
+BT /F2 7.8 Tf 270 680 Td (Key Constraints) Tj ET
+BT /F2 7.8 Tf 390 680 Td (Operational Domain) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 647 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 647 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 664 Td (payments) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 129 664 Td (payment_id, booking_id,) Tj ET
+BT /F1 7.8 Tf 129 653 Td (amount_paid) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 269 664 Td (FK -> bookings,) Tj ET
+BT /F1 7.8 Tf 269 653 Td (CHECK\(amount > 0\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 389 664 Td (Settles airfare transactions \(CREDIT_CARD,) Tj ET
+BT /F1 7.8 Tf 389 653 Td (UPI, NET_BANKING\)) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 619 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 619 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 636 Td (checkins) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 129 636 Td (checkin_id, ticket_id, boarding_pass) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 269 636 Td (UNIQUE\(ticket_id\), 1:1) Tj ET
+BT /F1 7.8 Tf 269 625 Td (Invariant) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 389 636 Td (Departure control, issues boarding passes) Tj ET
+BT /F1 7.8 Tf 389 625 Td (\(e.g. BP-DEL-104\)) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 591 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 591 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 608 Td (baggage) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 129 608 Td (baggage_id, checkin_id, weight_kg) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 269 608 Td (FK -> checkins,) Tj ET
+BT /F1 7.8 Tf 269 597 Td (CHECK\(weight >= 0\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 389 608 Td (Luggage custody, excess fee calculation \(>15) Tj ET
+BT /F1 7.8 Tf 389 597 Td (kg @ Rs. 500/kg\)) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 563 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 563 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 580 Td (cancellations) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 129 580 Td (cancellation_id, ticket_id, refund) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 269 580 Td (UNIQUE\(ticket_id\), FK ->) Tj ET
+BT /F1 7.8 Tf 269 569 Td (tickets) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 389 580 Td (Refund processing with engine-calculated) Tj ET
+BT /F1 7.8 Tf 389 569 Td (penalty deduction) Tj ET
+Q
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 541 Td (11. DATABASE IMPLEMENTATION) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 523 Td (The relational schema was implemented as an ANSI-compliant SQLite 3.x and MySQL 8.0 database named arfom.db.) Tj ET
+BT /F1 9.5 Tf 54 509.5 Td (Below are representative Data Definition Language \(DDL\) statements illustrating table creation, constraint binding, and) Tj ET
+BT /F1 9.5 Tf 54 496.0 Td (schema alterations:) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 182.5 504 290 re f
+0.2 0.25 0.35 RG 0.5 w
+54 182.5 504 290 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 460.5 Td (DDL: Table Creation & Composite Unique Invariant) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 448.5 Td (-- 11.1 Database Initialization & Foreign Key Enforcement) Tj ET
+BT /F3 8 Tf 64 437.5 Td (    PRAGMA foreign_keys = ON;) Tj ET
+BT /F3 8 Tf 64 426.5 Td () Tj ET
+BT /F3 8 Tf 64 415.5 Td (    -- 11.2 Representative Table Creation with Constraints) Tj ET
+BT /F3 8 Tf 64 404.5 Td (    CREATE TABLE IF NOT EXISTS aircraft \() Tj ET
+BT /F3 8 Tf 64 393.5 Td (        aircraft_id INTEGER PRIMARY KEY AUTOINCREMENT,) Tj ET
+BT /F3 8 Tf 64 382.5 Td (        model VARCHAR\(50\) NOT NULL,) Tj ET
+BT /F3 8 Tf 64 371.5 Td (        registration_no VARCHAR\(20\) UNIQUE NOT NULL,) Tj ET
+BT /F3 8 Tf 64 360.5 Td (        total_capacity INTEGER NOT NULL CHECK \(total_capacity > 0\)) Tj ET
+BT /F3 8 Tf 64 349.5 Td (    \);) Tj ET
+BT /F3 8 Tf 64 338.5 Td () Tj ET
+BT /F3 8 Tf 64 327.5 Td (    CREATE TABLE IF NOT EXISTS tickets \() Tj ET
+BT /F3 8 Tf 64 316.5 Td (        ticket_id INTEGER PRIMARY KEY AUTOINCREMENT,) Tj ET
+BT /F3 8 Tf 64 305.5 Td (        booking_id INTEGER NOT NULL,) Tj ET
+BT /F3 8 Tf 64 294.5 Td (        flight_id INTEGER NOT NULL,) Tj ET
+BT /F3 8 Tf 64 283.5 Td (        seat_id INTEGER NOT NULL,) Tj ET
+BT /F3 8 Tf 64 272.5 Td (        passenger_id INTEGER NOT NULL,) Tj ET
+BT /F3 8 Tf 64 261.5 Td (        fare_amount NUMERIC\(10,2\) NOT NULL CHECK \(fare_amount >= 0\),) Tj ET
+BT /F3 8 Tf 64 250.5 Td (        ticket_status VARCHAR\(20\) NOT NULL DEFAULT 'ISSUED',) Tj ET
+BT /F3 8 Tf 64 239.5 Td (        FOREIGN KEY \(booking_id\) REFERENCES bookings\(booking_id\) ON DELETE CASCADE,) Tj ET
+BT /F3 8 Tf 64 228.5 Td (        FOREIGN KEY \(flight_id\) REFERENCES flights\(flight_id\) ON DELETE RESTRICT,) Tj ET
+BT /F3 8 Tf 64 217.5 Td (        FOREIGN KEY \(seat_id\) REFERENCES seats\(seat_id\) ON DELETE RESTRICT,) Tj ET
+BT /F3 8 Tf 64 206.5 Td (        UNIQUE \(flight_id, seat_id\) -- INVARIANT: Prevents Seat Double-Booking!) Tj ET
+BT /F3 8 Tf 64 195.5 Td (    \);) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 16) Tj ET
+Q
+endstream
+endobj
+39 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 40 0 R >>
+endobj
+40 0 obj
+<< /Length 3307 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (12. DDL AND DML OPERATIONS) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 718 Td (Standard Data Manipulation Language \(DML\) statements execute transactional modifications across the database:) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 536.5 504 158 re f
+0.2 0.25 0.35 RG 0.5 w
+54 536.5 504 158 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 682.5 Td (Representative DML Operations) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 670.5 Td (-- 12.1 INSERT: Allocate passenger booking) Tj ET
+BT /F3 8 Tf 64 659.5 Td (    INSERT INTO bookings \(booking_ref, passenger_id, booking_status\) VALUES \('AR9182', 12, 'CONFIRMED'\);) Tj ET
+BT /F3 8 Tf 64 648.5 Td () Tj ET
+BT /F3 8 Tf 64 637.5 Td (    -- 12.2 UPDATE: Mark ticket as boarded during departure) Tj ET
+BT /F3 8 Tf 64 626.5 Td (    UPDATE tickets SET ticket_status = 'BOARDED' WHERE ticket_id = 45;) Tj ET
+BT /F3 8 Tf 64 615.5 Td () Tj ET
+BT /F3 8 Tf 64 604.5 Td (    -- 12.3 DELETE: Remove cancelled booking with foreign-key cascade) Tj ET
+BT /F3 8 Tf 64 593.5 Td (    DELETE FROM bookings WHERE booking_id = 99;) Tj ET
+BT /F3 8 Tf 64 582.5 Td () Tj ET
+BT /F3 8 Tf 64 571.5 Td (    -- 12.4 SELECT: Retrieve active flights from Delhi hub) Tj ET
+BT /F3 8 Tf 64 560.5 Td (    SELECT f.flight_number, r.dest_airport, f.scheduled_departure FROM flights f) Tj ET
+BT /F3 8 Tf 64 549.5 Td (    JOIN routes r ON f.route_id = r.route_id WHERE r.origin_airport = 'DEL';) Tj ET
+Q
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 512.5 Td (13. SQL QUERIES AND RESULTS) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 494.5 Td (This section presents seven real-world analytical SQL queries executed against the live populated database) Tj ET
+BT /F1 9.5 Tf 54 481.0 Td (demonstrating multi-table JOINs, aggregate functions, and window metrics:) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 453.5 Td (Query 1: High-Yield Flight Occupancy & Route Manifest) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 438.5 Td (Retrieves the complete route manifest, aircraft model, capacity, and active passenger count for all flights, sorted by) Tj ET
+BT /F1 9.5 Tf 54 425.0 Td (occupancy:) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 287.5 504 114 re f
+0.2 0.25 0.35 RG 0.5 w
+54 287.5 504 114 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 389.5 Td (Query 1 SQL) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 377.5 Td (SELECT f.flight_number, r.origin_airport, r.dest_airport, ac.model,) Tj ET
+BT /F3 8 Tf 64 366.5 Td (           ac.total_capacity, COUNT\(t.ticket_id\) AS booked_passengers,) Tj ET
+BT /F3 8 Tf 64 355.5 Td (           ROUND\(COUNT\(t.ticket_id\)  100.0 / ac.total_capacity, 2\) AS load_factor_pct) Tj ET
+BT /F3 8 Tf 64 344.5 Td (    FROM flights f) Tj ET
+BT /F3 8 Tf 64 333.5 Td (    JOIN routes r ON f.route_id = r.route_id) Tj ET
+BT /F3 8 Tf 64 322.5 Td (    JOIN aircraft ac ON f.aircraft_id = ac.aircraft_id) Tj ET
+BT /F3 8 Tf 64 311.5 Td (    LEFT JOIN tickets t ON f.flight_id = t.flight_id AND t.ticket_status != 'CANCELLED') Tj ET
+BT /F3 8 Tf 64 300.5 Td (    GROUP BY f.flight_id ORDER BY booked_passengers DESC;) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 17) Tj ET
+Q
+endstream
+endobj
+41 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 42 0 R >>
+endobj
+42 0 obj
+<< /Length 3336 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (13. SQL QUERIES AND RESULTS \(Continued\)) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 708 Td (Query 2: Corridor Passenger Distribution & Revenue Analysis) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 693 Td (Aggregates gross settled revenue and passenger volume by origin airport hub to evaluate network revenue) Tj ET
+BT /F1 9.5 Tf 54 679.5 Td (contribution:) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 542.0 504 114 re f
+0.2 0.25 0.35 RG 0.5 w
+54 542.0 504 114 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 644.0 Td (Query 2 SQL) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 632.0 Td (SELECT r.origin_airport, orig.city AS origin_city, COUNT\(t.ticket_id\) AS total_passengers,) Tj ET
+BT /F3 8 Tf 64 621.0 Td (           COALESCE\(SUM\(p.amount_paid\), 0.00\) AS total_gross_revenue) Tj ET
+BT /F3 8 Tf 64 610.0 Td (    FROM routes r) Tj ET
+BT /F3 8 Tf 64 599.0 Td (    JOIN airports orig ON r.origin_airport = orig.airport_code) Tj ET
+BT /F3 8 Tf 64 588.0 Td (    JOIN flights f ON r.route_id = f.route_id) Tj ET
+BT /F3 8 Tf 64 577.0 Td (    LEFT JOIN tickets t ON f.flight_id = t.flight_id) Tj ET
+BT /F3 8 Tf 64 566.0 Td (    LEFT JOIN payments p ON t.booking_id = p.booking_id AND p.payment_status = 'SUCCESS') Tj ET
+BT /F3 8 Tf 64 555.0 Td (    GROUP BY r.origin_airport ORDER BY total_gross_revenue DESC;) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 522.0 Td (Query 3: Complete Passenger Booking & Seat Allocation Chain) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 507.0 Td (Joins passenger profile, booking PNR, e-ticket, flight number, route, seat number, and boarding pass for audit tracking:) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 347.5 504 136 re f
+0.2 0.25 0.35 RG 0.5 w
+54 347.5 504 136 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 471.5 Td (Query 3 SQL) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 459.5 Td (SELECT p.first_name || ' ' || p.last_name AS passenger_name, b.booking_ref AS pnr,) Tj ET
+BT /F3 8 Tf 64 448.5 Td (           f.flight_number, r.origin_airport || '  ->  ' || r.dest_airport AS route,) Tj ET
+BT /F3 8 Tf 64 437.5 Td (           s.seat_number, s.seat_class, t.fare_amount, ci.boarding_pass_number) Tj ET
+BT /F3 8 Tf 64 426.5 Td (    FROM passengers p) Tj ET
+BT /F3 8 Tf 64 415.5 Td (    JOIN bookings b ON p.passenger_id = b.passenger_id) Tj ET
+BT /F3 8 Tf 64 404.5 Td (    JOIN tickets t ON b.booking_id = t.booking_id) Tj ET
+BT /F3 8 Tf 64 393.5 Td (    JOIN flights f ON t.flight_id = f.flight_id) Tj ET
+BT /F3 8 Tf 64 382.5 Td (    JOIN routes r ON f.route_id = r.route_id) Tj ET
+BT /F3 8 Tf 64 371.5 Td (    JOIN seats s ON t.seat_id = s.seat_id) Tj ET
+BT /F3 8 Tf 64 360.5 Td (    LEFT JOIN checkins ci ON t.ticket_id = ci.ticket_id;) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 327.5 Td (Query 4 & 5: Hub Traffic Matrix & Excess Baggage Surcharge) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 312.5 Td (Query 4 computes departure vs arrival traffic across all 10 airport hubs. Query 5 identifies all passengers exceeding the) Tj ET
+BT /F1 9.5 Tf 54 299.0 Td (15.0 kg allowance and calculates excess baggage fees.) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 18) Tj ET
+Q
+endstream
+endobj
+43 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 44 0 R >>
+endobj
+44 0 obj
+<< /Length 2563 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (13. SQL QUERIES AND RESULTS \(Continued\)) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 708 Td (Query 6: Cabin Class Load Factor & Yield Optimization) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 693 Td (Analyses booking distribution and revenue yields across First, Business, and Economy cabin tiers:) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 555.5 504 114 re f
+0.2 0.25 0.35 RG 0.5 w
+54 555.5 504 114 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 657.5 Td (Query 6 SQL) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 645.5 Td (SELECT s.seat_class, COUNT\(t.ticket_id\) AS tickets_sold,) Tj ET
+BT /F3 8 Tf 64 634.5 Td (           ROUND\(AVG\(t.fare_amount\), 2\) AS average_fare,) Tj ET
+BT /F3 8 Tf 64 623.5 Td (           SUM\(t.fare_amount\) AS total_cabin_revenue,) Tj ET
+BT /F3 8 Tf 64 612.5 Td (           ROUND\(SUM\(t.fare_amount\)  100.0 / \(SELECT SUM\(fare_amount\) FROM tickets\), 2\) AS revenue_share_pct) Tj ET
+BT /F3 8 Tf 64 601.5 Td (    FROM tickets t) Tj ET
+BT /F3 8 Tf 64 590.5 Td (    JOIN seats s ON t.seat_id = s.seat_id) Tj ET
+BT /F3 8 Tf 64 579.5 Td (    WHERE t.ticket_status != 'CANCELLED') Tj ET
+BT /F3 8 Tf 64 568.5 Td (    GROUP BY s.seat_class ORDER BY total_cabin_revenue DESC;) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 535.5 Td (Query 7: Ticket Cancellation Penalty & Refund Audit) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 520.5 Td (Calculates total refund disbursements and retained penalty charges across cancelled passenger itineraries:) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 394.0 504 103 re f
+0.2 0.25 0.35 RG 0.5 w
+54 394.0 504 103 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 485.0 Td (Query 7 SQL) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 473.0 Td (SELECT c.cancellation_id, t.ticket_id, p.first_name || ' ' || p.last_name AS passenger_name,) Tj ET
+BT /F3 8 Tf 64 462.0 Td (           t.fare_amount AS original_fare, c.refund_amount, c.cancellation_fee,) Tj ET
+BT /F3 8 Tf 64 451.0 Td (           c.cancellation_reason, c.cancellation_time) Tj ET
+BT /F3 8 Tf 64 440.0 Td (    FROM cancellations c) Tj ET
+BT /F3 8 Tf 64 429.0 Td (    JOIN tickets t ON c.ticket_id = t.ticket_id) Tj ET
+BT /F3 8 Tf 64 418.0 Td (    JOIN passengers p ON t.passenger_id = p.passenger_id) Tj ET
+BT /F3 8 Tf 64 407.0 Td (    ORDER BY c.cancellation_time DESC;) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 19) Tj ET
+Q
+endstream
+endobj
+45 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 46 0 R >>
+endobj
+46 0 obj
+<< /Length 3804 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (14. USER INTERFACE DESIGN) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 718 Td (The user interface was developed as a responsive, high-contrast single-page web application connected directly to the) Tj ET
+BT /F1 9.5 Tf 54 704.5 Td (Python REST backend. The design adheres to a crisp Apple/Stripe light aesthetic with slate-900 typography, cobalt) Tj ET
+BT /F1 9.5 Tf 54 691.0 Td (accents, and emerald state indicators.) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 663.5 Td (14.1 Interface Features) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 648.5 Td () Tj ET
+BT /F1 9.5 Tf 70 648.5 Td (Interactive Cabin Seat Map: Graphical aircraft fuselage visualizing First, Business, and Economy rows with) Tj ET
+BT /F1 9.5 Tf 70 635.0 Td (real-time green/red seat availability and instant price calculation.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 619.5 Td () Tj ET
+BT /F1 9.5 Tf 70 619.5 Td (Live Flight Booking & PNR E-Ticket Generator: Multi-table ACID checkout issuing confirmed PNRs and printable) Tj ET
+BT /F1 9.5 Tf 70 606.0 Td (boarding passes.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 590.5 Td () Tj ET
+BT /F1 9.5 Tf 70 590.5 Td (Airport Radar & FIDS Terminal: Real-time Flight Information Display System board with live UTC+05:30 ticking) Tj ET
+BT /F1 9.5 Tf 70 577.0 Td (clock and departures/arrivals toggle.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 561.5 Td () Tj ET
+BT /F1 9.5 Tf 70 561.5 Td (Passenger Check-in Desk & Baggage Scale Counter: Interactive weight slider \(>15 kg @ Rs. 500/kg\) enforcing 1:1) Tj ET
+BT /F1 9.5 Tf 70 548.0 Td (check-in invariant.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 532.5 Td () Tj ET
+BT /F1 9.5 Tf 70 532.5 Td (Record Explorer: Searchable, sortable, and paginated table viewer across all 10 tables + Master Manifest View.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 517.0 Td () Tj ET
+BT /F1 9.5 Tf 70 517.0 Td (Record Insertion & Deletion with Foreign Key Restrict Protection.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 501.5 Td () Tj ET
+BT /F1 9.5 Tf 70 501.5 Td (Negative Testing Console: Live buttons demonstrating database constraint defense against invalid transactions.) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 476.0 Td (14.2 Interface Screens) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 461.0 Td (Figure 3 illustrates the master operational dashboard and navigation structure.) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 334.5 504 103 re f
+0.2 0.25 0.35 RG 0.5 w
+54 334.5 504 103 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 425.5 Td (Figure 3: Master Operations Dashboard Header & Key Metrics) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 413.5 Td (+-----------------------------------------------------------------------------------------+) Tj ET
+BT /F3 8 Tf 64 402.5 Td (    | [   ARFOM-DB] | Live Operations Portal  [Learner: Sanjyit Suresh Kumar \(25WU0102243\)]    |) Tj ET
+BT /F3 8 Tf 64 391.5 Td (    +-----------------------------------------------------------------------------------------+) Tj ET
+BT /F3 8 Tf 64 380.5 Td (    | Total Passengers: 60 | Active Flights: 15 | Confirmed Bookings: 60 | Revenue: Rs. 4,38,200 |) Tj ET
+BT /F3 8 Tf 64 369.5 Td (    +-----------------------------------------------------------------------------------------+) Tj ET
+BT /F3 8 Tf 64 358.5 Td (    | [   1. Flight Booking & Seats] [  2. Airport Radar] [  3. Record Explorer] [  4. Insert] |) Tj ET
+BT /F3 8 Tf 64 347.5 Td (    +-----------------------------------------------------------------------------------------+) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 20) Tj ET
+Q
+endstream
+endobj
+47 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 48 0 R >>
+endobj
+48 0 obj
+<< /Length 2604 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (14. USER INTERFACE DESIGN \(Continued\)) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 708 Td (Screen 1: Flight Booking Hub & Interactive Cabin Seat Map) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 693 Td (The flight booking hub allows passengers and station agents to select a flight, view the exact aircraft cabin layout,) Tj ET
+BT /F1 9.5 Tf 54 679.5 Td (select an available green seat, enter passenger details, and execute an ACID transaction issuing an electronic ticket) Tj ET
+BT /F1 9.5 Tf 54 666.0 Td (and boarding pass.) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 484.5 504 158 re f
+0.2 0.25 0.35 RG 0.5 w
+54 484.5 504 158 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 630.5 Td (Figure 4: Interactive Aircraft Cabin Seat Map & Checkout Pane) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 618.5 Td (+----------------------------------------------------+------------------------------------+) Tj ET
+BT /F3 8 Tf 64 607.5 Td (    | SELECT FLIGHT: AR-101 | DEL \(Delhi\)  ->  BOM \(Mumbai\)| PASSENGER & PAYMENT DETAILS        |) Tj ET
+BT /F3 8 Tf 64 596.5 Td (    | Aircraft: Boeing 737-800 | Dep: 06:00 AM | 1,148 km | First Name: Vikram   Last: Malhotra|) Tj ET
+BT /F3 8 Tf 64 585.5 Td (    +----------------------------------------------------+ Email: vikram@skywings.org          |) Tj ET
+BT /F3 8 Tf 64 574.5 Td (    |               [ COCKPIT / NOSE ]                   | Passport: Z9821430                 |) Tj ET
+BT /F3 8 Tf 64 563.5 Td (    |  Row 1: [1A:FIRST] [1B:FIRST] || [1C:FIRST] [1D]   | Payment: [CREDIT_CARD - INSTANT]   |) Tj ET
+BT /F3 8 Tf 64 552.5 Td (    |  Row 3: [3A:BUS]   [3B:BUS]   || [3C:BUS]   [3D]   +------------------------------------+) Tj ET
+BT /F3 8 Tf 64 541.5 Td (    |  Row 4: [4A:BUS]   [4B:OCC]   || [4C:SELECTED]     | Base Fare:       Rs. 8,500.00      |) Tj ET
+BT /F3 8 Tf 64 530.5 Td (    |  Row 7: [7A:ECON]  [7B:ECON]  || [7C:ECON]  [7D]   | Airport Tax 12%: Rs. 1,020.00      |) Tj ET
+BT /F3 8 Tf 64 519.5 Td (    |  Legend: [Green: Available] [Red: Occupied]        | Total Settled:   Rs. 9,945.00      |) Tj ET
+BT /F3 8 Tf 64 508.5 Td (    |          [Blue Glowing: Selected by You]           | [  CONFIRM & ISSUE LIVE TICKET]  |) Tj ET
+BT /F3 8 Tf 64 497.5 Td (    +----------------------------------------------------+------------------------------------+) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 21) Tj ET
+Q
+endstream
+endobj
+49 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 50 0 R >>
+endobj
+50 0 obj
+<< /Length 2488 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (14. USER INTERFACE DESIGN \(Continued\)) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 708 Td (Screen 2: Airport Radar & Electronic FIDS Departure Board) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 693 Td (Displays real-time flight departures and arrivals across 10 global hubs with live status indicators, booked passenger) Tj ET
+BT /F1 9.5 Tf 54 679.5 Td (occupancy, and assigned terminal gates.) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 498.0 504 158 re f
+0.2 0.25 0.35 RG 0.5 w
+54 498.0 504 158 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 644.0 Td (Figure 5: Electronic Flight Information Display System \(FIDS\) Board) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 632.0 Td (+-----------------------------------------------------------------------------------------+) Tj ET
+BT /F3 8 Tf 64 621.0 Td (    | HUB: Indira Gandhi International \(DEL\) | Weather: 26C Clear | Live UTC+05:30: 14:30:00  |) Tj ET
+BT /F3 8 Tf 64 610.0 Td (    +-----------------------------------------------------------------------------------------+) Tj ET
+BT /F3 8 Tf 64 599.0 Td (    | [  Live Departures Board \(15\)]              | [  Live Arrivals Board \(15\)]             |) Tj ET
+BT /F3 8 Tf 64 588.0 Td (    +---------+--------------------+-----------+-----------------+------------+-------+-------+) Tj ET
+BT /F3 8 Tf 64 577.0 Td (    | FLIGHT  | DESTINATION        | TIME      | AIRCRAFT        | STATUS     | PAX   | GATE  |) Tj ET
+BT /F3 8 Tf 64 566.0 Td (    +---------+--------------------+-----------+-----------------+------------+-------+-------+) Tj ET
+BT /F3 8 Tf 64 555.0 Td (    | AR-101  | Mumbai \(BOM\)       | 06:00 AM  | Boeing 737-800  | BOARDING   | 4 Pax | A4    |) Tj ET
+BT /F3 8 Tf 64 544.0 Td (    | AR-103  | Bengaluru \(BLR\)    | 09:30 AM  | Airbus A320neo  | ON TIME    | 4 Pax | B2    |) Tj ET
+BT /F3 8 Tf 64 533.0 Td (    | AR-105  | Dubai \(DXB\)        | 01:15 PM  | Boeing 787-9    | SCHEDULED  | 4 Pax | C8    |) Tj ET
+BT /F3 8 Tf 64 522.0 Td (    | AR-107  | London \(LHR\)       | 04:45 PM  | Boeing 787-9    | SCHEDULED  | 4 Pax | D1    |) Tj ET
+BT /F3 8 Tf 64 511.0 Td (    +---------+--------------------+-----------+-----------------+------------+-------+-------+) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 22) Tj ET
+Q
+endstream
+endobj
+51 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 52 0 R >>
+endobj
+52 0 obj
+<< /Length 2312 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (14. USER INTERFACE DESIGN \(Continued\)) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 708 Td (Screen 3: Record Explorer & Multi-Column Search Grid) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 693 Td (Enables instantaneous search, sorting, and pagination across all database tables with real-time yellow match) Tj ET
+BT /F1 9.5 Tf 54 679.5 Td (highlighting.) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 509.0 504 147 re f
+0.2 0.25 0.35 RG 0.5 w
+54 509.0 504 147 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 644.0 Td (Figure 6: Searchable Record Explorer with Instant Match Highlighting) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 632.0 Td (+-----------------------------------------------------------------------------------------+) Tj ET
+BT /F3 8 Tf 64 621.0 Td (    | TABLES: [view_master_manifest] [passengers] [flights] [bookings] [tickets] [airports]  |) Tj ET
+BT /F3 8 Tf 64 610.0 Td (    +-----------------------------------------------------------------------------------------+) Tj ET
+BT /F3 8 Tf 64 599.0 Td (    | Search: [ Vikram                               ] [ ] | Quick: [All] [DEL] [BOM] [CONF]  |) Tj ET
+BT /F3 8 Tf 64 588.0 Td (    +---------+-----------+--------------------+-----------------------+-----------+----------+) Tj ET
+BT /F3 8 Tf 64 577.0 Td (    | TICKET  | PNR       | PASSENGER NAME     | ROUTE                 | SEAT      | FARE     |) Tj ET
+BT /F3 8 Tf 64 566.0 Td (    +---------+-----------+--------------------+-----------------------+-----------+----------+) Tj ET
+BT /F3 8 Tf 64 555.0 Td (    | #61     | AR8192    | Vikram Malhotra    | DEL \(Delhi\)  ->  BOM    | 4C \(BUS\)  | Rs. 8500 |) Tj ET
+BT /F3 8 Tf 64 544.0 Td (    +---------+-----------+--------------------+-----------------------+-----------+----------+) Tj ET
+BT /F3 8 Tf 64 533.0 Td (    | Page 1 of 1 \(1 matching records found in 0.82 ms\) | Execution: SELECT  FROM manifest...|) Tj ET
+BT /F3 8 Tf 64 522.0 Td (    +-----------------------------------------------------------------------------------------+) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 23) Tj ET
+Q
+endstream
+endobj
+53 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 54 0 R >>
+endobj
+54 0 obj
+<< /Length 4136 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (15. CRUD / LIVE DATABASE DEMONSTRATION) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 718 Td (A live demonstration of Create, Read, and Delete operations was conducted during Presentation III to verify that the) Tj ET
+BT /F1 9.5 Tf 54 704.5 Td (web interface correctly reflects changes in the underlying database in real time. The demonstration used a sample) Tj ET
+BT /F1 9.5 Tf 54 691.0 Td (passenger record with the following specifications:) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 651.5 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 8.2 Tf 60 656.5 Td (Field Name) Tj ET
+BT /F2 8.2 Tf 170 656.5 Td (Demonstration Test Value) Tj ET
+BT /F2 8.2 Tf 360 656.5 Td (Constraint Validated) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 634.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 634.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 640.5 Td (Passenger ID) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 640.5 Td (Auto-incremented \(ID #61\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 359 640.5 Td (PRIMARY KEY uniqueness) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 617.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 617.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 623.5 Td (First Name) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 623.5 Td (Vikram) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 359 623.5 Td (NOT NULL textual domain) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 600.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 600.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 606.5 Td (Last Name) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 606.5 Td (Malhotra) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 359 606.5 Td (NOT NULL textual domain) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 583.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 583.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 589.5 Td (Email Address) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 589.5 Td (vikram.malhotra@skywings.org) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 359 589.5 Td (UNIQUE constraint validation) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 566.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 566.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 572.5 Td (Passport Number) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 572.5 Td (Z9821430) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 359 572.5 Td (UNIQUE government ID validation) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 549.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 549.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 555.5 Td (Allocated Flight) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 555.5 Td (Flight AR-101 \(DEL -> BOM\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 359 555.5 Td (FOREIGN KEY referential integrity) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 532.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 532.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.2 Tf 59 538.5 Td (Allocated Seat) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 169 538.5 Td (Seat 4C \(Business Class\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.2 Tf 359 538.5 Td (UNIQUE \(flight_id, seat_id\) non-collision) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 524.5 Td (The demonstration followed a 5-step sequence: VIEW -> INSERT -> DB VERIFICATION -> DELETE -> DB) Tj ET
+BT /F1 9.5 Tf 54 511.0 Td (VERIFICATION.) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 483.5 Td (15.1 Step 1  -  Initial State) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 468.5 Td (Prior to insertion, the passengers table contained exactly 60 records, verified via SELECT COUNT\(\) FROM) Tj ET
+BT /F1 9.5 Tf 54 455.0 Td (passengers returning 60.) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 427.5 Td (15.2 Step 2  -  Insertion) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 412.5 Td (The sample passenger Dr. Vikram Malhotra was inserted through the web booking form, triggering an atomic) Tj ET
+BT /F1 9.5 Tf 54 399.0 Td (transaction committing across passengers, bookings, payments, and tickets.) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 24) Tj ET
+Q
+endstream
+endobj
+55 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 56 0 R >>
+endobj
+56 0 obj
+<< /Length 2724 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (15. CRUD / LIVE DATABASE DEMONSTRATION \(Continued\)) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 708 Td (15.3 Step 3  -  Database Verification \(After Insert\)) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 693 Td (The insertion was verified directly via the terminal CLI and SQL queries, confirming row count incremented to 61:) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 467.5 504 202 re f
+0.2 0.25 0.35 RG 0.5 w
+54 467.5 504 202 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 657.5 Td (Figure 7: Terminal SQL Verification After Record Insertion) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 645.5 Td ($ python3 cli.py) Tj ET
+BT /F3 8 Tf 64 634.5 Td (    arfom-db> SELECT passenger_id, first_name, last_name, email, passport_number) Tj ET
+BT /F3 8 Tf 64 623.5 Td (              FROM passengers WHERE email = 'vikram.malhotra@skywings.org';) Tj ET
+BT /F3 8 Tf 64 612.5 Td (    +--------------+------------+-----------+-------------------------------+-----------------+) Tj ET
+BT /F3 8 Tf 64 601.5 Td (    | passenger_id | first_name | last_name | email                         | passport_number |) Tj ET
+BT /F3 8 Tf 64 590.5 Td (    +--------------+------------+-----------+-------------------------------+-----------------+) Tj ET
+BT /F3 8 Tf 64 579.5 Td (    | 61           | Vikram     | Malhotra  | vikram.malhotra@skywings.org  | Z9821430        |) Tj ET
+BT /F3 8 Tf 64 568.5 Td (    +--------------+------------+-----------+-------------------------------+-----------------+) Tj ET
+BT /F3 8 Tf 64 557.5 Td (    1 row in set \(0.64 ms\)) Tj ET
+BT /F3 8 Tf 64 546.5 Td () Tj ET
+BT /F3 8 Tf 64 535.5 Td (    arfom-db> SELECT COUNT\(\) FROM passengers;) Tj ET
+BT /F3 8 Tf 64 524.5 Td (    +----------+) Tj ET
+BT /F3 8 Tf 64 513.5 Td (    | count\(\) |) Tj ET
+BT /F3 8 Tf 64 502.5 Td (    +----------+) Tj ET
+BT /F3 8 Tf 64 491.5 Td (    | 61       |) Tj ET
+BT /F3 8 Tf 64 480.5 Td (    +----------+) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 447.5 Td (15.4 Step 4  -  Deletion) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 432.5 Td (The demonstration passenger record \(ID #61\) was deleted through the web interface with confirmation dialog.) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 405.0 Td (15.5 Step 5  -  Database Verification \(After Delete\)) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 390.0 Td (Deletion was verified directly in SQL, returning an Empty Set and confirming the row count returned to baseline 60.) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 25) Tj ET
+Q
+endstream
+endobj
+57 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 58 0 R >>
+endobj
+58 0 obj
+<< /Length 5703 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (16. IMPLEMENTATION DETAILS) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 718 Td (This section summarizes the populated database dataset and implementation architecture:) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 690.5 Td (16.1 Final Database Statistics) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 653.5 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 8.0 Tf 60 658.5 Td (Relational Entity / Table) Tj ET
+BT /F2 8.0 Tf 220 658.5 Td (Physical Storage Type) Tj ET
+BT /F2 8.0 Tf 400 658.5 Td (Record Count) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 636.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 636.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 642.5 Td (airports) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 219 642.5 Td (Base Relational Table) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 399 642.5 Td (10) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 619.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 619.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 625.5 Td (aircraft) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 219 625.5 Td (Base Relational Table) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 399 625.5 Td (4) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 602.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 602.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 608.5 Td (routes) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 219 608.5 Td (Base Relational Table) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 399 608.5 Td (15) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 585.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 585.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 591.5 Td (flights) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 219 591.5 Td (Base Relational Table) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 399 591.5 Td (15) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 568.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 568.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 574.5 Td (seats) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 219 574.5 Td (Base Relational Table) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 399 574.5 Td (40) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 551.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 551.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 557.5 Td (passengers) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 219 557.5 Td (Base Relational Table) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 399 557.5 Td (60) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 534.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 534.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 540.5 Td (bookings) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 219 540.5 Td (Base Relational Table) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 399 540.5 Td (60) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 517.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 517.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 523.5 Td (tickets) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 219 523.5 Td (Base Relational Table) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 399 523.5 Td (60) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 500.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 500.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 506.5 Td (payments) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 219 506.5 Td (Base Relational Table) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 399 506.5 Td (60) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 483.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 483.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 489.5 Td (checkins) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 219 489.5 Td (Base Relational Table) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 399 489.5 Td (60) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 466.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 466.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 472.5 Td (baggage) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 219 472.5 Td (Base Relational Table) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 399 472.5 Td (60) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 449.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 449.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 455.5 Td (cancellations) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 219 455.5 Td (Base Relational Table) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 399 455.5 Td (10) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 432.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 432.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 438.5 Td (view_master_manifest) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 219 438.5 Td (Analytical Relational View) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 399 438.5 Td (60) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 415.5 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 415.5 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 8.0 Tf 59 421.5 Td (TOTAL PHYSICAL RECORDS) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 219 421.5 Td (Full Database Seed Inventory) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 8.0 Tf 399 421.5 Td (494) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 397.5 Td (16.2 Backend Implementation) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 382.5 Td (The backend was implemented in Python using native http.server and sqlite3, exposing parameterised REST) Tj ET
+BT /F1 9.5 Tf 54 369.0 Td (endpoints \(/api/data, /api/flights_list, /api/book_ticket, /api/checkin_baggage\) preventing SQL injection.) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 341.5 Td (16.3 Frontend Implementation) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 326.5 Td (The frontend was built in Vanilla HTML5, CSS3, and JavaScript, providing instant rendering with zero build pipeline) Tj ET
+BT /F1 9.5 Tf 54 313.0 Td (overhead.) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 26) Tj ET
+Q
+endstream
+endobj
+59 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 60 0 R >>
+endobj
+60 0 obj
+<< /Length 6088 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (17. TESTING AND VALIDATION) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 718 Td (Comprehensive functional, transactional, and negative testing was conducted to confirm that database integrity) Tj ET
+BT /F1 9.5 Tf 54 704.5 Td (constraints hold under all operational conditions:) Tj ET
+Q
+q
+0.12 0.25 0.45 rg
+54 665.0 504 16 re f
+Q
+q 1.0 1.0 1.0 rg
+BT /F2 7.8 Tf 60 670.0 Td (Test Case) Tj ET
+BT /F2 7.8 Tf 180 670.0 Td (Expected Result) Tj ET
+BT /F2 7.8 Tf 340 670.0 Td (Actual Result) Tj ET
+BT /F2 7.8 Tf 504 670.0 Td (Status) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 648.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 648.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 654.0 Td (Dashboard Metrics Loading) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 179 654.0 Td (Metrics load from backend \(/api/stats\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 339 654.0 Td (Loaded: 60 Pax, 15 Flights, Rs. 4.38L Rev) Tj ET
+0.05 0.55 0.3 rg
+BT /F2 7.8 Tf 503 654.0 Td (Pass) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 631.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 631.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 637.0 Td (Flight Search & Selection) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 179 637.0 Td (Retrieves 15 active routes from backend) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 339 637.0 Td (All 15 routes loaded into selector) Tj ET
+0.05 0.55 0.3 rg
+BT /F2 7.8 Tf 503 637.0 Td (Pass) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 614.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 614.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 620.0 Td (Cabin Seat Map Render) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 179 620.0 Td (Displays First, Business, Economy rows) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 339 620.0 Td (Cabin rendered with correct occupancy) Tj ET
+0.05 0.55 0.3 rg
+BT /F2 7.8 Tf 503 620.0 Td (Pass) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 586.0 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 586.0 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 603.0 Td (ACID Ticket Booking) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 179 603.0 Td (Inserts across passengers, bookings,) Tj ET
+BT /F1 7.8 Tf 179 592.0 Td (tickets) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 339 603.0 Td (Committed with PNR AR8192 in 1.4 ms) Tj ET
+0.05 0.55 0.3 rg
+BT /F2 7.8 Tf 503 603.0 Td (Pass) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 558.0 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 558.0 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 575.0 Td (Seat Double-Booking Defense) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 179 575.0 Td (Rejects booking identical \(flight_id,) Tj ET
+BT /F1 7.8 Tf 179 564.0 Td (seat_id\)) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 339 575.0 Td (UNIQUE violation caught & rejected) Tj ET
+0.05 0.55 0.3 rg
+BT /F2 7.8 Tf 503 575.0 Td (Pass) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 541.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 541.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 547.0 Td (Negative Baggage Weight) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 179 547.0 Td (Rejects baggage with weight <= 0 kg) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 339 547.0 Td (CHECK constraint enforced & rejected) Tj ET
+0.05 0.55 0.3 rg
+BT /F2 7.8 Tf 503 547.0 Td (Pass) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 524.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 524.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 530.0 Td (Excess Baggage Calculation) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 179 530.0 Td (Calculates \(Weight - 15\) Rs. 500 fee) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 339 530.0 Td (18.5 kg -> Rs. 1,750 fee auto-calculated) Tj ET
+0.05 0.55 0.3 rg
+BT /F2 7.8 Tf 503 530.0 Td (Pass) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 496.0 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 496.0 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 513.0 Td (Airport FIDS Departures) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 179 513.0 Td (Loads active departures for selected) Tj ET
+BT /F1 7.8 Tf 179 502.0 Td (airport) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 339 513.0 Td (DEL / BOM / BLR schedules displayed) Tj ET
+0.05 0.55 0.3 rg
+BT /F2 7.8 Tf 503 513.0 Td (Pass) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 479.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 479.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 485.0 Td (Record Explorer Multi-Search) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 179 485.0 Td (Filters rows by name, PNR, flight, city) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 339 485.0 Td (Instant debounced search & highlight) Tj ET
+0.05 0.55 0.3 rg
+BT /F2 7.8 Tf 503 485.0 Td (Pass) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 451.0 504 28 re f
+0.85 0.88 0.92 RG 0.5 w
+54 451.0 504 28 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 468.0 Td (Passenger Record Deletion) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 179 468.0 Td (Removes record & updates count from 61) Tj ET
+BT /F1 7.8 Tf 179 457.0 Td (to 60) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 339 468.0 Td (Deleted successfully; DB verified) Tj ET
+0.05 0.55 0.3 rg
+BT /F2 7.8 Tf 503 468.0 Td (Pass) Tj ET
+Q
+q
+1.0 1.0 1.0 rg
+54 434.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 434.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 440.0 Td (FK Restrict Deletion Defense) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 179 440.0 Td (Blocks deletion of airport with active routes) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 339 440.0 Td (FOREIGN KEY RESTRICT enforced) Tj ET
+0.05 0.55 0.3 rg
+BT /F2 7.8 Tf 503 440.0 Td (Pass) Tj ET
+Q
+q
+0.97 0.98 0.99 rg
+54 417.0 504 17 re f
+0.85 0.88 0.92 RG 0.5 w
+54 417.0 504 17 re S
+Q
+q 0.15 0.15 0.15 rg
+0.1 0.2 0.35 rg
+BT /F2 7.8 Tf 59 423.0 Td (Analytical SQL Query Suite) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 179 423.0 Td (Executes all 7 analytical SQL queries) Tj ET
+0.15 0.15 0.15 rg
+BT /F1 7.8 Tf 339 423.0 Td (All 7 queries executed without error) Tj ET
+0.05 0.55 0.3 rg
+BT /F2 7.8 Tf 503 423.0 Td (Pass) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 27) Tj ET
+Q
+endstream
+endobj
+61 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 62 0 R >>
+endobj
+62 0 obj
+<< /Length 3122 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (18. CHALLENGES AND LIMITATIONS) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 708 Td (18.1 Challenges Faced) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 693 Td () Tj ET
+BT /F1 9.5 Tf 70 693 Td (Concurrency Contention: Formulating a strict composite constraint \(flight_id, seat_id\) ensuring zero double-booking) Tj ET
+BT /F1 9.5 Tf 70 679.5 Td (under concurrent load.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 664.0 Td () Tj ET
+BT /F1 9.5 Tf 70 664.0 Td (Multi-Table Atomic Transactions: Coordinating sequential commits across passengers, bookings, payments, and) Tj ET
+BT /F1 9.5 Tf 70 650.5 Td (tickets with automated rollback on failure.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 635.0 Td () Tj ET
+BT /F1 9.5 Tf 70 635.0 Td (Dynamic Excess Baggage Engine: Integrating real-time excess baggage fee calculation with airport departure) Tj ET
+BT /F1 9.5 Tf 70 621.5 Td (boarding pass issuing.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 606.0 Td () Tj ET
+BT /F1 9.5 Tf 70 606.0 Td (Cross-Platform Zero-Dependency Server: Architecting a pure Python REST server running seamlessly across) Tj ET
+BT /F1 9.5 Tf 70 592.5 Td (macOS, Windows, and Linux.) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 567.0 Td (18.2 Limitations) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 552.0 Td () Tj ET
+BT /F1 9.5 Tf 70 552.0 Td (No Live GPS Radar ADS-B Hardware: Flight radar coordinates are simulated from timetabled schedules rather) Tj ET
+BT /F1 9.5 Tf 70 538.5 Td (than live transponder hardware.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 523.0 Td () Tj ET
+BT /F1 9.5 Tf 70 523.0 Td (Single-Airline Operational Boundary: System currently models operations for ARFOM Airlines rather than global) Tj ET
+BT /F1 9.5 Tf 70 509.5 Td (multi-airline GDS federations \(Amadeus/Sabre\).) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 494.0 Td () Tj ET
+BT /F1 9.5 Tf 70 494.0 Td (Simulated Payment Gateway: Financial settlements execute in sandbox simulation mode rather than live banking) Tj ET
+BT /F1 9.5 Tf 70 480.5 Td (card payment switches.) Tj ET
+Q
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 451.0 Td (19. CONCLUSION, FUTURE SCOPE AND REFERENCES) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 423.0 Td (19.1 Conclusion) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 408.0 Td (This project successfully designed and implemented a centralized, 3NF-normalized relational database management) Tj ET
+BT /F1 9.5 Tf 54 394.5 Td (system for airline reservation and flight operations \(ARFOM-DB\). The system eliminates manual record-keeping) Tj ET
+BT /F1 9.5 Tf 54 381.0 Td (inefficiencies, guarantees seat exclusivity via engine-enforced invariants, and provides a modern web interface for flight) Tj ET
+BT /F1 9.5 Tf 54 367.5 Td (bookings, cabin seat selection, electronic FIDS radar tracking, and baggage check-in.) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 28) Tj ET
+Q
+endstream
+endobj
+63 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 64 0 R >>
+endobj
+64 0 obj
+<< /Length 2926 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (19. CONCLUSION, FUTURE SCOPE AND REFERENCES \(Cont.\)) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 708 Td (19.2 Future Scope) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 693 Td (The following technical enhancements represent valuable directions for future enterprise expansion:) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 675.5 Td () Tj ET
+BT /F1 9.5 Tf 70 675.5 Td (Live ADS-B Aircraft Transponder Integration: Ingesting real-time satellite telemetry for live aircraft positional) Tj ET
+BT /F1 9.5 Tf 70 662.0 Td (tracking.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 646.5 Td () Tj ET
+BT /F1 9.5 Tf 70 646.5 Td (Automated SMS & WhatsApp Flight Status Notifications: Real-time broadcast alerts for boarding gate changes and) Tj ET
+BT /F1 9.5 Tf 70 633.0 Td (weather delays.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 617.5 Td () Tj ET
+BT /F1 9.5 Tf 70 617.5 Td (Dynamic Revenue Management AI Engine: Machine learning models for dynamic ticket pricing optimization based) Tj ET
+BT /F1 9.5 Tf 70 604.0 Td (on demand.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 588.5 Td () Tj ET
+BT /F1 9.5 Tf 70 588.5 Td (Frequent Flyer Loyalty Mileage Ledger: Dedicated points accrual and tier qualification database module.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F2 9.5 Tf 58 573.0 Td () Tj ET
+BT /F1 9.5 Tf 70 573.0 Td (Biometric Facial Recognition Boarding Gate Integration: Paperless biometric boarding verification linked to e-ticket) Tj ET
+BT /F1 9.5 Tf 70 559.5 Td (check-in records.) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 534.0 Td (19.3 References) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 8.5 Tf 54 519.0 Td (1. Silberschatz, A., Korth, H. F., & Sudarshan, S. \(2020\). Database System Concepts \(7th ed.\). McGraw-Hill Education.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 8.5 Tf 54 502.5 Td (2. Elmasri, R., & Navathe, S. B. \(2016\). Fundamentals of Database Systems \(7th ed.\). Pearson Education.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 8.5 Tf 54 486.0 Td (3. Date, C. J. \(2004\). An Introduction to Database Systems \(8th ed.\). Addison-Wesley.) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 8.5 Tf 54 469.5 Td (4. SQLite 3.x Architectural Documentation. https://www.sqlite.org/docs.html) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 8.5 Tf 54 453.0 Td (5. MySQL 8.0 Reference Manual - Oracle Corporation. https://dev.mysql.com/doc/) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 8.5 Tf 54 436.5 Td (6. Python Software Foundation. Python 3 Documentation. https://docs.python.org/3/) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 8.5 Tf 54 420.0 Td (7. International Civil Aviation Organization \(ICAO\). Flight Operations Standards & Data Formats.) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 29) Tj ET
+Q
+endstream
+endobj
+65 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents 66 0 R >>
+endobj
+66 0 obj
+<< /Length 3651 >>
+stream
+q 0.1 0.2 0.4 rg
+BT /F2 14 Tf 54 736 Td (A. GITHUB APPENDIX) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 718 Td (The complete source code, database DDL scripts, analytical query suite, presentation decks, and web operations) Tj ET
+BT /F1 9.5 Tf 54 704.5 Td (application are maintained in the following official public GitHub repository:) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 677.0 Td (Repository Name: DBMS-Course-Project) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 662.0 Td (GitHub URL: https://github.com/Sanjyit-S/DBMS-Course-Project) Tj ET
+Q
+q 0.1 0.15 0.25 rg
+BT /F2 11.5 Tf 54 634.5 Td (Repository Structure) Tj ET
+Q
+q
+0.08 0.1 0.14 rg
+54 334.5 504 279 re f
+0.2 0.25 0.35 RG 0.5 w
+54 334.5 504 279 re S
+Q
+q 0.4 0.7 0.9 rg
+BT /F2 8 Tf 64 601.5 Td (Repository File Tree & Directory Organization) Tj ET
+Q
+q 0.9 0.95 1.0 rg
+BT /F3 8 Tf 64 589.5 Td (DBMS-Course-Project/) Tj ET
+BT /F3 8 Tf 64 578.5 Td (     ) Tj ET
+BT /F3 8 Tf 64 567.5 Td (        3rd presentation/) Tj ET
+BT /F3 8 Tf 64 556.5 Td (            app/                      # Web Operations Portal \(HTML5, CSS3, JS\)) Tj ET
+BT /F3 8 Tf 64 545.5 Td (                index.html            # Main UI \(Booking, FIDS Radar, Explorer\)) Tj ET
+BT /F3 8 Tf 64 534.5 Td (                style.css             # Light Apple/Stripe Design Stylesheet) Tj ET
+BT /F3 8 Tf 64 523.5 Td (                app.js                # Full Client Logic & Offline Fallback) Tj ET
+BT /F3 8 Tf 64 512.5 Td (                data.js               # Pristine Seed Dataset) Tj ET
+BT /F3 8 Tf 64 501.5 Td (                arfom.db              # SQLite Database Engine) Tj ET
+BT /F3 8 Tf 64 490.5 Td (            slides/                   # Review 3 Presentation Slide Deck) Tj ET
+BT /F3 8 Tf 64 479.5 Td (        Presentation-I/               # Review 1 Problem Description & PDF) Tj ET
+BT /F3 8 Tf 64 468.5 Td (        Presentation-II/              # Review 2 Schema Architecture & Slides) Tj ET
+BT /F3 8 Tf 64 457.5 Td (        Presentation-III/             # Review 3 Synced Application Package) Tj ET
+BT /F3 8 Tf 64 446.5 Td (        Project-Report/               # Comprehensive Project Report & PDF) Tj ET
+BT /F3 8 Tf 64 435.5 Td (            PROJECT_REPORT.md         # Source Markdown Report) Tj ET
+BT /F3 8 Tf 64 424.5 Td (            PROJECT_REPORT.pdf        # Publication-Grade 30-Page PDF) Tj ET
+BT /F3 8 Tf 64 413.5 Td (        visuals/                      # Interactive Schema & ER Diagram Hub) Tj ET
+BT /F3 8 Tf 64 402.5 Td (        workbench/                    # MySQL / SQLite DDL Scripts & Queries) Tj ET
+BT /F3 8 Tf 64 391.5 Td (        server.py                     # Master Unified REST Backend \(Port 8000\)) Tj ET
+BT /F3 8 Tf 64 380.5 Td (        cli.py                        # Terminal SQL CLI Query Tool) Tj ET
+BT /F3 8 Tf 64 369.5 Td (        build_woxsen_report_pdf.py    # Custom 30-Page PDF Generator) Tj ET
+BT /F3 8 Tf 64 358.5 Td (        .gitignore) Tj ET
+BT /F3 8 Tf 64 347.5 Td (        README.md                     # Comprehensive Project Overview & Guide) Tj ET
+Q
+q 0.15 0.15 0.15 rg
+BT /F1 9.5 Tf 54 324.5 Td (The repository contains the complete backend Python server, live SQLite relational database, web operations frontend,) Tj ET
+BT /F1 9.5 Tf 54 311.0 Td (materials for Presentation I, Presentation II, Presentation III, terminal CLI tools, and this formal academic project report.) Tj ET
+Q
+q
+0.85 0.1 0.1 rg
+BT /F2 14 Tf 478 792 Td (W) Tj ET
+0.1 0.15 0.25 rg
+BT /F2 7 Tf 492 796 Td (WOXSEN) Tj ET
+BT /F1 5.5 Tf 492 790 Td (U N I V E R S I T Y) Tj ET
+0.85 0.88 0.92 RG 0.5 w
+54 780 m 558 780 l S
+Q
+q
+0.4 0.45 0.5 rg
+BT /F1 9 Tf 289.2 36 Td (Page 30) Tj ET
+Q
 endstream
 endobj
 xref
-0 8
+0 67
 0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000121 00000 n 
-0000000277 00000 n 
-0000000387 00000 n 
-0000008776 00000 n 
-0000008886 00000 n 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000324 00000 n 
+0000000421 00000 n 
+0000000523 00000 n 
+0000000618 00000 n 
+0000000718 00000 n 
+0000000874 00000 n 
+0000002348 00000 n 
+0000002505 00000 n 
+0000006655 00000 n 
+0000006813 00000 n 
+0000017707 00000 n 
+0000017865 00000 n 
+0000027924 00000 n 
+0000028082 00000 n 
+0000032220 00000 n 
+0000032378 00000 n 
+0000036316 00000 n 
+0000036474 00000 n 
+0000040449 00000 n 
+0000040607 00000 n 
+0000045688 00000 n 
+0000045846 00000 n 
+0000052845 00000 n 
+0000053003 00000 n 
+0000057802 00000 n 
+0000057960 00000 n 
+0000063456 00000 n 
+0000063614 00000 n 
+0000071322 00000 n 
+0000071480 00000 n 
+0000074853 00000 n 
+0000075011 00000 n 
+0000083133 00000 n 
+0000083291 00000 n 
+0000093518 00000 n 
+0000093676 00000 n 
+0000099089 00000 n 
+0000099247 00000 n 
+0000102607 00000 n 
+0000102765 00000 n 
+0000106154 00000 n 
+0000106312 00000 n 
+0000108928 00000 n 
+0000109086 00000 n 
+0000112943 00000 n 
+0000113101 00000 n 
+0000115758 00000 n 
+0000115916 00000 n 
+0000118457 00000 n 
+0000118615 00000 n 
+0000120980 00000 n 
+0000121138 00000 n 
+0000125327 00000 n 
+0000125485 00000 n 
+0000128262 00000 n 
+0000128420 00000 n 
+0000134176 00000 n 
+0000134334 00000 n 
+0000140475 00000 n 
+0000140633 00000 n 
+0000143808 00000 n 
+0000143966 00000 n 
+0000146945 00000 n 
+0000147103 00000 n 
 trailer
-<< /Size 8 /Root 1 0 R >>
+<< /Size 67 /Root 1 0 R >>
 startxref
-15502
+150807
 %%EOF
