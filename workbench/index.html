@@ -575,7 +575,7 @@
   <!-- Apple Minimalist Glass Header -->
   <header>
     <div class="brand">
-      <div class="brand-logo">✈</div>
+      <div class="brand-logo"></div>
       <div class="brand-title">ARFOM-DB</div>
       <div class="brand-subtitle">Live Relational Query Workbench</div>
     </div>
@@ -591,7 +591,7 @@
     <!-- Spotlight Query Card -->
     <section class="spotlight-card">
       <div class="spotlight-bar">
-        <span class="spotlight-icon">⌕</span>
+        <span class="spotlight-icon"></span>
         <input 
           type="text" 
           id="sqlInput" 
@@ -605,7 +605,7 @@
           <button class="btn-clear" id="btnClear" title="Clear input">Clear</button>
           <button class="btn-run" id="btnRun">
             <span>Run</span>
-            <span class="key-badge">⏎ Enter</span>
+            <span class="key-badge"> Enter</span>
           </button>
         </div>
       </div>
@@ -613,27 +613,27 @@
       <!-- Quick Teacher Viva Chips: Exact Review 2 Rubric Reports -->
       <div class="chips-container">
         <span class="chips-label">Review 2 Rubric Queries:</span>
-        <button class="chip-btn highlight" onclick="runPresetQuery('SELECT * FROM view_master_manifest LIMIT 50;')">📋 1. Flight Manifests (View &amp; Joins)</button>
-        <button class="chip-btn" onclick="runPresetQuery('SELECT f.flight_id, f.flight_number, a.model, a.total_capacity, COUNT(t.ticket_id) AS confirmed_passengers, ROUND((COUNT(t.ticket_id) * 100.0 / a.total_capacity), 1) || \'%\' AS occupancy_rate, CASE WHEN (COUNT(t.ticket_id) * 1.0 / a.total_capacity) >= 0.80 THEN \'OPTIMAL\' WHEN (COUNT(t.ticket_id) * 1.0 / a.total_capacity) >= 0.50 THEN \'MODERATE\' ELSE \'LOW_YIELD\' END AS efficiency FROM flights f JOIN aircraft a ON f.aircraft_id = a.aircraft_id LEFT JOIN tickets t ON f.flight_id = t.flight_id AND t.ticket_status != \'CANCELLED\' GROUP BY f.flight_id;')">📊 2. Occupancy &amp; Load</button>
-        <button class="chip-btn" onclick="runPresetQuery('SELECT r.route_id, r.origin_airport || \' -> \' || r.dest_airport AS corridor, r.distance_km, COUNT(DISTINCT f.flight_id) AS flights_count, COUNT(t.ticket_id) AS total_passengers, COALESCE(SUM(t.fare_amount), 0) AS total_revenue, ROUND(AVG(t.fare_amount), 2) AS avg_ticket_price FROM routes r LEFT JOIN flights f ON r.route_id = f.route_id LEFT JOIN tickets t ON f.flight_id = t.flight_id AND t.ticket_status != \'CANCELLED\' GROUP BY r.route_id ORDER BY total_revenue DESC;')">🗺 3. Route Demand</button>
-        <button class="chip-btn" onclick="runPresetQuery('SELECT f.flight_number, r.origin_airport || \' -> \' || r.dest_airport AS route, COUNT(b.baggage_id) AS total_bags, ROUND(SUM(b.weight_kg), 1) AS total_weight_kg, ROUND(AVG(b.weight_kg), 1) AS avg_bag_weight, SUM(b.excess_fee) AS total_excess_fees FROM flights f JOIN routes r ON f.route_id = r.route_id JOIN tickets t ON f.flight_id = t.flight_id JOIN checkins c ON t.ticket_id = c.ticket_id JOIN baggage b ON c.checkin_id = b.checkin_id GROUP BY f.flight_id ORDER BY total_weight_kg DESC;')">🧳 4. Baggage Logistics</button>
-        <button class="chip-btn" onclick="runPresetQuery('SELECT COUNT(c.cancellation_id) AS total_cancelled, SUM(t.fare_amount) AS gross_fare, SUM(c.refund_amount) AS total_refunded, SUM(t.fare_amount - c.refund_amount) AS net_retained_penalty, ROUND(SUM(c.refund_amount) * 100.0 / SUM(t.fare_amount), 1) || \'%\' AS refund_ratio FROM cancellations c JOIN tickets t ON c.ticket_id = t.ticket_id;')">❌ 5. Cancellations &amp; Refunds</button>
-        <button class="chip-btn" onclick="runPresetQuery('SELECT flight_status, COUNT(*) AS count, ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM flights), 1) || \'%\' AS percentage FROM flights GROUP BY flight_status ORDER BY count DESC;')">⏱ 6. On-Time Status (Subquery)</button>
+        <button class="chip-btn highlight" onclick="runPresetQuery('SELECT * FROM view_master_manifest LIMIT 50;')"> 1. Flight Manifests (View &amp; Joins)</button>
+        <button class="chip-btn" onclick="runPresetQuery('SELECT f.flight_id, f.flight_number, a.model, a.total_capacity, COUNT(t.ticket_id) AS confirmed_passengers, ROUND((COUNT(t.ticket_id) * 100.0 / a.total_capacity), 1) || \'%\' AS occupancy_rate, CASE WHEN (COUNT(t.ticket_id) * 1.0 / a.total_capacity) >= 0.80 THEN \'OPTIMAL\' WHEN (COUNT(t.ticket_id) * 1.0 / a.total_capacity) >= 0.50 THEN \'MODERATE\' ELSE \'LOW_YIELD\' END AS efficiency FROM flights f JOIN aircraft a ON f.aircraft_id = a.aircraft_id LEFT JOIN tickets t ON f.flight_id = t.flight_id AND t.ticket_status != \'CANCELLED\' GROUP BY f.flight_id;')"> 2. Occupancy &amp; Load</button>
+        <button class="chip-btn" onclick="runPresetQuery('SELECT r.route_id, r.origin_airport || \' -> \' || r.dest_airport AS corridor, r.distance_km, COUNT(DISTINCT f.flight_id) AS flights_count, COUNT(t.ticket_id) AS total_passengers, COALESCE(SUM(t.fare_amount), 0) AS total_revenue, ROUND(AVG(t.fare_amount), 2) AS avg_ticket_price FROM routes r LEFT JOIN flights f ON r.route_id = f.route_id LEFT JOIN tickets t ON f.flight_id = t.flight_id AND t.ticket_status != \'CANCELLED\' GROUP BY r.route_id ORDER BY total_revenue DESC;')"> 3. Route Demand</button>
+        <button class="chip-btn" onclick="runPresetQuery('SELECT f.flight_number, r.origin_airport || \' -> \' || r.dest_airport AS route, COUNT(b.baggage_id) AS total_bags, ROUND(SUM(b.weight_kg), 1) AS total_weight_kg, ROUND(AVG(b.weight_kg), 1) AS avg_bag_weight, SUM(b.excess_fee) AS total_excess_fees FROM flights f JOIN routes r ON f.route_id = r.route_id JOIN tickets t ON f.flight_id = t.flight_id JOIN checkins c ON t.ticket_id = c.ticket_id JOIN baggage b ON c.checkin_id = b.checkin_id GROUP BY f.flight_id ORDER BY total_weight_kg DESC;')"> 4. Baggage Logistics</button>
+        <button class="chip-btn" onclick="runPresetQuery('SELECT COUNT(c.cancellation_id) AS total_cancelled, SUM(t.fare_amount) AS gross_fare, SUM(c.refund_amount) AS total_refunded, SUM(t.fare_amount - c.refund_amount) AS net_retained_penalty, ROUND(SUM(c.refund_amount) * 100.0 / SUM(t.fare_amount), 1) || \'%\' AS refund_ratio FROM cancellations c JOIN tickets t ON c.ticket_id = t.ticket_id;')">[X] 5. Cancellations &amp; Refunds</button>
+        <button class="chip-btn" onclick="runPresetQuery('SELECT flight_status, COUNT(*) AS count, ROUND(COUNT(*) * 100.0 / (SELECT COUNT(*) FROM flights), 1) || \'%\' AS percentage FROM flights GROUP BY flight_status ORDER BY count DESC;')"> 6. On-Time Status (Subquery)</button>
       </div>
 
       <!-- Constraint Violation Tests (Watch them Fail Live) -->
       <div class="chips-container" style="margin-top: 8px;">
         <span class="chips-label" style="color: #D70015; font-weight: 600;">Negative Tests (Must Fail):</span>
-        <button class="chip-btn" style="border-color: rgba(255,59,48,0.35); color: #C91D12; background: rgba(255,59,48,0.04);" onclick="runPresetQuery('INSERT INTO baggage (baggage_id, checkin_id, weight_kg, excess_fee) VALUES (999, 1, -5.50, 0.00);')">🚫 1. Negative Baggage (CHECK Violation)</button>
-        <button class="chip-btn" style="border-color: rgba(255,59,48,0.35); color: #C91D12; background: rgba(255,59,48,0.04);" onclick="runPresetQuery('INSERT INTO tickets (ticket_id, booking_id, flight_id, seat_id, fare_amount, ticket_status) VALUES (999, 2, 101, 1, 8500.00, \'ISSUED\');')">🚫 2. Double-Book Seat (UNIQUE Violation)</button>
-        <button class="chip-btn" style="border-color: rgba(255,59,48,0.35); color: #C91D12; background: rgba(255,59,48,0.04);" onclick="runPresetQuery('INSERT INTO routes (origin_airport, dest_airport, distance_km) VALUES (\'DEL\', \'DEL\', 500);')">🚫 3. Same Airport Route (CHECK Violation)</button>
-        <button class="chip-btn" style="border-color: rgba(255,59,48,0.35); color: #C91D12; background: rgba(255,59,48,0.04);" onclick="runPresetQuery('INSERT INTO cancellations (cancellation_id, ticket_id, refund_amount) VALUES (999, 1, -500.00);')">🚫 4. Negative Refund (CHECK Violation)</button>
+        <button class="chip-btn" style="border-color: rgba(255,59,48,0.35); color: #C91D12; background: rgba(255,59,48,0.04);" onclick="runPresetQuery('INSERT INTO baggage (baggage_id, checkin_id, weight_kg, excess_fee) VALUES (999, 1, -5.50, 0.00);')"> 1. Negative Baggage (CHECK Violation)</button>
+        <button class="chip-btn" style="border-color: rgba(255,59,48,0.35); color: #C91D12; background: rgba(255,59,48,0.04);" onclick="runPresetQuery('INSERT INTO tickets (ticket_id, booking_id, flight_id, seat_id, fare_amount, ticket_status) VALUES (999, 2, 101, 1, 8500.00, \'ISSUED\');')"> 2. Double-Book Seat (UNIQUE Violation)</button>
+        <button class="chip-btn" style="border-color: rgba(255,59,48,0.35); color: #C91D12; background: rgba(255,59,48,0.04);" onclick="runPresetQuery('INSERT INTO routes (origin_airport, dest_airport, distance_km) VALUES (\'DEL\', \'DEL\', 500);')"> 3. Same Airport Route (CHECK Violation)</button>
+        <button class="chip-btn" style="border-color: rgba(255,59,48,0.35); color: #C91D12; background: rgba(255,59,48,0.04);" onclick="runPresetQuery('INSERT INTO cancellations (cancellation_id, ticket_id, refund_amount) VALUES (999, 1, -500.00);')"> 4. Negative Refund (CHECK Violation)</button>
       </div>
     </section>
 
     <!-- Error Alert Box -->
     <div class="error-banner" id="errorBanner" style="display: none;">
-      <span class="error-icon">⚠️</span>
+      <span class="error-icon"></span>
       <div class="error-content">
         <strong>SQL Execution Error</strong>
         <span id="errorMessage">Error text</span>
@@ -670,7 +670,7 @@
         <div class="toolbar-tools">
           <input type="text" id="filterInput" class="filter-input" placeholder="Filter visible rows..." oninput="filterCurrentTable()" />
           <button class="btn-secondary" onclick="copyTableAsTSV()" title="Copy as TSV to paste in Excel">
-            <span>📋 Copy</span>
+            <span> Copy</span>
           </button>
         </div>
       </div>
@@ -682,7 +682,7 @@
           <tbody id="tableBody"></tbody>
         </table>
         <div class="empty-state" id="emptyState" style="display: none;">
-          <div class="empty-icon">📂</div>
+          <div class="empty-icon"></div>
           <div class="empty-title">No records found matching query</div>
         </div>
       </div>
@@ -1055,7 +1055,7 @@
       navigator.clipboard.writeText(tsv).then(() => {
         const btn = event.currentTarget;
         const orig = btn.innerHTML;
-        btn.innerHTML = '<span>✓ Copied!</span>';
+        btn.innerHTML = '<span>[OK] Copied!</span>';
         setTimeout(() => btn.innerHTML = orig, 1800);
       });
     }

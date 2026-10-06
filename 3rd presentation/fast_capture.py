@@ -64,7 +64,7 @@ def capture_one(name, url):
 
     if success:
         size_kb = os.path.getsize(out_file) // 1024
-        print(f"  [✓] Captured {name} ({size_kb} KB)")
+        print(f"  [[OK]] Captured {name} ({size_kb} KB)")
     else:
         print(f"  [!] Timeout or failed: {name}")
 
@@ -77,4 +77,4 @@ if __name__ == "__main__":
     for name, url in TARGETS:
         capture_one(name, url)
 
-    print("\n[✓] Capture process complete!\n")
+    print("\n[[OK]] Capture process complete!\n")

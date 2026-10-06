@@ -8,7 +8,7 @@
 
 ---
 
-## ⚡ 1. QUICK LAUNCH COMMANDS (INSTANT ACCESS)
+##  1. QUICK LAUNCH COMMANDS (INSTANT ACCESS)
 
 ### Option A: One-Command Master Launcher (Recommended)
 Open Terminal in the repository root and run:
@@ -24,7 +24,7 @@ If you are presenting on a projector or without running a terminal server, simpl
 
 ---
 
-## ⏱️ 2. EXACT 10-MINUTE TIMELINE & PRESENTATION SCRIPT
+##  2. EXACT 10-MINUTE TIMELINE & PRESENTATION SCRIPT
 
 > [!IMPORTANT]
 > You have strictly **10 minutes** allotted (11:50 AM to 12:00 PM). Stick to this minute-by-minute rhythm so you don't get cut off before showing the live database reflection!
@@ -53,9 +53,9 @@ If you are presenting on a projector or without running a terminal server, simpl
 
 ### Step 2: Live Demo 1 &mdash; Viewing of Records (01:30 &ndash; 03:30 | 2 Minutes)
 * **Switch to:** UI Dashboard ([`index.html`](file:///Users/sanjyitsureshkumar/dbms_18/3rd%20presentation/app/index.html)).
-* **Click Tab:** `📋 1. Record Explorer`.
+* **Click Tab:** ` 1. Record Explorer`.
 * **Action:**
-  1. Show the default **`⭐ Master Manifest`** table.
+  1. Show the default **` Master Manifest`** table.
   2. Point out the top metrics: **60 Passengers**, **15 Flights**, **60 Bookings**, and **₹4,38,200 Gross Revenue**.
   3. In the search box, type `AI-101` or `Delhi` to demonstrate instant debounced search across 73 joined records.
   4. Click the table switcher pills:
@@ -68,7 +68,7 @@ If you are presenting on a projector or without running a terminal server, simpl
 ---
 
 ### Step 3: Live Demo 2 &mdash; Insertion of Records (03:30 &ndash; 05:30 | 2 Minutes)
-* **Click Tab:** `➕ 2. Record Insertion`.
+* **Click Tab:** ` 2. Record Insertion`.
 * **Action:**
   1. Under **1-Click Quick Demo Presets**, click:  
      `VIP Passenger: Dr. Vikram Malhotra`.
@@ -77,7 +77,7 @@ If you are presenting on a projector or without running a terminal server, simpl
      * Last Name: `Malhotra`
      * Email: `vikram.malhotra@skywings.org`
      * Passport: `Z...` (Unique)
-  3. Click **`💾 Execute INSERT & Commit to Database`**.
+  3. Click **` Execute INSERT & Commit to Database`**.
 * **Observe & Point to the Live Reflection Panel:**
   * Status Badge turns **EMERALD GREEN**: `SUCCESS (ID: 61)`
   * Terminal Log shows the exact SQL:
@@ -97,12 +97,12 @@ If you are presenting on a projector or without running a terminal server, simpl
 ---
 
 ### Step 4: Live Demo 3 &mdash; Deletion of Records (05:30 &ndash; 07:30 | 2 Minutes)
-* **Click Tab:** `🗑️ 3. Record Deletion`.
+* **Click Tab:** ` 3. Record Deletion`.
 * **Action:**
   1. Under Target Table, select `passengers`.
   2. Under Select Target Record ID, select `ID #61 — Vikram Malhotra`.
   3. Point to the **Candidate Details Preview** box.
-  4. Click **`⚠️ Execute DELETE & Commit Change`**.
+  4. Click **` Execute DELETE & Commit Change`**.
 * **Observe & Point to the Live Reflection Panel:**
   * Status Badge turns **GREEN**: `DELETED (passenger_id = 61)`
   * Terminal Log shows:
@@ -120,15 +120,15 @@ If you are presenting on a projector or without running a terminal server, simpl
 ---
 
 ### Step 5: Live Demo 4 &mdash; Before & After Comparator + Negative Tests (07:30 &ndash; 08:45 | 75 Seconds)
-* **Click Tab:** `⚖️ 4. Before & After Comparator`.
-  * Click **`▶ Demo 1: Run Insert & Compare`**.
+* **Click Tab:** ` 4. Before & After Comparator`.
+  * Click **` Demo 1: Run Insert & Compare`**.
   * Point out the 3-column split view:
     * **[LEFT COLUMN]:** Before state (Row count: 60)
     * **[CENTER COLUMN]:** Transaction transition (`INSERT INTO passengers...`)
     * **[RIGHT COLUMN]:** After state (Row count: 61, newly committed row glowing in green).
   * *Say:* *"Ma'am, this comparator provides direct visual proof of the database state change before and after the operation on a single screen."*
-* **Click Tab:** `🛡️ 5. Negative Testing & Constraints`.
-  * Click **`▶ Run Negative Test Live`** under **Negative Baggage Weight**.
+* **Click Tab:** ` 5. Negative Testing & Constraints`.
+  * Click **` Run Negative Test Live`** under **Negative Baggage Weight**.
   * The engine immediately rejects the query with a red badge:
     ```
     BLOCKED BY DATABASE ENGINE: CHECK constraint failed: weight_kg >= 0.00
@@ -144,7 +144,7 @@ If you are presenting on a projector or without running a terminal server, simpl
 
 ---
 
-## 🎯 3. TOP 10 VIVA QUESTIONS & WORD-FOR-WORD ANSWERS
+##  3. TOP 10 VIVA QUESTIONS & WORD-FOR-WORD ANSWERS
 
 ### Q1: "Is this connected to MySQL or SQLite?"
 > **Your Answer:**  
@@ -194,7 +194,7 @@ If you are presenting on a projector or without running a terminal server, simpl
 
 ---
 
-## 📁 4. GITHUB SUBMISSION CHECKLIST (BEFORE 10 OCTOBER 2026)
+##  4. GITHUB SUBMISSION CHECKLIST (BEFORE 10 OCTOBER 2026)
 
 The evaluation instruction sheet specifies that your public repository named `DBMS-Course-Project` must contain four folders:
 

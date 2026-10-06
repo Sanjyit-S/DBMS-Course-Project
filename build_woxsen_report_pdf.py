@@ -1025,11 +1025,11 @@ def build_30_page_pdf(output_pdf_path):
 
     ui_box1 = """
     +-----------------------------------------------------------------------------------------+
-    | [✈️ ARFOM-DB] | Live Operations Portal  [Learner: Sanjyit Suresh Kumar (25WU0102243)]    |
+    | [ ARFOM-DB] | Live Operations Portal  [Learner: Sanjyit Suresh Kumar (25WU0102243)]    |
     +-----------------------------------------------------------------------------------------+
     | Total Passengers: 60 | Active Flights: 15 | Confirmed Bookings: 60 | Revenue: Rs. 4,38,200 |
     +-----------------------------------------------------------------------------------------+
-    | [✈️ 1. Flight Booking & Seats] [🏢 2. Airport Radar] [📋 3. Record Explorer] [➕ 4. Insert] |
+    | [ 1. Flight Booking & Seats] [ 2. Airport Radar] [ 3. Record Explorer] [ 4. Insert] |
     +-----------------------------------------------------------------------------------------+
     """
     p20.code_box(ui_box1, "Figure 3: Master Operations Dashboard Header & Key Metrics")
@@ -1052,7 +1052,7 @@ def build_30_page_pdf(output_pdf_path):
     |  Row 4: [4A:BUS]   [4B:OCC]   || [4C:SELECTED]     | Base Fare:       Rs. 8,500.00      |
     |  Row 7: [7A:ECON]  [7B:ECON]  || [7C:ECON]  [7D]   | Airport Tax 12%: Rs. 1,020.00      |
     |  Legend: [Green: Available] [Red: Occupied]        | Total Settled:   Rs. 9,945.00      |
-    |          [Blue Glowing: Selected by You]           | [🎫 CONFIRM & ISSUE LIVE TICKET]  |
+    |          [Blue Glowing: Selected by You]           | [ CONFIRM & ISSUE LIVE TICKET]  |
     +----------------------------------------------------+------------------------------------+
     """
     p21.code_box(ui_box2, "Figure 4: Interactive Aircraft Cabin Seat Map & Checkout Pane")
@@ -1068,7 +1068,7 @@ def build_30_page_pdf(output_pdf_path):
     +-----------------------------------------------------------------------------------------+
     | HUB: Indira Gandhi International (DEL) | Weather: 26C Clear | Live UTC+05:30: 14:30:00  |
     +-----------------------------------------------------------------------------------------+
-    | [🛫 Live Departures Board (15)]              | [🛬 Live Arrivals Board (15)]             |
+    | [ Live Departures Board (15)]              | [ Live Arrivals Board (15)]             |
     +---------+--------------------+-----------+-----------------+------------+-------+-------+
     | FLIGHT  | DESTINATION        | TIME      | AIRCRAFT        | STATUS     | PAX   | GATE  |
     +---------+--------------------+-----------+-----------------+------------+-------+-------+
@@ -1091,7 +1091,7 @@ def build_30_page_pdf(output_pdf_path):
     +-----------------------------------------------------------------------------------------+
     | TABLES: [view_master_manifest] [passengers] [flights] [bookings] [tickets] [airports]  |
     +-----------------------------------------------------------------------------------------+
-    | Search: [ Vikram                               ] [✕] | Quick: [All] [DEL] [BOM] [CONF]  |
+    | Search: [ Vikram                               ] [X] | Quick: [All] [DEL] [BOM] [CONF]  |
     +---------+-----------+--------------------+-----------------------+-----------+----------+
     | TICKET  | PNR       | PASSENGER NAME     | ROUTE                 | SEAT      | FARE     |
     +---------+-----------+--------------------+-----------------------+-----------+----------+
@@ -1389,7 +1389,7 @@ def build_30_page_pdf(output_pdf_path):
     with open(output_pdf_path, 'wb') as f:
         f.write(pdf_buf)
 
-    print(f"[✓] Successfully generated 30-page PDF report: {output_pdf_path} ({len(pdf_buf)} bytes)")
+    print(f"[[OK]] Successfully generated 30-page PDF report: {output_pdf_path} ({len(pdf_buf)} bytes)")
 
 if __name__ == '__main__':
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "Project-Report", "PROJECT_REPORT.pdf")

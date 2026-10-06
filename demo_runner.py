@@ -358,7 +358,7 @@ def run_negative_tests(base_conn=None):
         except sqlite3.Error as e:
             err_msg = str(e)
             if expected_substr.lower() in err_msg.lower():
-                print(f"  {C_GREEN}✔ PASS: Storage engine intercepted illegal operation:{C_RESET}")
+                print(f"  {C_GREEN}[OK] PASS: Storage engine intercepted illegal operation:{C_RESET}")
                 print(f"  {C_MAGENTA}Exception: {err_msg}{C_RESET}\n")
             else:
                 print(f"  {C_YELLOW}CAUGHT (Different message): {err_msg}{C_RESET}\n")

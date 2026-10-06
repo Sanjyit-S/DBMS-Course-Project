@@ -5,7 +5,7 @@
 
 ---
 
-## ⚡ 1. QUICK LAUNCH COMMANDS FOR PRESENTATION-II
+##  1. QUICK LAUNCH COMMANDS FOR PRESENTATION-II
 
 ### Terminal One-Liner (Automated Live Demo Run)
 ```bash
@@ -36,7 +36,7 @@ python3 demo_runner.py --demo
 
 ---
 
-## 🎙️ 2. PRESENTATION-II DEFENSE WALKTHROUGH (WHAT TO SAY)
+##  2. PRESENTATION-II DEFENSE WALKTHROUGH (WHAT TO SAY)
 
 ### Part 1: The ER Diagram & Cardinality (Slide 2 & 3)
 * **Open:** [`Presentation-II/Presentation-II.html`](file:///Users/sanjyitsureshkumar/dbms_18/Presentation-II/Presentation-II.html)
@@ -86,7 +86,7 @@ python3 demo_runner.py --demo
 
 ---
 
-## 🔄 3. THE SEAMLESS TRANSITION FROM REVIEW 2 TO REVIEW 3
+##  3. THE SEAMLESS TRANSITION FROM REVIEW 2 TO REVIEW 3
 
 Once faculty finishes examining your Presentation-II queries, say:
 

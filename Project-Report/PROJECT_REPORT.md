@@ -202,7 +202,7 @@ The system follows an industry-standard three-tier architecture, establishing st
 ```
                      OPERATIONAL USER / DISPATCHER / PASSENGER
                                          │
-                                         ▼
+                                         |
                ┌────────────────────────────────────────────────────┐
                │     PRESENTATION LAYER (HTML5 + CSS3 + JS)         │
                │  - Flight Booking Hub & Interactive Cabin Seat Map │
@@ -212,7 +212,7 @@ The system follows an industry-standard three-tier architecture, establishing st
                └────────────────────────────────────────────────────┘
                                          │
                             HTTP / REST JSON (Port 8000)
-                                         ▼
+                                         |
                ┌────────────────────────────────────────────────────┐
                │         APPLICATION BACKEND LAYER (PYTHON)         │
                │  - REST Dispatcher (do_GET, do_POST Endpoints)     │
@@ -222,7 +222,7 @@ The system follows an industry-standard three-tier architecture, establishing st
                └────────────────────────────────────────────────────┘
                                          │
                                  SQL Query / Cursor
-                                         ▼
+                                         |
                ┌────────────────────────────────────────────────────┐
                │      RELATIONAL DATABASE LAYER (SQLITE / MYSQL)    │
                │  - 10 Core Tables + Master Manifest Analytical View│
@@ -268,28 +268,28 @@ The relational database, named `arfom.db` (or `arfom_db` in MySQL), consists of 
 ```
     AIRPORTS (PK: airport_code)
       │
-      └─── (1 : N) ───► ROUTES (PK: route_id, FK: origin_airport, dest_airport)
+      └─── (1 : N) ───-> ROUTES (PK: route_id, FK: origin_airport, dest_airport)
                           │
-                          └─── (1 : N) ───► FLIGHTS (PK: flight_id, FK: route_id, aircraft_id)
+                          └─── (1 : N) ───-> FLIGHTS (PK: flight_id, FK: route_id, aircraft_id)
                                               │
     AIRCRAFT (PK: aircraft_id)                │
       │                                       │
-      └─── (1 : N) ───► SEATS (PK: seat_id)   │
+      └─── (1 : N) ───-> SEATS (PK: seat_id)   │
                           │                   │
-                          ▼                   ▼
+                          |                   |
     PASSENGERS (PK: passenger_id)     ┌─────────────────────────────────────────┐
       │                               │ TICKETS (PK: ticket_id)                 │
-      └─── (1 : N) ───► BOOKINGS      │ FK: booking_id, flight_id,              │
+      └─── (1 : N) ───-> BOOKINGS      │ FK: booking_id, flight_id,              │
                           │           │     seat_id, passenger_id               │
                           │ (1 : N)   │ Invariant: UNIQUE(flight_id, seat_id)   │
-                          ▼           └─────────────────────────────────────────┘
+                          |           └─────────────────────────────────────────┘
                         PAYMENTS             │                   │
                         (PK: payment_id)     │ (1 : 1)           │ (1 : 1)
-                                             ▼                   ▼
+                                             |                   |
                                       CHECKINS            CANCELLATIONS
                                       (PK: checkin_id)    (PK: cancellation_id)
                                              │
-                                             └─── (1 : N) ───► BAGGAGE (PK: baggage_id)
+                                             └─── (1 : N) ───-> BAGGAGE (PK: baggage_id)
 ```
 
 | Parent Entity | Child Entity | Cardinality | Business Rule & Invariant Enforced |

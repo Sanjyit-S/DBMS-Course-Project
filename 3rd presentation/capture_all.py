@@ -52,7 +52,7 @@ def capture(output_name, url, delay_sec):
     ]
     try:
         subprocess.run(cmd, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        print(f"  [✓] Captured: {output_name}")
+        print(f"  [[OK]] Captured: {output_name}")
     except Exception as e:
         print(f"  [!] Error capturing {output_name}: {e}")
 
@@ -65,4 +65,4 @@ if __name__ == "__main__":
     for name, url, delay in TARGETS:
         capture(name, url, delay)
 
-    print(f"\n[✓] All screenshots successfully stored in:\n    {SCREENSHOTS_DIR}\n")
+    print(f"\n[[OK]] All screenshots successfully stored in:\n    {SCREENSHOTS_DIR}\n")

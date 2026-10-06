@@ -357,10 +357,10 @@
 
     <div class="view-toggles">
       <button class="btn-action" onclick="toggleStackedView()" id="btnToggleStacked">
-        🗂️ View All 12 Tables Stacked
+         View All 12 Tables Stacked
       </button>
       <a href="../workbench/index.html" target="_blank" class="btn-action" style="background: linear-gradient(135deg, #4F46E5, #0EA5E9); color: white; border: none;">
-        💻 Open Query Workbench &#8599;
+         Open Query Workbench &#8599;
       </a>
     </div>
   </div>
@@ -399,12 +399,12 @@
       </div>
 
       <div class="search-box">
-        <span>🔍</span>
+        <span></span>
         <input type="text" id="filterInput" placeholder="Filter rows in this table..." oninput="filterRows()">
       </div>
 
       <button class="btn-action" onclick="copyTableTSV()">
-        📋 Copy as TSV
+         Copy as TSV
       </button>
     </div>
 
@@ -466,7 +466,7 @@
         btn.id = `tab-${tName}`;
         btn.onclick = () => selectTab(tName);
         
-        const label = tName === 'view_master_manifest' ? '⚡ Master Manifest' : tName;
+        const label = tName === 'view_master_manifest' ? ' Master Manifest' : tName;
         btn.innerHTML = `${label} <span class="tab-count">${tData.rows.length}</span>`;
         tabsContainer.appendChild(btn);
       });
@@ -572,14 +572,14 @@
       if (isStacked) {
         singleView.style.display = 'none';
         stackedView.style.display = 'flex';
-        btn.innerHTML = '🔲 Single Table Focus View';
+        btn.innerHTML = ' Single Table Focus View';
         btn.style.background = 'var(--accent-indigo)';
         btn.style.color = '#FFFFFF';
         renderStackedTables();
       } else {
         singleView.style.display = 'block';
         stackedView.style.display = 'none';
-        btn.innerHTML = '🗂️ View All 12 Tables Stacked';
+        btn.innerHTML = ' View All 12 Tables Stacked';
         btn.style.background = '#1E293B';
         btn.style.color = '#E2E8F0';
         renderActiveTable();

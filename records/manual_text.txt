@@ -2017,7 +2017,7 @@ MongoDB Query Operators
 If the specified <value> is an array, MongoDB matches documents where the <field> matches the
 array exactly or the <field> contains an element that matches the array exactly. The order of the
 elements matters. <field> = sub-object
-➢ Comparison Operators – These operators can be used in queries to compare values.
+-> Comparison Operators – These operators can be used in queries to compare values.
 $eq: Values are equal. Specifies equality condition. The
 
 $eq
@@ -2114,7 +2114,7 @@ Page 70 of 110
 DBMS Laboratory Manual,
 School of Technology
 
-➢ Logical Operators - These operators can logically compare multiple queries.
+-> Logical Operators - These operators can logically compare multiple queries.
 $and: Returns documents where both queries match. $and performs a logical AND
 operation on an array of one or more expressions
 (<expression1>, <expression2> , and so on) and selects the documents that satisfy all the
@@ -2321,7 +2321,7 @@ Page 77 of 110
 
 DBMS Laboratory Manual,
 School of Technology
-➢ Evaluation Operators - The following operators assist in evaluating documents.
+-> Evaluation Operators - The following operators assist in evaluating documents.
 $regex: Allows the use of regular expressions when evaluating field values. Provides regular expression
 capabilities for pattern matching strings in queries.
 
@@ -2378,7 +2378,7 @@ b)
 
 Array
 
-➢ Fields Operators - The following operators can be used to update “fields”.
+-> Fields Operators - The following operators can be used to update “fields”.
 We use the ‘updateOne’ or ‘updateMany’ Commands to update the fields and
 values.
 $currentDate: Sets the field value to the current date. The $currentDate
@@ -2487,7 +2487,7 @@ Page 88 of 110
 DBMS Laboratory Manual,
 School of Technology
 
-➢ Array Operators - The following operators assist with updating “arrays”.
+-> Array Operators - The following operators assist with updating “arrays”.
 
  $addToSet: Adds distinct elements to an array. The
 

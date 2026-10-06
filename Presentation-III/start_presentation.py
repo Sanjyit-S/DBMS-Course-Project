@@ -39,7 +39,7 @@ if not os.path.exists(db_file):
     if os.path.exists(source_db):
         import shutil
         shutil.copy2(source_db, db_file)
-        print("    [✓] Database copied successfully.")
+        print("    [[OK]] Database copied successfully.")
     else:
         build_script = os.path.join(ROOT_DIR, "workbench", "build_database.py")
         subprocess.run([sys.executable, build_script], check=True)
@@ -63,7 +63,7 @@ if not is_running:
     server_proc = subprocess.Popen([sys.executable, SERVER_PY, "8000"])
     time.sleep(1.0)
 else:
-    print("[✓] Master Server is already running on http://localhost:8000")
+    print("[[OK]] Master Server is already running on http://localhost:8000")
 
 # Launch Chrome to Slides and UI
 print("[*] Opening Presentation Slides and Live UI Portal in Google Chrome...")
@@ -77,7 +77,7 @@ except Exception:
     webbrowser.open(SLIDES_URL)
     webbrowser.open(UI_URL)
 
-print("\n[✓] Browser launched with:")
+print("\n[[OK]] Browser launched with:")
 print(f"    1. Slide Deck: {SLIDES_URL}")
 print(f"    2. Live UI:    {UI_URL}")
 print("\n" + "-"*75)

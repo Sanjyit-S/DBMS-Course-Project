@@ -62,7 +62,7 @@ def launch_review_2():
         webbrowser.open(R2_SLIDES)
         webbrowser.open(VISUALS_HUB)
 
-    print("\n[✓] Review 2 Launched Successfully on localhost:8000!")
+    print("\n[[OK]] Review 2 Launched Successfully on localhost:8000!")
     print(f"    1. Slide Deck: {R2_SLIDES}")
     print(f"    2. Visuals Hub: {VISUALS_HUB}")
     if proc:
@@ -82,7 +82,7 @@ def launch_review_3():
         webbrowser.open(R3_SLIDES)
         webbrowser.open(R3_UI)
 
-    print("\n[✓] Review 3 Launched Successfully on localhost:8000!")
+    print("\n[[OK]] Review 3 Launched Successfully on localhost:8000!")
     print(f"    1. Slide Deck: {R3_SLIDES}")
     print(f"    2. Live UI:    {R3_UI}")
     if proc:
@@ -108,7 +108,7 @@ def launch_both():
         webbrowser.open(R3_SLIDES)
         webbrowser.open(R3_UI)
 
-    print("\n[✓] Chrome opened with 4 localhost:8000 tabs:")
+    print("\n[[OK]] Chrome opened with 4 localhost:8000 tabs:")
     print(f"    Tab 1: Review 2 Slides       ({R2_SLIDES})")
     print(f"    Tab 2: Review 2 Visuals Hub  ({VISUALS_HUB})")
     print(f"    Tab 3: Review 3 Slides       ({R3_SLIDES})")
@@ -118,7 +118,7 @@ def launch_both():
         try:
             proc.wait()
         except KeyboardInterrupt:
-            print("\n[✓] Presentation session completed cleanly!")
+            print("\n[[OK]] Presentation session completed cleanly!")
 
 def run_cli_demo():
     print("\n[*] Running Interactive Terminal Viva Harness...")

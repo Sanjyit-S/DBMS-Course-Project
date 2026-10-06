@@ -46,7 +46,7 @@ if not is_running:
     server_proc = subprocess.Popen([sys.executable, server_script, "8000"])
     time.sleep(1.0)
 else:
-    print("[✓] Master Server is already running on http://localhost:8000")
+    print("[[OK]] Master Server is already running on http://localhost:8000")
 
 print("\n[*] Opening Review 2 Artifacts in Google Chrome on localhost:8000...")
 try:
@@ -57,7 +57,7 @@ except Exception:
     webbrowser.open(SLIDES_URL)
     webbrowser.open(VISUALS_URL)
 
-print("\n[✓] Review 2 Launched Successfully on localhost:8000!")
+print("\n[[OK]] Review 2 Launched Successfully on localhost:8000!")
 print(f"    1. Slide Deck (16:9): {SLIDES_URL}")
 print(f"    2. Visuals Hub:       {VISUALS_URL}")
 print(f"    3. PDF Deck:          {os.path.join(BASE_DIR, 'Presentation-II.pdf')}")

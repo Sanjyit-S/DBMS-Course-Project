@@ -86,7 +86,7 @@ def render_table(headers, rows):
 def print_banner():
     banner = f"""{C_BOLD}{C_CYAN}
 ┌─────────────────────────────────────────────────────────────────────────────┐
-│  ✈️  ARFOM-DB INTERACTIVE RELATIONAL SQL CONSOLE                           │
+│    ARFOM-DB INTERACTIVE RELATIONAL SQL CONSOLE                           │
 │  Candidate: Sanjyit Suresh Kumar (Roll No. 25WU0102243) • AIML Whales (#18) │
 │  Engine: SQLite 3.x with Strict Foreign Keys & Invariants                   │
 └─────────────────────────────────────────────────────────────────────────────┘{C_RESET}
@@ -114,7 +114,7 @@ def show_tables(conn):
         rows.append([name, obj_type.upper(), count])
     
     render_table(["Table / View Name", "Object Type", "Row Count"], rows)
-    print(f"{C_GREEN}✓ {len(tables)} relational entities active in storage.{C_RESET}\n")
+    print(f"{C_GREEN}[OK] {len(tables)} relational entities active in storage.{C_RESET}\n")
 
 def desc_table(conn, table_name):
     cur = conn.cursor()
@@ -199,19 +199,19 @@ def main():
                         headers = [col[0] for col in cur.description]
                         rows = cur.fetchall()
                         render_table(headers, rows)
-                        print(f"{C_GREEN}✓ {len(rows)} row(s) in set ({elapsed_ms:.2f} ms){C_RESET}\n")
+                        print(f"{C_GREEN}[OK] {len(rows)} row(s) in set ({elapsed_ms:.2f} ms){C_RESET}\n")
                     else:
                         conn.commit()
                         affected = cur.rowcount
-                        print(f"{C_GREEN}✓ Query OK, {affected} row(s) affected ({elapsed_ms:.2f} ms){C_RESET}\n")
+                        print(f"{C_GREEN}[OK] Query OK, {affected} row(s) affected ({elapsed_ms:.2f} ms){C_RESET}\n")
 
                 except sqlite3.IntegrityError as e:
                     elapsed_ms = (time.perf_counter() - t0) * 1000
-                    print(f"{C_RED}❌ Integrity Constraint Violation ({elapsed_ms:.2f} ms):{C_RESET}")
+                    print(f"{C_RED}[X] Integrity Constraint Violation ({elapsed_ms:.2f} ms):{C_RESET}")
                     print(f"   {C_RED}{str(e)}{C_RESET}\n")
                 except Exception as e:
                     elapsed_ms = (time.perf_counter() - t0) * 1000
-                    print(f"{C_RED}❌ SQL Error ({elapsed_ms:.2f} ms):{C_RESET}")
+                    print(f"{C_RED}[X] SQL Error ({elapsed_ms:.2f} ms):{C_RESET}")
                     print(f"   {C_RED}{str(e)}{C_RESET}\n")
 
         except KeyboardInterrupt:

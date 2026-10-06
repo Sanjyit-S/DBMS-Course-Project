@@ -271,8 +271,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     btnCopyTunnel.addEventListener('click', () => {
       const input = document.getElementById('tunnelUrlInput');
       navigator.clipboard.writeText(input.value).then(() => {
-        btnCopyTunnel.textContent = '✓';
-        setTimeout(() => btnCopyTunnel.textContent = '📋', 1500);
+        btnCopyTunnel.textContent = '[OK]';
+        setTimeout(() => btnCopyTunnel.textContent = '', 1500);
       });
     });
   }
@@ -399,7 +399,7 @@ function renderTablePills() {
     if (t.name === state.currentTable) pill.classList.add('active');
     if (t.name === 'view_master_manifest') {
       pill.classList.add('highlight-view');
-      pill.innerHTML = `⭐ Master Manifest <span style="font-size:10.5px; opacity:0.8;">(${t.row_count})</span>`;
+      pill.innerHTML = ` Master Manifest <span style="font-size:10.5px; opacity:0.8;">(${t.row_count})</span>`;
     } else {
       pill.innerHTML = `${t.name} <span style="font-size:10.5px; opacity:0.8;">(${t.row_count})</span>`;
     }
@@ -509,7 +509,7 @@ async function loadTableData() {
     if (col === data.pk_col) {
       th.style.color = '#0284C7';
       th.style.fontWeight = '800';
-      th.textContent = `🔑 ${col}`;
+      th.textContent = ` ${col}`;
     }
     th.addEventListener('click', () => {
       if (state.sortCol === col) {
@@ -560,7 +560,7 @@ async function loadTableData() {
       btnDel.style.padding = '3px 8px';
       btnDel.style.fontSize = '11px';
       btnDel.title = `Delete record (${data.pk_col} = ${pkVal})`;
-      btnDel.innerHTML = '🗑️';
+      btnDel.innerHTML = '';
       btnDel.addEventListener('click', (e) => {
         e.stopPropagation();
         openDeleteConfirmModal(state.currentTable, data.pk_col, pkVal, row, data.columns);
@@ -1113,7 +1113,7 @@ async function runComparatorInsertDemo() {
     const isNew = r[0] === insertJson.new_id;
     return `
       <tr style="${isNew ? 'background: rgba(16, 185, 129, 0.25); color: #6EE7B7; font-weight: 700;' : ''}">
-        <td>#${r[0]} ${isNew ? '🌟 (NEW)' : ''}</td>
+        <td>#${r[0]} ${isNew ? ' (NEW)' : ''}</td>
         <td>${r[1]} ${r[2]}</td>
         <td>${r[3]}</td>
       </tr>
@@ -1141,7 +1141,7 @@ async function runComparatorDeleteDemo() {
 
   beforeTbody.innerHTML = beforeData.rows.map(r => `
     <tr style="${r[0] === candidateId ? 'background: rgba(244, 63, 94, 0.2); color: #FB7185;' : ''}">
-      <td>#${r[0]} ${r[0] === candidateId ? '⚠️ (TARGET)' : ''}</td>
+      <td>#${r[0]} ${r[0] === candidateId ? ' (TARGET)' : ''}</td>
       <td>${r[1]} ${r[2]}</td>
       <td>${r[3]}</td>
     </tr>
@@ -1202,7 +1202,7 @@ async function runConstraintTest(type) {
 
   badge.className = 'badge badge-red';
   badge.textContent = 'BLOCKED BY DATABASE ENGINE';
-  errEl.innerHTML = `<strong>Integrity Error:</strong> ${errMsg}<br><span style="color:#A7F3D0;">✓ System behavior correct: Storage engine rejected invalid transaction in 0.8 ms.</span>`;
+  errEl.innerHTML = `<strong>Integrity Error:</strong> ${errMsg}<br><span style="color:#A7F3D0;">[OK] System behavior correct: Storage engine rejected invalid transaction in 0.8 ms.</span>`;
 }
 
 // ==============================================================================
@@ -1300,7 +1300,7 @@ async function handleModalInsertSubmit() {
 async function handleResetDatabase() {
   if (!confirm('Reset ARFOM-DB database to initial seed state? This restores all 12 tables and 60 records.')) return;
   initLocalDb();
-  alert('✓ Database restored to pristine seed state!');
+  alert('[OK] Database restored to pristine seed state!');
   await loadStats();
   await loadTablesMetadata();
   loadTableData();
@@ -1385,7 +1385,7 @@ async function loadBookingFlights() {
 
   select.innerHTML = flights.map(f => `
     <option value="${f.flight_id}">
-      ${f.flight_number} : ${f.origin_airport} (${f.origin_city}) ➔ ${f.dest_airport} (${f.dest_city}) &bull; ${f.scheduled_departure}
+      ${f.flight_number} : ${f.origin_airport} (${f.origin_city}) -> ${f.dest_airport} (${f.dest_city}) &bull; ${f.scheduled_departure}
     </option>
   `).join('');
 
@@ -1474,7 +1474,7 @@ async function renderSeatMap(flightId) {
     
     if (firstSeat.seat_class !== currentClass) {
       currentClass = firstSeat.seat_class;
-      const classLabel = currentClass === 'FIRST' ? '👑 First Class (₹15,000)' : (currentClass === 'BUSINESS' ? '💼 Business Class (₹8,500)' : '💺 Economy Class (₹4,500)');
+      const classLabel = currentClass === 'FIRST' ? ' First Class (₹15,000)' : (currentClass === 'BUSINESS' ? ' Business Class (₹8,500)' : ' Economy Class (₹4,500)');
       html += `<div class="cabin-section-divider">${classLabel}</div>`;
     }
 
@@ -1573,7 +1573,7 @@ async function submitFlightBooking() {
 
   const btn = document.getElementById('btnSubmitBooking');
   btn.disabled = true;
-  btn.textContent = '⏳ Processing ACID Transaction...';
+  btn.textContent = ' Processing ACID Transaction...';
 
   const payload = {
     first_name: firstName,
@@ -1650,7 +1650,7 @@ async function submitFlightBooking() {
   }
 
   btn.disabled = false;
-  btn.textContent = '🎫 Confirm Reservation & Issue Live Ticket';
+  btn.textContent = ' Confirm Reservation & Issue Live Ticket';
 
   if (json.status === 'success') {
     const resCard = document.getElementById('bookingResultCard');
@@ -1659,7 +1659,7 @@ async function submitFlightBooking() {
     document.getElementById('bpPnr').textContent = `PNR: ${json.booking_ref}`;
     document.getElementById('bpPassengerName').textContent = json.passenger_name || `${firstName} ${lastName}`;
     document.getElementById('bpSeatNo').textContent = `${json.seat_number || bookingState.selectedSeat.seat_number} (${json.seat_class || bookingState.selectedSeat.seat_class})`;
-    document.getElementById('bpRoute').textContent = `${json.origin_airport || bookingState.selectedFlight?.origin_airport} ➔ ${json.dest_airport || bookingState.selectedFlight?.dest_airport}`;
+    document.getElementById('bpRoute').textContent = `${json.origin_airport || bookingState.selectedFlight?.origin_airport} -> ${json.dest_airport || bookingState.selectedFlight?.dest_airport}`;
     document.getElementById('bpDepTime').textContent = json.departure_time || bookingState.selectedFlight?.scheduled_departure;
     document.getElementById('bpTicketId').textContent = `#${json.ticket_id}`;
 
@@ -1880,7 +1880,7 @@ function onCheckinTicketSelectChange(ticketId) {
 
   document.getElementById('ciPaxName').textContent = ticket.passenger_name;
   document.getElementById('ciSeat').textContent = `Seat ${ticket.seat_number || '--'}`;
-  document.getElementById('ciFlightInfo').textContent = `Flight ${ticket.flight_number} &bull; ${ticket.origin_airport || 'DEL'} ➔ ${ticket.dest_airport || 'BOM'} (PNR: ${ticket.booking_ref})`;
+  document.getElementById('ciFlightInfo').textContent = `Flight ${ticket.flight_number} &bull; ${ticket.origin_airport || 'DEL'} -> ${ticket.dest_airport || 'BOM'} (PNR: ${ticket.booking_ref})`;
 }
 
 function updateBaggageWeight(val) {
@@ -1916,7 +1916,7 @@ async function submitCheckinBaggage() {
 
   const btn = document.getElementById('btnSubmitCheckin');
   btn.disabled = true;
-  btn.textContent = '⏳ Printing Boarding Pass & Registering Baggage...';
+  btn.textContent = ' Printing Boarding Pass & Registering Baggage...';
 
   const payload = {
     ticket_id: ticketId,
@@ -1952,7 +1952,7 @@ async function submitCheckinBaggage() {
   }
 
   btn.disabled = false;
-  btn.textContent = '🖨️ Issue Boarding Pass & Tag Baggage';
+  btn.textContent = ' Issue Boarding Pass & Tag Baggage';
 
   const resultBox = document.getElementById('checkinResultBox');
   resultBox.style.display = 'block';

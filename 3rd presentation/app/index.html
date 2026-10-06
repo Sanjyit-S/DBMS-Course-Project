@@ -16,7 +16,7 @@
        ======================================================================== -->
   <header>
     <div class="brand-section">
-      <div class="brand-icon">✈️</div>
+      <div class="brand-icon"></div>
       <div class="brand-info">
         <h1>ARFOM-DB <span style="font-weight: 400; font-size: 15px; color: #94A3B8;">| Live Operations Portal</span></h1>
         <div class="brand-meta">
@@ -28,7 +28,7 @@
 
     <div class="header-right">
       <div class="student-tag">
-        <span>👨‍💻 Learner:</span>
+        <span>‍ Learner:</span>
         <strong>Sanjyit Suresh Kumar</strong>
         <span style="color: #64748B;">(25WU0102243)</span>
       </div>
@@ -39,15 +39,15 @@
       </div>
 
       <button class="btn btn-secondary" id="btnResetDb" title="Reset all tables to pristine seed data">
-        🔄 Reset Seed DB
+         Reset Seed DB
       </button>
 
       <button class="btn btn-secondary" id="btnOpenMobileModal" style="border-color: rgba(99, 102, 241, 0.4); color: #A5B4FC;">
-        📱 Mobile Tunnel (QR)
+         Mobile Tunnel (QR)
       </button>
 
       <button class="btn btn-primary" id="btnOpenInsertModal">
-        ➕ Insert Record
+         Insert Record
       </button>
     </div>
   </header>
@@ -64,7 +64,7 @@
           <div class="stat-label">Total Passengers</div>
           <div class="stat-value" id="statPassengers">60</div>
         </div>
-        <div class="stat-icon blue">👥</div>
+        <div class="stat-icon blue"></div>
       </div>
 
       <div class="stat-card">
@@ -72,7 +72,7 @@
           <div class="stat-label">Active Flights</div>
           <div class="stat-value" id="statFlights">15</div>
         </div>
-        <div class="stat-icon purple">🛫</div>
+        <div class="stat-icon purple"></div>
       </div>
 
       <div class="stat-card">
@@ -80,7 +80,7 @@
           <div class="stat-label">Confirmed Bookings</div>
           <div class="stat-value" id="statBookings">60</div>
         </div>
-        <div class="stat-icon emerald">🎫</div>
+        <div class="stat-icon emerald"></div>
       </div>
 
       <div class="stat-card">
@@ -88,44 +88,44 @@
           <div class="stat-label">Settled Gross Revenue</div>
           <div class="stat-value" id="statRevenue">₹4,38,200</div>
         </div>
-        <div class="stat-icon amber">💳</div>
+        <div class="stat-icon amber"></div>
       </div>
     </section>
 
     <!-- Presentation Mode Tab Navigation -->
     <nav class="tabs-nav">
       <button class="tab-btn active" data-tab="tab-booking">
-        <span>✈️ 1. Flight Booking & Seats</span>
+        <span> 1. Flight Booking & Seats</span>
         <span class="tab-badge">Live Reservation</span>
       </button>
 
       <button class="tab-btn" data-tab="tab-airport">
-        <span>🏢 2. Airport Radar & FIDS</span>
+        <span> 2. Airport Radar & FIDS</span>
         <span class="tab-badge">Airport Operations</span>
       </button>
 
       <button class="tab-btn" data-tab="tab-view">
-        <span>📋 3. Record Explorer</span>
+        <span> 3. Record Explorer</span>
         <span class="tab-badge">Viewing</span>
       </button>
 
       <button class="tab-btn" data-tab="tab-insert">
-        <span>➕ 4. Record Insertion</span>
+        <span> 4. Record Insertion</span>
         <span class="tab-badge">Insertion</span>
       </button>
 
       <button class="tab-btn" data-tab="tab-delete">
-        <span>🗑️ 5. Record Deletion</span>
+        <span> 5. Record Deletion</span>
         <span class="tab-badge">Deletion</span>
       </button>
 
       <button class="tab-btn" data-tab="tab-compare">
-        <span>⚖️ 6. Before & After Comparator</span>
+        <span> 6. Before & After Comparator</span>
         <span class="tab-badge">Live Reflection</span>
       </button>
 
       <button class="tab-btn" data-tab="tab-constraints">
-        <span>🛡️ 7. Negative Testing & Constraints</span>
+        <span> 7. Negative Testing & Constraints</span>
         <span class="tab-badge">Integrity</span>
       </button>
     </nav>
@@ -144,7 +144,7 @@
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
               <div>
                 <h2 style="font-size: 17px; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
-                  <span>🛫</span> Select Scheduled Flight
+                  <span></span> Select Scheduled Flight
                 </h2>
                 <p style="font-size: 13px; color: var(--text-muted); margin-top: 2px;">
                   Choose an active flight to view real-time cabin occupancy and reserve available seats.
@@ -199,7 +199,7 @@
             <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px; margin-bottom: 16px;">
               <div>
                 <h3 style="font-size: 16px; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
-                  <span>💺</span> Interactive Cabin Seat Map
+                  <span></span> Interactive Cabin Seat Map
                 </h3>
                 <p style="font-size: 12.5px; color: var(--text-muted);">
                   Click any green seat to allocate. Red seats are already occupied by confirmed passengers.
@@ -242,7 +242,7 @@
           <!-- Booking Form Card -->
           <div class="panel-card" style="padding: 22px;">
             <h3 style="font-size: 16px; font-weight: 800; color: var(--text-main); margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
-              <span>👤</span> Passenger & Payment Details
+              <span></span> Passenger & Payment Details
             </h3>
             <p style="font-size: 12.5px; color: var(--text-muted); margin-bottom: 16px;">
               Direct ACID transaction into <code>passengers</code>, <code>bookings</code>, <code>payments</code>, and <code>tickets</code>.
@@ -251,7 +251,7 @@
             <!-- Preset Fill Shortcut -->
             <div style="margin-bottom: 14px; background: #F8FAFC; border: 1px dashed #CBD5E1; border-radius: 8px; padding: 10px 12px;">
               <span style="font-size: 11.5px; font-weight: 600; color: var(--text-dim); display: block; margin-bottom: 6px;">
-                ⚡ Quick Fill Demo Passenger:
+                 Quick Fill Demo Passenger:
               </span>
               <div style="display: flex; gap: 6px; flex-wrap: wrap;">
                 <button type="button" class="preset-btn" onclick="fillBookingPassenger('Vikram', 'Malhotra', 'vikram.malhotra@skywings.org')">Dr. Vikram</button>
@@ -285,10 +285,10 @@
             <div class="form-group">
               <label>Payment Method:</label>
               <select class="form-control" id="bkPaymentMethod">
-                <option value="CREDIT_CARD">💳 Credit Card (Instant Settlement)</option>
-                <option value="UPI">📱 UPI / QR Transfer</option>
-                <option value="DEBIT_CARD">🏧 Debit Card</option>
-                <option value="NET_BANKING">🏦 Internet Banking</option>
+                <option value="CREDIT_CARD"> Credit Card (Instant Settlement)</option>
+                <option value="UPI"> UPI / QR Transfer</option>
+                <option value="DEBIT_CARD"> Debit Card</option>
+                <option value="NET_BANKING"> Internet Banking</option>
               </select>
             </div>
 
@@ -318,7 +318,7 @@
 
             <!-- Submit Booking Button -->
             <button class="btn btn-primary" id="btnSubmitBooking" style="width: 100%; padding: 14px; font-size: 15px; font-weight: 700; margin-top: 16px;" onclick="submitFlightBooking()">
-              🎫 Confirm Reservation & Issue Live Ticket
+               Confirm Reservation & Issue Live Ticket
             </button>
           </div>
 
@@ -343,7 +343,7 @@
               </div>
               <div class="bp-field">
                 <span class="bp-label">ROUTE</span>
-                <span class="bp-val" id="bpRoute">DEL ➔ BOM</span>
+                <span class="bp-val" id="bpRoute">DEL -> BOM</span>
               </div>
               <div class="bp-field">
                 <span class="bp-label">DEPARTURE</span>
@@ -362,7 +362,7 @@
             <div class="boarding-pass-footer">
               <div class="barcode-graphic"></div>
               <button class="btn btn-secondary" style="font-size: 12px; padding: 6px 12px;" onclick="switchTab('tab-airport'); loadAirportCheckinWithTicket();">
-                🏢 Go to Airport Check-in & Baggage Counter &rarr;
+                 Go to Airport Check-in & Baggage Counter &rarr;
               </button>
             </div>
           </div>
@@ -382,7 +382,7 @@
         <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
           <div>
             <div style="display: flex; align-items: center; gap: 10px;">
-              <span style="font-size: 24px;">🏢</span>
+              <span style="font-size: 24px;"></span>
               <div>
                 <h2 style="font-size: 18px; font-weight: 800; color: var(--text-main);" id="fidsAirportTitle">
                   Indira Gandhi International Airport (DEL)
@@ -432,13 +432,13 @@
           <div class="fids-header-bar">
             <div style="display: flex; align-items: center; gap: 12px;">
               <button class="fids-tab-btn active" id="btnFidsDepartures" onclick="toggleFidsMode('departures')">
-                🛫 Departures Board (<span id="fidsDepCount">0</span>)
+                 Departures Board (<span id="fidsDepCount">0</span>)
               </button>
               <button class="fids-tab-btn" id="btnFidsArrivals" onclick="toggleFidsMode('arrivals')">
-                🛬 Arrivals Board (<span id="fidsArrCount">0</span>)
+                 Arrivals Board (<span id="fidsArrCount">0</span>)
               </button>
             </div>
-            <span class="badge badge-emerald" style="font-size: 11px;">● LIVE RADAR SYNC</span>
+            <span class="badge badge-emerald" style="font-size: 11px;"> LIVE RADAR SYNC</span>
           </div>
 
           <!-- High-Contrast Electronic Flight Table -->
@@ -467,7 +467,7 @@
           <div class="panel-card" style="padding: 22px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
               <h3 style="font-size: 16px; font-weight: 800; color: var(--text-main); display: flex; align-items: center; gap: 8px;">
-                <span>🧳</span> Check-in & Baggage Scale
+                <span></span> Check-in & Baggage Scale
               </h3>
               <span class="badge badge-blue">Desk 04</span>
             </div>
@@ -490,7 +490,7 @@
                 <span id="ciSeat">Seat --</span>
               </div>
               <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px;" id="ciFlightInfo">
-                Flight AR-101 &bull; DEL ➔ BOM
+                Flight AR-101 &bull; DEL -> BOM
               </div>
             </div>
 
@@ -526,7 +526,7 @@
 
             <!-- Submit Check-in Button -->
             <button class="btn btn-primary" id="btnSubmitCheckin" style="width: 100%; padding: 13px; font-size: 14px; font-weight: 700; margin-top: 16px;" onclick="submitCheckinBaggage()">
-              🖨️ Issue Boarding Pass & Tag Baggage
+               Issue Boarding Pass & Tag Baggage
             </button>
 
             <!-- Checkin Confirmation Result -->
@@ -560,9 +560,9 @@
         <!-- Toolbar -->
         <div class="toolbar-row" style="flex-wrap: wrap; gap: 12px;">
           <div class="search-box" style="flex: 1; min-width: 280px; position: relative; display: flex; align-items: center;">
-            <span style="font-size: 14px; margin-right: 6px;">🔍</span>
+            <span style="font-size: 14px; margin-right: 6px;"></span>
             <input type="search" id="searchInput" placeholder="Search by name, ID, PNR, flight, city..." style="width: 100%; padding-right: 30px;">
-            <button id="btnSearchClear" style="display: none; position: absolute; right: 10px; background: none; border: none; font-size: 14px; color: #94A3B8; cursor: pointer; padding: 2px 6px;" title="Clear Search">✕</button>
+            <button id="btnSearchClear" style="display: none; position: absolute; right: 10px; background: none; border: none; font-size: 14px; color: #94A3B8; cursor: pointer; padding: 2px 6px;" title="Clear Search">X</button>
           </div>
 
           <!-- Quick Filter Tags -->
@@ -579,7 +579,7 @@
             <span id="activeTableCountBadge" class="brand-badge" style="font-size: 12px; padding: 6px 12px;">
               Loading records...
             </span>
-            <button class="btn btn-secondary" id="btnRefreshTable">🔄 Refresh Table</button>
+            <button class="btn btn-secondary" id="btnRefreshTable"> Refresh Table</button>
           </div>
         </div>
 
@@ -602,8 +602,8 @@
           </div>
           <div style="display: flex; gap: 8px; align-items: center;">
             <span id="pageIndicator" style="font-size: 12px; color: #94A3B8;">Page 1 of 1</span>
-            <button class="btn btn-secondary" id="btnPrevPage" style="padding: 4px 10px; font-size: 12px;">◀ Prev</button>
-            <button class="btn btn-secondary" id="btnNextPage" style="padding: 4px 10px; font-size: 12px;">Next ▶</button>
+            <button class="btn btn-secondary" id="btnPrevPage" style="padding: 4px 10px; font-size: 12px;"> Prev</button>
+            <button class="btn btn-secondary" id="btnNextPage" style="padding: 4px 10px; font-size: 12px;">Next </button>
           </div>
         </div>
 
@@ -620,7 +620,7 @@
         <div class="panel-card">
           <div style="display: flex; justify-content: space-between; align-items: center;">
             <h2 style="font-family: var(--font-heading); font-size: 18px; color: var(--text-main);">
-              ➕ Insert New Database Record
+               Insert New Database Record
             </h2>
             <span class="badge badge-blue">ACID Transaction Commit</span>
           </div>
@@ -628,16 +628,16 @@
           <!-- Entity Type Picker -->
           <div style="display: flex; gap: 8px; margin-top: 4px;">
             <button class="btn btn-secondary active-entity-btn" data-entity="passengers" id="btnEntityPassenger">
-              👤 New Passenger
+               New Passenger
             </button>
             <button class="btn btn-secondary" data-entity="baggage" id="btnEntityBaggage">
-              🧳 New Baggage Item
+               New Baggage Item
             </button>
           </div>
 
           <!-- Quick 1-Click Demo Presets -->
           <div class="presets-container">
-            <span class="presets-label">⚡ 1-Click Quick Demo Presets (Instant Viva Fill)</span>
+            <span class="presets-label"> 1-Click Quick Demo Presets (Instant Viva Fill)</span>
             <div class="preset-chips" id="insertPresetChips">
               <!-- Dynamically generated -->
             </div>
@@ -650,7 +650,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; padding: 12px; margin-top: 10px;">
-              💾 Execute INSERT & Commit to Database
+               Execute INSERT & Commit to Database
             </button>
           </form>
         </div>
@@ -660,7 +660,7 @@
           <div>
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
               <h2 style="font-family: var(--font-heading); font-size: 18px; color: var(--text-main);">
-                ⚡ Live Database Reflection Panel
+                 Live Database Reflection Panel
               </h2>
               <span class="badge badge-green" id="insertStatusBadge">Waiting for Operation</span>
             </div>
@@ -698,7 +698,7 @@
           <!-- Newly Created Record Spotlight -->
           <div id="newRecordSpotlight" style="display: none; background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 14px; margin-top: 16px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-              <span style="font-size: 12px; font-weight: 700; color: #34D399;">✓ COMMITTED ROW VERIFIED IN STORAGE:</span>
+              <span style="font-size: 12px; font-weight: 700; color: #34D399;">[OK] COMMITTED ROW VERIFIED IN STORAGE:</span>
               <button class="btn btn-secondary" id="btnJumpToNewRecord" style="padding: 3px 8px; font-size: 11px;">View in Table</button>
             </div>
             <div id="newRecordDataRow" style="font-family: var(--font-mono); font-size: 12px; color: #E2E8F0; overflow-x: auto;">
@@ -721,7 +721,7 @@
         <div class="panel-card">
           <div style="display: flex; justify-content: space-between; align-items: center;">
             <h2 style="font-family: var(--font-heading); font-size: 18px; color: var(--text-main);">
-              🗑️ Delete Database Record
+               Delete Database Record
             </h2>
             <span class="badge badge-red">Referential Safety Enforced</span>
           </div>
@@ -753,7 +753,7 @@
           </div>
 
           <button id="btnExecuteDelete" class="btn btn-danger" style="width: 100%; justify-content: center; padding: 12px; margin-top: 10px;">
-            ⚠️ Execute DELETE & Commit Change
+             Execute DELETE & Commit Change
           </button>
         </div>
 
@@ -761,7 +761,7 @@
         <div class="panel-card">
           <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
             <h2 style="font-family: var(--font-heading); font-size: 18px; color: var(--text-main);">
-              ⚡ Live Deletion Reflection
+               Live Deletion Reflection
             </h2>
             <span class="badge badge-red" id="deleteStatusBadge">Waiting for Operation</span>
           </div>
@@ -793,7 +793,7 @@
           </div>
 
           <div id="deletedRecordAuditBox" style="display: none; background: rgba(244, 63, 94, 0.08); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 12px; padding: 14px; margin-top: 16px;">
-            <span style="font-size: 12px; font-weight: 700; color: #FB7185;">✓ RECORD EXPUNGED FROM STORAGE ENGINE:</span>
+            <span style="font-size: 12px; font-weight: 700; color: #FB7185;">[OK] RECORD EXPUNGED FROM STORAGE ENGINE:</span>
             <div id="deletedRecordDataText" style="font-family: var(--font-mono); font-size: 12px; color: #E2E8F0; margin-top: 6px;">
               <!-- Deleted Record Text -->
             </div>
@@ -812,7 +812,7 @@
         <div style="display: flex; justify-content: space-between; align-items: center;">
           <div>
             <h2 style="font-family: var(--font-heading); font-size: 20px; color: var(--text-main);">
-              ⚖️ Live Before & After Database State Comparator
+               Live Before & After Database State Comparator
             </h2>
             <p style="font-size: 13px; color: var(--text-muted); margin-top: 2px;">
               Fulfills Presentation-III Rubric Requirement: <em>"Demonstrate each operation live, showing the change reflected in the database."</em>
@@ -821,10 +821,10 @@
 
           <div style="display: flex; gap: 8px;">
             <button class="btn btn-primary" id="btnRunCompareInsert">
-              ▶ Demo 1: Run Insert & Compare
+               Demo 1: Run Insert & Compare
             </button>
             <button class="btn btn-danger" id="btnRunCompareDelete">
-              ▶ Demo 2: Run Delete & Compare
+               Demo 2: Run Delete & Compare
             </button>
           </div>
         </div>
@@ -852,7 +852,7 @@
 
           <!-- Column 2: ACTION TRANSITION -->
           <div class="middle-action-col">
-            <div class="action-arrow">➔</div>
+            <div class="action-arrow">-></div>
             <span class="badge badge-purple" id="compareActionBadge">ACID WRITE</span>
             <div style="font-size: 11px; font-family: var(--font-mono); color: #94A3B8;" id="compareSqlSnippet">
               INSERT INTO...
@@ -889,7 +889,7 @@
     <section id="tab-constraints" class="tab-content">
       <div class="panel-card">
         <h2 style="font-family: var(--font-heading); font-size: 20px; color: var(--text-main);">
-          🛡️ Integrity Constraints Defense & Live Negative Tests
+           Integrity Constraints Defense & Live Negative Tests
         </h2>
         <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 12px;">
           Demonstrate to the evaluating faculty that the database actively guards against corrupt or anomalous data at the storage engine level.
@@ -910,7 +910,7 @@
               INSERT INTO baggage (checkin_id, weight_kg, excess_fee) VALUES (1, -5.50, 0.00);
             </div>
             <button class="btn btn-secondary" onclick="runConstraintTest('negative_baggage')">
-              ▶ Run Negative Test Live
+               Run Negative Test Live
             </button>
           </div>
 
@@ -927,7 +927,7 @@
               INSERT INTO tickets (booking_id, flight_id, seat_id, fare_amount) VALUES (2, 1, 1, 8500.00);
             </div>
             <button class="btn btn-secondary" onclick="runConstraintTest('double_booking')">
-              ▶ Run Negative Test Live
+               Run Negative Test Live
             </button>
           </div>
 
@@ -944,7 +944,7 @@
               INSERT INTO routes (origin_airport, dest_airport, distance_km) VALUES ('DEL', 'DEL', 500);
             </div>
             <button class="btn btn-secondary" onclick="runConstraintTest('same_airport')">
-              ▶ Run Negative Test Live
+               Run Negative Test Live
             </button>
           </div>
 
@@ -961,7 +961,7 @@
               DELETE FROM airports WHERE airport_code = 'DEL';
             </div>
             <button class="btn btn-secondary" onclick="runConstraintTest('delete_restrict')">
-              ▶ Run Negative Test Live
+               Run Negative Test Live
             </button>
           </div>
 
@@ -988,8 +988,8 @@
   <div class="modal-overlay" id="modalInsert">
     <div class="modal-card">
       <div class="modal-header">
-        <h3>➕ Quick Insert Record</h3>
-        <button class="modal-close" onclick="closeModal('modalInsert')">✕</button>
+        <h3> Quick Insert Record</h3>
+        <button class="modal-close" onclick="closeModal('modalInsert')">X</button>
       </div>
 
       <div class="form-group">
@@ -1018,8 +1018,8 @@
   <div class="modal-overlay" id="modalDeleteConfirm">
     <div class="modal-card">
       <div class="modal-header">
-        <h3 style="color: #FB7185;">⚠️ Confirm Database Deletion</h3>
-        <button class="modal-close" onclick="closeModal('modalDeleteConfirm')">✕</button>
+        <h3 style="color: #FB7185;"> Confirm Database Deletion</h3>
+        <button class="modal-close" onclick="closeModal('modalDeleteConfirm')">X</button>
       </div>
 
       <div class="alert-box alert-danger">
@@ -1044,9 +1044,9 @@
     <div class="modal-card" style="max-width: 480px; text-align: center;">
       <div class="modal-header">
         <h3 style="color: #38BDF8; display: flex; align-items: center; gap: 8px;">
-          <span>📱</span> Live Mobile QR Tunnel
+          <span></span> Live Mobile QR Tunnel
         </h3>
-        <button class="modal-close" onclick="closeModal('modalMobileTunnel')">✕</button>
+        <button class="modal-close" onclick="closeModal('modalMobileTunnel')">X</button>
       </div>
 
       <p style="font-size: 13px; color: var(--text-muted); margin-top: -6px;">
@@ -1063,12 +1063,12 @@
         <label style="font-size: 11px;">Active Tunnel / Localhost URL:</label>
         <div style="display: flex; gap: 8px;">
           <input type="text" class="form-control" id="tunnelUrlInput" placeholder="http://192.168.x.x:8000 or ngrok URL">
-          <button class="btn btn-secondary" id="btnCopyTunnelUrl" title="Copy URL">📋</button>
+          <button class="btn btn-secondary" id="btnCopyTunnelUrl" title="Copy URL"></button>
         </div>
       </div>
 
       <div style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.25); border-radius: 10px; padding: 10px 14px; font-size: 12px; color: #C7D2FE; text-align: left;">
-        <strong>⚡ How to launch with ngrok:</strong>
+        <strong> How to launch with ngrok:</strong>
         <code style="display: block; background: rgba(0,0,0,0.4); padding: 4px 8px; border-radius: 6px; margin-top: 4px; font-family: var(--font-mono); color: #7DD3FC;">ngrok http 8000</code>
       </div>
 

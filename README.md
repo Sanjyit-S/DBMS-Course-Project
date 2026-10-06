@@ -9,7 +9,7 @@
 
 ---
 
-## 🚀 Quick Launch (Presentation-III Live UI)
+##  Quick Launch (Presentation-III Live UI)
 ```bash
 python3 "3rd presentation/start_presentation.py"
 ```
@@ -19,7 +19,7 @@ python3 "3rd presentation/start_presentation.py"
 
 ---
 
-## 📁 Repository Submission Folders
+##  Repository Submission Folders
 * **[`Presentation-I/`](file:///Users/sanjyitsureshkumar/dbms_18/Presentation-I/):** Problem Description & System Scope
 * **[`Presentation-II/`](file:///Users/sanjyitsureshkumar/dbms_18/Presentation-II/):** ER Diagram, Normalized DDL/DML, and Analytical Queries
 * **[`Presentation-III/`](file:///Users/sanjyitsureshkumar/dbms_18/Presentation-III/):** User Interface (Source Code, Slides, Playbook, and UI Screenshots)
