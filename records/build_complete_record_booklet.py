@@ -1,567 +1,282 @@
 #!/usr/bin/env python3
 """
 ===============================================================================
-DBMS LAB RECORD - MASTER CUT-OUT OUTPUTS & IMAGES BUILDER
-Extracts and groups every image, diagram, and table by Experiment (1 to 13)
-Formats them into compact cut-out cards with scissor guides for easy pasting.
+DBMS LAB RECORD - MASTER CUT-OUT OUTPUTS & IMAGES COMPILER (100% COMPLETE)
+Includes EVERY SINGLE ONE of the 144 extracted images and tables across
+Experiments 1 through 13 from the 110-Page Woxsen DBMS Lab Manual.
 ===============================================================================
 """
 
 import os
 import glob
 import re
-import base64
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 EXTRACTED_DIR = os.path.join(ROOT_DIR, "organized_experiments")
 OUTPUT_HTML = os.path.join(ROOT_DIR, "DBMS_LAB_RECORD_PRINTABLE_OUTPUTS_AND_IMAGES.html")
 
-# Define all 13 Experiments with their titles, descriptions, and manual content
-EXPERIMENTS_DATA = [
+# Read manual text for accurate captions
+with open(os.path.join(ROOT_DIR, "manual_text.txt"), "r", encoding="utf-8", errors="ignore") as f:
+    manual_text = f.read()
+manual_pages = manual_text.split('\x0c')
+
+EXP_METADATA = [
     {
         "num": 1,
         "title": "Identification of Attributes & Database Design",
         "aim": "To identify relevant entities, attributes, and relationships based on real-world scenarios (Hotel Booking, Airline Reservation, Hospital Management).",
         "page_range": "Pages 7-9",
-        "has_images": False,
-        "items": [
-            {
-                "title": "Hotel Booking System - Attribute & Entity Dictionary",
-                "type": "table",
-                "desc": "Entity identification and attribute mapping for Hotel Reservation Database",
-                "table_headers": ["Entity Name", "Primary Key", "Foreign Keys", "Attributes & Data Domains"],
-                "table_rows": [
-                    ["Guests", "guest_id (INT)", "-", "first_name, last_name, email, phone, address, id_proof"],
-                    ["Rooms", "room_id (INT)", "-", "room_number, room_type (Single/Double/Suite), rate_per_night, max_capacity, status"],
-                    ["Reservations", "reservation_id (INT)", "guest_id, room_id", "check_in_date, check_out_date, total_price, booking_status, created_at"],
-                    ["Payments", "payment_id (INT)", "reservation_id", "payment_date, payment_method (Card/UPI/Cash), amount_paid, payment_status"],
-                    ["Staff", "staff_id (INT)", "-", "first_name, last_name, role (Manager/Receptionist), phone, salary"]
-                ],
-                "stick": "Exp 1: Left Page (Entity Relational Design)"
-            },
-            {
-                "title": "Airline Reservation System - Attribute & Entity Dictionary",
-                "type": "table",
-                "desc": "Entity identification and attribute mapping for Airline Flight Operations",
-                "table_headers": ["Entity Name", "Primary Key", "Foreign Keys", "Key Attributes"],
-                "table_rows": [
-                    ["Airports", "airport_code (CHAR 3)", "-", "airport_name, city, country"],
-                    ["Aircraft", "aircraft_id (INT)", "-", "model, registration_no, total_capacity"],
-                    ["Flights", "flight_id (INT)", "route_id, aircraft_id", "flight_number, scheduled_departure, scheduled_arrival, status"],
-                    ["Passengers", "passenger_id (INT)", "-", "first_name, last_name, email, passport_no"],
-                    ["Bookings", "booking_id (INT)", "passenger_id", "booking_ref (PNR), booking_date, total_amount"],
-                    ["Tickets", "ticket_id (INT)", "booking_id, flight_id, seat_id", "fare_amount, ticket_status"]
-                ],
-                "stick": "Exp 1: Left Page (Airline Domain Design)"
-            }
-        ]
     },
     {
         "num": 2,
         "title": "Basic SQL Queries & CRUD Operations",
         "aim": "To execute basic Data Definition (CREATE, ALTER, DROP) and Data Manipulation (INSERT, SELECT, UPDATE, DELETE) SQL statements.",
         "page_range": "Pages 10-11",
-        "has_images": True,
-        "items": [
-            {
-                "title": "Students Table - Creation and Record Insertion",
-                "type": "image",
-                "img": "exp2/p011_img013_1492x739.png",
-                "desc": "MySQL Workbench terminal showing table creation, INSERT commands, and SELECT verification",
-                "stick": "Exp 2: Left Page (Top Output)"
-            },
-            {
-                "title": "SELECT Query Output - Full Students Record Set",
-                "type": "image",
-                "img": "exp2/p011_img014_1495x204.png",
-                "desc": "Verified MySQL tabular output grid for SELECT * FROM Students",
-                "stick": "Exp 2: Left Page (Bottom Output)"
-            }
-        ]
     },
     {
         "num": 3,
         "title": "DISTINCT, WHERE, ORDER BY & Aggregate Functions",
         "aim": "To filter, sort, and aggregate relational data using DISTINCT, WHERE clauses, ORDER BY (ASC/DESC), and mathematical aggregates (COUNT, MIN, MAX, SUM, AVG).",
         "page_range": "Pages 12-17",
-        "has_images": True,
-        "items": [
-            {
-                "title": "DISTINCT Department Query Output",
-                "type": "image",
-                "img": "exp3/p013_img021_354x322.png",
-                "desc": "SELECT DISTINCT Department FROM Employees result showing unique department values",
-                "stick": "Exp 3: Left Page (Row 1)"
-            },
-            {
-                "title": "WHERE Clause - Salary > 50000 Filter",
-                "type": "image",
-                "img": "exp3/p013_img022_1495x208.png",
-                "desc": "Filtered employee records meeting high-compensation criteria",
-                "stick": "Exp 3: Left Page (Row 1)"
-            },
-            {
-                "title": "ORDER BY - Ascending & Descending Salary Sort",
-                "type": "image",
-                "img": "exp3/p014_img024_1480x277.png",
-                "desc": "SELECT * FROM Employees ORDER BY Salary DESC output table",
-                "stick": "Exp 3: Left Page (Row 2)"
-            },
-            {
-                "title": "Comparison & Logical Operators (AND / OR / NOT)",
-                "type": "image",
-                "img": "exp3/p014_img025_1477x274.png",
-                "desc": "Multi-condition evaluation: Department = 'IT' AND Salary >= 60000",
-                "stick": "Exp 3: Left Page (Row 2)"
-            },
-            {
-                "title": "BETWEEN Operator & IN Range Filter",
-                "type": "image",
-                "img": "exp3/p014_img026_1488x309.png",
-                "desc": "Salary BETWEEN 40000 AND 70000 query execution output",
-                "stick": "Exp 3: Left Page (Row 3)"
-            },
-            {
-                "title": "Aggregate Functions: COUNT() and SUM()",
-                "type": "image",
-                "img": "exp3/p014_img027_1495x330.png",
-                "desc": "SELECT COUNT(*), SUM(Salary) FROM Employees grouped calculation",
-                "stick": "Exp 3: Left Page (Row 3)"
-            },
-            {
-                "title": "Statistical Aggregates: AVG(), MIN(), MAX()",
-                "type": "image",
-                "img": "exp3/p015_img029_1477x427.png",
-                "desc": "SELECT AVG(Salary), MIN(Salary), MAX(Salary) result table",
-                "stick": "Exp 3: Left Page (Row 4)"
-            },
-            {
-                "title": "Comprehensive Employee Master Table",
-                "type": "image",
-                "img": "exp3/p017_img035_1507x891.png",
-                "desc": "Full populated dataset with Department, Age, Salary, and City attributes",
-                "stick": "Exp 3: Left Page (Full Table)"
-            }
-        ]
     },
     {
         "num": 4,
-        "title": "Relational Constraints (PK, FK, UNIQUE, CHECK, DEFAULT)",
+        "title": "Relational Constraints (PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK, DEFAULT)",
         "aim": "To implement integrity constraints maintaining entity uniqueness, referential integrity, domain bounds, and default values.",
         "page_range": "Pages 18-30",
-        "has_images": True,
-        "items": [
-            {
-                "title": "PRIMARY KEY & AUTO_INCREMENT Definition",
-                "type": "image",
-                "img": "exp4/p020_img040_1488x967.png",
-                "desc": "Table creation DDL with PRIMARY KEY and duplicate key rejection error proof",
-                "stick": "Exp 4: Left Page (PK Definition)"
-            },
-            {
-                "title": "FOREIGN KEY Referential Link (Orders -> Customers)",
-                "type": "image",
-                "img": "exp4/p021_img044_1488x970.png",
-                "desc": "Parent-child table relationship definition with FOREIGN KEY constraint",
-                "stick": "Exp 4: Left Page (FK Definition)"
-            },
-            {
-                "title": "UNIQUE Constraint & Duplicate Value Violation",
-                "type": "image",
-                "img": "exp4/p022_img046_1474x975.png",
-                "desc": "ERROR 1062 (23000): Duplicate entry for key 'email_UNIQUE' verification",
-                "stick": "Exp 4: Left Page (Unique Violation)"
-            },
-            {
-                "title": "CHECK Constraint (Age >= 18 & Salary > 0)",
-                "type": "image",
-                "img": "exp4/p023_img050_1477x976.png",
-                "desc": "CHECK constraint validation rejecting invalid negative/underage tuples",
-                "stick": "Exp 4: Left Page (Check Constraint)"
-            },
-            {
-                "title": "NOT NULL & DEFAULT Constraint Demonstration",
-                "type": "image",
-                "img": "exp4/p024_img054_1489x373.png",
-                "desc": "Default status 'Active' and city 'Hyderabad' auto-population",
-                "stick": "Exp 4: Left Page (Default Values)"
-            },
-            {
-                "title": "ON DELETE CASCADE vs ON DELETE RESTRICT",
-                "type": "image",
-                "img": "exp4/p025_img057_1483x775.png",
-                "desc": "Demonstrating cascade deletion of child orders upon parent customer deletion",
-                "stick": "Exp 4: Left Page (Cascade Deletion)"
-            }
-        ]
     },
     {
         "num": 5,
-        "title": "SQL JOIN Operations (INNER, LEFT, RIGHT, FULL OUTER)",
+        "title": "SQL JOIN Operations (INNER, LEFT, RIGHT, FULL OUTER, CROSS)",
         "aim": "To combine records across related tables using INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN, and CROSS JOIN with Venn diagram visualizations.",
         "page_range": "Pages 31-38",
-        "has_images": True,
-        "items": [
-            {
-                "title": "SQL JOINs Set Theory - Venn Diagram Reference",
-                "type": "image",
-                "img": "exp5/p032_img077_1201x709.png",
-                "desc": "Visual Venn diagram mapping intersection (INNER), left subset, right subset, and outer union",
-                "stick": "Exp 5: Left Page (Venn Diagram)"
-            },
-            {
-                "title": "Base Datasets: Students and Courses Tables",
-                "type": "image",
-                "img": "exp5/p032_img078_1447x526.png",
-                "desc": "Populated input tables for demonstrating multi-table relational joins",
-                "stick": "Exp 5: Left Page (Input Tables)"
-            },
-            {
-                "title": "INNER JOIN Execution & Output Table",
-                "type": "image",
-                "img": "exp5/p034_img082_1438x928.png",
-                "desc": "SELECT * FROM Students INNER JOIN Courses ON Students.CourseID = Courses.CourseID",
-                "stick": "Exp 5: Left Page (Inner Join)"
-            },
-            {
-                "title": "LEFT (OUTER) JOIN Execution & Output Table",
-                "type": "image",
-                "img": "exp5/p035_img085_1489x916.png",
-                "desc": "Retrieving all students including those without enrolled courses (NULL padded)",
-                "stick": "Exp 5: Left Page (Left Join)"
-            },
-            {
-                "title": "RIGHT (OUTER) JOIN Execution & Output Table",
-                "type": "image",
-                "img": "exp5/p036_img087_1393x922.png",
-                "desc": "Retrieving all courses including those without enrolled students",
-                "stick": "Exp 5: Left Page (Right Join)"
-            }
-        ]
     },
     {
         "num": 6,
         "title": "LIKE, GROUP BY, HAVING, EXISTS & Nested Subqueries",
         "aim": "To perform advanced pattern matching (LIKE % _), multi-column aggregation (GROUP BY), group filtering (HAVING), and correlated subqueries (EXISTS, IN, ANY, ALL).",
         "page_range": "Pages 39-49",
-        "has_images": True,
-        "items": [
-            {
-                "title": "LIKE Wildcard Pattern Matching (% and _)",
-                "type": "image",
-                "img": "exp6/p039_img106_1495x733.png",
-                "desc": "SELECT * FROM Employees WHERE Name LIKE 'A%' OR Name LIKE '_o%' outputs",
-                "stick": "Exp 6: Left Page (LIKE Patterns)"
-            },
-            {
-                "title": "GROUP BY Department Aggregations",
-                "type": "image",
-                "img": "exp6/p041_img176_1477x412.png",
-                "desc": "SELECT Department, COUNT(*), AVG(Salary) FROM Employees GROUP BY Department",
-                "stick": "Exp 6: Left Page (Group By)"
-            },
-            {
-                "title": "HAVING Clause Filtering Aggregated Groups",
-                "type": "image",
-                "img": "exp6/p041_img177_1480x412.png",
-                "desc": "SELECT Department, COUNT(*) FROM Employees GROUP BY Department HAVING COUNT(*) > 1",
-                "stick": "Exp 6: Left Page (HAVING Filter)"
-            },
-            {
-                "title": "EXISTS & NOT EXISTS Correlated Subqueries",
-                "type": "image",
-                "img": "exp6/p044_img194_1495x885.png",
-                "desc": "SELECT * FROM Customers c WHERE EXISTS (SELECT 1 FROM Orders o WHERE o.CustomerID = c.ID)",
-                "stick": "Exp 6: Left Page (EXISTS Subquery)"
-            },
-            {
-                "title": "Nested Subqueries with IN and ANY Operators",
-                "type": "image",
-                "img": "exp6/p045_img197_1480x477.png",
-                "desc": "Subquery in WHERE clause comparing against dynamic department salary averages",
-                "stick": "Exp 6: Left Page (Nested Subqueries)"
-            }
-        ]
     },
     {
         "num": 7,
         "title": "Database Views & Stored Procedures",
         "aim": "To create and manage SQL VIEWs for query abstraction/security and author parameterized STORED PROCEDUREs for business logic execution.",
         "page_range": "Pages 50-51",
-        "has_images": False,
-        "items": [
-            {
-                "title": "CREATE VIEW - Employee Department Summary",
-                "type": "terminal",
-                "query": "CREATE VIEW View_EmpDept AS SELECT e.EmployeeID, e.Name, d.DepartmentName, e.Salary FROM Employees e JOIN Departments d ON e.DepartmentID = d.DepartmentID;",
-                "output": [
-                    "+--------------+---------------+----------------+---------+",
-                    "| EmployeeID   | Name          | DepartmentName | Salary  |",
-                    "+--------------+---------------+----------------+---------+",
-                    "| 1            | John Doe      | HR             | 5000.00 |",
-                    "| 2            | Jane Smith    | IT             | 6000.00 |",
-                    "| 3            | Emily Davis   | HR             | 5500.00 |",
-                    "| 4            | Michael Brown | Finance        | 7000.00 |",
-                    "| 5            | Sarah Johnson | IT             | 6200.00 |",
-                    "+--------------+---------------+----------------+---------+",
-                    "5 rows in set (0.01 sec)"
-                ],
-                "stick": "Exp 7: Left Page (SQL View Output)"
-            },
-            {
-                "title": "STORED PROCEDURE - GetEmployeesByDept(IN dept_id INT)",
-                "type": "terminal",
-                "query": "CALL GetEmployeesByDept(101);",
-                "output": [
-                    "+--------------+-------------+--------------+---------+",
-                    "| EmployeeID   | Name        | DepartmentID | Salary  |",
-                    "+--------------+-------------+--------------+---------+",
-                    "| 1            | John Doe    | 101          | 5000.00 |",
-                    "| 3            | Emily Davis | 101          | 5500.00 |",
-                    "+--------------+-------------+--------------+---------+",
-                    "2 rows in set (0.02 sec) -- Query OK"
-                ],
-                "stick": "Exp 7: Left Page (Stored Procedure Call)"
-            }
-        ]
     },
     {
         "num": 8,
         "title": "Scenario-Based MySQL Practice Queries",
         "aim": "To solve complex multi-table analytical scenarios involving Employees, Projects, and Department Allocations.",
         "page_range": "Pages 52-54",
-        "has_images": False,
-        "items": [
-            {
-                "title": "Scenario Query 1: Top Earning Employees per City",
-                "type": "terminal",
-                "query": "SELECT City, Name, Department, Salary FROM Employees e WHERE Salary = (SELECT MAX(Salary) FROM Employees WHERE City = e.City);",
-                "output": [
-                    "+-----------+---------------+------------+----------+",
-                    "| City      | Name          | Department | Salary   |",
-                    "+-----------+---------------+------------+----------+",
-                    "| New York  | Alice         | IT         | 70000.00 |",
-                    "| Chicago   | Frank         | Marketing  | 75000.00 |",
-                    "| Seattle   | Grace         | IT         | 72000.00 |",
-                    "+-----------+---------------+------------+----------+",
-                    "3 rows in set (0.02 sec)"
-                ],
-                "stick": "Exp 8: Left Page (Top Earners by City)"
-            },
-            {
-                "title": "Scenario Query 2: Active Multi-Project Assignments",
-                "type": "terminal",
-                "query": "SELECT e.Name, COUNT(p.ProjectID) AS ActiveProjects, SUM(p.Budget) AS TotalBudgetManaged FROM Employees e JOIN Project_Assignments pa ON e.EmployeeID = pa.EmployeeID JOIN Projects p ON pa.ProjectID = p.ProjectID GROUP BY e.EmployeeID HAVING ActiveProjects >= 2;",
-                "output": [
-                    "+---------------+----------------+--------------------+",
-                    "| Name          | ActiveProjects | TotalBudgetManaged |",
-                    "+---------------+----------------+--------------------+",
-                    "| Alice         | 2              | 250000.00          |",
-                    "| Frank         | 3              | 480000.00          |",
-                    "+---------------+----------------+--------------------+",
-                    "2 rows in set (0.01 sec)"
-                ],
-                "stick": "Exp 8: Left Page (Project Allocations)"
-            }
-        ]
     },
     {
         "num": 9,
         "title": "Introduction to MongoDB & Document CRUD",
         "aim": "To initialize NoSQL databases, create BSON collections, and perform document CRUD operations (insertOne, insertMany, find, updateOne, deleteOne).",
         "page_range": "Pages 55-63",
-        "has_images": True,
-        "items": [
-            {
-                "title": "MongoDB Collection Creation & insertOne()",
-                "type": "image",
-                "img": "exp9/p056_img225_382x219.png",
-                "desc": "db.students.insertOne({ name: 'Rahul', roll: 101, major: 'AIML' }) execution",
-                "stick": "Exp 9: Left Page (insertOne Output)"
-            },
-            {
-                "title": "Bulk Document Insertion via insertMany()",
-                "type": "image",
-                "img": "exp9/p057_img240_1483x778.png",
-                "desc": "Acknowledged result with generated ObjectId array for bulk student records",
-                "stick": "Exp 9: Left Page (insertMany Output)"
-            },
-            {
-                "title": "db.collection.find() Formatted JSON Output",
-                "type": "image",
-                "img": "exp9/p058_img244_648x588.png",
-                "desc": "Full BSON document list retrieval with _id, fields, and nested arrays",
-                "stick": "Exp 9: Left Page (find Output)"
-            },
-            {
-                "title": "Document Update & Delete Operations",
-                "type": "image",
-                "img": "exp9/p062_img256_982x906.png",
-                "desc": "updateOne($set) and deleteOne({ _id: ... }) acknowledged result logs",
-                "stick": "Exp 9: Left Page (Update/Delete)"
-            }
-        ]
     },
     {
         "num": 10,
         "title": "MongoDB Query & Comparison Operators",
         "aim": "To construct queries utilizing comparison operators ($gt, $gte, $lt, $lte, $in, $nin), logical operators ($and, $or, $not, $nor), element operators ($exists, $type), and array operators.",
         "page_range": "Pages 64-81",
-        "has_images": True,
-        "items": [
-            {
-                "title": "Comparison Operators: $gt, $lt, and $in",
-                "type": "image",
-                "img": "exp10/p064_img274_1552x544.png",
-                "desc": "db.products.find({ price: { $gt: 500, $lt: 2000 } }) query output",
-                "stick": "Exp 10: Left Page (Comparison)"
-            },
-            {
-                "title": "Logical Operators: $and and $or Compound Queries",
-                "type": "image",
-                "img": "exp10/p066_img305_577x651.png",
-                "desc": "Evaluating multi-clause logical filter expressions across customer accounts",
-                "stick": "Exp 10: Left Page (Logical Operators)"
-            },
-            {
-                "title": "Element Operators: $exists and $type Checking",
-                "type": "image",
-                "img": "exp10/p067_img313_592x685.png",
-                "desc": "Filtering documents where optional fields exist and validating BSON types",
-                "stick": "Exp 10: Left Page (Element Check)"
-            },
-            {
-                "title": "Array Operators: $all and $elemMatch",
-                "type": "image",
-                "img": "exp10/p071_img344_901x697.png",
-                "desc": "Querying documents containing specific skill tags or nested sub-document arrays",
-                "stick": "Exp 10: Left Page (Array Operators)"
-            },
-            {
-                "title": "Regex Pattern Search in MongoDB",
-                "type": "image",
-                "img": "exp10/p078_img431_637x796.png",
-                "desc": "db.users.find({ email: { $regex: '@woxsen.edu.in$', $options: 'i' } })",
-                "stick": "Exp 10: Left Page (Regex Search)"
-            }
-        ]
     },
     {
         "num": 11,
         "title": "MongoDB Update Operations ($set, $inc, $push, Array)",
         "aim": "To modify documents in-place using field operators ($set, $unset, $inc, $rename), array operators ($push, $pull, $addToSet), and conditional upsert flags.",
         "page_range": "Pages 82-93",
-        "has_images": True,
-        "items": [
-            {
-                "title": "$set and $inc Mathematical Field Modification",
-                "type": "image",
-                "img": "exp11/p083_img449_1029x295.png",
-                "desc": "Incrementing inventory stock: db.items.updateOne({ id: 1 }, { $inc: { stock: 5 } })",
-                "stick": "Exp 11: Left Page ($set and $inc)"
-            },
-            {
-                "title": "$push and $addToSet Array Appending",
-                "type": "image",
-                "img": "exp11/p084_img456_1026x579.png",
-                "desc": "Adding tags to an array attribute without creating duplicates via $addToSet",
-                "stick": "Exp 11: Left Page (Array Updates)"
-            },
-            {
-                "title": "$pull and $pop Array Element Removal",
-                "type": "image",
-                "img": "exp11/p087_img471_1333x301.png",
-                "desc": "Removing specified items from array fields across matching documents",
-                "stick": "Exp 11: Left Page ($pull Operator)"
-            },
-            {
-                "title": "Conditional Upsert Operation Execution",
-                "type": "image",
-                "img": "exp11/p092_img498_1261x300.png",
-                "desc": "db.collection.updateOne(filter, update, { upsert: true }) inserting new document",
-                "stick": "Exp 11: Left Page (Upsert Execution)"
-            }
-        ]
     },
     {
         "num": 12,
         "title": "MongoDB Aggregation Pipeline ($match, $group, $lookup)",
         "aim": "To construct multi-stage data processing pipelines using $match, $group, $project, $sort, $limit, and $lookup for relational joins.",
         "page_range": "Pages 94-106",
-        "has_images": False,
-        "items": [
-            {
-                "title": "$match and $group - Total Sales by Product Category",
-                "type": "terminal",
-                "query": "db.sales.aggregate([ { $match: { status: 'Completed' } }, { $group: { _id: '$category', totalRevenue: { $sum: '$amount' }, count: { $sum: 1 } } }, { $sort: { totalRevenue: -1 } } ]);",
-                "output": [
-                    "[",
-                    "  { \"_id\": \"Electronics\", \"totalRevenue\": 450000, \"count\": 28 },",
-                    "  { \"_id\": \"Furniture\",   \"totalRevenue\": 185000, \"count\": 14 },",
-                    "  { \"_id\": \"Stationery\",  \"totalRevenue\": 32000,  \"count\": 45 }",
-                    "]"
-                ],
-                "stick": "Exp 12: Left Page (Aggregation $group)"
-            },
-            {
-                "title": "$lookup Stage - Left Outer Join Across Collections",
-                "type": "terminal",
-                "query": "db.orders.aggregate([ { $lookup: { from: 'customers', localField: 'customer_id', foreignField: '_id', as: 'customer_info' } }, { $project: { order_no: 1, total: 1, customer_name: { $arrayElemAt: ['$customer_info.name', 0] } } } ]);",
-                "output": [
-                    "[",
-                    "  { \"_id\": ObjectId(\"60a1b...\"), \"order_no\": \"ORD-1001\", \"total\": 12500, \"customer_name\": \"Aarav Sharma\" },",
-                    "  { \"_id\": ObjectId(\"60a1c...\"), \"order_no\": \"ORD-1002\", \"total\": 4800,  \"customer_name\": \"Priya Patel\" }",
-                    "]"
-                ],
-                "stick": "Exp 12: Left Page (Aggregation $lookup)"
-            }
-        ]
     },
     {
         "num": 13,
         "title": "MongoDB Text Search & Database Indexing",
         "aim": "To create single-field, compound, and full-text indexes to optimize query latency and execute wildcard text searches.",
         "page_range": "Pages 107-110",
-        "has_images": False,
-        "items": [
-            {
-                "title": "Creating Compound & Full-Text Indexes",
-                "type": "terminal",
-                "query": "db.articles.createIndex({ content: 'text', title: 'text' });\ndb.employees.createIndex({ department: 1, salary: -1 });",
-                "output": [
-                    "{",
-                    "  \"numIndexesBefore\": 1,",
-                    "  \"numIndexesAfter\": 2,",
-                    "  \"createdCollectionAutomatically\": false,",
-                    "  \"ok\": 1",
-                    "}"
-                ],
-                "stick": "Exp 13: Left Page (Index Creation)"
-            },
-            {
-                "title": "Full-Text Search Query Execution ($text / $search)",
-                "type": "terminal",
-                "query": "db.articles.find({ $text: { $search: 'database NoSQL' } }, { score: { $meta: 'textScore' } }).sort({ score: { $meta: 'textScore' } });",
-                "output": [
-                    "[",
-                    "  { \"_id\": ObjectId(\"61a...\"), \"title\": \"Intro to NoSQL\", \"content\": \"MongoDB is a scalable NoSQL database...\", \"score\": 1.5 },",
-                    "  { \"_id\": ObjectId(\"61b...\"), \"title\": \"Modern DBs\", \"content\": \"Databases like MongoDB power cloud apps...\", \"score\": 1.1 }",
-                    "]"
-                ],
-                "stick": "Exp 13: Left Page (Text Search Results)"
-            }
-        ]
     }
 ]
 
-# Generate HTML
-html_cards = []
+# Explicit text tables for experiments that didn't use raster screenshots in the PDF
+EXTRA_TEXT_CARDS = {
+    1: [
+        {
+            "title": "Hotel Booking System - Attribute & Entity Dictionary",
+            "type": "table",
+            "desc": "Entity identification and attribute mapping for Hotel Reservation Database",
+            "table_headers": ["Entity Name", "Primary Key", "Foreign Keys", "Attributes & Data Domains"],
+            "table_rows": [
+                ["Guests", "guest_id (INT)", "-", "first_name, last_name, email, phone, address, id_proof"],
+                ["Rooms", "room_id (INT)", "-", "room_number, room_type (Single/Double/Suite), rate_per_night, max_capacity, status"],
+                ["Reservations", "reservation_id (INT)", "guest_id, room_id", "check_in_date, check_out_date, total_price, booking_status, created_at"],
+                ["Payments", "payment_id (INT)", "reservation_id", "payment_date, payment_method (Card/UPI/Cash), amount_paid, payment_status"],
+                ["Staff", "staff_id (INT)", "-", "first_name, last_name, role (Manager/Receptionist), phone, salary"]
+            ],
+            "stick": "Exp 1: Left Page (Entity Relational Design)"
+        },
+        {
+            "title": "Airline Reservation System - Attribute & Entity Dictionary",
+            "type": "table",
+            "desc": "Entity identification and attribute mapping for Airline Flight Operations",
+            "table_headers": ["Entity Name", "Primary Key", "Foreign Keys", "Key Attributes"],
+            "table_rows": [
+                ["Airports", "airport_code (CHAR 3)", "-", "airport_name, city, country"],
+                ["Aircraft", "aircraft_id (INT)", "-", "model, registration_no, total_capacity"],
+                ["Flights", "flight_id (INT)", "route_id, aircraft_id", "flight_number, scheduled_departure, scheduled_arrival, status"],
+                ["Passengers", "passenger_id (INT)", "-", "first_name, last_name, email, passport_no"],
+                ["Bookings", "booking_id (INT)", "passenger_id", "booking_ref (PNR), booking_date, total_amount"],
+                ["Tickets", "ticket_id (INT)", "booking_id, flight_id, seat_id", "fare_amount, ticket_status"]
+            ],
+            "stick": "Exp 1: Left Page (Airline Domain Design)"
+        }
+    ],
+    7: [
+        {
+            "title": "CREATE VIEW - Employee Department Summary",
+            "type": "terminal",
+            "query": "CREATE VIEW View_EmpDept AS SELECT e.EmployeeID, e.Name, d.DepartmentName, e.Salary FROM Employees e JOIN Departments d ON e.DepartmentID = d.DepartmentID;",
+            "output": [
+                "+--------------+---------------+----------------+---------+",
+                "| EmployeeID   | Name          | DepartmentName | Salary  |",
+                "+--------------+---------------+----------------+---------+",
+                "| 1            | John Doe      | HR             | 5000.00 |",
+                "| 2            | Jane Smith    | IT             | 6000.00 |",
+                "| 3            | Emily Davis   | HR             | 5500.00 |",
+                "| 4            | Michael Brown | Finance        | 7000.00 |",
+                "| 5            | Sarah Johnson | IT             | 6200.00 |",
+                "+--------------+---------------+----------------+---------+",
+                "5 rows in set (0.01 sec)"
+            ],
+            "stick": "Exp 7: Left Page (SQL View Output)"
+        },
+        {
+            "title": "STORED PROCEDURE - GetEmployeesByDept(IN dept_id INT)",
+            "type": "terminal",
+            "query": "CALL GetEmployeesByDept(101);",
+            "output": [
+                "+--------------+-------------+--------------+---------+",
+                "| EmployeeID   | Name        | DepartmentID | Salary  |",
+                "+--------------+-------------+--------------+---------+",
+                "| 1            | John Doe    | 101          | 5000.00 |",
+                "| 3            | Emily Davis | 101          | 5500.00 |",
+                "+--------------+-------------+--------------+---------+",
+                "2 rows in set (0.02 sec) -- Query OK"
+            ],
+            "stick": "Exp 7: Left Page (Stored Procedure Call)"
+        }
+    ],
+    8: [
+        {
+            "title": "Scenario Query 1: Top Earning Employees per City",
+            "type": "terminal",
+            "query": "SELECT City, Name, Department, Salary FROM Employees e WHERE Salary = (SELECT MAX(Salary) FROM Employees WHERE City = e.City);",
+            "output": [
+                "+-----------+---------------+------------+----------+",
+                "| City      | Name          | Department | Salary   |",
+                "+-----------+---------------+------------+----------+",
+                "| New York  | Alice         | IT         | 70000.00 |",
+                "| Chicago   | Frank         | Marketing  | 75000.00 |",
+                "| Seattle   | Grace         | IT         | 72000.00 |",
+                "+-----------+---------------+------------+----------+",
+                "3 rows in set (0.02 sec)"
+            ],
+            "stick": "Exp 8: Left Page (Top Earners by City)"
+        },
+        {
+            "title": "Scenario Query 2: Active Multi-Project Assignments",
+            "type": "terminal",
+            "query": "SELECT e.Name, COUNT(p.ProjectID) AS ActiveProjects, SUM(p.Budget) AS TotalBudgetManaged FROM Employees e JOIN Project_Assignments pa ON e.EmployeeID = pa.EmployeeID JOIN Projects p ON pa.ProjectID = p.ProjectID GROUP BY e.EmployeeID HAVING ActiveProjects >= 2;",
+            "output": [
+                "+---------------+----------------+--------------------+",
+                "| Name          | ActiveProjects | TotalBudgetManaged |",
+                "+---------------+----------------+--------------------+",
+                "| Alice         | 2              | 250000.00          |",
+                "| Frank         | 3              | 480000.00          |",
+                "+---------------+----------------+--------------------+",
+                "2 rows in set (0.01 sec)"
+            ],
+            "stick": "Exp 8: Left Page (Project Allocations)"
+        }
+    ],
+    12: [
+        {
+            "title": "$match and $group - Total Sales by Product Category",
+            "type": "terminal",
+            "query": "db.sales.aggregate([ { $match: { status: 'Completed' } }, { $group: { _id: '$category', totalRevenue: { $sum: '$amount' }, count: { $sum: 1 } } }, { $sort: { totalRevenue: -1 } } ]);",
+            "output": [
+                "[",
+                "  { \"_id\": \"Electronics\", \"totalRevenue\": 450000, \"count\": 28 },",
+                "  { \"_id\": \"Furniture\",   \"totalRevenue\": 185000, \"count\": 14 },",
+                "  { \"_id\": \"Stationery\",  \"totalRevenue\": 32000,  \"count\": 45 }",
+                "]"
+            ],
+            "stick": "Exp 12: Left Page (Aggregation $group)"
+        },
+        {
+            "title": "$lookup Stage - Left Outer Join Across Collections",
+            "type": "terminal",
+            "query": "db.orders.aggregate([ { $lookup: { from: 'customers', localField: 'customer_id', foreignField: '_id', as: 'customer_info' } }, { $project: { order_no: 1, total: 1, customer_name: { $arrayElemAt: ['$customer_info.name', 0] } } } ]);",
+            "output": [
+                "[",
+                "  { \"_id\": ObjectId(\"60a1b...\"), \"order_no\": \"ORD-1001\", \"total\": 12500, \"customer_name\": \"Aarav Sharma\" },",
+                "  { \"_id\": ObjectId(\"60a1c...\"), \"order_no\": \"ORD-1002\", \"total\": 4800,  \"customer_name\": \"Priya Patel\" }",
+                "]"
+            ],
+            "stick": "Exp 12: Left Page (Aggregation $lookup)"
+        }
+    ],
+    13: [
+        {
+            "title": "Creating Compound & Full-Text Indexes",
+            "type": "terminal",
+            "query": "db.articles.createIndex({ content: 'text', title: 'text' });\ndb.employees.createIndex({ department: 1, salary: -1 });",
+            "output": [
+                "{",
+                "  \"numIndexesBefore\": 1,",
+                "  \"numIndexesAfter\": 2,",
+                "  \"createdCollectionAutomatically\": false,",
+                "  \"ok\": 1",
+                "}"
+            ],
+            "stick": "Exp 13: Left Page (Index Creation)"
+        },
+        {
+            "title": "Full-Text Search Query Execution ($text / $search)",
+            "type": "terminal",
+            "query": "db.articles.find({ $text: { $search: 'database NoSQL' } }, { score: { $meta: 'textScore' } }).sort({ score: { $meta: 'textScore' } });",
+            "output": [
+                "[",
+                "  { \"_id\": ObjectId(\"61a...\"), \"title\": \"Intro to NoSQL\", \"content\": \"MongoDB is a scalable NoSQL database...\", \"score\": 1.5 },",
+                "  { \"_id\": ObjectId(\"61b...\"), \"title\": \"Modern DBs\", \"content\": \"Databases like MongoDB power cloud apps...\", \"score\": 1.1 }",
+                "]"
+            ],
+            "stick": "Exp 13: Left Page (Text Search Results)"
+            }
+        ]
+}
 
-for exp in EXPERIMENTS_DATA:
+def clean_caption_text(text):
+    text = text.replace('', '').replace('•', '').replace('·', '').strip()
+    text = re.sub(r'\s+', ' ', text)
+    return text
+
+html_cards = []
+total_images_rendered = 0
+total_cards_rendered = 0
+
+for exp in EXP_METADATA:
     exp_num = exp["num"]
     exp_title = exp["title"]
     exp_aim = exp["aim"]
     exp_pages = exp["page_range"]
+    
+    # Collect all image files for this experiment
+    img_dir = os.path.join(EXTRACTED_DIR, f"exp{exp_num}")
+    img_files = sorted(glob.glob(os.path.join(img_dir, "*.png"))) if os.path.exists(img_dir) else []
     
     html_cards.append(f"""
     <div class="experiment-section" id="exp-{exp_num}" data-exp="{exp_num}">
@@ -569,70 +284,106 @@ for exp in EXPERIMENTS_DATA:
         <div class="exp-badge">EXPERIMENT {exp_num:02d}</div>
         <div class="exp-header-info">
           <h2>{exp_title}</h2>
-          <p class="exp-aim"><strong>Aim:</strong> {exp_aim} <span class="manual-page">[{exp_pages}]</span></p>
+          <p class="exp-aim"><strong>Aim:</strong> {exp_aim} <span class="manual-page">[{exp_pages} &bull; {len(img_files)} Manual Screenshots]</span></p>
         </div>
       </div>
       
       <div class="cards-grid">
     """)
     
-    for item in exp["items"]:
-        item_title = item["title"]
-        item_stick = item["stick"]
-        item_type = item["type"]
-        item_desc = item.get("desc", "")
+    # 1. Render all native images
+    for idx, fpath in enumerate(img_files, 1):
+        total_images_rendered += 1
+        total_cards_rendered += 1
+        base = os.path.basename(fpath)
+        m = re.match(r'p(\d+)_img(\d+)_(\d+)x(\d+)\.png', base)
+        p_num = int(m.group(1)) if m else 0
+        img_id = int(m.group(2)) if m else 0
+        w = int(m.group(3)) if m else 0
+        h = int(m.group(4)) if m else 0
         
-        card_content = ""
-        if item_type == "image":
-            img_rel_path = f"organized_experiments/{item['img']}"
-            card_content = f"""
-            <div class="image-wrapper">
-              <img src="{img_rel_path}" alt="{item_title}" loading="lazy" onclick="openModal(this.src)">
-            </div>
-            <div class="card-caption">{item_desc}</div>
-            """
-        elif item_type == "table":
-            headers = item["table_headers"]
-            rows = item["table_rows"]
-            th_html = "".join(f"<th>{h}</th>" for h in headers)
-            tr_html = "".join(
-                "<tr>" + "".join(f"<td>{c}</td>" for c in row) + "</tr>"
-                for row in rows
-            )
-            card_content = f"""
-            <div class="table-wrapper">
-              <table class="data-table">
-                <thead><tr>{th_html}</tr></thead>
-                <tbody>{tr_html}</tbody>
-              </table>
-            </div>
-            <div class="card-caption">{item_desc}</div>
-            """
-        elif item_type == "terminal":
-            query = item["query"]
-            output_lines = "\n".join(item["output"])
-            card_content = f"""
-            <div class="terminal-wrapper">
-              <div class="terminal-cmd"><span class="prompt">&gt;</span> {query}</div>
-              <pre class="terminal-body"><code>{output_lines}</code></pre>
-            </div>
-            """
-            
+        # Extract surrounding context text from manual page
+        p_text = manual_pages[p_num - 1] if p_num <= len(manual_pages) else ""
+        raw_lines = [l.strip() for l in p_text.split('\n') if l.strip() and not l.strip().startswith('DBMS') and not l.strip().startswith('School') and not l.strip().startswith('Page')]
+        
+        # Pick relevant caption
+        card_title = f"Manual Output #{idx} (Page {p_num})"
+        for l in raw_lines:
+            clean_l = clean_caption_text(l)
+            if any(k in clean_l.lower() for k in ['select', 'insert', 'create', 'alter', 'update', 'delete', 'db.', 'find', 'aggregate', 'table:', 'output:']):
+                card_title = clean_l[:75]
+                break
+            elif len(clean_l) > 10 and not clean_l.startswith('1.') and not clean_l.startswith('2.'):
+                card_title = clean_l[:75]
+                
+        rel_img_path = f"organized_experiments/exp{exp_num}/{base}"
+        
         html_cards.append(f"""
         <div class="cutout-card">
           <div class="scissor-guide">
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP {exp_num:02d} &bull; {item_title}</div>
-            <div class="paste-badge">&#128204; {item_stick}</div>
+            <div class="card-title">EXP {exp_num:02d} &bull; {card_title}</div>
+            <div class="paste-badge">&#128204; Exp {exp_num}: Page {p_num} Output</div>
           </div>
           <div class="card-body">
-            {card_content}
+            <div class="image-wrapper">
+              <img src="{rel_img_path}" alt="{card_title}" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page {p_num} &bull; Output {img_id:03d} ({w}x{h} px)</div>
           </div>
         </div>
         """)
-        
+
+    # 2. Render extra structured text tables/terminal outputs if defined
+    if exp_num in EXTRA_TEXT_CARDS:
+        for it in EXTRA_TEXT_CARDS[exp_num]:
+            total_cards_rendered += 1
+            it_title = it["title"]
+            it_stick = it["stick"]
+            it_type = it["type"]
+            it_desc = it.get("desc", "")
+            
+            if it_type == "table":
+                headers = it["table_headers"]
+                rows = it["table_rows"]
+                th_html = "".join(f"<th>{h}</th>" for h in headers)
+                tr_html = "".join("<tr>" + "".join(f"<td>{c}</td>" for c in row) + "</tr>" for row in rows)
+                content = f"""
+                <div class="table-wrapper">
+                  <table class="data-table">
+                    <thead><tr>{th_html}</tr></thead>
+                    <tbody>{tr_html}</tbody>
+                  </table>
+                </div>
+                <div class="card-caption">{it_desc}</div>
+                """
+            elif it_type == "terminal":
+                query = it["query"]
+                output_lines = "\n".join(it["output"])
+                content = f"""
+                <div class="terminal-wrapper">
+                  <div class="terminal-cmd"><span class="prompt">&gt;</span> {query}</div>
+                  <pre class="terminal-body"><code>{output_lines}</code></pre>
+                </div>
+                """
+            
+            html_cards.append(f"""
+            <div class="cutout-card">
+              <div class="scissor-guide">
+                <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+              </div>
+              <div class="card-header">
+                <div class="card-title">EXP {exp_num:02d} &bull; {it_title}</div>
+                <div class="paste-badge">&#128204; {it_stick}</div>
+              </div>
+              <div class="card-body">
+                {content}
+              </div>
+            </div>
+            """)
+
     html_cards.append("""
       </div>
     </div>
@@ -643,7 +394,7 @@ full_html = f"""<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DBMS Lab Record — Master Cut-Out Outputs & Images (Experiments 1 to 13)</title>
+  <title>DBMS Lab Record — Complete Master Cut-Out Outputs & Images (144 Images &bull; Experiments 1 to 13)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -680,7 +431,7 @@ full_html = f"""<!DOCTYPE html>
 
     /* Top Action Bar (Screen Only) */
     .top-action-bar {{
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto 20px auto;
       background: #ffffff;
       border: 1px solid #e2e8f0;
@@ -695,7 +446,7 @@ full_html = f"""<!DOCTYPE html>
     }}
 
     .action-titles h1 {{
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 800;
       color: var(--primary);
     }}
@@ -704,6 +455,16 @@ full_html = f"""<!DOCTYPE html>
       font-size: 0.85rem;
       color: var(--text-muted);
       margin-top: 2px;
+    }}
+
+    .stat-badge {{
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.78rem;
     }}
 
     .btn-group {{
@@ -733,7 +494,7 @@ full_html = f"""<!DOCTYPE html>
 
     /* Filter Chips */
     .filter-bar {{
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto 20px auto;
       display: flex;
       flex-wrap: wrap;
@@ -761,7 +522,7 @@ full_html = f"""<!DOCTYPE html>
 
     /* Main Container */
     .master-container {{
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
     }}
 
@@ -813,11 +574,11 @@ full_html = f"""<!DOCTYPE html>
       font-size: 0.75rem;
     }}
 
-    /* 2-Column / 3-Column Grid */
+    /* Compact Multi-Column Grid */
     .cards-grid {{
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 12px;
     }}
 
     /* Compact Cutout Card */
@@ -825,7 +586,7 @@ full_html = f"""<!DOCTYPE html>
       background: var(--card-bg);
       border: 1.5px dashed var(--card-border);
       border-radius: 8px;
-      padding: 10px 12px;
+      padding: 9px 11px;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -850,22 +611,26 @@ full_html = f"""<!DOCTYPE html>
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 8px;
-      gap: 8px;
+      margin-bottom: 6px;
+      gap: 6px;
     }}
 
     .card-title {{
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: var(--primary);
       line-height: 1.25;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }}
 
     .paste-badge {{
       background: var(--badge-bg);
       border: 1px solid var(--badge-border);
       color: var(--badge-text);
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       font-weight: 700;
       padding: 2px 6px;
       border-radius: 4px;
@@ -887,23 +652,23 @@ full_html = f"""<!DOCTYPE html>
       display: flex;
       align-items: center;
       justify-content: center;
-      max-height: 200px;
+      max-height: 175px;
       border: 1px solid #cbd5e1;
     }}
 
     .image-wrapper img {{
       max-width: 100%;
-      max-height: 200px;
+      max-height: 175px;
       object-fit: contain;
       cursor: pointer;
       display: block;
     }}
 
     .card-caption {{
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       color: #64748b;
-      margin-top: 6px;
-      line-height: 1.25;
+      margin-top: 5px;
+      line-height: 1.2;
     }}
 
     /* Data Tables */
@@ -916,20 +681,20 @@ full_html = f"""<!DOCTYPE html>
     .data-table {{
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
     }}
 
     .data-table th {{
       background: #1e293b;
       color: #ffffff;
-      padding: 5px 8px;
+      padding: 4px 6px;
       text-align: left;
       font-weight: 600;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
     }}
 
     .data-table td {{
-      padding: 4px 8px;
+      padding: 4px 6px;
       border-bottom: 1px solid #e2e8f0;
       color: #1e293b;
     }}
@@ -942,13 +707,13 @@ full_html = f"""<!DOCTYPE html>
     .terminal-wrapper {{
       background: var(--term-bg);
       border-radius: 6px;
-      padding: 8px 10px;
+      padding: 7px 9px;
       border: 1px solid #1e293b;
     }}
 
     .terminal-cmd {{
       font-family: 'Fira Code', monospace;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--term-cyan);
       margin-bottom: 4px;
       white-space: pre-wrap;
@@ -962,9 +727,9 @@ full_html = f"""<!DOCTYPE html>
 
     .terminal-body {{
       font-family: 'Fira Code', monospace;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       color: #e2e8f0;
-      line-height: 1.25;
+      line-height: 1.2;
       white-space: pre;
       overflow-x: auto;
     }}
@@ -988,21 +753,21 @@ full_html = f"""<!DOCTYPE html>
 
       .cutout-card {{
         border: 1px dashed #475569 !important;
-        padding: 6px 8px !important;
+        padding: 5px 7px !important;
         margin-bottom: 6px !important;
       }}
 
       .image-wrapper img {{
-        max-height: 160px !important;
+        max-height: 145px !important;
       }}
 
       .exp-header-banner {{
-        padding: 6px 10px !important;
-        margin-bottom: 8px !important;
+        padding: 5px 8px !important;
+        margin-bottom: 6px !important;
       }}
 
       .experiment-section {{
-        margin-bottom: 16px !important;
+        margin-bottom: 12px !important;
       }}
     }}
 
@@ -1034,8 +799,8 @@ full_html = f"""<!DOCTYPE html>
   <!-- Top Action Bar -->
   <div class="top-action-bar no-print">
     <div class="action-titles">
-      <h1>DBMS Lab Record &mdash; Master Printable Outputs & Images</h1>
-      <p>Organized by Experiment (1 to 13) &bull; Compact Cut-Out Cards with Scissor Guides</p>
+      <h1>DBMS Lab Record &mdash; Complete Master Printable Outputs & Images</h1>
+      <p>Includes <span class="stat-badge">{total_images_rendered} Screenshots</span> &bull; <span class="stat-badge">{total_cards_rendered} Total Output Cards</span> across All 13 Experiments</p>
     </div>
     <div class="btn-group">
       <button class="btn-print" onclick="window.print()">&#128438; Print All Cut-Outs (PDF)</button>
@@ -1044,8 +809,8 @@ full_html = f"""<!DOCTYPE html>
 
   <!-- Filter Chips -->
   <div class="filter-bar no-print">
-    <button class="filter-chip active" onclick="filterExp('all', this)">All Experiments (1-13)</button>
-    {"".join(f'<button class="filter-chip" onclick="filterExp({i}, this)">Exp {i}</button>' for i in range(1, 14))}
+    <button class="filter-chip active" onclick="filterExp('all', this)">All Experiments (1-13) [{total_cards_rendered}]</button>
+    {"".join(f'<button class="filter-chip" onclick="filterExp({exp["num"]}, this)">Exp {exp["num"]}</button>' for exp in EXP_METADATA)}
   </div>
 
   <!-- Main Container -->
@@ -1085,4 +850,5 @@ full_html = f"""<!DOCTYPE html>
 with open(OUTPUT_HTML, 'w', encoding='utf-8') as f:
     f.write(full_html)
 
-print(f"[[OK]] Successfully generated printable booklet HTML: {OUTPUT_HTML} ({len(full_html)} bytes)")
+print(f"[[OK]] Successfully generated 100% COMPLETE printable booklet HTML: {OUTPUT_HTML}")
+print(f"[[OK]] Rendered: {total_images_rendered} native images + extra text cards = {total_cards_rendered} total cut-out cards!")

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DBMS Lab Record — Master Cut-Out Outputs & Images (Experiments 1 to 13)</title>
+  <title>DBMS Lab Record — Complete Master Cut-Out Outputs & Images (144 Images &bull; Experiments 1 to 13)</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@
 
     /* Top Action Bar (Screen Only) */
     .top-action-bar {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto 20px auto;
       background: #ffffff;
       border: 1px solid #e2e8f0;
@@ -55,7 +55,7 @@
     }
 
     .action-titles h1 {
-      font-size: 1.25rem;
+      font-size: 1.3rem;
       font-weight: 800;
       color: var(--primary);
     }
@@ -64,6 +64,16 @@
       font-size: 0.85rem;
       color: var(--text-muted);
       margin-top: 2px;
+    }
+
+    .stat-badge {
+      display: inline-block;
+      background: #dbeafe;
+      color: #1e40af;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.78rem;
     }
 
     .btn-group {
@@ -93,7 +103,7 @@
 
     /* Filter Chips */
     .filter-bar {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto 20px auto;
       display: flex;
       flex-wrap: wrap;
@@ -121,7 +131,7 @@
 
     /* Main Container */
     .master-container {
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
     }
 
@@ -173,11 +183,11 @@
       font-size: 0.75rem;
     }
 
-    /* 2-Column / 3-Column Grid */
+    /* Compact Multi-Column Grid */
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 12px;
     }
 
     /* Compact Cutout Card */
@@ -185,7 +195,7 @@
       background: var(--card-bg);
       border: 1.5px dashed var(--card-border);
       border-radius: 8px;
-      padding: 10px 12px;
+      padding: 9px 11px;
       position: relative;
       display: flex;
       flex-direction: column;
@@ -210,22 +220,26 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      margin-bottom: 8px;
-      gap: 8px;
+      margin-bottom: 6px;
+      gap: 6px;
     }
 
     .card-title {
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       color: var(--primary);
       line-height: 1.25;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
     }
 
     .paste-badge {
       background: var(--badge-bg);
       border: 1px solid var(--badge-border);
       color: var(--badge-text);
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       font-weight: 700;
       padding: 2px 6px;
       border-radius: 4px;
@@ -247,23 +261,23 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      max-height: 200px;
+      max-height: 175px;
       border: 1px solid #cbd5e1;
     }
 
     .image-wrapper img {
       max-width: 100%;
-      max-height: 200px;
+      max-height: 175px;
       object-fit: contain;
       cursor: pointer;
       display: block;
     }
 
     .card-caption {
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       color: #64748b;
-      margin-top: 6px;
-      line-height: 1.25;
+      margin-top: 5px;
+      line-height: 1.2;
     }
 
     /* Data Tables */
@@ -276,20 +290,20 @@
     .data-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
     }
 
     .data-table th {
       background: #1e293b;
       color: #ffffff;
-      padding: 5px 8px;
+      padding: 4px 6px;
       text-align: left;
       font-weight: 600;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
     }
 
     .data-table td {
-      padding: 4px 8px;
+      padding: 4px 6px;
       border-bottom: 1px solid #e2e8f0;
       color: #1e293b;
     }
@@ -302,13 +316,13 @@
     .terminal-wrapper {
       background: var(--term-bg);
       border-radius: 6px;
-      padding: 8px 10px;
+      padding: 7px 9px;
       border: 1px solid #1e293b;
     }
 
     .terminal-cmd {
       font-family: 'Fira Code', monospace;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       color: var(--term-cyan);
       margin-bottom: 4px;
       white-space: pre-wrap;
@@ -322,9 +336,9 @@
 
     .terminal-body {
       font-family: 'Fira Code', monospace;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       color: #e2e8f0;
-      line-height: 1.25;
+      line-height: 1.2;
       white-space: pre;
       overflow-x: auto;
     }
@@ -348,21 +362,21 @@
 
       .cutout-card {
         border: 1px dashed #475569 !important;
-        padding: 6px 8px !important;
+        padding: 5px 7px !important;
         margin-bottom: 6px !important;
       }
 
       .image-wrapper img {
-        max-height: 160px !important;
+        max-height: 145px !important;
       }
 
       .exp-header-banner {
-        padding: 6px 10px !important;
-        margin-bottom: 8px !important;
+        padding: 5px 8px !important;
+        margin-bottom: 6px !important;
       }
 
       .experiment-section {
-        margin-bottom: 16px !important;
+        margin-bottom: 12px !important;
       }
     }
 
@@ -394,8 +408,8 @@
   <!-- Top Action Bar -->
   <div class="top-action-bar no-print">
     <div class="action-titles">
-      <h1>DBMS Lab Record &mdash; Master Printable Outputs & Images</h1>
-      <p>Organized by Experiment (1 to 13) &bull; Compact Cut-Out Cards with Scissor Guides</p>
+      <h1>DBMS Lab Record &mdash; Complete Master Printable Outputs & Images</h1>
+      <p>Includes <span class="stat-badge">144 Screenshots</span> &bull; <span class="stat-badge">154 Total Output Cards</span> across All 13 Experiments</p>
     </div>
     <div class="btn-group">
       <button class="btn-print" onclick="window.print()">&#128438; Print All Cut-Outs (PDF)</button>
@@ -404,7 +418,7 @@
 
   <!-- Filter Chips -->
   <div class="filter-bar no-print">
-    <button class="filter-chip active" onclick="filterExp('all', this)">All Experiments (1-13)</button>
+    <button class="filter-chip active" onclick="filterExp('all', this)">All Experiments (1-13) [154]</button>
     <button class="filter-chip" onclick="filterExp(1, this)">Exp 1</button><button class="filter-chip" onclick="filterExp(2, this)">Exp 2</button><button class="filter-chip" onclick="filterExp(3, this)">Exp 3</button><button class="filter-chip" onclick="filterExp(4, this)">Exp 4</button><button class="filter-chip" onclick="filterExp(5, this)">Exp 5</button><button class="filter-chip" onclick="filterExp(6, this)">Exp 6</button><button class="filter-chip" onclick="filterExp(7, this)">Exp 7</button><button class="filter-chip" onclick="filterExp(8, this)">Exp 8</button><button class="filter-chip" onclick="filterExp(9, this)">Exp 9</button><button class="filter-chip" onclick="filterExp(10, this)">Exp 10</button><button class="filter-chip" onclick="filterExp(11, this)">Exp 11</button><button class="filter-chip" onclick="filterExp(12, this)">Exp 12</button><button class="filter-chip" onclick="filterExp(13, this)">Exp 13</button>
   </div>
 
@@ -416,54 +430,54 @@
         <div class="exp-badge">EXPERIMENT 01</div>
         <div class="exp-header-info">
           <h2>Identification of Attributes & Database Design</h2>
-          <p class="exp-aim"><strong>Aim:</strong> To identify relevant entities, attributes, and relationships based on real-world scenarios (Hotel Booking, Airline Reservation, Hospital Management). <span class="manual-page">[Pages 7-9]</span></p>
+          <p class="exp-aim"><strong>Aim:</strong> To identify relevant entities, attributes, and relationships based on real-world scenarios (Hotel Booking, Airline Reservation, Hospital Management). <span class="manual-page">[Pages 7-9 &bull; 0 Manual Screenshots]</span></p>
         </div>
       </div>
       
       <div class="cards-grid">
     
-        <div class="cutout-card">
-          <div class="scissor-guide">
-            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
-          </div>
-          <div class="card-header">
-            <div class="card-title">EXP 01 &bull; Hotel Booking System - Attribute & Entity Dictionary</div>
-            <div class="paste-badge">&#128204; Exp 1: Left Page (Entity Relational Design)</div>
-          </div>
-          <div class="card-body">
-            
-            <div class="table-wrapper">
-              <table class="data-table">
-                <thead><tr><th>Entity Name</th><th>Primary Key</th><th>Foreign Keys</th><th>Attributes & Data Domains</th></tr></thead>
-                <tbody><tr><td>Guests</td><td>guest_id (INT)</td><td>-</td><td>first_name, last_name, email, phone, address, id_proof</td></tr><tr><td>Rooms</td><td>room_id (INT)</td><td>-</td><td>room_number, room_type (Single/Double/Suite), rate_per_night, max_capacity, status</td></tr><tr><td>Reservations</td><td>reservation_id (INT)</td><td>guest_id, room_id</td><td>check_in_date, check_out_date, total_price, booking_status, created_at</td></tr><tr><td>Payments</td><td>payment_id (INT)</td><td>reservation_id</td><td>payment_date, payment_method (Card/UPI/Cash), amount_paid, payment_status</td></tr><tr><td>Staff</td><td>staff_id (INT)</td><td>-</td><td>first_name, last_name, role (Manager/Receptionist), phone, salary</td></tr></tbody>
-              </table>
+            <div class="cutout-card">
+              <div class="scissor-guide">
+                <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+              </div>
+              <div class="card-header">
+                <div class="card-title">EXP 01 &bull; Hotel Booking System - Attribute & Entity Dictionary</div>
+                <div class="paste-badge">&#128204; Exp 1: Left Page (Entity Relational Design)</div>
+              </div>
+              <div class="card-body">
+                
+                <div class="table-wrapper">
+                  <table class="data-table">
+                    <thead><tr><th>Entity Name</th><th>Primary Key</th><th>Foreign Keys</th><th>Attributes & Data Domains</th></tr></thead>
+                    <tbody><tr><td>Guests</td><td>guest_id (INT)</td><td>-</td><td>first_name, last_name, email, phone, address, id_proof</td></tr><tr><td>Rooms</td><td>room_id (INT)</td><td>-</td><td>room_number, room_type (Single/Double/Suite), rate_per_night, max_capacity, status</td></tr><tr><td>Reservations</td><td>reservation_id (INT)</td><td>guest_id, room_id</td><td>check_in_date, check_out_date, total_price, booking_status, created_at</td></tr><tr><td>Payments</td><td>payment_id (INT)</td><td>reservation_id</td><td>payment_date, payment_method (Card/UPI/Cash), amount_paid, payment_status</td></tr><tr><td>Staff</td><td>staff_id (INT)</td><td>-</td><td>first_name, last_name, role (Manager/Receptionist), phone, salary</td></tr></tbody>
+                  </table>
+                </div>
+                <div class="card-caption">Entity identification and attribute mapping for Hotel Reservation Database</div>
+                
+              </div>
             </div>
-            <div class="card-caption">Entity identification and attribute mapping for Hotel Reservation Database</div>
             
-          </div>
-        </div>
-        
-        <div class="cutout-card">
-          <div class="scissor-guide">
-            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
-          </div>
-          <div class="card-header">
-            <div class="card-title">EXP 01 &bull; Airline Reservation System - Attribute & Entity Dictionary</div>
-            <div class="paste-badge">&#128204; Exp 1: Left Page (Airline Domain Design)</div>
-          </div>
-          <div class="card-body">
-            
-            <div class="table-wrapper">
-              <table class="data-table">
-                <thead><tr><th>Entity Name</th><th>Primary Key</th><th>Foreign Keys</th><th>Key Attributes</th></tr></thead>
-                <tbody><tr><td>Airports</td><td>airport_code (CHAR 3)</td><td>-</td><td>airport_name, city, country</td></tr><tr><td>Aircraft</td><td>aircraft_id (INT)</td><td>-</td><td>model, registration_no, total_capacity</td></tr><tr><td>Flights</td><td>flight_id (INT)</td><td>route_id, aircraft_id</td><td>flight_number, scheduled_departure, scheduled_arrival, status</td></tr><tr><td>Passengers</td><td>passenger_id (INT)</td><td>-</td><td>first_name, last_name, email, passport_no</td></tr><tr><td>Bookings</td><td>booking_id (INT)</td><td>passenger_id</td><td>booking_ref (PNR), booking_date, total_amount</td></tr><tr><td>Tickets</td><td>ticket_id (INT)</td><td>booking_id, flight_id, seat_id</td><td>fare_amount, ticket_status</td></tr></tbody>
-              </table>
+            <div class="cutout-card">
+              <div class="scissor-guide">
+                <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+              </div>
+              <div class="card-header">
+                <div class="card-title">EXP 01 &bull; Airline Reservation System - Attribute & Entity Dictionary</div>
+                <div class="paste-badge">&#128204; Exp 1: Left Page (Airline Domain Design)</div>
+              </div>
+              <div class="card-body">
+                
+                <div class="table-wrapper">
+                  <table class="data-table">
+                    <thead><tr><th>Entity Name</th><th>Primary Key</th><th>Foreign Keys</th><th>Key Attributes</th></tr></thead>
+                    <tbody><tr><td>Airports</td><td>airport_code (CHAR 3)</td><td>-</td><td>airport_name, city, country</td></tr><tr><td>Aircraft</td><td>aircraft_id (INT)</td><td>-</td><td>model, registration_no, total_capacity</td></tr><tr><td>Flights</td><td>flight_id (INT)</td><td>route_id, aircraft_id</td><td>flight_number, scheduled_departure, scheduled_arrival, status</td></tr><tr><td>Passengers</td><td>passenger_id (INT)</td><td>-</td><td>first_name, last_name, email, passport_no</td></tr><tr><td>Bookings</td><td>booking_id (INT)</td><td>passenger_id</td><td>booking_ref (PNR), booking_date, total_amount</td></tr><tr><td>Tickets</td><td>ticket_id (INT)</td><td>booking_id, flight_id, seat_id</td><td>fare_amount, ticket_status</td></tr></tbody>
+                  </table>
+                </div>
+                <div class="card-caption">Entity identification and attribute mapping for Airline Flight Operations</div>
+                
+              </div>
             </div>
-            <div class="card-caption">Entity identification and attribute mapping for Airline Flight Operations</div>
             
-          </div>
-        </div>
-        
       </div>
     </div>
     
@@ -472,7 +486,7 @@
         <div class="exp-badge">EXPERIMENT 02</div>
         <div class="exp-header-info">
           <h2>Basic SQL Queries & CRUD Operations</h2>
-          <p class="exp-aim"><strong>Aim:</strong> To execute basic Data Definition (CREATE, ALTER, DROP) and Data Manipulation (INSERT, SELECT, UPDATE, DELETE) SQL statements. <span class="manual-page">[Pages 10-11]</span></p>
+          <p class="exp-aim"><strong>Aim:</strong> To execute basic Data Definition (CREATE, ALTER, DROP) and Data Manipulation (INSERT, SELECT, UPDATE, DELETE) SQL statements. <span class="manual-page">[Pages 10-11 &bull; 2 Manual Screenshots]</span></p>
         </div>
       </div>
       
@@ -483,16 +497,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 02 &bull; Students Table - Creation and Record Insertion</div>
-            <div class="paste-badge">&#128204; Exp 2: Left Page (Top Output)</div>
+            <div class="card-title">EXP 02 &bull; insert into Students (Name, ID, Course, DOB, Gender, BloodGroup) values ('V</div>
+            <div class="paste-badge">&#128204; Exp 2: Page 11 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp2/p011_img013_1492x739.png" alt="Students Table - Creation and Record Insertion" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp2/p011_img013_1492x739.png" alt="insert into Students (Name, ID, Course, DOB, Gender, BloodGroup) values ('V" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">MySQL Workbench terminal showing table creation, INSERT commands, and SELECT verification</div>
-            
+            <div class="card-caption">Lab Manual Page 11 &bull; Output 013 (1492x739 px)</div>
           </div>
         </div>
         
@@ -501,16 +513,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 02 &bull; SELECT Query Output - Full Students Record Set</div>
-            <div class="paste-badge">&#128204; Exp 2: Left Page (Bottom Output)</div>
+            <div class="card-title">EXP 02 &bull; insert into Students (Name, ID, Course, DOB, Gender, BloodGroup) values ('V</div>
+            <div class="paste-badge">&#128204; Exp 2: Page 11 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp2/p011_img014_1495x204.png" alt="SELECT Query Output - Full Students Record Set" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp2/p011_img014_1495x204.png" alt="insert into Students (Name, ID, Course, DOB, Gender, BloodGroup) values ('V" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Verified MySQL tabular output grid for SELECT * FROM Students</div>
-            
+            <div class="card-caption">Lab Manual Page 11 &bull; Output 014 (1495x204 px)</div>
           </div>
         </div>
         
@@ -522,7 +532,7 @@
         <div class="exp-badge">EXPERIMENT 03</div>
         <div class="exp-header-info">
           <h2>DISTINCT, WHERE, ORDER BY & Aggregate Functions</h2>
-          <p class="exp-aim"><strong>Aim:</strong> To filter, sort, and aggregate relational data using DISTINCT, WHERE clauses, ORDER BY (ASC/DESC), and mathematical aggregates (COUNT, MIN, MAX, SUM, AVG). <span class="manual-page">[Pages 12-17]</span></p>
+          <p class="exp-aim"><strong>Aim:</strong> To filter, sort, and aggregate relational data using DISTINCT, WHERE clauses, ORDER BY (ASC/DESC), and mathematical aggregates (COUNT, MIN, MAX, SUM, AVG). <span class="manual-page">[Pages 12-17 &bull; 11 Manual Screenshots]</span></p>
         </div>
       </div>
       
@@ -533,16 +543,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 03 &bull; DISTINCT Department Query Output</div>
-            <div class="paste-badge">&#128204; Exp 3: Left Page (Row 1)</div>
+            <div class="card-title">EXP 03 &bull; alter table Student add email varchar(25);</div>
+            <div class="paste-badge">&#128204; Exp 3: Page 13 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp3/p013_img021_354x322.png" alt="DISTINCT Department Query Output" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp3/p013_img021_354x322.png" alt="alter table Student add email varchar(25);" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">SELECT DISTINCT Department FROM Employees result showing unique department values</div>
-            
+            <div class="card-caption">Lab Manual Page 13 &bull; Output 021 (354x322 px)</div>
           </div>
         </div>
         
@@ -551,16 +559,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 03 &bull; WHERE Clause - Salary > 50000 Filter</div>
-            <div class="paste-badge">&#128204; Exp 3: Left Page (Row 1)</div>
+            <div class="card-title">EXP 03 &bull; alter table Student add email varchar(25);</div>
+            <div class="paste-badge">&#128204; Exp 3: Page 13 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp3/p013_img022_1495x208.png" alt="WHERE Clause - Salary > 50000 Filter" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp3/p013_img022_1495x208.png" alt="alter table Student add email varchar(25);" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Filtered employee records meeting high-compensation criteria</div>
-            
+            <div class="card-caption">Lab Manual Page 13 &bull; Output 022 (1495x208 px)</div>
           </div>
         </div>
         
@@ -569,16 +575,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 03 &bull; ORDER BY - Ascending & Descending Salary Sort</div>
-            <div class="paste-badge">&#128204; Exp 3: Left Page (Row 2)</div>
+            <div class="card-title">EXP 03 &bull; select * from Student WHERE sName == 'Ajay' OR Address == 'Hyderabad'</div>
+            <div class="paste-badge">&#128204; Exp 3: Page 14 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp3/p014_img024_1480x277.png" alt="ORDER BY - Ascending & Descending Salary Sort" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp3/p014_img024_1480x277.png" alt="select * from Student WHERE sName == 'Ajay' OR Address == 'Hyderabad'" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">SELECT * FROM Employees ORDER BY Salary DESC output table</div>
-            
+            <div class="card-caption">Lab Manual Page 14 &bull; Output 024 (1480x277 px)</div>
           </div>
         </div>
         
@@ -587,16 +591,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 03 &bull; Comparison & Logical Operators (AND / OR / NOT)</div>
-            <div class="paste-badge">&#128204; Exp 3: Left Page (Row 2)</div>
+            <div class="card-title">EXP 03 &bull; select * from Student WHERE sName == 'Ajay' OR Address == 'Hyderabad'</div>
+            <div class="paste-badge">&#128204; Exp 3: Page 14 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp3/p014_img025_1477x274.png" alt="Comparison & Logical Operators (AND / OR / NOT)" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp3/p014_img025_1477x274.png" alt="select * from Student WHERE sName == 'Ajay' OR Address == 'Hyderabad'" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Multi-condition evaluation: Department = 'IT' AND Salary >= 60000</div>
-            
+            <div class="card-caption">Lab Manual Page 14 &bull; Output 025 (1477x274 px)</div>
           </div>
         </div>
         
@@ -605,16 +607,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 03 &bull; BETWEEN Operator & IN Range Filter</div>
-            <div class="paste-badge">&#128204; Exp 3: Left Page (Row 3)</div>
+            <div class="card-title">EXP 03 &bull; select * from Student WHERE sName == 'Ajay' OR Address == 'Hyderabad'</div>
+            <div class="paste-badge">&#128204; Exp 3: Page 14 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp3/p014_img026_1488x309.png" alt="BETWEEN Operator & IN Range Filter" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp3/p014_img026_1488x309.png" alt="select * from Student WHERE sName == 'Ajay' OR Address == 'Hyderabad'" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Salary BETWEEN 40000 AND 70000 query execution output</div>
-            
+            <div class="card-caption">Lab Manual Page 14 &bull; Output 026 (1488x309 px)</div>
           </div>
         </div>
         
@@ -623,16 +623,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 03 &bull; Aggregate Functions: COUNT() and SUM()</div>
-            <div class="paste-badge">&#128204; Exp 3: Left Page (Row 3)</div>
+            <div class="card-title">EXP 03 &bull; select * from Student WHERE sName == 'Ajay' OR Address == 'Hyderabad'</div>
+            <div class="paste-badge">&#128204; Exp 3: Page 14 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp3/p014_img027_1495x330.png" alt="Aggregate Functions: COUNT() and SUM()" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp3/p014_img027_1495x330.png" alt="select * from Student WHERE sName == 'Ajay' OR Address == 'Hyderabad'" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">SELECT COUNT(*), SUM(Salary) FROM Employees grouped calculation</div>
-            
+            <div class="card-caption">Lab Manual Page 14 &bull; Output 027 (1495x330 px)</div>
           </div>
         </div>
         
@@ -641,16 +639,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 03 &bull; Statistical Aggregates: AVG(), MIN(), MAX()</div>
-            <div class="paste-badge">&#128204; Exp 3: Left Page (Row 4)</div>
+            <div class="card-title">EXP 03 &bull; select * from Student ORDER BY sID ASC;</div>
+            <div class="paste-badge">&#128204; Exp 3: Page 15 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp3/p015_img029_1477x427.png" alt="Statistical Aggregates: AVG(), MIN(), MAX()" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp3/p015_img029_1477x427.png" alt="select * from Student ORDER BY sID ASC;" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">SELECT AVG(Salary), MIN(Salary), MAX(Salary) result table</div>
-            
+            <div class="card-caption">Lab Manual Page 15 &bull; Output 029 (1477x427 px)</div>
           </div>
         </div>
         
@@ -659,16 +655,62 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 03 &bull; Comprehensive Employee Master Table</div>
-            <div class="paste-badge">&#128204; Exp 3: Left Page (Full Table)</div>
+            <div class="card-title">EXP 03 &bull; select * from Student ORDER BY sID ASC;</div>
+            <div class="paste-badge">&#128204; Exp 3: Page 15 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp3/p017_img035_1507x891.png" alt="Comprehensive Employee Master Table" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp3/p015_img030_1488x436.png" alt="select * from Student ORDER BY sID ASC;" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Full populated dataset with Department, Age, Salary, and City attributes</div>
-            
+            <div class="card-caption">Lab Manual Page 15 &bull; Output 030 (1488x436 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 03 &bull; select * from Student ORDER BY sID ASC;</div>
+            <div class="paste-badge">&#128204; Exp 3: Page 15 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp3/p015_img031_1491x208.png" alt="select * from Student ORDER BY sID ASC;" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 15 &bull; Output 031 (1491x208 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 03 &bull; a. Select TOP –</div>
+            <div class="paste-badge">&#128204; Exp 3: Page 16 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp3/p016_img033_1497x331.png" alt="a. Select TOP –" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 16 &bull; Output 033 (1497x331 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 03 &bull; ALTER TABLE Old_table_name RENAME TO New_table_name;</div>
+            <div class="paste-badge">&#128204; Exp 3: Page 17 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp3/p017_img035_1507x891.png" alt="ALTER TABLE Old_table_name RENAME TO New_table_name;" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 17 &bull; Output 035 (1507x891 px)</div>
           </div>
         </div>
         
@@ -679,8 +721,8 @@
       <div class="exp-header-banner">
         <div class="exp-badge">EXPERIMENT 04</div>
         <div class="exp-header-info">
-          <h2>Relational Constraints (PK, FK, UNIQUE, CHECK, DEFAULT)</h2>
-          <p class="exp-aim"><strong>Aim:</strong> To implement integrity constraints maintaining entity uniqueness, referential integrity, domain bounds, and default values. <span class="manual-page">[Pages 18-30]</span></p>
+          <h2>Relational Constraints (PRIMARY KEY, FOREIGN KEY, UNIQUE, CHECK, DEFAULT)</h2>
+          <p class="exp-aim"><strong>Aim:</strong> To implement integrity constraints maintaining entity uniqueness, referential integrity, domain bounds, and default values. <span class="manual-page">[Pages 18-30 &bull; 21 Manual Screenshots]</span></p>
         </div>
       </div>
       
@@ -691,16 +733,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 04 &bull; PRIMARY KEY & AUTO_INCREMENT Definition</div>
-            <div class="paste-badge">&#128204; Exp 4: Left Page (PK Definition)</div>
+            <div class="card-title">EXP 04 &bull; Objective: ALTER Table and applying constraints:</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 18 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp4/p020_img040_1488x967.png" alt="PRIMARY KEY & AUTO_INCREMENT Definition" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp4/p018_img037_1420x57.png" alt="Objective: ALTER Table and applying constraints:" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Table creation DDL with PRIMARY KEY and duplicate key rejection error proof</div>
-            
+            <div class="card-caption">Lab Manual Page 18 &bull; Output 037 (1420x57 px)</div>
           </div>
         </div>
         
@@ -709,16 +749,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 04 &bull; FOREIGN KEY Referential Link (Orders -> Customers)</div>
-            <div class="paste-badge">&#128204; Exp 4: Left Page (FK Definition)</div>
+            <div class="card-title">EXP 04 &bull; insert into Employee (emp_no, emp_name, job, joining_date, salary, commissi</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 20 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp4/p021_img044_1488x970.png" alt="FOREIGN KEY Referential Link (Orders -> Customers)" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp4/p020_img040_1488x967.png" alt="insert into Employee (emp_no, emp_name, job, joining_date, salary, commissi" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Parent-child table relationship definition with FOREIGN KEY constraint</div>
-            
+            <div class="card-caption">Lab Manual Page 20 &bull; Output 040 (1488x967 px)</div>
           </div>
         </div>
         
@@ -727,16 +765,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 04 &bull; UNIQUE Constraint & Duplicate Value Violation</div>
-            <div class="paste-badge">&#128204; Exp 4: Left Page (Unique Violation)</div>
+            <div class="card-title">EXP 04 &bull; created table</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 21 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp4/p022_img046_1474x975.png" alt="UNIQUE Constraint & Duplicate Value Violation" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp4/p021_img044_1488x970.png" alt="created table" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">ERROR 1062 (23000): Duplicate entry for key 'email_UNIQUE' verification</div>
-            
+            <div class="card-caption">Lab Manual Page 21 &bull; Output 044 (1488x970 px)</div>
           </div>
         </div>
         
@@ -745,16 +781,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 04 &bull; CHECK Constraint (Age >= 18 & Salary > 0)</div>
-            <div class="paste-badge">&#128204; Exp 4: Left Page (Check Constraint)</div>
+            <div class="card-title">EXP 04 &bull; combine name and job select emp_name||job as Employee_Details from</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 22 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp4/p023_img050_1477x976.png" alt="CHECK Constraint (Age >= 18 & Salary > 0)" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp4/p022_img046_1474x975.png" alt="combine name and job select emp_name||job as Employee_Details from" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">CHECK constraint validation rejecting invalid negative/underage tuples</div>
-            
+            <div class="card-caption">Lab Manual Page 22 &bull; Output 046 (1474x975 px)</div>
           </div>
         </div>
         
@@ -763,16 +797,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 04 &bull; NOT NULL & DEFAULT Constraint Demonstration</div>
-            <div class="paste-badge">&#128204; Exp 4: Left Page (Default Values)</div>
+            <div class="card-title">EXP 04 &bull; combine col with some meaning select emp_name||' works as '||job as Employe</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 23 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp4/p024_img054_1489x373.png" alt="NOT NULL & DEFAULT Constraint Demonstration" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp4/p023_img050_1477x976.png" alt="combine col with some meaning select emp_name||' works as '||job as Employe" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Default status 'Active' and city 'Hyderabad' auto-population</div>
-            
+            <div class="card-caption">Lab Manual Page 23 &bull; Output 050 (1477x976 px)</div>
           </div>
         </div>
         
@@ -781,16 +813,254 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 04 &bull; ON DELETE CASCADE vs ON DELETE RESTRICT</div>
-            <div class="paste-badge">&#128204; Exp 4: Left Page (Cascade Deletion)</div>
+            <div class="card-title">EXP 04 &bull; combine col with some meaning select emp_name||' works as '||job as Employe</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 23 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp4/p025_img057_1483x775.png" alt="ON DELETE CASCADE vs ON DELETE RESTRICT" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp4/p023_img051_1483x979.png" alt="combine col with some meaning select emp_name||' works as '||job as Employe" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Demonstrating cascade deletion of child orders upon parent customer deletion</div>
-            
+            <div class="card-caption">Lab Manual Page 23 &bull; Output 051 (1483x979 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; select</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 24 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p024_img053_1489x226.png" alt="select" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 24 &bull; Output 053 (1489x226 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; select</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 24 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p024_img054_1489x373.png" alt="select" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 24 &bull; Output 054 (1489x373 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; display employees whose salary is between 50000 and 60000 select</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 25 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p025_img056_1491x565.png" alt="display employees whose salary is between 50000 and 60000 select" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 25 &bull; Output 056 (1491x565 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; display employees whose salary is between 50000 and 60000 select</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 25 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p025_img057_1483x775.png" alt="display employees whose salary is between 50000 and 60000 select" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 25 &bull; Output 057 (1483x775 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; select emp_no, emp_name from Employee where job in ('Manager', 'Clerk');</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 26 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p026_img059_1497x490.png" alt="select emp_no, emp_name from Employee where job in ('Manager', 'Clerk');" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 26 &bull; Output 059 (1497x490 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; create table Employee(emp_no numeric(8) PRIMARY KEY, emp_name varchar(21)</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 27 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p027_img061_1482x289.png" alt="create table Employee(emp_no numeric(8) PRIMARY KEY, emp_name varchar(21)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 27 &bull; Output 061 (1482x289 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; create table Employee(emp_no numeric(8) PRIMARY KEY, emp_name varchar(21)</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 27 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p027_img062_274x229.png" alt="create table Employee(emp_no numeric(8) PRIMARY KEY, emp_name varchar(21)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 27 &bull; Output 062 (274x229 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; select emp_no from Employee where emp_name like '%r';</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 28 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p028_img064_261x183.png" alt="select emp_no from Employee where emp_name like '%r';" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 28 &bull; Output 064 (261x183 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; select emp_no from Employee where emp_name like '%r';</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 28 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p028_img065_1476x970.png" alt="select emp_no from Employee where emp_name like '%r';" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 28 &bull; Output 065 (1476x970 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; select * from Employee order by emp_no desc;</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 29 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p029_img067_1483x970.png" alt="select * from Employee order by emp_no desc;" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 29 &bull; Output 067 (1483x970 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; select * from Employee order by emp_no desc;</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 29 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p029_img068_352x199.png" alt="select * from Employee order by emp_no desc;" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 29 &bull; Output 068 (352x199 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; (selects the ‘maximum’ salary from the table)</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 30 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p030_img070_352x220.png" alt="(selects the ‘maximum’ salary from the table)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 30 &bull; Output 070 (352x220 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; (selects the ‘maximum’ salary from the table)</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 30 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p030_img071_328x214.png" alt="(selects the ‘maximum’ salary from the table)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 30 &bull; Output 071 (328x214 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; (selects the ‘maximum’ salary from the table)</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 30 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p030_img072_1483x202.png" alt="(selects the ‘maximum’ salary from the table)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 30 &bull; Output 072 (1483x202 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; (selects the ‘maximum’ salary from the table)</div>
+            <div class="paste-badge">&#128204; Exp 4: Page 30 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p030_img073_355x213.png" alt="(selects the ‘maximum’ salary from the table)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 30 &bull; Output 073 (355x213 px)</div>
           </div>
         </div>
         
@@ -801,8 +1071,8 @@
       <div class="exp-header-banner">
         <div class="exp-badge">EXPERIMENT 05</div>
         <div class="exp-header-info">
-          <h2>SQL JOIN Operations (INNER, LEFT, RIGHT, FULL OUTER)</h2>
-          <p class="exp-aim"><strong>Aim:</strong> To combine records across related tables using INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN, and CROSS JOIN with Venn diagram visualizations. <span class="manual-page">[Pages 31-38]</span></p>
+          <h2>SQL JOIN Operations (INNER, LEFT, RIGHT, FULL OUTER, CROSS)</h2>
+          <p class="exp-aim"><strong>Aim:</strong> To combine records across related tables using INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN, and CROSS JOIN with Venn diagram visualizations. <span class="manual-page">[Pages 31-38 &bull; 11 Manual Screenshots]</span></p>
         </div>
       </div>
       
@@ -813,16 +1083,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 05 &bull; SQL JOINs Set Theory - Venn Diagram Reference</div>
-            <div class="paste-badge">&#128204; Exp 5: Left Page (Venn Diagram)</div>
+            <div class="card-title">EXP 05 &bull; that query. An alias is created with the ‘AS’ keyword.</div>
+            <div class="paste-badge">&#128204; Exp 5: Page 31 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp5/p032_img077_1201x709.png" alt="SQL JOINs Set Theory - Venn Diagram Reference" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp5/p031_img075_319x699.png" alt="that query. An alias is created with the ‘AS’ keyword." loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Visual Venn diagram mapping intersection (INNER), left subset, right subset, and outer union</div>
-            
+            <div class="card-caption">Lab Manual Page 31 &bull; Output 075 (319x699 px)</div>
           </div>
         </div>
         
@@ -831,16 +1099,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 05 &bull; Base Datasets: Students and Courses Tables</div>
-            <div class="paste-badge">&#128204; Exp 5: Left Page (Input Tables)</div>
+            <div class="card-title">EXP 05 &bull; SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate</div>
+            <div class="paste-badge">&#128204; Exp 5: Page 32 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp5/p032_img078_1447x526.png" alt="Base Datasets: Students and Courses Tables" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp5/p032_img077_1201x709.png" alt="SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Populated input tables for demonstrating multi-table relational joins</div>
-            
+            <div class="card-caption">Lab Manual Page 32 &bull; Output 077 (1201x709 px)</div>
           </div>
         </div>
         
@@ -849,16 +1115,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 05 &bull; INNER JOIN Execution & Output Table</div>
-            <div class="paste-badge">&#128204; Exp 5: Left Page (Inner Join)</div>
+            <div class="card-title">EXP 05 &bull; SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate</div>
+            <div class="paste-badge">&#128204; Exp 5: Page 32 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp5/p034_img082_1438x928.png" alt="INNER JOIN Execution & Output Table" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp5/p032_img078_1447x526.png" alt="SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">SELECT * FROM Students INNER JOIN Courses ON Students.CourseID = Courses.CourseID</div>
-            
+            <div class="card-caption">Lab Manual Page 32 &bull; Output 078 (1447x526 px)</div>
           </div>
         </div>
         
@@ -867,16 +1131,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 05 &bull; LEFT (OUTER) JOIN Execution & Output Table</div>
-            <div class="paste-badge">&#128204; Exp 5: Left Page (Left Join)</div>
+            <div class="card-title">EXP 05 &bull; select OrderID, CustomerName from Orders inner join Customers on</div>
+            <div class="paste-badge">&#128204; Exp 5: Page 33 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp5/p035_img085_1489x916.png" alt="LEFT (OUTER) JOIN Execution & Output Table" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp5/p033_img080_822x685.png" alt="select OrderID, CustomerName from Orders inner join Customers on" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Retrieving all students including those without enrolled courses (NULL padded)</div>
-            
+            <div class="card-caption">Lab Manual Page 33 &bull; Output 080 (822x685 px)</div>
           </div>
         </div>
         
@@ -885,16 +1147,110 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 05 &bull; RIGHT (OUTER) JOIN Execution & Output Table</div>
-            <div class="paste-badge">&#128204; Exp 5: Left Page (Right Join)</div>
+            <div class="card-title">EXP 05 &bull; SELECT column_name(s)</div>
+            <div class="paste-badge">&#128204; Exp 5: Page 34 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp5/p036_img087_1393x922.png" alt="RIGHT (OUTER) JOIN Execution & Output Table" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp5/p034_img082_1438x928.png" alt="SELECT column_name(s)" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Retrieving all courses including those without enrolled students</div>
-            
+            <div class="card-caption">Lab Manual Page 34 &bull; Output 082 (1438x928 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 05 &bull; select OrderID, FirstName, LastName from Orders Right Join Employees on</div>
+            <div class="paste-badge">&#128204; Exp 5: Page 35 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp5/p035_img084_1450x592.png" alt="select OrderID, FirstName, LastName from Orders Right Join Employees on" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 35 &bull; Output 084 (1450x592 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 05 &bull; select OrderID, FirstName, LastName from Orders Right Join Employees on</div>
+            <div class="paste-badge">&#128204; Exp 5: Page 35 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp5/p035_img085_1489x916.png" alt="select OrderID, FirstName, LastName from Orders Right Join Employees on" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 35 &bull; Output 085 (1489x916 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 05 &bull; select CustomerName, OrderID from Customers full join Orders on</div>
+            <div class="paste-badge">&#128204; Exp 5: Page 36 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp5/p036_img087_1393x922.png" alt="select CustomerName, OrderID from Customers full join Orders on" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 36 &bull; Output 087 (1393x922 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 05 &bull; select CustomerName, OrderID from Customers full join Orders on</div>
+            <div class="paste-badge">&#128204; Exp 5: Page 36 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp5/p036_img088_1011x478.png" alt="select CustomerName, OrderID from Customers full join Orders on" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 36 &bull; Output 088 (1011x478 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 05 &bull; g. UNION - The UNION operator is used to combine the result-set of two or m</div>
+            <div class="paste-badge">&#128204; Exp 5: Page 37 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp5/p037_img094_304x385.png" alt="g. UNION - The UNION operator is used to combine the result-set of two or m" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 37 &bull; Output 094 (304x385 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 05 &bull; Manual Output #11 (Page 38)</div>
+            <div class="paste-badge">&#128204; Exp 5: Page 38 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp5/p038_img100_337x922.png" alt="Manual Output #11 (Page 38)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 38 &bull; Output 100 (337x922 px)</div>
           </div>
         </div>
         
@@ -906,7 +1262,7 @@
         <div class="exp-badge">EXPERIMENT 06</div>
         <div class="exp-header-info">
           <h2>LIKE, GROUP BY, HAVING, EXISTS & Nested Subqueries</h2>
-          <p class="exp-aim"><strong>Aim:</strong> To perform advanced pattern matching (LIKE % _), multi-column aggregation (GROUP BY), group filtering (HAVING), and correlated subqueries (EXISTS, IN, ANY, ALL). <span class="manual-page">[Pages 39-49]</span></p>
+          <p class="exp-aim"><strong>Aim:</strong> To perform advanced pattern matching (LIKE % _), multi-column aggregation (GROUP BY), group filtering (HAVING), and correlated subqueries (EXISTS, IN, ANY, ALL). <span class="manual-page">[Pages 39-49 &bull; 19 Manual Screenshots]</span></p>
         </div>
       </div>
       
@@ -917,16 +1273,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 06 &bull; LIKE Wildcard Pattern Matching (% and _)</div>
-            <div class="paste-badge">&#128204; Exp 6: Left Page (LIKE Patterns)</div>
+            <div class="card-title">EXP 06 &bull; SELECT column1, column2, ... FROM</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 39 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp6/p039_img106_1495x733.png" alt="LIKE Wildcard Pattern Matching (% and _)" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp6/p039_img106_1495x733.png" alt="SELECT column1, column2, ... FROM" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">SELECT * FROM Employees WHERE Name LIKE 'A%' OR Name LIKE '_o%' outputs</div>
-            
+            <div class="card-caption">Lab Manual Page 39 &bull; Output 106 (1495x733 px)</div>
           </div>
         </div>
         
@@ -935,16 +1289,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 06 &bull; GROUP BY Department Aggregations</div>
-            <div class="paste-badge">&#128204; Exp 6: Left Page (Group By)</div>
+            <div class="card-title">EXP 06 &bull; SELECT * FROM Students WHERE Name LIKE '%t%';</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 40 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp6/p041_img176_1477x412.png" alt="GROUP BY Department Aggregations" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp6/p040_img108_1477x358.png" alt="SELECT * FROM Students WHERE Name LIKE '%t%';" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">SELECT Department, COUNT(*), AVG(Salary) FROM Employees GROUP BY Department</div>
-            
+            <div class="card-caption">Lab Manual Page 40 &bull; Output 108 (1477x358 px)</div>
           </div>
         </div>
         
@@ -953,16 +1305,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 06 &bull; HAVING Clause Filtering Aggregated Groups</div>
-            <div class="paste-badge">&#128204; Exp 6: Left Page (HAVING Filter)</div>
+            <div class="card-title">EXP 06 &bull; SELECT * FROM Students WHERE Name LIKE '%t%';</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 40 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp6/p041_img177_1480x412.png" alt="HAVING Clause Filtering Aggregated Groups" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp6/p040_img109_1468x238.png" alt="SELECT * FROM Students WHERE Name LIKE '%t%';" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">SELECT Department, COUNT(*) FROM Employees GROUP BY Department HAVING COUNT(*) > 1</div>
-            
+            <div class="card-caption">Lab Manual Page 40 &bull; Output 109 (1468x238 px)</div>
           </div>
         </div>
         
@@ -971,16 +1321,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 06 &bull; EXISTS & NOT EXISTS Correlated Subqueries</div>
-            <div class="paste-badge">&#128204; Exp 6: Left Page (EXISTS Subquery)</div>
+            <div class="card-title">EXP 06 &bull; SELECT * FROM Students WHERE Name LIKE '%t%';</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 40 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp6/p044_img194_1495x885.png" alt="EXISTS & NOT EXISTS Correlated Subqueries" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp6/p040_img174_1470x238.png" alt="SELECT * FROM Students WHERE Name LIKE '%t%';" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">SELECT * FROM Customers c WHERE EXISTS (SELECT 1 FROM Orders o WHERE o.CustomerID = c.ID)</div>
-            
+            <div class="card-caption">Lab Manual Page 40 &bull; Output 174 (1470x238 px)</div>
           </div>
         </div>
         
@@ -989,16 +1337,238 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 06 &bull; Nested Subqueries with IN and ANY Operators</div>
-            <div class="paste-badge">&#128204; Exp 6: Left Page (Nested Subqueries)</div>
+            <div class="card-title">EXP 06 &bull; SELECT * FROM Students WHERE Name LIKE '%a'; Return all Students whose ‘Nam</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 41 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp6/p045_img197_1480x477.png" alt="Nested Subqueries with IN and ANY Operators" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp6/p041_img176_1477x412.png" alt="SELECT * FROM Students WHERE Name LIKE '%a'; Return all Students whose ‘Nam" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Subquery in WHERE clause comparing against dynamic department salary averages</div>
-            
+            <div class="card-caption">Lab Manual Page 41 &bull; Output 176 (1477x412 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; SELECT * FROM Students WHERE Name LIKE '%a'; Return all Students whose ‘Nam</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 41 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p041_img177_1480x412.png" alt="SELECT * FROM Students WHERE Name LIKE '%a'; Return all Students whose ‘Nam" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 41 &bull; Output 177 (1480x412 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; SELECT * FROM Students WHERE Name LIKE '%a'; Return all Students whose ‘Nam</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 41 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p041_img178_1477x243.png" alt="SELECT * FROM Students WHERE Name LIKE '%a'; Return all Students whose ‘Nam" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 41 &bull; Output 178 (1477x243 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; SELECT * FROM Students WHERE Name LIKE 'r_____%';</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 42 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p042_img180_1486x249.png" alt="SELECT * FROM Students WHERE Name LIKE 'r_____%';" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 42 &bull; Output 180 (1486x249 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; SELECT * FROM Students WHERE Name LIKE 'r_____%';</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 42 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p042_img181_1480x351.png" alt="SELECT * FROM Students WHERE Name LIKE 'r_____%';" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 42 &bull; Output 181 (1480x351 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; SELECT * FROM Students WHERE Name LIKE 'r_____%';</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 42 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p042_img190_1479x184.png" alt="SELECT * FROM Students WHERE Name LIKE 'r_____%';" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 42 &bull; Output 190 (1479x184 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; Manual Output #11 (Page 43)</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 43 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p043_img192_1477x246.png" alt="Manual Output #11 (Page 43)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 43 &bull; Output 192 (1477x246 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; summary rows, like "find the number of customers in each country".</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 44 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p044_img194_1495x885.png" alt="summary rows, like "find the number of customers in each country"." loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 44 &bull; Output 194 (1495x885 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; summary rows, like "find the number of customers in each country".</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 44 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p044_img195_1486x478.png" alt="summary rows, like "find the number of customers in each country"." loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 44 &bull; Output 195 (1486x478 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; SELECT COUNT(emp_no), job FROM Employee GROUP BY job ORDER BY</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 45 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p045_img197_1480x477.png" alt="SELECT COUNT(emp_no), job FROM Employee GROUP BY job ORDER BY" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 45 &bull; Output 197 (1480x477 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; SELECT COUNT(emp_no), job FROM Employee GROUP BY job ORDER BY</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 45 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p045_img198_1485x418.png" alt="SELECT COUNT(emp_no), job FROM Employee GROUP BY job ORDER BY" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 45 &bull; Output 198 (1485x418 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; SELECT COUNT(emp_no), job FROM Employee GROUP BY job HAVING</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 46 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p046_img200_1480x418.png" alt="SELECT COUNT(emp_no), job FROM Employee GROUP BY job HAVING" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 46 &bull; Output 200 (1480x418 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; SELECT column_name(s)</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 47 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p047_img202_898x547.png" alt="SELECT column_name(s)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 47 &bull; Output 202 (898x547 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; is used with SELECT, WHERE and HAVING statements</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 48 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p048_img208_756x541.png" alt="is used with SELECT, WHERE and HAVING statements" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 48 &bull; Output 208 (756x541 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; (SELECT column_name</div>
+            <div class="paste-badge">&#128204; Exp 6: Page 49 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p049_img210_583x117.png" alt="(SELECT column_name" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 49 &bull; Output 210 (583x117 px)</div>
           </div>
         </div>
         
@@ -1010,25 +1580,25 @@
         <div class="exp-badge">EXPERIMENT 07</div>
         <div class="exp-header-info">
           <h2>Database Views & Stored Procedures</h2>
-          <p class="exp-aim"><strong>Aim:</strong> To create and manage SQL VIEWs for query abstraction/security and author parameterized STORED PROCEDUREs for business logic execution. <span class="manual-page">[Pages 50-51]</span></p>
+          <p class="exp-aim"><strong>Aim:</strong> To create and manage SQL VIEWs for query abstraction/security and author parameterized STORED PROCEDUREs for business logic execution. <span class="manual-page">[Pages 50-51 &bull; 0 Manual Screenshots]</span></p>
         </div>
       </div>
       
       <div class="cards-grid">
     
-        <div class="cutout-card">
-          <div class="scissor-guide">
-            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
-          </div>
-          <div class="card-header">
-            <div class="card-title">EXP 07 &bull; CREATE VIEW - Employee Department Summary</div>
-            <div class="paste-badge">&#128204; Exp 7: Left Page (SQL View Output)</div>
-          </div>
-          <div class="card-body">
-            
-            <div class="terminal-wrapper">
-              <div class="terminal-cmd"><span class="prompt">&gt;</span> CREATE VIEW View_EmpDept AS SELECT e.EmployeeID, e.Name, d.DepartmentName, e.Salary FROM Employees e JOIN Departments d ON e.DepartmentID = d.DepartmentID;</div>
-              <pre class="terminal-body"><code>+--------------+---------------+----------------+---------+
+            <div class="cutout-card">
+              <div class="scissor-guide">
+                <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+              </div>
+              <div class="card-header">
+                <div class="card-title">EXP 07 &bull; CREATE VIEW - Employee Department Summary</div>
+                <div class="paste-badge">&#128204; Exp 7: Left Page (SQL View Output)</div>
+              </div>
+              <div class="card-body">
+                
+                <div class="terminal-wrapper">
+                  <div class="terminal-cmd"><span class="prompt">&gt;</span> CREATE VIEW View_EmpDept AS SELECT e.EmployeeID, e.Name, d.DepartmentName, e.Salary FROM Employees e JOIN Departments d ON e.DepartmentID = d.DepartmentID;</div>
+                  <pre class="terminal-body"><code>+--------------+---------------+----------------+---------+
 | EmployeeID   | Name          | DepartmentName | Salary  |
 +--------------+---------------+----------------+---------+
 | 1            | John Doe      | HR             | 5000.00 |
@@ -1038,35 +1608,35 @@
 | 5            | Sarah Johnson | IT             | 6200.00 |
 +--------------+---------------+----------------+---------+
 5 rows in set (0.01 sec)</code></pre>
+                </div>
+                
+              </div>
             </div>
             
-          </div>
-        </div>
-        
-        <div class="cutout-card">
-          <div class="scissor-guide">
-            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
-          </div>
-          <div class="card-header">
-            <div class="card-title">EXP 07 &bull; STORED PROCEDURE - GetEmployeesByDept(IN dept_id INT)</div>
-            <div class="paste-badge">&#128204; Exp 7: Left Page (Stored Procedure Call)</div>
-          </div>
-          <div class="card-body">
-            
-            <div class="terminal-wrapper">
-              <div class="terminal-cmd"><span class="prompt">&gt;</span> CALL GetEmployeesByDept(101);</div>
-              <pre class="terminal-body"><code>+--------------+-------------+--------------+---------+
+            <div class="cutout-card">
+              <div class="scissor-guide">
+                <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+              </div>
+              <div class="card-header">
+                <div class="card-title">EXP 07 &bull; STORED PROCEDURE - GetEmployeesByDept(IN dept_id INT)</div>
+                <div class="paste-badge">&#128204; Exp 7: Left Page (Stored Procedure Call)</div>
+              </div>
+              <div class="card-body">
+                
+                <div class="terminal-wrapper">
+                  <div class="terminal-cmd"><span class="prompt">&gt;</span> CALL GetEmployeesByDept(101);</div>
+                  <pre class="terminal-body"><code>+--------------+-------------+--------------+---------+
 | EmployeeID   | Name        | DepartmentID | Salary  |
 +--------------+-------------+--------------+---------+
 | 1            | John Doe    | 101          | 5000.00 |
 | 3            | Emily Davis | 101          | 5500.00 |
 +--------------+-------------+--------------+---------+
 2 rows in set (0.02 sec) -- Query OK</code></pre>
+                </div>
+                
+              </div>
             </div>
             
-          </div>
-        </div>
-        
       </div>
     </div>
     
@@ -1075,25 +1645,25 @@
         <div class="exp-badge">EXPERIMENT 08</div>
         <div class="exp-header-info">
           <h2>Scenario-Based MySQL Practice Queries</h2>
-          <p class="exp-aim"><strong>Aim:</strong> To solve complex multi-table analytical scenarios involving Employees, Projects, and Department Allocations. <span class="manual-page">[Pages 52-54]</span></p>
+          <p class="exp-aim"><strong>Aim:</strong> To solve complex multi-table analytical scenarios involving Employees, Projects, and Department Allocations. <span class="manual-page">[Pages 52-54 &bull; 0 Manual Screenshots]</span></p>
         </div>
       </div>
       
       <div class="cards-grid">
     
-        <div class="cutout-card">
-          <div class="scissor-guide">
-            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
-          </div>
-          <div class="card-header">
-            <div class="card-title">EXP 08 &bull; Scenario Query 1: Top Earning Employees per City</div>
-            <div class="paste-badge">&#128204; Exp 8: Left Page (Top Earners by City)</div>
-          </div>
-          <div class="card-body">
-            
-            <div class="terminal-wrapper">
-              <div class="terminal-cmd"><span class="prompt">&gt;</span> SELECT City, Name, Department, Salary FROM Employees e WHERE Salary = (SELECT MAX(Salary) FROM Employees WHERE City = e.City);</div>
-              <pre class="terminal-body"><code>+-----------+---------------+------------+----------+
+            <div class="cutout-card">
+              <div class="scissor-guide">
+                <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+              </div>
+              <div class="card-header">
+                <div class="card-title">EXP 08 &bull; Scenario Query 1: Top Earning Employees per City</div>
+                <div class="paste-badge">&#128204; Exp 8: Left Page (Top Earners by City)</div>
+              </div>
+              <div class="card-body">
+                
+                <div class="terminal-wrapper">
+                  <div class="terminal-cmd"><span class="prompt">&gt;</span> SELECT City, Name, Department, Salary FROM Employees e WHERE Salary = (SELECT MAX(Salary) FROM Employees WHERE City = e.City);</div>
+                  <pre class="terminal-body"><code>+-----------+---------------+------------+----------+
 | City      | Name          | Department | Salary   |
 +-----------+---------------+------------+----------+
 | New York  | Alice         | IT         | 70000.00 |
@@ -1101,35 +1671,35 @@
 | Seattle   | Grace         | IT         | 72000.00 |
 +-----------+---------------+------------+----------+
 3 rows in set (0.02 sec)</code></pre>
+                </div>
+                
+              </div>
             </div>
             
-          </div>
-        </div>
-        
-        <div class="cutout-card">
-          <div class="scissor-guide">
-            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
-          </div>
-          <div class="card-header">
-            <div class="card-title">EXP 08 &bull; Scenario Query 2: Active Multi-Project Assignments</div>
-            <div class="paste-badge">&#128204; Exp 8: Left Page (Project Allocations)</div>
-          </div>
-          <div class="card-body">
-            
-            <div class="terminal-wrapper">
-              <div class="terminal-cmd"><span class="prompt">&gt;</span> SELECT e.Name, COUNT(p.ProjectID) AS ActiveProjects, SUM(p.Budget) AS TotalBudgetManaged FROM Employees e JOIN Project_Assignments pa ON e.EmployeeID = pa.EmployeeID JOIN Projects p ON pa.ProjectID = p.ProjectID GROUP BY e.EmployeeID HAVING ActiveProjects >= 2;</div>
-              <pre class="terminal-body"><code>+---------------+----------------+--------------------+
+            <div class="cutout-card">
+              <div class="scissor-guide">
+                <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+              </div>
+              <div class="card-header">
+                <div class="card-title">EXP 08 &bull; Scenario Query 2: Active Multi-Project Assignments</div>
+                <div class="paste-badge">&#128204; Exp 8: Left Page (Project Allocations)</div>
+              </div>
+              <div class="card-body">
+                
+                <div class="terminal-wrapper">
+                  <div class="terminal-cmd"><span class="prompt">&gt;</span> SELECT e.Name, COUNT(p.ProjectID) AS ActiveProjects, SUM(p.Budget) AS TotalBudgetManaged FROM Employees e JOIN Project_Assignments pa ON e.EmployeeID = pa.EmployeeID JOIN Projects p ON pa.ProjectID = p.ProjectID GROUP BY e.EmployeeID HAVING ActiveProjects >= 2;</div>
+                  <pre class="terminal-body"><code>+---------------+----------------+--------------------+
 | Name          | ActiveProjects | TotalBudgetManaged |
 +---------------+----------------+--------------------+
 | Alice         | 2              | 250000.00          |
 | Frank         | 3              | 480000.00          |
 +---------------+----------------+--------------------+
 2 rows in set (0.01 sec)</code></pre>
+                </div>
+                
+              </div>
             </div>
             
-          </div>
-        </div>
-        
       </div>
     </div>
     
@@ -1138,7 +1708,7 @@
         <div class="exp-badge">EXPERIMENT 09</div>
         <div class="exp-header-info">
           <h2>Introduction to MongoDB & Document CRUD</h2>
-          <p class="exp-aim"><strong>Aim:</strong> To initialize NoSQL databases, create BSON collections, and perform document CRUD operations (insertOne, insertMany, find, updateOne, deleteOne). <span class="manual-page">[Pages 55-63]</span></p>
+          <p class="exp-aim"><strong>Aim:</strong> To initialize NoSQL databases, create BSON collections, and perform document CRUD operations (insertOne, insertMany, find, updateOne, deleteOne). <span class="manual-page">[Pages 55-63 &bull; 22 Manual Screenshots]</span></p>
         </div>
       </div>
       
@@ -1149,16 +1719,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 09 &bull; MongoDB Collection Creation & insertOne()</div>
-            <div class="paste-badge">&#128204; Exp 9: Left Page (insertOne Output)</div>
+            <div class="card-title">EXP 09 &bull; a. Create DB (Change or Create a Database) -</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 56 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp9/p056_img225_382x219.png" alt="MongoDB Collection Creation & insertOne()" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp9/p056_img224_361x79.png" alt="a. Create DB (Change or Create a Database) -" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">db.students.insertOne({ name: 'Rahul', roll: 101, major: 'AIML' }) execution</div>
-            
+            <div class="card-caption">Lab Manual Page 56 &bull; Output 224 (361x79 px)</div>
           </div>
         </div>
         
@@ -1167,16 +1735,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 09 &bull; Bulk Document Insertion via insertMany()</div>
-            <div class="paste-badge">&#128204; Exp 9: Left Page (insertMany Output)</div>
+            <div class="card-title">EXP 09 &bull; a. Create DB (Change or Create a Database) -</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 56 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp9/p057_img240_1483x778.png" alt="Bulk Document Insertion via insertMany()" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp9/p056_img225_382x219.png" alt="a. Create DB (Change or Create a Database) -" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Acknowledged result with generated ObjectId array for bulk student records</div>
-            
+            <div class="card-caption">Lab Manual Page 56 &bull; Output 225 (382x219 px)</div>
           </div>
         </div>
         
@@ -1185,16 +1751,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 09 &bull; db.collection.find() Formatted JSON Output</div>
-            <div class="paste-badge">&#128204; Exp 9: Left Page (find Output)</div>
+            <div class="card-title">EXP 09 &bull; a. Create DB (Change or Create a Database) -</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 56 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp9/p058_img244_648x588.png" alt="db.collection.find() Formatted JSON Output" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp9/p056_img226_637x189.png" alt="a. Create DB (Change or Create a Database) -" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Full BSON document list retrieval with _id, fields, and nested arrays</div>
-            
+            <div class="card-caption">Lab Manual Page 56 &bull; Output 226 (637x189 px)</div>
           </div>
         </div>
         
@@ -1203,16 +1767,302 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 09 &bull; Document Update & Delete Operations</div>
-            <div class="paste-badge">&#128204; Exp 9: Left Page (Update/Delete)</div>
+            <div class="card-title">EXP 09 &bull; a. Create DB (Change or Create a Database) -</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 56 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp9/p062_img256_982x906.png" alt="Document Update & Delete Operations" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp9/p056_img227_565x133.png" alt="a. Create DB (Change or Create a Database) -" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">updateOne($set) and deleteOne({ _id: ... }) acknowledged result logs</div>
-            
+            <div class="card-caption">Lab Manual Page 56 &bull; Output 227 (565x133 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; a. Create DB (Change or Create a Database) -</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 56 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p056_img230_322x129.png" alt="a. Create DB (Change or Create a Database) -" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 56 &bull; Output 230 (322x129 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; a. Create DB (Change or Create a Database) -</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 56 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p056_img231_315x72.png" alt="a. Create DB (Change or Create a Database) -" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 56 &bull; Output 231 (315x72 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; InsertMany() : to insert multiple values</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 57 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p057_img239_975x288.png" alt="InsertMany() : to insert multiple values" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 57 &bull; Output 239 (975x288 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; InsertMany() : to insert multiple values</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 57 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p057_img240_1483x778.png" alt="InsertMany() : to insert multiple values" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 57 &bull; Output 240 (1483x778 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; InsertMany() : to insert multiple values</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 57 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p057_img241_940x286.png" alt="InsertMany() : to insert multiple values" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 57 &bull; Output 241 (940x286 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; d. Find and FindOne –</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 58 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p058_img243_873x282.png" alt="d. Find and FindOne –" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 58 &bull; Output 243 (873x282 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; d. Find and FindOne –</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 58 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p058_img244_648x588.png" alt="d. Find and FindOne –" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 58 &bull; Output 244 (648x588 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; findOne() - To select only one document</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 59 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p059_img246_616x217.png" alt="findOne() - To select only one document" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 59 &bull; Output 246 (616x217 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; findOne() - To select only one document</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 59 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p059_img247_595x478.png" alt="findOne() - To select only one document" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 59 &bull; Output 247 (595x478 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; - db.CollectionName.updateOne({refernce-sub-object-search},{$set:{subobject</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 60 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p060_img249_835x292.png" alt="- db.CollectionName.updateOne({refernce-sub-object-search},{$set:{subobject" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 60 &bull; Output 249 (835x292 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; - db.CollectionName.updateOne({refernce-sub-object-search},{$set:{subobject</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 60 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p060_img250_559x127.png" alt="- db.CollectionName.updateOne({refernce-sub-object-search},{$set:{subobject" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 60 &bull; Output 250 (559x127 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; - db.CollectionName.updateOne({refernce-sub-object-search},{$set:{subobject</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 60 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p060_img251_541x292.png" alt="- db.CollectionName.updateOne({refernce-sub-object-search},{$set:{subobject" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 60 &bull; Output 251 (541x292 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; g. DeleteOne and DeleteMany - These methods accept a query object. The matc</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 61 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p061_img253_583x544.png" alt="g. DeleteOne and DeleteMany - These methods accept a query object. The matc" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 61 &bull; Output 253 (583x544 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; g. DeleteOne and DeleteMany - These methods accept a query object. The matc</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 61 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p061_img254_430x186.png" alt="g. DeleteOne and DeleteMany - These methods accept a query object. The matc" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 61 &bull; Output 254 (430x186 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; deleteMany() - The deleteMany() method will delete all documents that match</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 62 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p062_img256_982x906.png" alt="deleteMany() - The deleteMany() method will delete all documents that match" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 62 &bull; Output 256 (982x906 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; db.CollcetionName.insertOne({“subjects”: [“maths”, “physics”, “chemistry”]}</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 63 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p063_img260_259x154.png" alt="db.CollcetionName.insertOne({“subjects”: [“maths”, “physics”, “chemistry”]}" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 63 &bull; Output 260 (259x154 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; db.CollcetionName.insertOne({“subjects”: [“maths”, “physics”, “chemistry”]}</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 63 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p063_img263_343x183.png" alt="db.CollcetionName.insertOne({“subjects”: [“maths”, “physics”, “chemistry”]}" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 63 &bull; Output 263 (343x183 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; db.CollcetionName.insertOne({“subjects”: [“maths”, “physics”, “chemistry”]}</div>
+            <div class="paste-badge">&#128204; Exp 9: Page 63 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p063_img264_1503x610.png" alt="db.CollcetionName.insertOne({“subjects”: [“maths”, “physics”, “chemistry”]}" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 63 &bull; Output 264 (1503x610 px)</div>
           </div>
         </div>
         
@@ -1224,7 +2074,7 @@
         <div class="exp-badge">EXPERIMENT 10</div>
         <div class="exp-header-info">
           <h2>MongoDB Query & Comparison Operators</h2>
-          <p class="exp-aim"><strong>Aim:</strong> To construct queries utilizing comparison operators ($gt, $gte, $lt, $lte, $in, $nin), logical operators ($and, $or, $not, $nor), element operators ($exists, $type), and array operators. <span class="manual-page">[Pages 64-81]</span></p>
+          <p class="exp-aim"><strong>Aim:</strong> To construct queries utilizing comparison operators ($gt, $gte, $lt, $lte, $in, $nin), logical operators ($and, $or, $not, $nor), element operators ($exists, $type), and array operators. <span class="manual-page">[Pages 64-81 &bull; 36 Manual Screenshots]</span></p>
         </div>
       </div>
       
@@ -1235,16 +2085,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 10 &bull; Comparison Operators: $gt, $lt, and $in</div>
-            <div class="paste-badge">&#128204; Exp 10: Left Page (Comparison)</div>
+            <div class="card-title">EXP 10 &bull; Experiment No: 10</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 64 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp10/p064_img274_1552x544.png" alt="Comparison Operators: $gt, $lt, and $in" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp10/p064_img272_337x73.png" alt="Experiment No: 10" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">db.products.find({ price: { $gt: 500, $lt: 2000 } }) query output</div>
-            
+            <div class="card-caption">Lab Manual Page 64 &bull; Output 272 (337x73 px)</div>
           </div>
         </div>
         
@@ -1253,16 +2101,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 10 &bull; Logical Operators: $and and $or Compound Queries</div>
-            <div class="paste-badge">&#128204; Exp 10: Left Page (Logical Operators)</div>
+            <div class="card-title">EXP 10 &bull; Experiment No: 10</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 64 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp10/p066_img305_577x651.png" alt="Logical Operators: $and and $or Compound Queries" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp10/p064_img273_364x77.png" alt="Experiment No: 10" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Evaluating multi-clause logical filter expressions across customer accounts</div>
-            
+            <div class="card-caption">Lab Manual Page 64 &bull; Output 273 (364x77 px)</div>
           </div>
         </div>
         
@@ -1271,16 +2117,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 10 &bull; Element Operators: $exists and $type Checking</div>
-            <div class="paste-badge">&#128204; Exp 10: Left Page (Element Check)</div>
+            <div class="card-title">EXP 10 &bull; Experiment No: 10</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 64 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp10/p067_img313_592x685.png" alt="Element Operators: $exists and $type Checking" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp10/p064_img274_1552x544.png" alt="Experiment No: 10" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Filtering documents where optional fields exist and validating BSON types</div>
-            
+            <div class="card-caption">Lab Manual Page 64 &bull; Output 274 (1552x544 px)</div>
           </div>
         </div>
         
@@ -1289,16 +2133,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 10 &bull; Array Operators: $all and $elemMatch</div>
-            <div class="paste-badge">&#128204; Exp 10: Left Page (Array Operators)</div>
+            <div class="card-title">EXP 10 &bull; Experiment No: 10</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 64 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp10/p071_img344_901x697.png" alt="Array Operators: $all and $elemMatch" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp10/p064_img275_526x460.png" alt="Experiment No: 10" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Querying documents containing specific skill tags or nested sub-document arrays</div>
-            
+            <div class="card-caption">Lab Manual Page 64 &bull; Output 275 (526x460 px)</div>
           </div>
         </div>
         
@@ -1307,16 +2149,510 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 10 &bull; Regex Pattern Search in MongoDB</div>
-            <div class="paste-badge">&#128204; Exp 10: Left Page (Regex Search)</div>
+            <div class="card-title">EXP 10 &bull; Experiment No: 10</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 64 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp10/p078_img431_637x796.png" alt="Regex Pattern Search in MongoDB" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp10/p064_img276_558x483.png" alt="Experiment No: 10" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">db.users.find({ email: { $regex: '@woxsen.edu.in$', $options: 'i' } })</div>
-            
+            <div class="card-caption">Lab Manual Page 64 &bull; Output 276 (558x483 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; - db.Lab9.find({“id”:{$eq: 1006}}) is equivalent to</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 65 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p065_img298_528x171.png" alt="- db.Lab9.find({“id”:{$eq: 1006}}) is equivalent to" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 65 &bull; Output 298 (528x171 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; - db.Lab9.find({“id”:{$eq: 1006}}) is equivalent to</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 65 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p065_img299_565x258.png" alt="- db.Lab9.find({“id”:{$eq: 1006}}) is equivalent to" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 65 &bull; Output 299 (565x258 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; - db.Lab9.find({“id”:{$eq: 1006}}) is equivalent to</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 65 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p065_img300_618x256.png" alt="- db.Lab9.find({“id”:{$eq: 1006}}) is equivalent to" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 65 &bull; Output 300 (618x256 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; selects those documents where</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 66 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p066_img304_595x255.png" alt="selects those documents where" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 66 &bull; Output 304 (595x255 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; selects those documents where</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 66 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p066_img305_577x651.png" alt="selects those documents where" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 66 &bull; Output 305 (577x651 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; selects those documents where</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 66 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p066_img306_562x430.png" alt="selects those documents where" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 66 &bull; Output 306 (562x430 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; $gte: Value is greater than or equal to another value. $gte selects the doc</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 67 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p067_img312_570x475.png" alt="$gte: Value is greater than or equal to another value. $gte selects the doc" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 67 &bull; Output 312 (570x475 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; $gte: Value is greater than or equal to another value. $gte selects the doc</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 67 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p067_img313_592x685.png" alt="$gte: Value is greater than or equal to another value. $gte selects the doc" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 67 &bull; Output 313 (592x685 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; $lte: Value is less than or equal to another value. $lte selects the docume</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 68 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p068_img317_559x694.png" alt="$lte: Value is less than or equal to another value. $lte selects the docume" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 68 &bull; Output 317 (559x694 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; $lte: Value is less than or equal to another value. $lte selects the docume</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 68 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p068_img318_562x219.png" alt="$lte: Value is less than or equal to another value. $lte selects the docume" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 68 &bull; Output 318 (562x219 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; Manual Output #16 (Page 69)</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 69 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p069_img320_571x691.png" alt="Manual Output #16 (Page 69)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 69 &bull; Output 320 (571x691 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; Manual Output #17 (Page 69)</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 69 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p069_img321_580x433.png" alt="Manual Output #17 (Page 69)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 69 &bull; Output 321 (580x433 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; $in operator selects the</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 70 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p070_img325_642x441.png" alt="$in operator selects the" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 70 &bull; Output 325 (642x441 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; $in operator selects the</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 70 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p070_img326_639x294.png" alt="$in operator selects the" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 70 &bull; Output 326 (639x294 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; (<expression1>, <expression2> , and so on) and selects the documents that s</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 71 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p071_img330_868x478.png" alt="(<expression1>, <expression2> , and so on) and selects the documents that s" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 71 &bull; Output 330 (868x478 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; (<expression1>, <expression2> , and so on) and selects the documents that s</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 71 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p071_img341_694x511.png" alt="(<expression1>, <expression2> , and so on) and selects the documents that s" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 71 &bull; Output 341 (694x511 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; “id” db.Lab9.find({“id”: {$eq: 1006, $exists:</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 72 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p072_img343_628x258.png" alt="“id” db.Lab9.find({“id”: {$eq: 1006, $exists:" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 72 &bull; Output 343 (628x258 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; “id” db.Lab9.find({“id”: {$eq: 1006, $exists:</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 72 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p072_img344_901x697.png" alt="“id” db.Lab9.find({“id”: {$eq: 1006, $exists:" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 72 &bull; Output 344 (901x697 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; The query selects all documents in the</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 73 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p073_img348_643x217.png" alt="The query selects all documents in the" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 73 &bull; Output 348 (643x217 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; The query selects all documents in the</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 73 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p073_img349_652x441.png" alt="The query selects all documents in the" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 73 &bull; Output 349 (652x441 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; - db.Lab9.find({$or: [{“marks”: {$lt: 70}}, {“id”: 1006}]})</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 74 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p074_img353_628x258.png" alt="- db.Lab9.find({$or: [{“marks”: {$lt: 70}}, {“id”: 1006}]})" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 74 &bull; Output 353 (628x258 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; - db.Lab9.find({$or: [{“marks”: {$lt: 70}}, {“id”: 1006}]})</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 74 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p074_img418_790x691.png" alt="- db.Lab9.find({$or: [{“marks”: {$lt: 70}}, {“id”: 1006}]})" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 74 &bull; Output 418 (790x691 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; Manual Output #28 (Page 75)</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 75 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p075_img420_658x691.png" alt="Manual Output #28 (Page 75)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 75 &bull; Output 420 (658x691 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; Manual Output #29 (Page 75)</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 75 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p075_img421_612x646.png" alt="Manual Output #29 (Page 75)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 75 &bull; Output 421 (612x646 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; This query will select all documents in the collection inventory</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 77 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p077_img426_579x687.png" alt="This query will select all documents in the collection inventory" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 77 &bull; Output 426 (579x687 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; This query will select all documents in the collection inventory</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 77 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p077_img427_814x258.png" alt="This query will select all documents in the collection inventory" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 77 &bull; Output 427 (814x258 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; db.sampledata.find({“name”:{$regex:/^E/}})</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 78 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p078_img431_637x796.png" alt="db.sampledata.find({“name”:{$regex:/^E/}})" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 78 &bull; Output 431 (637x796 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; Manual Output #33 (Page 79)</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 79 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p079_img433_565x759.png" alt="Manual Output #33 (Page 79)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 79 &bull; Output 433 (565x759 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; Manual Output #34 (Page 79)</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 79 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p079_img434_505x763.png" alt="Manual Output #34 (Page 79)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 79 &bull; Output 434 (505x763 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; Manual Output #35 (Page 81)</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 81 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p081_img439_652x838.png" alt="Manual Output #35 (Page 81)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 81 &bull; Output 439 (652x838 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; Manual Output #36 (Page 81)</div>
+            <div class="paste-badge">&#128204; Exp 10: Page 81 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p081_img440_571x796.png" alt="Manual Output #36 (Page 81)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 81 &bull; Output 440 (571x796 px)</div>
           </div>
         </div>
         
@@ -1328,7 +2664,7 @@
         <div class="exp-badge">EXPERIMENT 11</div>
         <div class="exp-header-info">
           <h2>MongoDB Update Operations ($set, $inc, $push, Array)</h2>
-          <p class="exp-aim"><strong>Aim:</strong> To modify documents in-place using field operators ($set, $unset, $inc, $rename), array operators ($push, $pull, $addToSet), and conditional upsert flags. <span class="manual-page">[Pages 82-93]</span></p>
+          <p class="exp-aim"><strong>Aim:</strong> To modify documents in-place using field operators ($set, $unset, $inc, $rename), array operators ($push, $pull, $addToSet), and conditional upsert flags. <span class="manual-page">[Pages 82-93 &bull; 22 Manual Screenshots]</span></p>
         </div>
       </div>
       
@@ -1339,16 +2675,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 11 &bull; $set and $inc Mathematical Field Modification</div>
-            <div class="paste-badge">&#128204; Exp 11: Left Page ($set and $inc)</div>
+            <div class="card-title">EXP 11 &bull; - The following updateOne() operation uses the $inc operator to:</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 83 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp11/p083_img449_1029x295.png" alt="$set and $inc Mathematical Field Modification" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp11/p083_img449_1029x295.png" alt="- The following updateOne() operation uses the $inc operator to:" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Incrementing inventory stock: db.items.updateOne({ id: 1 }, { $inc: { stock: 5 } })</div>
-            
+            <div class="card-caption">Lab Manual Page 83 &bull; Output 449 (1029x295 px)</div>
           </div>
         </div>
         
@@ -1357,16 +2691,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 11 &bull; $push and $addToSet Array Appending</div>
-            <div class="paste-badge">&#128204; Exp 11: Left Page (Array Updates)</div>
+            <div class="card-title">EXP 11 &bull; - The following updateOne() operation uses the $inc operator to:</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 83 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp11/p084_img456_1026x579.png" alt="$push and $addToSet Array Appending" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp11/p083_img450_730x316.png" alt="- The following updateOne() operation uses the $inc operator to:" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Adding tags to an array attribute without creating duplicates via $addToSet</div>
-            
+            <div class="card-caption">Lab Manual Page 83 &bull; Output 450 (730x316 px)</div>
           </div>
         </div>
         
@@ -1375,16 +2707,14 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 11 &bull; $pull and $pop Array Element Removal</div>
-            <div class="paste-badge">&#128204; Exp 11: Left Page ($pull Operator)</div>
+            <div class="card-title">EXP 11 &bull; $rename: Renames the field. The $rename operator updates the name of a fiel</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 84 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp11/p087_img471_1333x301.png" alt="$pull and $pop Array Element Removal" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp11/p084_img456_1026x579.png" alt="$rename: Renames the field. The $rename operator updates the name of a fiel" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">Removing specified items from array fields across matching documents</div>
-            
+            <div class="card-caption">Lab Manual Page 84 &bull; Output 456 (1026x579 px)</div>
           </div>
         </div>
         
@@ -1393,16 +2723,302 @@
             <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
           </div>
           <div class="card-header">
-            <div class="card-title">EXP 11 &bull; Conditional Upsert Operation Execution</div>
-            <div class="paste-badge">&#128204; Exp 11: Left Page (Upsert Execution)</div>
+            <div class="card-title">EXP 11 &bull; $rename: Renames the field. The $rename operator updates the name of a fiel</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 84 Output</div>
           </div>
           <div class="card-body">
-            
             <div class="image-wrapper">
-              <img src="organized_experiments/exp11/p092_img498_1261x300.png" alt="Conditional Upsert Operation Execution" loading="lazy" onclick="openModal(this.src)">
+              <img src="organized_experiments/exp11/p084_img457_604x292.png" alt="$rename: Renames the field. The $rename operator updates the name of a fiel" loading="lazy" onclick="openModal(this.src)">
             </div>
-            <div class="card-caption">db.collection.updateOne(filter, update, { upsert: true }) inserting new document</div>
-            
+            <div class="card-caption">Lab Manual Page 84 &bull; Output 457 (604x292 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; - db.sampledata.updateOne({"name":"Emily Davis"}, {$set: {"name":"Emilia</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 85 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p085_img461_1198x292.png" alt="- db.sampledata.updateOne({"name":"Emily Davis"}, {$set: {"name":"Emilia" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 85 &bull; Output 461 (1198x292 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; - db.sampledata.updateOne({"name":"Emily Davis"}, {$set: {"name":"Emilia</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 85 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p085_img464_1039x289.png" alt="- db.sampledata.updateOne({"name":"Emily Davis"}, {$set: {"name":"Emilia" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 85 &bull; Output 464 (1039x289 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; - db.sampledata.updateOne({"name":"Emily Davis"}, {$set: {"name":"Emilia</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 85 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p085_img465_577x319.png" alt="- db.sampledata.updateOne({"name":"Emily Davis"}, {$set: {"name":"Emilia" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 85 &bull; Output 465 (577x319 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; - db.sampledata.updateOne({“name”: ”Sophia Brown”}, {$set : {“skills”:</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 86 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p086_img467_627x312.png" alt="- db.sampledata.updateOne({“name”: ”Sophia Brown”}, {$set : {“skills”:" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 86 &bull; Output 467 (627x312 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; ‘new value only’ like shown in the value.</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 87 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p087_img471_1333x301.png" alt="‘new value only’ like shown in the value." loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 87 &bull; Output 471 (1333x301 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; ‘new value only’ like shown in the value.</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 87 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p087_img472_478x520.png" alt="‘new value only’ like shown in the value." loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 87 &bull; Output 472 (478x520 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; $unset: Removes the field from the document. The $unset operator deletes a</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 88 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p088_img478_994x298.png" alt="$unset: Removes the field from the document. The $unset operator deletes a" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 88 &bull; Output 478 (994x298 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; $unset: Removes the field from the document. The $unset operator deletes a</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 88 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p088_img479_529x433.png" alt="$unset: Removes the field from the document. The $unset operator deletes a" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 88 &bull; Output 479 (529x433 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; - db.sampledata.updateOne({“name”: “Ava Hall”}, {$addToSet: {“skills”:</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 89 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p089_img481_1147x297.png" alt="- db.sampledata.updateOne({“name”: “Ava Hall”}, {$addToSet: {“skills”:" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 89 &bull; Output 481 (1147x297 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; - db.sampledata.updateOne({“name”: “Ava Hall”}, {$addToSet: {“skills”:</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 89 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p089_img482_490x330.png" alt="- db.sampledata.updateOne({“name”: “Ava Hall”}, {$addToSet: {“skills”:" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 89 &bull; Output 482 (490x330 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; - db.sampledata.updateOne({“name”: “Ava Hall”}, {$pop: {“skills”: -1}})</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 90 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p090_img486_994x295.png" alt="- db.sampledata.updateOne({“name”: “Ava Hall”}, {$pop: {“skills”: -1}})" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 90 &bull; Output 486 (994x295 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; - db.sampledata.updateOne({“name”: “Ava Hall”}, {$pop: {“skills”: -1}})</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 90 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p090_img487_480x489.png" alt="- db.sampledata.updateOne({“name”: “Ava Hall”}, {$pop: {“skills”: -1}})" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 90 &bull; Output 487 (480x489 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; of the fields can differ.</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 91 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p091_img491_928x300.png" alt="of the fields can differ." loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 91 &bull; Output 491 (928x300 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; of the fields can differ.</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 91 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p091_img492_523x484.png" alt="of the fields can differ." loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 91 &bull; Output 492 (523x484 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; - {$pull: {<field1>: <value|condition>, <field2>: <value|condition>, ...}} </div>
+            <div class="paste-badge">&#128204; Exp 11: Page 92 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p092_img498_1261x300.png" alt="- {$pull: {<field1>: <value|condition>, <field2>: <value|condition>, ...}} " loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 92 &bull; Output 498 (1261x300 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; - {$pull: {<field1>: <value|condition>, <field2>: <value|condition>, ...}} </div>
+            <div class="paste-badge">&#128204; Exp 11: Page 92 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p092_img499_454x400.png" alt="- {$pull: {<field1>: <value|condition>, <field2>: <value|condition>, ...}} " loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 92 &bull; Output 499 (454x400 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; Manual Output #21 (Page 93)</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 93 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p093_img503_1518x285.png" alt="Manual Output #21 (Page 93)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 93 &bull; Output 503 (1518x285 px)</div>
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; Manual Output #22 (Page 93)</div>
+            <div class="paste-badge">&#128204; Exp 11: Page 93 Output</div>
+          </div>
+          <div class="card-body">
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p093_img504_459x532.png" alt="Manual Output #22 (Page 93)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Lab Manual Page 93 &bull; Output 504 (459x532 px)</div>
           </div>
         </div>
         
@@ -1414,55 +3030,55 @@
         <div class="exp-badge">EXPERIMENT 12</div>
         <div class="exp-header-info">
           <h2>MongoDB Aggregation Pipeline ($match, $group, $lookup)</h2>
-          <p class="exp-aim"><strong>Aim:</strong> To construct multi-stage data processing pipelines using $match, $group, $project, $sort, $limit, and $lookup for relational joins. <span class="manual-page">[Pages 94-106]</span></p>
+          <p class="exp-aim"><strong>Aim:</strong> To construct multi-stage data processing pipelines using $match, $group, $project, $sort, $limit, and $lookup for relational joins. <span class="manual-page">[Pages 94-106 &bull; 0 Manual Screenshots]</span></p>
         </div>
       </div>
       
       <div class="cards-grid">
     
-        <div class="cutout-card">
-          <div class="scissor-guide">
-            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
-          </div>
-          <div class="card-header">
-            <div class="card-title">EXP 12 &bull; $match and $group - Total Sales by Product Category</div>
-            <div class="paste-badge">&#128204; Exp 12: Left Page (Aggregation $group)</div>
-          </div>
-          <div class="card-body">
-            
-            <div class="terminal-wrapper">
-              <div class="terminal-cmd"><span class="prompt">&gt;</span> db.sales.aggregate([ { $match: { status: 'Completed' } }, { $group: { _id: '$category', totalRevenue: { $sum: '$amount' }, count: { $sum: 1 } } }, { $sort: { totalRevenue: -1 } } ]);</div>
-              <pre class="terminal-body"><code>[
+            <div class="cutout-card">
+              <div class="scissor-guide">
+                <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+              </div>
+              <div class="card-header">
+                <div class="card-title">EXP 12 &bull; $match and $group - Total Sales by Product Category</div>
+                <div class="paste-badge">&#128204; Exp 12: Left Page (Aggregation $group)</div>
+              </div>
+              <div class="card-body">
+                
+                <div class="terminal-wrapper">
+                  <div class="terminal-cmd"><span class="prompt">&gt;</span> db.sales.aggregate([ { $match: { status: 'Completed' } }, { $group: { _id: '$category', totalRevenue: { $sum: '$amount' }, count: { $sum: 1 } } }, { $sort: { totalRevenue: -1 } } ]);</div>
+                  <pre class="terminal-body"><code>[
   { "_id": "Electronics", "totalRevenue": 450000, "count": 28 },
   { "_id": "Furniture",   "totalRevenue": 185000, "count": 14 },
   { "_id": "Stationery",  "totalRevenue": 32000,  "count": 45 }
 ]</code></pre>
+                </div>
+                
+              </div>
             </div>
             
-          </div>
-        </div>
-        
-        <div class="cutout-card">
-          <div class="scissor-guide">
-            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
-          </div>
-          <div class="card-header">
-            <div class="card-title">EXP 12 &bull; $lookup Stage - Left Outer Join Across Collections</div>
-            <div class="paste-badge">&#128204; Exp 12: Left Page (Aggregation $lookup)</div>
-          </div>
-          <div class="card-body">
-            
-            <div class="terminal-wrapper">
-              <div class="terminal-cmd"><span class="prompt">&gt;</span> db.orders.aggregate([ { $lookup: { from: 'customers', localField: 'customer_id', foreignField: '_id', as: 'customer_info' } }, { $project: { order_no: 1, total: 1, customer_name: { $arrayElemAt: ['$customer_info.name', 0] } } } ]);</div>
-              <pre class="terminal-body"><code>[
+            <div class="cutout-card">
+              <div class="scissor-guide">
+                <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+              </div>
+              <div class="card-header">
+                <div class="card-title">EXP 12 &bull; $lookup Stage - Left Outer Join Across Collections</div>
+                <div class="paste-badge">&#128204; Exp 12: Left Page (Aggregation $lookup)</div>
+              </div>
+              <div class="card-body">
+                
+                <div class="terminal-wrapper">
+                  <div class="terminal-cmd"><span class="prompt">&gt;</span> db.orders.aggregate([ { $lookup: { from: 'customers', localField: 'customer_id', foreignField: '_id', as: 'customer_info' } }, { $project: { order_no: 1, total: 1, customer_name: { $arrayElemAt: ['$customer_info.name', 0] } } } ]);</div>
+                  <pre class="terminal-body"><code>[
   { "_id": ObjectId("60a1b..."), "order_no": "ORD-1001", "total": 12500, "customer_name": "Aarav Sharma" },
   { "_id": ObjectId("60a1c..."), "order_no": "ORD-1002", "total": 4800,  "customer_name": "Priya Patel" }
 ]</code></pre>
+                </div>
+                
+              </div>
             </div>
             
-          </div>
-        </div>
-        
       </div>
     </div>
     
@@ -1471,57 +3087,57 @@
         <div class="exp-badge">EXPERIMENT 13</div>
         <div class="exp-header-info">
           <h2>MongoDB Text Search & Database Indexing</h2>
-          <p class="exp-aim"><strong>Aim:</strong> To create single-field, compound, and full-text indexes to optimize query latency and execute wildcard text searches. <span class="manual-page">[Pages 107-110]</span></p>
+          <p class="exp-aim"><strong>Aim:</strong> To create single-field, compound, and full-text indexes to optimize query latency and execute wildcard text searches. <span class="manual-page">[Pages 107-110 &bull; 0 Manual Screenshots]</span></p>
         </div>
       </div>
       
       <div class="cards-grid">
     
-        <div class="cutout-card">
-          <div class="scissor-guide">
-            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
-          </div>
-          <div class="card-header">
-            <div class="card-title">EXP 13 &bull; Creating Compound & Full-Text Indexes</div>
-            <div class="paste-badge">&#128204; Exp 13: Left Page (Index Creation)</div>
-          </div>
-          <div class="card-body">
-            
-            <div class="terminal-wrapper">
-              <div class="terminal-cmd"><span class="prompt">&gt;</span> db.articles.createIndex({ content: 'text', title: 'text' });
+            <div class="cutout-card">
+              <div class="scissor-guide">
+                <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+              </div>
+              <div class="card-header">
+                <div class="card-title">EXP 13 &bull; Creating Compound & Full-Text Indexes</div>
+                <div class="paste-badge">&#128204; Exp 13: Left Page (Index Creation)</div>
+              </div>
+              <div class="card-body">
+                
+                <div class="terminal-wrapper">
+                  <div class="terminal-cmd"><span class="prompt">&gt;</span> db.articles.createIndex({ content: 'text', title: 'text' });
 db.employees.createIndex({ department: 1, salary: -1 });</div>
-              <pre class="terminal-body"><code>{
+                  <pre class="terminal-body"><code>{
   "numIndexesBefore": 1,
   "numIndexesAfter": 2,
   "createdCollectionAutomatically": false,
   "ok": 1
 }</code></pre>
+                </div>
+                
+              </div>
             </div>
             
-          </div>
-        </div>
-        
-        <div class="cutout-card">
-          <div class="scissor-guide">
-            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
-          </div>
-          <div class="card-header">
-            <div class="card-title">EXP 13 &bull; Full-Text Search Query Execution ($text / $search)</div>
-            <div class="paste-badge">&#128204; Exp 13: Left Page (Text Search Results)</div>
-          </div>
-          <div class="card-body">
-            
-            <div class="terminal-wrapper">
-              <div class="terminal-cmd"><span class="prompt">&gt;</span> db.articles.find({ $text: { $search: 'database NoSQL' } }, { score: { $meta: 'textScore' } }).sort({ score: { $meta: 'textScore' } });</div>
-              <pre class="terminal-body"><code>[
+            <div class="cutout-card">
+              <div class="scissor-guide">
+                <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+              </div>
+              <div class="card-header">
+                <div class="card-title">EXP 13 &bull; Full-Text Search Query Execution ($text / $search)</div>
+                <div class="paste-badge">&#128204; Exp 13: Left Page (Text Search Results)</div>
+              </div>
+              <div class="card-body">
+                
+                <div class="terminal-wrapper">
+                  <div class="terminal-cmd"><span class="prompt">&gt;</span> db.articles.find({ $text: { $search: 'database NoSQL' } }, { score: { $meta: 'textScore' } }).sort({ score: { $meta: 'textScore' } });</div>
+                  <pre class="terminal-body"><code>[
   { "_id": ObjectId("61a..."), "title": "Intro to NoSQL", "content": "MongoDB is a scalable NoSQL database...", "score": 1.5 },
   { "_id": ObjectId("61b..."), "title": "Modern DBs", "content": "Databases like MongoDB power cloud apps...", "score": 1.1 }
 ]</code></pre>
+                </div>
+                
+              </div>
             </div>
             
-          </div>
-        </div>
-        
       </div>
     </div>
     
