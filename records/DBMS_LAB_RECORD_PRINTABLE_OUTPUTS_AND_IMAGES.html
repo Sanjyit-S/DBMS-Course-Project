@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBMS Lab Record — Master Cut-Out Outputs & Images (Experiments 1 to 13)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --primary-light: #3b82f6;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --card-border: #94a3b8;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --term-bg: #090d16;
+      --term-green: #10b981;
+      --term-cyan: #38bdf8;
+      --badge-bg: #fef3c7;
+      --badge-border: #f59e0b;
+      --badge-text: #92400e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+      line-height: 1.4;
+      padding: 16px;
+    }
+
+    /* Top Action Bar (Screen Only) */
+    .top-action-bar {
+      max-width: 1200px;
+      margin: 0 auto 20px auto;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      padding: 16px 24px;
+      border-radius: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+
+    .action-titles h1 {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .action-titles p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn-print {
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      padding: 10px 22px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+    }
+
+    .btn-print:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+
+    /* Filter Chips */
+    .filter-bar {
+      max-width: 1200px;
+      margin: 0 auto 20px auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 4px 0;
+    }
+
+    .filter-chip {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #475569;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .filter-chip:hover, .filter-chip.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+
+    /* Main Container */
+    .master-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .experiment-section {
+      margin-bottom: 32px;
+      page-break-after: always;
+      break-after: page;
+    }
+
+    .exp-header-banner {
+      background: #ffffff;
+      border-left: 5px solid var(--primary);
+      border-top: 1px solid #e2e8f0;
+      border-right: 1px solid #e2e8f0;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 12px 18px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .exp-badge {
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 6px 12px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .exp-header-info h2 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .exp-aim {
+      font-size: 0.8rem;
+      color: #475569;
+      margin-top: 2px;
+    }
+
+    .manual-page {
+      color: #94a3b8;
+      font-size: 0.75rem;
+    }
+
+    /* 2-Column / 3-Column Grid */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 14px;
+    }
+
+    /* Compact Cutout Card */
+    .cutout-card {
+      background: var(--card-bg);
+      border: 1.5px dashed var(--card-border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .scissor-guide {
+      position: absolute;
+      top: -9px;
+      left: 14px;
+      background: #ffffff;
+      padding: 0 6px;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: #94a3b8;
+      letter-spacing: 0.5px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 8px;
+      gap: 8px;
+    }
+
+    .card-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.25;
+    }
+
+    .paste-badge {
+      background: var(--badge-bg);
+      border: 1px solid var(--badge-border);
+      color: var(--badge-text);
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 6px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Images */
+    .image-wrapper {
+      background: #0f172a;
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-height: 200px;
+      border: 1px solid #cbd5e1;
+    }
+
+    .image-wrapper img {
+      max-width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      cursor: pointer;
+      display: block;
+    }
+
+    .card-caption {
+      font-size: 0.72rem;
+      color: #64748b;
+      margin-top: 6px;
+      line-height: 1.25;
+    }
+
+    /* Data Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.72rem;
+    }
+
+    .data-table th {
+      background: #1e293b;
+      color: #ffffff;
+      padding: 5px 8px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.7rem;
+    }
+
+    .data-table td {
+      padding: 4px 8px;
+      border-bottom: 1px solid #e2e8f0;
+      color: #1e293b;
+    }
+
+    .data-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    /* Terminal Output */
+    .terminal-wrapper {
+      background: var(--term-bg);
+      border-radius: 6px;
+      padding: 8px 10px;
+      border: 1px solid #1e293b;
+    }
+
+    .terminal-cmd {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.7rem;
+      color: var(--term-cyan);
+      margin-bottom: 4px;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+
+    .terminal-cmd .prompt {
+      color: var(--term-green);
+      font-weight: bold;
+    }
+
+    .terminal-body {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.68rem;
+      color: #e2e8f0;
+      line-height: 1.25;
+      white-space: pre;
+      overflow-x: auto;
+    }
+
+    /* Print Styles */
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+      }
+
+      .no-print, .top-action-bar, .filter-bar {
+        display: none !important;
+      }
+
+      .cards-grid {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 8px !important;
+      }
+
+      .cutout-card {
+        border: 1px dashed #475569 !important;
+        padding: 6px 8px !important;
+        margin-bottom: 6px !important;
+      }
+
+      .image-wrapper img {
+        max-height: 160px !important;
+      }
+
+      .exp-header-banner {
+        padding: 6px 10px !important;
+        margin-bottom: 8px !important;
+      }
+
+      .experiment-section {
+        margin-bottom: 16px !important;
+      }
+    }
+
+    /* Image Zoom Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.85);
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .modal img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Action Bar -->
+  <div class="top-action-bar no-print">
+    <div class="action-titles">
+      <h1>DBMS Lab Record &mdash; Master Printable Outputs & Images</h1>
+      <p>Organized by Experiment (1 to 13) &bull; Compact Cut-Out Cards with Scissor Guides</p>
+    </div>
+    <div class="btn-group">
+      <button class="btn-print" onclick="window.print()">&#128438; Print All Cut-Outs (PDF)</button>
+    </div>
+  </div>
+
+  <!-- Filter Chips -->
+  <div class="filter-bar no-print">
+    <button class="filter-chip active" onclick="filterExp('all', this)">All Experiments (1-13)</button>
+    <button class="filter-chip" onclick="filterExp(1, this)">Exp 1</button><button class="filter-chip" onclick="filterExp(2, this)">Exp 2</button><button class="filter-chip" onclick="filterExp(3, this)">Exp 3</button><button class="filter-chip" onclick="filterExp(4, this)">Exp 4</button><button class="filter-chip" onclick="filterExp(5, this)">Exp 5</button><button class="filter-chip" onclick="filterExp(6, this)">Exp 6</button><button class="filter-chip" onclick="filterExp(7, this)">Exp 7</button><button class="filter-chip" onclick="filterExp(8, this)">Exp 8</button><button class="filter-chip" onclick="filterExp(9, this)">Exp 9</button><button class="filter-chip" onclick="filterExp(10, this)">Exp 10</button><button class="filter-chip" onclick="filterExp(11, this)">Exp 11</button><button class="filter-chip" onclick="filterExp(12, this)">Exp 12</button><button class="filter-chip" onclick="filterExp(13, this)">Exp 13</button>
+  </div>
+
+  <!-- Main Container -->
+  <div class="master-container">
+    
+    <div class="experiment-section" id="exp-1" data-exp="1">
+      <div class="exp-header-banner">
+        <div class="exp-badge">EXPERIMENT 01</div>
+        <div class="exp-header-info">
+          <h2>Identification of Attributes & Database Design</h2>
+          <p class="exp-aim"><strong>Aim:</strong> To identify relevant entities, attributes, and relationships based on real-world scenarios (Hotel Booking, Airline Reservation, Hospital Management). <span class="manual-page">[Pages 7-9]</span></p>
+        </div>
+      </div>
+      
+      <div class="cards-grid">
+    
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 01 &bull; Hotel Booking System - Attribute & Entity Dictionary</div>
+            <div class="paste-badge">&#128204; Exp 1: Left Page (Entity Relational Design)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="table-wrapper">
+              <table class="data-table">
+                <thead><tr><th>Entity Name</th><th>Primary Key</th><th>Foreign Keys</th><th>Attributes & Data Domains</th></tr></thead>
+                <tbody><tr><td>Guests</td><td>guest_id (INT)</td><td>-</td><td>first_name, last_name, email, phone, address, id_proof</td></tr><tr><td>Rooms</td><td>room_id (INT)</td><td>-</td><td>room_number, room_type (Single/Double/Suite), rate_per_night, max_capacity, status</td></tr><tr><td>Reservations</td><td>reservation_id (INT)</td><td>guest_id, room_id</td><td>check_in_date, check_out_date, total_price, booking_status, created_at</td></tr><tr><td>Payments</td><td>payment_id (INT)</td><td>reservation_id</td><td>payment_date, payment_method (Card/UPI/Cash), amount_paid, payment_status</td></tr><tr><td>Staff</td><td>staff_id (INT)</td><td>-</td><td>first_name, last_name, role (Manager/Receptionist), phone, salary</td></tr></tbody>
+              </table>
+            </div>
+            <div class="card-caption">Entity identification and attribute mapping for Hotel Reservation Database</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 01 &bull; Airline Reservation System - Attribute & Entity Dictionary</div>
+            <div class="paste-badge">&#128204; Exp 1: Left Page (Airline Domain Design)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="table-wrapper">
+              <table class="data-table">
+                <thead><tr><th>Entity Name</th><th>Primary Key</th><th>Foreign Keys</th><th>Key Attributes</th></tr></thead>
+                <tbody><tr><td>Airports</td><td>airport_code (CHAR 3)</td><td>-</td><td>airport_name, city, country</td></tr><tr><td>Aircraft</td><td>aircraft_id (INT)</td><td>-</td><td>model, registration_no, total_capacity</td></tr><tr><td>Flights</td><td>flight_id (INT)</td><td>route_id, aircraft_id</td><td>flight_number, scheduled_departure, scheduled_arrival, status</td></tr><tr><td>Passengers</td><td>passenger_id (INT)</td><td>-</td><td>first_name, last_name, email, passport_no</td></tr><tr><td>Bookings</td><td>booking_id (INT)</td><td>passenger_id</td><td>booking_ref (PNR), booking_date, total_amount</td></tr><tr><td>Tickets</td><td>ticket_id (INT)</td><td>booking_id, flight_id, seat_id</td><td>fare_amount, ticket_status</td></tr></tbody>
+              </table>
+            </div>
+            <div class="card-caption">Entity identification and attribute mapping for Airline Flight Operations</div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="experiment-section" id="exp-2" data-exp="2">
+      <div class="exp-header-banner">
+        <div class="exp-badge">EXPERIMENT 02</div>
+        <div class="exp-header-info">
+          <h2>Basic SQL Queries & CRUD Operations</h2>
+          <p class="exp-aim"><strong>Aim:</strong> To execute basic Data Definition (CREATE, ALTER, DROP) and Data Manipulation (INSERT, SELECT, UPDATE, DELETE) SQL statements. <span class="manual-page">[Pages 10-11]</span></p>
+        </div>
+      </div>
+      
+      <div class="cards-grid">
+    
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 02 &bull; Students Table - Creation and Record Insertion</div>
+            <div class="paste-badge">&#128204; Exp 2: Left Page (Top Output)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp2/p011_img013_1492x739.png" alt="Students Table - Creation and Record Insertion" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">MySQL Workbench terminal showing table creation, INSERT commands, and SELECT verification</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 02 &bull; SELECT Query Output - Full Students Record Set</div>
+            <div class="paste-badge">&#128204; Exp 2: Left Page (Bottom Output)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp2/p011_img014_1495x204.png" alt="SELECT Query Output - Full Students Record Set" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Verified MySQL tabular output grid for SELECT * FROM Students</div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="experiment-section" id="exp-3" data-exp="3">
+      <div class="exp-header-banner">
+        <div class="exp-badge">EXPERIMENT 03</div>
+        <div class="exp-header-info">
+          <h2>DISTINCT, WHERE, ORDER BY & Aggregate Functions</h2>
+          <p class="exp-aim"><strong>Aim:</strong> To filter, sort, and aggregate relational data using DISTINCT, WHERE clauses, ORDER BY (ASC/DESC), and mathematical aggregates (COUNT, MIN, MAX, SUM, AVG). <span class="manual-page">[Pages 12-17]</span></p>
+        </div>
+      </div>
+      
+      <div class="cards-grid">
+    
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 03 &bull; DISTINCT Department Query Output</div>
+            <div class="paste-badge">&#128204; Exp 3: Left Page (Row 1)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp3/p013_img021_354x322.png" alt="DISTINCT Department Query Output" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">SELECT DISTINCT Department FROM Employees result showing unique department values</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 03 &bull; WHERE Clause - Salary > 50000 Filter</div>
+            <div class="paste-badge">&#128204; Exp 3: Left Page (Row 1)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp3/p013_img022_1495x208.png" alt="WHERE Clause - Salary > 50000 Filter" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Filtered employee records meeting high-compensation criteria</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 03 &bull; ORDER BY - Ascending & Descending Salary Sort</div>
+            <div class="paste-badge">&#128204; Exp 3: Left Page (Row 2)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp3/p014_img024_1480x277.png" alt="ORDER BY - Ascending & Descending Salary Sort" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">SELECT * FROM Employees ORDER BY Salary DESC output table</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 03 &bull; Comparison & Logical Operators (AND / OR / NOT)</div>
+            <div class="paste-badge">&#128204; Exp 3: Left Page (Row 2)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp3/p014_img025_1477x274.png" alt="Comparison & Logical Operators (AND / OR / NOT)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Multi-condition evaluation: Department = 'IT' AND Salary >= 60000</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 03 &bull; BETWEEN Operator & IN Range Filter</div>
+            <div class="paste-badge">&#128204; Exp 3: Left Page (Row 3)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp3/p014_img026_1488x309.png" alt="BETWEEN Operator & IN Range Filter" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Salary BETWEEN 40000 AND 70000 query execution output</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 03 &bull; Aggregate Functions: COUNT() and SUM()</div>
+            <div class="paste-badge">&#128204; Exp 3: Left Page (Row 3)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp3/p014_img027_1495x330.png" alt="Aggregate Functions: COUNT() and SUM()" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">SELECT COUNT(*), SUM(Salary) FROM Employees grouped calculation</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 03 &bull; Statistical Aggregates: AVG(), MIN(), MAX()</div>
+            <div class="paste-badge">&#128204; Exp 3: Left Page (Row 4)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp3/p015_img029_1477x427.png" alt="Statistical Aggregates: AVG(), MIN(), MAX()" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">SELECT AVG(Salary), MIN(Salary), MAX(Salary) result table</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 03 &bull; Comprehensive Employee Master Table</div>
+            <div class="paste-badge">&#128204; Exp 3: Left Page (Full Table)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp3/p017_img035_1507x891.png" alt="Comprehensive Employee Master Table" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Full populated dataset with Department, Age, Salary, and City attributes</div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="experiment-section" id="exp-4" data-exp="4">
+      <div class="exp-header-banner">
+        <div class="exp-badge">EXPERIMENT 04</div>
+        <div class="exp-header-info">
+          <h2>Relational Constraints (PK, FK, UNIQUE, CHECK, DEFAULT)</h2>
+          <p class="exp-aim"><strong>Aim:</strong> To implement integrity constraints maintaining entity uniqueness, referential integrity, domain bounds, and default values. <span class="manual-page">[Pages 18-30]</span></p>
+        </div>
+      </div>
+      
+      <div class="cards-grid">
+    
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; PRIMARY KEY & AUTO_INCREMENT Definition</div>
+            <div class="paste-badge">&#128204; Exp 4: Left Page (PK Definition)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p020_img040_1488x967.png" alt="PRIMARY KEY & AUTO_INCREMENT Definition" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Table creation DDL with PRIMARY KEY and duplicate key rejection error proof</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; FOREIGN KEY Referential Link (Orders -> Customers)</div>
+            <div class="paste-badge">&#128204; Exp 4: Left Page (FK Definition)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p021_img044_1488x970.png" alt="FOREIGN KEY Referential Link (Orders -> Customers)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Parent-child table relationship definition with FOREIGN KEY constraint</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; UNIQUE Constraint & Duplicate Value Violation</div>
+            <div class="paste-badge">&#128204; Exp 4: Left Page (Unique Violation)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p022_img046_1474x975.png" alt="UNIQUE Constraint & Duplicate Value Violation" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">ERROR 1062 (23000): Duplicate entry for key 'email_UNIQUE' verification</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; CHECK Constraint (Age >= 18 & Salary > 0)</div>
+            <div class="paste-badge">&#128204; Exp 4: Left Page (Check Constraint)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p023_img050_1477x976.png" alt="CHECK Constraint (Age >= 18 & Salary > 0)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">CHECK constraint validation rejecting invalid negative/underage tuples</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; NOT NULL & DEFAULT Constraint Demonstration</div>
+            <div class="paste-badge">&#128204; Exp 4: Left Page (Default Values)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p024_img054_1489x373.png" alt="NOT NULL & DEFAULT Constraint Demonstration" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Default status 'Active' and city 'Hyderabad' auto-population</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 04 &bull; ON DELETE CASCADE vs ON DELETE RESTRICT</div>
+            <div class="paste-badge">&#128204; Exp 4: Left Page (Cascade Deletion)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp4/p025_img057_1483x775.png" alt="ON DELETE CASCADE vs ON DELETE RESTRICT" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Demonstrating cascade deletion of child orders upon parent customer deletion</div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="experiment-section" id="exp-5" data-exp="5">
+      <div class="exp-header-banner">
+        <div class="exp-badge">EXPERIMENT 05</div>
+        <div class="exp-header-info">
+          <h2>SQL JOIN Operations (INNER, LEFT, RIGHT, FULL OUTER)</h2>
+          <p class="exp-aim"><strong>Aim:</strong> To combine records across related tables using INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL OUTER JOIN, and CROSS JOIN with Venn diagram visualizations. <span class="manual-page">[Pages 31-38]</span></p>
+        </div>
+      </div>
+      
+      <div class="cards-grid">
+    
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 05 &bull; SQL JOINs Set Theory - Venn Diagram Reference</div>
+            <div class="paste-badge">&#128204; Exp 5: Left Page (Venn Diagram)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp5/p032_img077_1201x709.png" alt="SQL JOINs Set Theory - Venn Diagram Reference" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Visual Venn diagram mapping intersection (INNER), left subset, right subset, and outer union</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 05 &bull; Base Datasets: Students and Courses Tables</div>
+            <div class="paste-badge">&#128204; Exp 5: Left Page (Input Tables)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp5/p032_img078_1447x526.png" alt="Base Datasets: Students and Courses Tables" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Populated input tables for demonstrating multi-table relational joins</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 05 &bull; INNER JOIN Execution & Output Table</div>
+            <div class="paste-badge">&#128204; Exp 5: Left Page (Inner Join)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp5/p034_img082_1438x928.png" alt="INNER JOIN Execution & Output Table" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">SELECT * FROM Students INNER JOIN Courses ON Students.CourseID = Courses.CourseID</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 05 &bull; LEFT (OUTER) JOIN Execution & Output Table</div>
+            <div class="paste-badge">&#128204; Exp 5: Left Page (Left Join)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp5/p035_img085_1489x916.png" alt="LEFT (OUTER) JOIN Execution & Output Table" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Retrieving all students including those without enrolled courses (NULL padded)</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 05 &bull; RIGHT (OUTER) JOIN Execution & Output Table</div>
+            <div class="paste-badge">&#128204; Exp 5: Left Page (Right Join)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp5/p036_img087_1393x922.png" alt="RIGHT (OUTER) JOIN Execution & Output Table" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Retrieving all courses including those without enrolled students</div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="experiment-section" id="exp-6" data-exp="6">
+      <div class="exp-header-banner">
+        <div class="exp-badge">EXPERIMENT 06</div>
+        <div class="exp-header-info">
+          <h2>LIKE, GROUP BY, HAVING, EXISTS & Nested Subqueries</h2>
+          <p class="exp-aim"><strong>Aim:</strong> To perform advanced pattern matching (LIKE % _), multi-column aggregation (GROUP BY), group filtering (HAVING), and correlated subqueries (EXISTS, IN, ANY, ALL). <span class="manual-page">[Pages 39-49]</span></p>
+        </div>
+      </div>
+      
+      <div class="cards-grid">
+    
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; LIKE Wildcard Pattern Matching (% and _)</div>
+            <div class="paste-badge">&#128204; Exp 6: Left Page (LIKE Patterns)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p039_img106_1495x733.png" alt="LIKE Wildcard Pattern Matching (% and _)" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">SELECT * FROM Employees WHERE Name LIKE 'A%' OR Name LIKE '_o%' outputs</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; GROUP BY Department Aggregations</div>
+            <div class="paste-badge">&#128204; Exp 6: Left Page (Group By)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p041_img176_1477x412.png" alt="GROUP BY Department Aggregations" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">SELECT Department, COUNT(*), AVG(Salary) FROM Employees GROUP BY Department</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; HAVING Clause Filtering Aggregated Groups</div>
+            <div class="paste-badge">&#128204; Exp 6: Left Page (HAVING Filter)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p041_img177_1480x412.png" alt="HAVING Clause Filtering Aggregated Groups" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">SELECT Department, COUNT(*) FROM Employees GROUP BY Department HAVING COUNT(*) > 1</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; EXISTS & NOT EXISTS Correlated Subqueries</div>
+            <div class="paste-badge">&#128204; Exp 6: Left Page (EXISTS Subquery)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p044_img194_1495x885.png" alt="EXISTS & NOT EXISTS Correlated Subqueries" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">SELECT * FROM Customers c WHERE EXISTS (SELECT 1 FROM Orders o WHERE o.CustomerID = c.ID)</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 06 &bull; Nested Subqueries with IN and ANY Operators</div>
+            <div class="paste-badge">&#128204; Exp 6: Left Page (Nested Subqueries)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp6/p045_img197_1480x477.png" alt="Nested Subqueries with IN and ANY Operators" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Subquery in WHERE clause comparing against dynamic department salary averages</div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="experiment-section" id="exp-7" data-exp="7">
+      <div class="exp-header-banner">
+        <div class="exp-badge">EXPERIMENT 07</div>
+        <div class="exp-header-info">
+          <h2>Database Views & Stored Procedures</h2>
+          <p class="exp-aim"><strong>Aim:</strong> To create and manage SQL VIEWs for query abstraction/security and author parameterized STORED PROCEDUREs for business logic execution. <span class="manual-page">[Pages 50-51]</span></p>
+        </div>
+      </div>
+      
+      <div class="cards-grid">
+    
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 07 &bull; CREATE VIEW - Employee Department Summary</div>
+            <div class="paste-badge">&#128204; Exp 7: Left Page (SQL View Output)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="terminal-wrapper">
+              <div class="terminal-cmd"><span class="prompt">&gt;</span> CREATE VIEW View_EmpDept AS SELECT e.EmployeeID, e.Name, d.DepartmentName, e.Salary FROM Employees e JOIN Departments d ON e.DepartmentID = d.DepartmentID;</div>
+              <pre class="terminal-body"><code>+--------------+---------------+----------------+---------+
+| EmployeeID   | Name          | DepartmentName | Salary  |
++--------------+---------------+----------------+---------+
+| 1            | John Doe      | HR             | 5000.00 |
+| 2            | Jane Smith    | IT             | 6000.00 |
+| 3            | Emily Davis   | HR             | 5500.00 |
+| 4            | Michael Brown | Finance        | 7000.00 |
+| 5            | Sarah Johnson | IT             | 6200.00 |
++--------------+---------------+----------------+---------+
+5 rows in set (0.01 sec)</code></pre>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 07 &bull; STORED PROCEDURE - GetEmployeesByDept(IN dept_id INT)</div>
+            <div class="paste-badge">&#128204; Exp 7: Left Page (Stored Procedure Call)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="terminal-wrapper">
+              <div class="terminal-cmd"><span class="prompt">&gt;</span> CALL GetEmployeesByDept(101);</div>
+              <pre class="terminal-body"><code>+--------------+-------------+--------------+---------+
+| EmployeeID   | Name        | DepartmentID | Salary  |
++--------------+-------------+--------------+---------+
+| 1            | John Doe    | 101          | 5000.00 |
+| 3            | Emily Davis | 101          | 5500.00 |
++--------------+-------------+--------------+---------+
+2 rows in set (0.02 sec) -- Query OK</code></pre>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="experiment-section" id="exp-8" data-exp="8">
+      <div class="exp-header-banner">
+        <div class="exp-badge">EXPERIMENT 08</div>
+        <div class="exp-header-info">
+          <h2>Scenario-Based MySQL Practice Queries</h2>
+          <p class="exp-aim"><strong>Aim:</strong> To solve complex multi-table analytical scenarios involving Employees, Projects, and Department Allocations. <span class="manual-page">[Pages 52-54]</span></p>
+        </div>
+      </div>
+      
+      <div class="cards-grid">
+    
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 08 &bull; Scenario Query 1: Top Earning Employees per City</div>
+            <div class="paste-badge">&#128204; Exp 8: Left Page (Top Earners by City)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="terminal-wrapper">
+              <div class="terminal-cmd"><span class="prompt">&gt;</span> SELECT City, Name, Department, Salary FROM Employees e WHERE Salary = (SELECT MAX(Salary) FROM Employees WHERE City = e.City);</div>
+              <pre class="terminal-body"><code>+-----------+---------------+------------+----------+
+| City      | Name          | Department | Salary   |
++-----------+---------------+------------+----------+
+| New York  | Alice         | IT         | 70000.00 |
+| Chicago   | Frank         | Marketing  | 75000.00 |
+| Seattle   | Grace         | IT         | 72000.00 |
++-----------+---------------+------------+----------+
+3 rows in set (0.02 sec)</code></pre>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 08 &bull; Scenario Query 2: Active Multi-Project Assignments</div>
+            <div class="paste-badge">&#128204; Exp 8: Left Page (Project Allocations)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="terminal-wrapper">
+              <div class="terminal-cmd"><span class="prompt">&gt;</span> SELECT e.Name, COUNT(p.ProjectID) AS ActiveProjects, SUM(p.Budget) AS TotalBudgetManaged FROM Employees e JOIN Project_Assignments pa ON e.EmployeeID = pa.EmployeeID JOIN Projects p ON pa.ProjectID = p.ProjectID GROUP BY e.EmployeeID HAVING ActiveProjects >= 2;</div>
+              <pre class="terminal-body"><code>+---------------+----------------+--------------------+
+| Name          | ActiveProjects | TotalBudgetManaged |
++---------------+----------------+--------------------+
+| Alice         | 2              | 250000.00          |
+| Frank         | 3              | 480000.00          |
++---------------+----------------+--------------------+
+2 rows in set (0.01 sec)</code></pre>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="experiment-section" id="exp-9" data-exp="9">
+      <div class="exp-header-banner">
+        <div class="exp-badge">EXPERIMENT 09</div>
+        <div class="exp-header-info">
+          <h2>Introduction to MongoDB & Document CRUD</h2>
+          <p class="exp-aim"><strong>Aim:</strong> To initialize NoSQL databases, create BSON collections, and perform document CRUD operations (insertOne, insertMany, find, updateOne, deleteOne). <span class="manual-page">[Pages 55-63]</span></p>
+        </div>
+      </div>
+      
+      <div class="cards-grid">
+    
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; MongoDB Collection Creation & insertOne()</div>
+            <div class="paste-badge">&#128204; Exp 9: Left Page (insertOne Output)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p056_img225_382x219.png" alt="MongoDB Collection Creation & insertOne()" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">db.students.insertOne({ name: 'Rahul', roll: 101, major: 'AIML' }) execution</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; Bulk Document Insertion via insertMany()</div>
+            <div class="paste-badge">&#128204; Exp 9: Left Page (insertMany Output)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p057_img240_1483x778.png" alt="Bulk Document Insertion via insertMany()" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Acknowledged result with generated ObjectId array for bulk student records</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; db.collection.find() Formatted JSON Output</div>
+            <div class="paste-badge">&#128204; Exp 9: Left Page (find Output)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p058_img244_648x588.png" alt="db.collection.find() Formatted JSON Output" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Full BSON document list retrieval with _id, fields, and nested arrays</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 09 &bull; Document Update & Delete Operations</div>
+            <div class="paste-badge">&#128204; Exp 9: Left Page (Update/Delete)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp9/p062_img256_982x906.png" alt="Document Update & Delete Operations" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">updateOne($set) and deleteOne({ _id: ... }) acknowledged result logs</div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="experiment-section" id="exp-10" data-exp="10">
+      <div class="exp-header-banner">
+        <div class="exp-badge">EXPERIMENT 10</div>
+        <div class="exp-header-info">
+          <h2>MongoDB Query & Comparison Operators</h2>
+          <p class="exp-aim"><strong>Aim:</strong> To construct queries utilizing comparison operators ($gt, $gte, $lt, $lte, $in, $nin), logical operators ($and, $or, $not, $nor), element operators ($exists, $type), and array operators. <span class="manual-page">[Pages 64-81]</span></p>
+        </div>
+      </div>
+      
+      <div class="cards-grid">
+    
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; Comparison Operators: $gt, $lt, and $in</div>
+            <div class="paste-badge">&#128204; Exp 10: Left Page (Comparison)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p064_img274_1552x544.png" alt="Comparison Operators: $gt, $lt, and $in" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">db.products.find({ price: { $gt: 500, $lt: 2000 } }) query output</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; Logical Operators: $and and $or Compound Queries</div>
+            <div class="paste-badge">&#128204; Exp 10: Left Page (Logical Operators)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p066_img305_577x651.png" alt="Logical Operators: $and and $or Compound Queries" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Evaluating multi-clause logical filter expressions across customer accounts</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; Element Operators: $exists and $type Checking</div>
+            <div class="paste-badge">&#128204; Exp 10: Left Page (Element Check)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p067_img313_592x685.png" alt="Element Operators: $exists and $type Checking" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Filtering documents where optional fields exist and validating BSON types</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; Array Operators: $all and $elemMatch</div>
+            <div class="paste-badge">&#128204; Exp 10: Left Page (Array Operators)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p071_img344_901x697.png" alt="Array Operators: $all and $elemMatch" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Querying documents containing specific skill tags or nested sub-document arrays</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 10 &bull; Regex Pattern Search in MongoDB</div>
+            <div class="paste-badge">&#128204; Exp 10: Left Page (Regex Search)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp10/p078_img431_637x796.png" alt="Regex Pattern Search in MongoDB" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">db.users.find({ email: { $regex: '@woxsen.edu.in$', $options: 'i' } })</div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="experiment-section" id="exp-11" data-exp="11">
+      <div class="exp-header-banner">
+        <div class="exp-badge">EXPERIMENT 11</div>
+        <div class="exp-header-info">
+          <h2>MongoDB Update Operations ($set, $inc, $push, Array)</h2>
+          <p class="exp-aim"><strong>Aim:</strong> To modify documents in-place using field operators ($set, $unset, $inc, $rename), array operators ($push, $pull, $addToSet), and conditional upsert flags. <span class="manual-page">[Pages 82-93]</span></p>
+        </div>
+      </div>
+      
+      <div class="cards-grid">
+    
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; $set and $inc Mathematical Field Modification</div>
+            <div class="paste-badge">&#128204; Exp 11: Left Page ($set and $inc)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p083_img449_1029x295.png" alt="$set and $inc Mathematical Field Modification" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Incrementing inventory stock: db.items.updateOne({ id: 1 }, { $inc: { stock: 5 } })</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; $push and $addToSet Array Appending</div>
+            <div class="paste-badge">&#128204; Exp 11: Left Page (Array Updates)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p084_img456_1026x579.png" alt="$push and $addToSet Array Appending" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Adding tags to an array attribute without creating duplicates via $addToSet</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; $pull and $pop Array Element Removal</div>
+            <div class="paste-badge">&#128204; Exp 11: Left Page ($pull Operator)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p087_img471_1333x301.png" alt="$pull and $pop Array Element Removal" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">Removing specified items from array fields across matching documents</div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 11 &bull; Conditional Upsert Operation Execution</div>
+            <div class="paste-badge">&#128204; Exp 11: Left Page (Upsert Execution)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="image-wrapper">
+              <img src="organized_experiments/exp11/p092_img498_1261x300.png" alt="Conditional Upsert Operation Execution" loading="lazy" onclick="openModal(this.src)">
+            </div>
+            <div class="card-caption">db.collection.updateOne(filter, update, { upsert: true }) inserting new document</div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="experiment-section" id="exp-12" data-exp="12">
+      <div class="exp-header-banner">
+        <div class="exp-badge">EXPERIMENT 12</div>
+        <div class="exp-header-info">
+          <h2>MongoDB Aggregation Pipeline ($match, $group, $lookup)</h2>
+          <p class="exp-aim"><strong>Aim:</strong> To construct multi-stage data processing pipelines using $match, $group, $project, $sort, $limit, and $lookup for relational joins. <span class="manual-page">[Pages 94-106]</span></p>
+        </div>
+      </div>
+      
+      <div class="cards-grid">
+    
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 12 &bull; $match and $group - Total Sales by Product Category</div>
+            <div class="paste-badge">&#128204; Exp 12: Left Page (Aggregation $group)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="terminal-wrapper">
+              <div class="terminal-cmd"><span class="prompt">&gt;</span> db.sales.aggregate([ { $match: { status: 'Completed' } }, { $group: { _id: '$category', totalRevenue: { $sum: '$amount' }, count: { $sum: 1 } } }, { $sort: { totalRevenue: -1 } } ]);</div>
+              <pre class="terminal-body"><code>[
+  { "_id": "Electronics", "totalRevenue": 450000, "count": 28 },
+  { "_id": "Furniture",   "totalRevenue": 185000, "count": 14 },
+  { "_id": "Stationery",  "totalRevenue": 32000,  "count": 45 }
+]</code></pre>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 12 &bull; $lookup Stage - Left Outer Join Across Collections</div>
+            <div class="paste-badge">&#128204; Exp 12: Left Page (Aggregation $lookup)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="terminal-wrapper">
+              <div class="terminal-cmd"><span class="prompt">&gt;</span> db.orders.aggregate([ { $lookup: { from: 'customers', localField: 'customer_id', foreignField: '_id', as: 'customer_info' } }, { $project: { order_no: 1, total: 1, customer_name: { $arrayElemAt: ['$customer_info.name', 0] } } } ]);</div>
+              <pre class="terminal-body"><code>[
+  { "_id": ObjectId("60a1b..."), "order_no": "ORD-1001", "total": 12500, "customer_name": "Aarav Sharma" },
+  { "_id": ObjectId("60a1c..."), "order_no": "ORD-1002", "total": 4800,  "customer_name": "Priya Patel" }
+]</code></pre>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="experiment-section" id="exp-13" data-exp="13">
+      <div class="exp-header-banner">
+        <div class="exp-badge">EXPERIMENT 13</div>
+        <div class="exp-header-info">
+          <h2>MongoDB Text Search & Database Indexing</h2>
+          <p class="exp-aim"><strong>Aim:</strong> To create single-field, compound, and full-text indexes to optimize query latency and execute wildcard text searches. <span class="manual-page">[Pages 107-110]</span></p>
+        </div>
+      </div>
+      
+      <div class="cards-grid">
+    
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 13 &bull; Creating Compound & Full-Text Indexes</div>
+            <div class="paste-badge">&#128204; Exp 13: Left Page (Index Creation)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="terminal-wrapper">
+              <div class="terminal-cmd"><span class="prompt">&gt;</span> db.articles.createIndex({ content: 'text', title: 'text' });
+db.employees.createIndex({ department: 1, salary: -1 });</div>
+              <pre class="terminal-body"><code>{
+  "numIndexesBefore": 1,
+  "numIndexesAfter": 2,
+  "createdCollectionAutomatically": false,
+  "ok": 1
+}</code></pre>
+            </div>
+            
+          </div>
+        </div>
+        
+        <div class="cutout-card">
+          <div class="scissor-guide">
+            <span class="scissor-icon">&#9986;</span> CUT ALONG DASHED LINE <span class="scissor-icon">&#9986;</span>
+          </div>
+          <div class="card-header">
+            <div class="card-title">EXP 13 &bull; Full-Text Search Query Execution ($text / $search)</div>
+            <div class="paste-badge">&#128204; Exp 13: Left Page (Text Search Results)</div>
+          </div>
+          <div class="card-body">
+            
+            <div class="terminal-wrapper">
+              <div class="terminal-cmd"><span class="prompt">&gt;</span> db.articles.find({ $text: { $search: 'database NoSQL' } }, { score: { $meta: 'textScore' } }).sort({ score: { $meta: 'textScore' } });</div>
+              <pre class="terminal-body"><code>[
+  { "_id": ObjectId("61a..."), "title": "Intro to NoSQL", "content": "MongoDB is a scalable NoSQL database...", "score": 1.5 },
+  { "_id": ObjectId("61b..."), "title": "Modern DBs", "content": "Databases like MongoDB power cloud apps...", "score": 1.1 }
+]</code></pre>
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Modal -->
+  <div class="modal" id="imageModal" onclick="this.style.display='none'">
+    <img id="modalImg" src="" alt="Zoomed Screenshot">
+  </div>
+
+  <script>
+    function openModal(src) {
+      document.getElementById('modalImg').src = src;
+      document.getElementById('imageModal').style.display = 'flex';
+    }
+
+    function filterExp(expNum, btn) {
+      document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      btn.classList.add('active');
+      
+      const sections = document.querySelectorAll('.experiment-section');
+      sections.forEach(sec => {
+        if (expNum === 'all' || sec.getAttribute('data-exp') == expNum) {
+          sec.style.display = 'block';
+        } else {
+          sec.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
